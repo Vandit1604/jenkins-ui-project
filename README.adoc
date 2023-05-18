@@ -1,103 +1,92 @@
-= Antora Default UI
-// Settings:
-:experimental:
-:hide-uri-scheme:
-// Project URLs:
-:url-project: https://gitlab.com/antora/antora-ui-default
-:url-preview: https://antora.gitlab.io/antora-ui-default
-:url-ci-pipelines: {url-project}/pipelines
-:img-ci-status: {url-project}/badges/master/pipeline.svg
-// External URLs:
-:url-antora: https://antora.org
-:url-antora-docs: https://docs.antora.org
-:url-git: https://git-scm.com
-:url-git-dl: {url-git}/downloads
-:url-gulp: http://gulpjs.com
-:url-opendevise: https://opendevise.com
-:url-nodejs: https://nodejs.org
+= Antora
+// Settings
+ifdef::env-gitlab[:outfilesuffix: .adoc]
+// Project URLs
+:url-project: https://antora.org
+:url-docs: https://docs.antora.org
+:url-org: https://gitlab.com/antora
+:url-repo: {url-org}/antora
+:url-demo-repos: {url-org}/demo
+:url-ui-repo: {url-org}/antora-ui-default
+:url-issues: {url-repo}/issues
+:url-ci-pipelines: {url-repo}/pipelines
+:url-chat: https://antora.zulipchat.com
+:url-twitter: https://twitter.com/antoraproject
+:url-twitter-hash: https://twitter.com/hashtag/antora?src=hash
+// External URLs
+:url-asciidoctor: https://asciidoctor.org
+:url-choco: https://chocolatey.org
+:url-node-releases: https://nodejs.org/en/about/releases/
 :url-nvm: https://github.com/creationix/nvm
 :url-nvm-install: {url-nvm}#installation
-:url-source-maps: https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map
+:url-nvm-windows: https://github.com/coreybutler/nvm-windows
+:url-opendevise: https://opendevise.com
+:url-git-credential-store: https://git-scm.com/docs/git-credential-store
+// Versions:
+:version-node-major: 18
+:version-node: 18.12.0
 
-image:{img-ci-status}[CI Status (GitLab CI), link={url-ci-pipelines}]
+{url-project}[Antora] is a modular, multi-repository site generator designed for creating documentation sites from content composed in AsciiDoc(R) and processed with {url-asciidoctor}[Asciidoctor].
 
-This project is an archetype that demonstrates how to produce a UI bundle that can be used by {url-antora}[Antora] to generated a documentation site.
-You can see a preview of the default UI at {url-preview}.
+Antora's toolchain and workflow help documentation and engineering teams create, manage, collaborate on, remix, and publish documentation sites sourced from multiple versioned git repositories without needing expertise in web technologies, build automation, or system administration.
 
-While the default UI is ready to be used with Antora, the intent is that you'll fork it and customize it for your own needs.
-It's intentionally minimalistic so as to give you a good starting point without requiring too much effort to customize.
+This project includes a command line interface (CLI) and a site generator so you can quickly start publishing documentation sites with Antora.
 
 == Code of Conduct
 
-The Antora project and its project spaces are governed by our https://gitlab.com/antora/antora/-/blob/HEAD/CODE-OF-CONDUCT.adoc[Code of Conduct].
+The Antora project and its project spaces are governed by our xref:CODE-OF-CONDUCT.adoc[Code of Conduct].
 By participating, you're agreeing to honor this code.
 Let's work together to make this a welcoming, professional, inclusive, and safe environment for everyone.
 
-== Use the Default UI
+== Quickstart
 
-If you want to simply use the default UI for your Antora-generated site, add the following UI configuration to your playbook:
-
-[source,yaml]
-----
-ui:
-  bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
-    snapshot: true
-----
-
-NOTE: The `snapshot` flag tells Antora to fetch the UI when the `--fetch` command-line flag is present.
-This setting is required because updates to the UI bundle are pushed to the same URL.
-If the URL were to be unique, this setting would not be required.
-
-Read on to learn how to customize the default UI for your own documentation.
-
-== Development Quickstart
-
-This section offers a basic tutorial to teach you how to set up the default UI project, preview it locally, and bundle it for use with Antora.
-A more comprehensive tutorial can be found in the documentation at {url-antora-docs}.
+This section offers a basic tutorial for evaluating Antora.
+More comprehensive installation instructions are in the {url-docs}[Antora documentation].
 
 === Prerequisites
 
-To preview and bundle the default UI, you need the following software on your computer:
+Antora is built on Node.js and is verified to work on Linux, macOS, and Windows.
+To install Antora, you'll need Node.js (including npm, which is bundled with Node.js) on your system.
+You may also find the base build tools for your OS helpful (which includes `git`), though they're not required.
+We recommend using the active long term support (LTS) release of Node.js.
+While you can use other versions of Node.js, Antora is only tested against {url-node-releases}[LTS releases].
 
-* {url-git}[git] (command: `git`)
-* {url-nodejs}[Node.js] (commands: `node` and `npm`)
-* {url-gulp}[Gulp CLI] (command: `gulp`)
+To check whether you have Node.js installed, and which version, open a terminal and type:
 
-==== git
+ $ node -v
 
-First, make sure you have git installed.
+If this command fails with an error, it means you don't yet have Node.js installed.
+If the command doesn't report a Node.js LTS version (e.g., v{version-node}), you don't have a suitable version of Node.js installed.
 
- $ git --version
+The best way to install Node.js is to use {url-nvm}[nvm] (Node Version Manager).
+If your package manager provides Node.js and npm packages, _and you're familiar with using the tools installed system-wide_, you may choose to go that route.
+However, we believe you'll be more successful if you choose nvm.
 
-If not, {url-git-dl}[download and install] the git package for your system.
+NOTE: Most CI environments use nvm to manage the version of Node.js used in the build job.
+By using nvm, you can align your local setup with the environment used to generate and publish your production site.
 
-==== Node.js
+If you're using Linux or macOS, follow {url-nvm-install}[the nvm installation instructions] to set up nvm on your machine.
+If you're using Windows, you can install the {url-nvm-windows}[Windows port of nvm] via the {url-choco}[Chocolatey package manager] using `choco install -y nvm`.
+Alternatively, you can install the active LTS release of Node.js directly using `choco install -y nodejs-lts`.
 
-Next, make sure that you have Node.js installed (which also provides npm).
+Once you've installed nvm, open a *new* terminal and install the active Node.js LTS release using:
 
- $ node --version
+ $ nvm install --lts
 
-If this command fails with an error, you don't have Node.js installed.
-If the command doesn't report an LTS version of Node.js (e.g., v10.15.3), it means you don't have a suitable version of Node.js installed.
-In this guide, we'll be installing Node.js 10.
+IMPORTANT: If you're using nvm for Windows, you must enter the full version of Node.js when running commands (e.g., `nvm install {version-node}`, `nvm use {version-node}`).
+Run `nvm list available` to see a list of available Node.js versions.
 
-While you can install Node.js from the official packages, we strongly recommend that you use {url-nvm}[nvm] (Node Version Manager) to manage your Node.js installation(s).
-Follow the {url-nvm-install}[nvm installation instructions] to set up nvm on your machine.
+To make Node.js {version-node-major} the default in new terminals (Linux and macOS only), type:
 
-Once you've installed nvm, open a new terminal and install Node.js 10 using the following command:
+[subs=attributes+]
+ $ nvm alias default {version-node-major}
 
- $ nvm install 10
+Switch to this version of Node.js using the following command:
 
-You can switch to this version of Node.js at any time using the following command:
+[subs=attributes+]
+ $ nvm use {version-node-major}
 
- $ nvm use 10
-
-To make Node.js 10 the default in new terminals, type:
-
- $ nvm alias default 10
-
-Now that you have Node.js installed, you can proceed with installing the Gulp CLI.
+Now that you have Node.js installed, you can install Antora.
 
 ==== Gulp CLI
 
