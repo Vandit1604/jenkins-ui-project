@@ -1,0 +1,15 @@
+site:
+  title: Jenkins
+  url: https://docs.jenkins.com
+  start_page: user-docs::index.adoc
+content:
+  sources:
+    - url: https://github.com/Vandit1604/jenkins-docs.git
+      branches: [main]
+      start_paths: [docs/dev-docs, docs/tutorial, docs/user-docs]
+runtime:
+  fetch: true
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
