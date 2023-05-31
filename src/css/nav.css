@@ -261,7 +261,7 @@ html.is-clipped--nav {
   font-weight: var(--body-font-weight-bold);
 }
 
-jio-navbar {
+.jio-navbar {
   position: fixed;
   top: 0;
   width: 100vw;

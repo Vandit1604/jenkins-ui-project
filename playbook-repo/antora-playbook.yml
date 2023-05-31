@@ -11,5 +11,6 @@ runtime:
   fetch: true
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    url: /home/vandit/gsoc-project-demo/jenkins-ui-project/build/ui-bundle.zip
     snapshot: true
+# --ui-bundle-url=/home/vandit/gsoc-project-demo/jenkins-ui-project/build/ui-bundle.zip
