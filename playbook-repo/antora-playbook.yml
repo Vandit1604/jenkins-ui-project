@@ -1,7 +1,7 @@
 site:
   title: Jenkins
   url: https://docs.jenkins.com
-  start_page: user-docs::index.adoc
+  start_page: user-docs::modules/installing-jenkins/pages/index.adoc
 content:
   sources:
     - url: https://github.com/Vandit1604/jenkins-docs.git
