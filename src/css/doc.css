@@ -359,6 +359,8 @@
   background: var(--admonition-background);
   width: 100%;
   word-wrap: anywhere;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0 15px 15px 0;
 }
 
 .doc .admonitionblock .icon {
@@ -400,6 +402,31 @@
   color: var(--warning-on-color);
 }
 
+.doc .admonitionblock.caution {
+  color: var(--color-black);
+  border-left: 4px solid var(--caution-color);
+}
+
+.doc .admonitionblock.tip {
+  color: var(--color-black);
+  border-left: 4px solid var(--tip-color);
+}
+
+.doc .admonitionblock.note {
+  color: var(--color-black);
+  border-left: 4px solid var(--note-color);
+}
+
+.doc .admonitionblock.important {
+  color: var(--color-black);
+  border-left: 4px solid var(--important-color);
+}
+
+.doc .admonitionblock.warning {
+  color: var(--color-black);
+  border-left: 4px solid var(--warning-color);
+}
+
 .doc .admonitionblock .icon i {
   display: inline-flex;
   align-items: center;
@@ -437,6 +464,7 @@
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .doc .image:not(.left):not(.right) > img {
@@ -465,6 +493,9 @@
 
 .doc .quoteblock {
   padding: 0.25rem 2rem 1.25rem;
+  background-color: #e7f3ff;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .doc .quoteblock .attribution {
@@ -488,6 +519,9 @@
 .doc .verseblock {
   font-size: 1.15em;
   padding: 1rem 2rem;
+  background-color: #e7f3ff;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .doc .verseblock pre {
@@ -750,6 +784,10 @@
   display: block;
   overflow-x: auto;
   padding: 0.875em;
+  background-color: #e7f3ff;
+  font-family: Source Code Pro, monospace;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .doc .listingblock > .content {
@@ -947,7 +985,8 @@
   background: var(--kbd-background);
   border: 1px solid var(--kbd-border-color);
   border-radius: 0.25em;
-  box-shadow: 0 1px 0 var(--kbd-border-color), 0 0 0 0.1em var(--body-background) inset;
+  box-shadow: 0 1px 0 var(--kbd-border-color),
+    0 0 0 0.1em var(--body-background) inset;
   padding: 0.25em 0.5em;
   vertical-align: text-bottom;
   white-space: nowrap; /* effectively ignores hyphens setting */

@@ -52,5 +52,8 @@
     "stylelint": "~13.3",
     "stylelint-config-standard": "~20.0",
     "vinyl-fs": "~3.0"
+  },
+  "dependencies": {
+    "@jenkinsci/jenkins-io-components": "^1.23.1"
   }
 }

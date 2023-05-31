@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jenkins</title>
+    <link rel="canonical" href="https://docs.jenkins.com/user-docs/2.1/glossary/index.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.jenkins.com">Jenkins</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="user-docs" data-version="2.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-explore is-active" data-panel="explore">
+  <div class="context">
+    <span class="title">Jenkins User Docs</span>
+    <span class="version">2.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../tutorial/2.1/index.html">Jenkins</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tutorial/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../dev-docs/index.html">Jenkins Developer docs</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../dev-docs/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Jenkins User Docs</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/user-docs/modules/glossary/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<hr>
+<div class="paragraph">
+<p>layout: chapter
+---
+:description:
+:author:
+:email: <a href="mailto:jenkinsci-users@googlegroups.com">jenkinsci-users@googlegroups.com</a>
+:sectanchors:
+:toc:</p>
+</div>
+<h1 id="_glossary" class="sect0"><a class="anchor" href="#_glossary"></a>Glossary</h1>
+<script>
+$(function () {
+    anchors.add('dt');
+})
+</script>
+<div class="sect1">
+<h2 id="_general_terms"><a class="anchor" href="#_general_terms"></a>General Terms</h2>
+<div class="sectionbody">
+<div class="dlist glossary">
+<dl>
+<dt><a href="/doc/book/using/using-agents/">Agent</a></dt>
+<dd>
+<p>An agent is typically a machine, or container, which connects to a Jenkins
+controller and executes tasks when directed by the controller.</p>
+</dd>
+<dt>Artifact</dt>
+<dd>
+<p>An immutable file generated during a <a href="#build">Build</a> or <a href="#pipeline">Pipeline</a>
+run which is <strong>archived</strong> onto the Jenkins <a href="#controller">Controller</a> for
+later retrieval by users.</p>
+</dd>
+<dt>Build</dt>
+<dd>
+<p><a id="build"></a>
+Result of a single execution of a <a href="#job">job</a></p>
+</dd>
+<dt>Cloud</dt>
+<dd>
+<p><a id="cloud"></a>
+A System Configuration which provides dynamic <a href="#agent">Agent</a>
+provisioning and allocation, such as that provided by the
+plugin:azure-vm-agents[Azure VM Agents]
+or
+plugin:ec2[Amazon EC2] plugins.</p>
+</dd>
+<dt>Controller</dt>
+<dd>
+<p>The central, coordinating process which stores configuration, loads plugins,
+and renders the various user interfaces for Jenkins.</p>
+</dd>
+<dt>Core</dt>
+<dd>
+<p>The primary Jenkins application (<code>jenkins.war</code>) which provides
+the basic web UI, configuration, and foundation upon which <a href="#plugin">Plugins</a>
+can be built.</p>
+</dd>
+<dt>Downstream</dt>
+<dd>
+<p><a id="downstream"></a>
+A configured <a href="#pipeline">Pipeline</a> or <a href="#job">job</a> which is triggered
+as part of the execution of a separate Pipeline or Job.</p>
+</dd>
+<dt>Executor</dt>
+<dd>
+<p><a id="executor"></a>
+A slot for execution of work defined by a <a href="#pipeline">Pipeline</a> or
+<a href="#job">job</a> on a <a href="#node">Node</a>. A Node may have zero or more
+Executors configured which corresponds to how many concurrent Jobs or
+Pipelines are able to execute on that Node.</p>
+</dd>
+<dt>Fingerprint</dt>
+<dd>
+<p>A hash considered globally unique to track the usage of an
+<a href="#artifact">Artifact</a> or other entity across multiple
+<a href="#pipeline">Pipelines</a> or <a href="#job">jobs</a>.</p>
+</dd>
+<dt>Folder</dt>
+<dd>
+<p><a id="folder"></a>
+An organizational container for <a href="#pipeline">Pipelines</a> and/or
+<a href="#job">jobs</a>, similar to folders on a file system.</p>
+</dd>
+<dt>Item</dt>
+<dd>
+<p><a id="item"></a>
+An entity in the web UI corresponding to either a:
+<a href="#folder">Folder</a>, <a href="#pipeline">Pipeline</a>, or <a href="#job">job</a>.</p>
+</dd>
+<dt>Jenkins URL</dt>
+<dd>
+<p><a id="jenkins-url"></a>
+The main url for the jenkins application, as visited by a user.
+e.g. <a href="https://ci.jenkins.io/" class="bare">https://ci.jenkins.io/</a></p>
+</dd>
+<dt>Job</dt>
+<dd>
+<p><a id="job"></a>
+A user-configured description of work which Jenkins should perform, such as
+building a piece of software, etc.</p>
+</dd>
+<dt>Kubernetes</dt>
+<dd>
+<p><a id="kubernetes"></a>
+Kubernetes (K8s) is an open-source system for automating deployment, scaling,
+and management of containerized applications.
+See <a href="/doc/book/installing/kubernetes/">Installing Jenkins / Kubernetes</a>
+for more info.</p>
+</dd>
+<dt>Label</dt>
+<dd>
+<p><a id="label"></a>
+User-defined text for grouping <a href="#agent">Agents</a>, typically by similar
+functionality or capability. For example <code>linux</code> for Linux-based agents or
+<code>docker</code> for Docker-capable agents.</p>
+</dd>
+<dt>LTS</dt>
+<dd>
+<p>A long-term support <a href="#release">Release</a> line of Jenkins products, becoming
+available for downloads every 12 weeks.
+See <a href="/download/lts/">this page</a> for more info.</p>
+</dd>
+<dt>Master</dt>
+<dd>
+<p>A deprecated term, synonymous with <a href="#controller">Controller</a>.</p>
+</dd>
+<dt><a href="/doc/book/managing/nodes/">Node</a></dt>
+<dd>
+<p>A machine which is part of the Jenkins environment and capable
+of executing <a href="#pipeline">Pipelines</a> or <a href="#job">jobs</a>. Both the
+<a href="#controller">Controller</a> and <a href="#agent">Agents</a> are considered to be Nodes.</p>
+</dd>
+<dt>Project</dt>
+<dd>
+<p><a id="project"></a>
+A deprecated term, synonymous with <a href="#job">job</a>.</p>
+</dd>
+<dt>Pipeline</dt>
+<dd>
+<p><a id="pipeline"></a>
+A user-defined model of a continuous delivery pipeline, for more read the
+<a href="#pipeline.adoc" class="xref unresolved">Pipeline chapter</a> in this handbook.</p>
+</dd>
+<dt>Plugin</dt>
+<dd>
+<p>An extension to Jenkins functionality provided separately
+from Jenkins <a href="#core">Core</a>.</p>
+</dd>
+<dt>Publisher</dt>
+<dd>
+<p>Part of a <a href="#build">Build</a> after the completion of all configured
+<a href="#step">Steps</a> which publishes reports, sends notifications, etc.
+A publisher may report <a href="#stable">Stable</a> or <a href="#unstable">Unstable</a> result
+depending on the result of its processing and its configuration.
+For example, if a JUnit test fails, then the whole JUnit publisher may
+report the build result as <a href="#unstable">Unstable</a>.</p>
+</dd>
+<dt>Resource Root URL</dt>
+<dd>
+<p><a id="resource-root-url"></a>
+A secondary url used to serve potentially untrusted content (especially
+build artifacts). This url is distinct from the <a href="#jenkins-url">Jenkins URL</a>.</p>
+</dd>
+<dt>Release</dt>
+<dd>
+<p>An event, indicating availability of Jenkins distribution products or one
+of Jenkins plugins. Jenkins products belong either to <a href="#lts">LTS</a> or weekly
+Release lines.</p>
+</dd>
+<dt>Stage</dt>
+<dd>
+<p><code>stage</code> is part of Pipeline, and used for defining a conceptually distinct
+subset of the entire Pipeline, for example: "Build", "Test", and "Deploy",
+which is used by many plugins to visualize or present Jenkins Pipeline
+status/progress.</p>
+</dd>
+<dt>Step</dt>
+<dd>
+<p>A single task; fundamentally steps tell Jenkins <em>what</em> to do inside of a
+<a href="#pipeline">Pipeline</a> or <a href="#job">job</a>.
+See <a href="/doc/book/pipeline/getting-started/">Pipelines / Getting Started</a>
+and <a href="/doc/book/pipeline/jenkinsfile/">Pipeline / Using a jenkinsfile</a>
+for more info.</p>
+</dd>
+<dt>Trigger</dt>
+<dd>
+<p><a id="trigger"></a>
+A criteria for triggering a new <a href="#pipeline">Pipeline</a> run or
+<a href="#job">job</a>.</p>
+</dd>
+<dt>Update Center</dt>
+<dd>
+<p><a id="update-center"></a>
+Hosted inventory of plugins and plugin metadata to enable plugin
+installation from within Jenkins.</p>
+</dd>
+<dt>Upstream</dt>
+<dd>
+<p><a id="upstream"></a>
+A configured <a href="#pipeline">Pipeline</a> or <a href="#job">job</a> which triggers a
+separate Pipeline or Job as part of its execution.</p>
+</dd>
+<dt>View</dt>
+<dd>
+<p><a id="view"></a>
+A way of displaying the data of Jenkins in a dashboard style.
+This is an extensible object, so there are lots of different ways to list <a href="#job">jobs</a>, show trends, and analyze data.</p>
+</dd>
+<dt>Workspace</dt>
+<dd>
+<p><a id="workspace"></a>
+A disposable directory on the file system of a <a href="#node">Node</a>
+where work can be done by a <a href="#pipeline">Pipeline</a> or <a href="#job">job</a>.
+Workspaces are typically left in place after a <a href="#build">Build</a> or
+<a href="#pipeline">Pipeline</a> run completes unless specific Workspace cleanup policies
+have been put in place on the Jenkins <a href="#controller">Controller</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_status"><a class="anchor" href="#_build_status"></a>Build Status</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Aborted</dt>
+<dd>
+<p>The <a href="#build">Build</a> was interrupted before it reaches its expected end. For example, the user has stopped it manually or there was a time-out.</p>
+</dd>
+<dt class="hdlist1">Failed</dt>
+<dd>
+<p>The <a href="#build">Build</a> had a fatal error.</p>
+</dd>
+<dt class="hdlist1">Stable</dt>
+<dd>
+<p>The <a href="#build">Build</a> was <a href="#successful">Successful</a> and no <a href="#publisher">Publisher</a> reports it as <a href="#unstable">Unstable</a>.</p>
+</dd>
+<dt class="hdlist1">Successful</dt>
+<dd>
+<p>The <a href="#build">Build</a> has no compilation errors.</p>
+</dd>
+<dt class="hdlist1">Unstable</dt>
+<dd>
+<p>The <a href="#build">Build</a> had some errors but they were not fatal. A <a href="#build">Build</a> is unstable if it was built successfully and one or more publishers report it unstable. For example if the JUnit publisher is configured and a test fails then the <a href="#build">Build</a> will be marked unstable.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

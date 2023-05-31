@@ -51,7 +51,11 @@
 }
 
 .nav a {
-  color: inherit;
+  color: var(--nav-link-color);
+}
+
+.nav a:active {
+  color: var(--nav-link-active);
 }
 
 .nav .panels {
@@ -255,4 +259,11 @@ html.is-clipped--nav {
   border-color: currentColor;
   opacity: 0.9;
   font-weight: var(--body-font-weight-bold);
+}
+
+jio-navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
 }

@@ -8,8 +8,9 @@
   height: var(--toolbar-height);
   justify-content: flex-start;
   position: sticky;
-  top: var(--navbar-height);
+  top: 57px;
   z-index: var(--z-index-toolbar);
+  background-color: white;
 }
 
 .toolbar a {
