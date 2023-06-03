@@ -25,6 +25,7 @@
   aside.toc.sidebar {
     flex: 0 0 var(--toc-width);
     order: 1;
+    margin: 2rem 2rem 2rem 1rem;
   }
 }
 
