@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>User Handbook Overview :: Jenkins</title>
+    <title>Jenkins User Documentation :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/user-docs/2.1/index.html">
-    <meta name="description" content="A description of the page stored in an HTML meta tag.">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -19,9 +18,91 @@
 <div class="nav-container" data-component="user-docs" data-version="2.1">
   <aside class="nav">
     <div class="panels">
-<div class="nav-panel-explore is-active" data-panel="explore">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Jenkins User Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="installing-jenkins/index.html">Installing Jenkins</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/docker.html">Docker</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/initial-settings.html">Initial Settings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/kubernetes.html">Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/linux.html">Linux</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/macos.html">macOS</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/offline.html">Offline Installations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/other.html">Other Systems</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/servlet-containers.html">Other Servlet Containers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/war-file.html">WAR file</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installing-jenkins/windows.html">Windows</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="using-jenkins/index.html">Using Jenkins</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/using-credentials.html">Using credentials</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/searchbox.html">Using Search Box</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/referencing-another-project-by-name.html">Referencing another project by name</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/aborting-a-build.html">Aborting a build</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/fingerprints.html">Fingerprints</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/using-local-language.html">Using local language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/change-time-zone.html">Change time zone</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/remote-access-api.html">Remote Access API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/executor-starvation.html">Executor Starvation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/using-agents.html">Using Jenkins agents</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkins/using-jmeter-with-jenkins.html">Using JMeter with Jenkins</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Jenkins User Docs</span>
+    <span class="title">Jenkins User Documentation</span>
     <span class="version">2.1</span>
   </div>
   <ul class="components">
@@ -42,7 +123,7 @@
       </ul>
     </li>
     <li class="component is-current">
-      <a class="title" href="index.html">Jenkins User Docs</a>
+      <a class="title" href="index.html">Jenkins User Documentation</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="index.html">2.1</a>
@@ -59,6 +140,9 @@
 <button class="nav-toggle"></button>
   <a href="index.html" class="home-link is-current"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Jenkins User Documentation</a></li>
+  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/user-docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
   </div>
@@ -67,30 +151,75 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">User Handbook Overview</h1>
+<h1 class="page">Jenkins User Documentation</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>This page provides an overview of the documentation in the Jenkins User
-Handbook.</p>
+<p>Welcome to the Jenkins user documentation - for people wanting to <em>use</em>
+Jenkins&#8217;s existing functionality and plugin features.</p>
 </div>
 <div class="paragraph">
-<p>If you want to get up and running with Jenkins, see
-<a href="../installing">Installing Jenkins</a> for procedures on how to install Jenkins
-on your supported platform of choice.</p>
+<p>If you want to extend the functionality of Jenkins by developing your own
+Jenkins plugins, please refer to the <a href="#doc/developer.adoc" class="xref unresolved">Extend Jenkins</a>
+(developer documentation).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_jenkins"><a class="anchor" href="#_what_is_jenkins"></a>What is Jenkins?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jenkins is a self-contained, open source automation server which can be used to
+automate all sorts of tasks related to building, testing, and delivering or
+deploying software.</p>
 </div>
 <div class="paragraph">
-<p>If you are a typical Jenkins user (of any skill level) who wants to know more
-about Jenkins usage, see <a href="../using">Using Jenkins</a>. Also refer to the
-separate <a href="../pipeline">Pipeline</a> and <a href="../blueocean">Blue Ocean</a> chapters
-for more information about these core Jenkins features.</p>
+<p>Jenkins can be installed through native system packages, Docker, or even run
+standalone by any machine with a Java Runtime Environment (JRE) installed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_this_documentation"><a class="anchor" href="#_about_this_documentation"></a>About this documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This documentation begins with a
+<a href="#doc/pipeline/tour/getting-started.adoc" class="xref unresolved">Guided Tour</a>
+to help you get up and running with Jenkins and introduce you to Jenkins&#8217;s main
+feature, Pipeline.</p>
 </div>
 <div class="paragraph">
-<p>If you are a Jenkins administrator and want to know more about managing Jenkins
-nodes and instances, see <a href="../managing">Managing Jenkins</a>.</p>
+<p>There are also <a href="#doc/tutorials.adoc" class="xref unresolved">tutorials</a> geared to developers who want to
+orchestrate and automate building their project in Jenkins using Pipeline and
+Blue Ocean.</p>
 </div>
 <div class="paragraph">
-<p>If you are a system administrator and want to learn how to back-up, restore,
-maintain as Jenkins servers and nodes, see
-<a href="../system-administration">Jenkins System Administration</a>.</p>
+<p>If you&#8217;ve never used Jenkins before or have limited Jenkins experience, then the
+Guided Tour and introductory tutorials are good places to start.</p>
+</div>
+<div class="paragraph">
+<p>If you are looking for more detailed information about using Jenkins, please
+refer to the <a href="#doc/book/getting-started.adoc" class="xref unresolved">User Handbook</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_documentation_scope"><a class="anchor" href="#_documentation_scope"></a>Documentation scope</h3>
+<div class="paragraph">
+<p>Jenkins is a highly extensible product whose functionality can be extended
+through the installation of plugins.</p>
+</div>
+<div class="paragraph">
+<p>There are a vast array of plugins available to Jenkins. However, the
+documentation covered in the <a href="#doc/pipeline/tour/getting-started.adoc" class="xref unresolved">Guided Tour</a>,
+<a href="#doc/tutorials.adoc" class="xref unresolved">Tutorials</a>, <a href="#/solutions.adoc" class="xref unresolved">Solution pages</a> and <a href="#doc/book/getting-started.adoc" class="xref unresolved">User Handbook</a> of
+this documentation are based on a <a href="#doc/book/installing.adoc" class="xref unresolved">Jenkins installation</a>
+with the <a href="#doc/book/blueocean/getting-started.adoc" class="xref unresolved">Blue Ocean plugins installed</a>,
+as well as the "suggested plugins", which are specified when running through the
+<a href="#doc/book/installing/linux.adoc#setup-wizard" class="xref unresolved">Post-installation setup wizard</a>.</p>
+</div>
+<hr>
+Unresolved include directive in modules/ROOT/pages/index.adoc - include::partials$_feedback-footer.html[]
+</div>
+</div>
 </div>
 </article>
   </div>
