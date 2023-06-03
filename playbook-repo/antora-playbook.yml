@@ -9,6 +9,9 @@ content:
       start_paths: [docs/dev-docs, docs/tutorial, docs/user-docs]
 runtime:
   fetch: true
+asciidoc:
+  attributes:
+    plugin: https://plugins.jenkins.io/
 ui:
   bundle:
     url: /home/vandit/gsoc-project-demo/jenkins-ui-project/build/ui-bundle.zip
