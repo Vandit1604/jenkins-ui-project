@@ -16,7 +16,7 @@ jobs:
       run: npm i antora
     - name: Generate Site
       working-directory: ./playbook-repo
-      run: npx antora --fetch antora-playbook.yml --ui-bundle-url=/home/vandit/gsoc-project-demo/jenkins-ui-project/build/ui-bundle.zip
+      run: npx antora --fetch antora-playbook.yml --ui-bundle-url=/build/ui-bundle.zip
     - name: Publish to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
