@@ -14,10 +14,10 @@ jobs:
         node-version: '16'
     - name: Install Antora
       run: npm i antora
-    - name: Generate Site
-      run: cd playbook-repo
     - name: Change into playbook directory
-      run: npx antora antora-playbook.yml
+      run: cd playbook-repo
+    - name: Generate Site
+      run: npx antora --fetch antora-playbook.yml --ui-bundle-url=/home/vandit/gsoc-project-demo/jenkins-ui-project/build/ui-bundle.zip
     - name: Publish to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
