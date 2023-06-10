@@ -16,6 +16,6 @@ asciidoc:
 
 ui:
   bundle:
-    url: ./build/ui-bundle.zip
+    url: ../build/ui-bundle.zip
     snapshot: true
 # --ui-bundle-url=/home/vandit/gsoc-project-demo/jenkins-ui-project/build/ui-bundle.zip
