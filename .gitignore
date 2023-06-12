@@ -3,3 +3,4 @@
 /public/
 /playbook-repo/node_modules
 /playbook-repo/build
+.idea/
