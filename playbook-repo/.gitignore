@@ -1,6 +1,6 @@
 /build/site/_
 /build/site/dev-docs/
-/build/site/tutorials/
+/build/site/tutorial/
 /build/site/user-docs/
 /build/site/*.html
 /build/site/*.xml
