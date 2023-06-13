@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Setting up automated plugin release :: Jenkins</title>
+    <link rel="canonical" href="https://docs.jenkins.com/dev-docs/publishing/releasing-cd.html">
+    <link rel="prev" href="releasing.html">
+    <link rel="next" href="releasing-manually.html">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<script type="module" src="https://unpkg.com/@jenkinsci/jenkins-io-components?module"></script>
+<jio-navbar style="  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;"></jio-navbar><div class="body">
+<div class="nav-container" data-component="dev-docs" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Jenkins Developer Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../handling-requests/index.html">Handling Requests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/routing.html">Routing Requests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/actions.html">Web Methods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/responses.html">Responding to Requests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/json.html">Expose HTTP API with JSON content with Jenkins</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/deprecated-reflective-access.html">Deprecated reflective access</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../crowdin/index.html">Jenkins Crowdin Integration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/crowdin-integration.html">Setup a Crowdin Project</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/translating-plugins.html">Translating plugins through Crowdin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/proofread-content.html">How to proofread translation suggestions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/troubleshooting.html">Troubleshooting crowdin issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../persistence/index.html">Persistent Objects</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/backward-compatibility.html">Backward Compatibility with XStream</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/custom-converter.html">Registering a Custom Converter</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/incompatible-releases.html">Marking Incompatible Releases</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../architecture/index.html">Architecture</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/model.html">Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/web.html">Stapler Web Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/extensions.html">Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/remoting.html">Remoting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../internationalization/index.html">Internationalization and Localization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-source-code.html">Internationalizing Messages in Java Source Code</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-jelly-views.html">Internationalizing Messages in Jelly Views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-groovy-views.html">Internationalizing Messages in Groovy Views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/advanced-localization.html">Advanced Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-java-source-file.html">Prepare a Java Source File for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-jelly-view.html">Prepare a Jelly-based View for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-groovy-view.html">Preparing a Groovy-based View for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/translate-a-help-file.html">Translate a help file</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/translate-a-properties-file.html">Translate a properties file</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../development-enviorment/index.html">Development Environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../development-enviorment/ide-configuration.html">IDE Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../development-enviorment/taglibs.html">Taglibs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensibility/index.html">Extensibility</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extensibility/action-for-all-projects.html">How to show a menu item on all projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extensibility/serialization-of-anonymous-classes.html">How to serialize anonymous classes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-tutorial/index.html">Plugin Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/prepare.html">Preparing for Plugin Development</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/create.html">Create a Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/run.html">Build and Run the Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/extend.html">Extend the Plugin</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-development/index.html">Plugin Development</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/build-process.html">Plugin Build Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/choosing-jenkins-baseline.html">Choosing a Jenkins version to build against</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/dependency-management.html">Dependency Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/dependencies-and-class-loading.html">Dependencies and Class Loading</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/optional-dependencies.html">Optional dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/plugin-release-tips.html">Plugin Release Tips</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/incrementals.html">Incrementals: Developing Components in Parallel</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/updating-parent.html">Updating Your Maven Parent POM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/mark-a-plugin-incompatible.html">Mark a new plugin version as incompatible with older versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/writing-an-scm-plugin.html">Writing an SCM Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/pipeline-integration.html">Writing Pipeline-Compatible Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-governance/index.html">Plugin Governance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/managing-permissions.html">Managing plugin permissions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/adopt-a-plugin.html">Adopt a Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/deprecating-or-removing-plugin.html">Deprecating or removing a Plugin</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Publishing Plugins</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="style-guides.html">Style Guides</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="source-code-hosting.html">Source Code Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="artifact-repository.html">Artifact Repository</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="documentation.html">Plugin Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="wiki-page.html">Plugin Wiki Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="plugin-site.html">Plugin Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="continuous-integration.html">Continuous Integration - buildPlugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usage-statistics.html">Usage Statistics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="preparation.html">Before you start</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="new-plugin.html">Creating a new plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requesting-hosting.html">Guide to Plugin Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="releasing.html">Performing a Plugin Release</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="releasing-cd.html">Setting up automated plugin release</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="releasing-manually.html">Performing a Plugin Release manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="removing-from-distribution.html">Removing plugins from distribution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="releasing-experimental-updates.html">Publishing Experimental Plugin Releases</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../building/index.html">Building and Debugging</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../building/intellij.html">IntelliJ Setup for Jenkins Core Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tutorial-improve/index.html">Improve a Plugin Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-jenkinsfile.html">Add a Jenkinsfile</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-parent-pom.html">Update parent POM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-base-jenkins-version.html">Update Jenkins version</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-scm-url.html">Update SCM URL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-more-spotbugs-checks.html">Add more spotbugs checks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/automate-dependency-update-checks.html">Check dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/use-plugin-bill-of-materials.html">Use plugin bill of materials</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/enable-incrementals.html">Enable incrementals</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/migrate-documentation-to-github.html">Migrate documentation to GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-contributing-guide.html">Add a contributing guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-link-to-report-an-issue.html">Report an Issue</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/replace-jsr-305-annotations.html">Replace JSR-305</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/convert-translations.html">Convert translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/move-description-to-index.html">Move description</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../views/index.html">Views</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/read-only.html">Read only view</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/table-to-div-migration.html">Table to div layout migration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/exposing-bundled-resources.html">Exposing bundled resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/icon-path-to-icon-class-migration.html">Icon path to icon class migration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/symbols.html">Symbols</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security/index.html">Security</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/secrets.html">Storing Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/form-validation.html">Securely implementing form validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/xss-prevention.html">Preventing Cross-Site Scripting in Jelly views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/rendering-user-content.html">Rendering User Content</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/remoting-callables.html">Remoting Callables</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/read-access.html">Restricting HTTP Access to &lt;code&gt;AccessControlled&lt;/code&gt; Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/csp.html">Content-Security-Policy Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/misc.html">Miscellaneous API Usage Recommendations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../cli/index.html">Jenkins CLI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../cli/writing-cli-commands.html">Writing CLI commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../initialization/index.html">Initialization and Startup ⚠️</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../initialization/embedded-container.html">Embedded Winstone and <code>executable-war</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../template/index.html">index.adoc</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../forms/index.html">Forms</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/form-validation.html">Form validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/adding-tool-tips.html">Adding tool tips</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/jelly-form-controls.html">Jelly form controls</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/structured-form-submission.html">Structured form submission</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jenkins Developer Documentation</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../tutorial/2.1/index.html">Jenkins</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../tutorial/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Jenkins Developer Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../user-docs/2.1/index.html">Jenkins User Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../user-docs/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../user-docs/2.1/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Jenkins Developer Documentation</a></li>
+    <li><a href="index.html">Publishing Plugins</a></li>
+    <li><a href="releasing-cd.html">Setting up automated plugin release</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/dev-docs/modules/publishing/pages/releasing-cd.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Setting up automated plugin release</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Continuous Delivery of Jenkins Components and Plugin (jep:229[]) is relatively new.
+Any feedback from early adopters will be appreciated.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Maintainers of Jenkins plugin repositories on GitHub can opt into continuous delivery (CD).
+In this mode, every successful build of the default branch (<code>master</code> or <code>main</code>) by ci.jenkins.io results in a new plugin release.
+GitHub Actions are used to rebuild the code and deploy it to Artifactory,
+without the need for maintainers to use personal credentials or local builds.
+Release notes are generated automatically according to pull request (PR) titles and some predefined labels.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>maven-release-plugin</code> (MRP) is not used in this mode.
+Rather than traditional version numbers like <code>1.23</code> or <code>2.3.4</code> which are chosen by the maintainer,
+a CD release will have a version of the form <code>123.vabcdef456789</code>:
+an integer component determined by the Git history depth,
+and an informational component with the Git commit hash.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_checklist"><a class="anchor" href="#_checklist"></a>Checklist</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_incrementals_enablement"><a class="anchor" href="#_incrementals_enablement"></a>Incrementals Enablement</h3>
+<div class="paragraph">
+<p>Verify that the plugin has already been <a href="../../plugin-development/incrementals">incrementalified</a>.
+<code>pom.xml</code> should contain <code>&lt;version&gt;${revision}${changelist}&lt;/version&gt;</code> and the files <code>.mvn/extensions.xml</code> and <code>.mvn/maven.config</code> should exist <strong>before proceeding with subsequent steps</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A new plugin created from the <a href="https://github.com/jenkinsci/archetypes/">archetypes</a> will already have this setup.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enable_cd_permissions"><a class="anchor" href="#_enable_cd_permissions"></a>Enable CD Permissions</h3>
+<div class="paragraph">
+<p>Enable the continuous delivery flag in <a href="https://github.com/jenkins-infra/repository-permissions-updater/">repository permission updater</a> (RPU) for your plugin by filing a pull request adding to <code>permissions/plugin-xxx.yml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">cd:
+  enabled: true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once that has been merged, start checking <code><a href="https://github.com/jenkinsci/your-plugin/settings/secrets/actions" class="bare">https://github.com/jenkinsci/your-plugin/settings/secrets/actions</a></code>
+until you see <code>MAVEN_TOKEN</code> and <code>MAVEN_USERNAME</code> appear under <strong>Repository secrets</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configure_cd_workflow"><a class="anchor" href="#_configure_cd_workflow"></a>Configure CD Workflow</h3>
+<div class="paragraph">
+<p>Create the CD workflow as a copy of the template:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mkdir -p .github/workflows
+curl --silent --show-error --location --output .github/workflows/cd.yaml https://raw.githubusercontent.com/jenkinsci/.github/master/workflow-templates/cd.yaml
+git add .github/workflows/cd.yaml</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configure_release_drafter"><a class="anchor" href="#_configure_release_drafter"></a>Configure Release Drafter</h3>
+<div class="paragraph">
+<p>You can delete any existing Release Drafter configuration,
+as the default is to assume <a href="https://github.com/probot/octokit-plugin-config/blob/fa1700ed56e2c76afb4dd618bf27e7c8a445c4d8/src/util/get-config-files.ts#L37-L51"><code>_extends: .github</code></a>;
+and/or workflow, as that will be subsumed by the CD workflow:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">git rm .github/release-drafter.y*ml
+git rm .github/workflows/release-drafter.y*ml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also <a href="https://github.com/apps/release-drafter/installations/775283">remove the App from the repository</a> if it was configured that way.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+These files may have been set up this way by the <a href="https://github.com/jenkinsci/archetypes/">plugin archetype</a> that you used to initialize the plugin.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configure_dependabot"><a class="anchor" href="#_configure_dependabot"></a>Configure Dependabot</h3>
+<div class="paragraph">
+<p>If you have a <code>.github/dependabot.yml</code>, add:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- package-ecosystem: github-actions
+  directory: /
+  schedule:
+    interval: monthly</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you did not yet have such a file, create it now:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl --silent --show-error --location --output .github/dependabot.yml https://raw.githubusercontent.com/jenkinsci/archetypes/master/common-files/.github/dependabot.yml</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_maven_pom_and_config"><a class="anchor" href="#_update_maven_pom_and_config"></a>Update Maven POM and Config</h3>
+<div class="paragraph">
+<p>Update the file <code>.mvn/maven.config</code> so it looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">-Pconsume-incrementals
+-Pmight-produce-incrementals
+-Dchangelist.format=%d.v%s</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Update the Maven <code>pom.xml</code> as described below, depending on your preferred version number format.</p>
+</div>
+<div class="paragraph">
+<p>Once you&#8217;re done with these changes, commit all of the source file changes in a branch and file a pull request for them.
+Do not forget to <code>git add .</code> to make sure any newly created files are included.
+Merge this PR activating CD.
+Be sure to apply one of the <a href="https://github.com/jenkinsci/.github/blob/ce466227c534c42820a597cb8e9cac2f2334920a/.github/release-drafter.yml#L9-L50">predefined labels</a>
+to this and every subsequent PR before merging so that Release Drafter can properly categorize changes.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Fully automated versioning (optional)</dt>
+<dd>
+<p>For a regular component whose version number is not that meaningful, let the version number be automatically determined by setting a top-level <code>&lt;version&gt;${changelist}&lt;/version&gt;</code> and having an entry <code>&lt;changelist&gt;999999-SNAPSHOT&lt;/changelist&gt;</code> in the <code>&lt;properties&gt;</code> section, removing <code>&lt;revision&gt;</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">--- a/.mvn/maven.config
++++ b/.mvn/maven.config
+@@ -1,2 +1,3 @@
+ -Pconsume-incrementals
+ -Pmight-produce-incrementals
++-Dchangelist.format=%d.v%s
+--- a/pom.xml
++++ b/pom.xml
+@@ -7,7 +7,7 @@
+-    &lt;version&gt;${revision}${changelist}&lt;/version&gt;
++    &lt;version&gt;${changelist}&lt;/version&gt;
+     &lt;packaging&gt;hpi&lt;/packaging&gt;
+@@ -26,8 +26,7 @@
+     &lt;properties&gt;
+-        &lt;revision&gt;1.23&lt;/revision&gt;
+-        &lt;changelist&gt;-SNAPSHOT&lt;/changelist&gt;
++        &lt;changelist&gt;999999-SNAPSHOT&lt;/changelist&gt;
+         &lt;jenkins.version&gt;2.361.4&lt;/jenkins.version&gt;
+     &lt;/properties&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this typical case, a CI/release build (<code>-Dset.changelist</code> specified) will be of the form <code>123.vabcdef456789</code>.
+A snapshot build will be <code>999999-SNAPSHOT</code>: arbitrary but treated as a snapshot by Maven and newer than any release.
+You can see examples of the proposed snapshot and release versions in your case by running:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn validate
+mvn validate -Dset.changelist -Dignore.dirt</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Note that you will very quickly create releases with version numbers greater than 100, as the major version component corresponds to the number of commits in the branch you&#8217;re releasing from.
+If you&#8217;re not ready to commit to all future versions of your plugin being this large, see the next option.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is worth communicating this to your users, as they will see a very different version number format than before.
+The best way to do this is to add a line to the release notes: <a href="https://github.com/jenkinsci/azure-artifact-manager-plugin/releases/tag/86.va2aa4b1038c7">example note</a>.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Manually controlled prefix (optional)</dt>
+<dd>
+<p>If you do not want to have large major version numbers, like with fully automated versioning described above, keep <code>&lt;revision&gt;</code> in the <code>&lt;properties&gt;</code> section, setting it to the prefix (<code>major</code>, <code>major.minor</code>, etc., depending on how much of the version number you want to manually manage) and use it as part of the top-level <code>&lt;version&gt;</code> element:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">--- a/.mvn/maven.config
++++ b/.mvn/maven.config
+@@ -1,2 +1,3 @@
+ -Pconsume-incrementals
+ -Pmight-produce-incrementals
++-Dchangelist.format=%d.v%s
+--- a/pom.xml
++++ b/pom.xml
+@@ -10,12 +10,12 @@
+   &lt;artifactId&gt;some-library-wrapper&lt;/artifactId&gt;
+-  &lt;version&gt;${revision}${changelist}&lt;/version&gt;
++  &lt;version&gt;${revision}.${changelist}&lt;/version&gt;
+   &lt;packaging&gt;hpi&lt;/packaging&gt;
+   &lt;properties&gt;
+-    &lt;revision&gt;1.2.3&lt;/revision&gt;
+-    &lt;changelist&gt;-SNAPSHOT&lt;/changelist&gt;
++    &lt;revision&gt;1&lt;/revision&gt;
++    &lt;changelist&gt;999999-SNAPSHOT&lt;/changelist&gt;
+     &lt;jenkins.version&gt;2.361.4&lt;/jenkins.version&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here the version numbers will look like <code>1.321.vabcdef456789</code> or <code>1.999999-SNAPSHOT</code>, respectively.
+This could be appropriate if you are leery of committing up front to having major version numbers be in the triple digits,
+with no option of going back to <code>maven-release-plugin</code>-style versioning except by starting at say <code>1000.1</code>,
+because version numbers going forward must be mathematically larger than any currently on the update center.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+It is <em>not recommended</em> to implement actual semantic versioning with automated releases performed by CD, as that requires great care in always changing the <code>revision</code> as part of the changes that semantically would require a <code>revision</code> change for the next release.
+Otherwise, automated releases may have version numbers that semantically would not make sense.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Versioning with wrapped components</dt>
+<dd>
+<p>Similar to the previous option, for a component whose version number ought to reflect a release version of some wrapped component, use a hyphen (<code>-</code>) as the separator between the prefix corresponding to the wrapped component&#8217;s version and the CD-generated suffix:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">--- a/.mvn/maven.config
++++ b/.mvn/maven.config
+@@ -1,2 +1,3 @@
+ -Pconsume-incrementals
+ -Pmight-produce-incrementals
++-Dchangelist.format=%d.v%s
+--- a/pom.xml
++++ b/pom.xml
+@@ -10,12 +10,12 @@
+   &lt;artifactId&gt;some-library-wrapper&lt;/artifactId&gt;
+-  &lt;version&gt;${revision}${changelist}&lt;/version&gt;
++  &lt;version&gt;${revision}-${changelist}&lt;/version&gt;
+   &lt;packaging&gt;hpi&lt;/packaging&gt;
+   &lt;properties&gt;
+-    &lt;revision&gt;4.0.0-1.3&lt;/revision&gt;
+-    &lt;changelist&gt;-SNAPSHOT&lt;/changelist&gt;
++    &lt;revision&gt;4.0.0&lt;/revision&gt;
++    &lt;changelist&gt;999999-SNAPSHOT&lt;/changelist&gt;
+     &lt;jenkins.version&gt;2.361.4&lt;/jenkins.version&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here the version numbers will look like <code>4.0.0-123.vabcdef456789</code> or <code>4.0.0-999999-SNAPSHOT</code>, respectively.
+Use the <code>revision</code> property for the <code>&lt;dependency&gt;</code> declaration to ensure they always match:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.elsewhere&lt;/groupId&gt;
+    &lt;artifactId&gt;some-lib&lt;/artifactId&gt;
+    &lt;version&gt;${revision}&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_releasing"><a class="anchor" href="#_releasing"></a>Releasing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now whenever Jenkins reports a successful build of your default branch,
+and at least one pull request had a label indicating it was of interest to users
+(e.g., <code>enhancement</code> rather than <code>chore</code>), your component will be released to Artifactory and
+release notes published in GitHub.
+You do not need any special credentials or local checkout; just merge pull requests with suitable titles and labels.</p>
+</div>
+<div class="paragraph">
+<p>You will see a lot of workflow runs in the <strong>Actions</strong> tab in GitHub, only a small proportion of which are actual releases.
+Due to technical limitations in GitHub Actions it is not possible to suppress the extraneous runs.
+Actual releases will display a green check next to the <strong>release</strong> stage.</p>
+</div>
+<div class="paragraph">
+<p>You can also trigger a deployment explicitly, if the current commit has a passing check from Jenkins. Visit <a href="https://github.com/jenkinsci/your-plugin/actions?query=workflow%3Acd" class="bare">https://github.com/jenkinsci/your-plugin/actions?query=workflow%3Acd</a> and click Run workflow.
+If you prefer to only deploy explicitly, not on every push, just comment out the <code>check_run</code> section in the workflow.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_noting_incompatible_changes"><a class="anchor" href="#_noting_incompatible_changes"></a>Noting incompatible changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is best to avoid ever making incompatible changes to your plugin.
+If you must make one, then you can define <code>hpi.compatibleSinceVersion</code> as for <a href="../../plugin-development/mark-a-plugin-incompatible">any plugins</a>.
+If <code>master</code> is currently <code>123.vXXX</code> according to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn validate -Dset.changelist</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then you can set</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;hpi.compatibleSinceVersion&gt;124&lt;/hpi.compatibleSinceVersion&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>in your pull request with the breaking changes,
+since the new release version will be <code>124.vXXX</code> if you squash-merge this PR,
+or something higher (at least <code>125.vXXX</code>) if you true-merge it.
+(It is only important that the value is greater than that of the previous actual release,
+and less than or equal to that of the release containing the breaking change.)</p>
+</div>
+<div class="paragraph">
+<p>Do not forget to mark the PR with the label <code>breaking</code> (or <code>removed</code>) to get an appropriate categorization in release notes.
+(These labels also normally cause a release to be triggered automatically upon merge.)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fallback"><a class="anchor" href="#_fallback"></a>Fallback</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can also release manually if you have configured your machine for <a href="../releasing-manually">manual release</a>.
+To cut a release:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">git checkout master
+git pull --ff-only
+mvn -Dset.changelist \
+  -Pquick-build \
+  -P-consume-incrementals \
+  -DaltDeploymentRepository=maven.jenkins-ci.org::default::https://repo.jenkins-ci.org/releases/ \
+  clean deploy</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>Troubleshooting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Check that <code>MAVEN_TOKEN</code> and <code>MAVEN_USERNAME</code> appear under Repository secrets.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_upload_to_the_maven_repository_fails_with_401_unauthorized"><a class="anchor" href="#_the_upload_to_the_maven_repository_fails_with_401_unauthorized"></a>The upload to the Maven repository fails with "401 Unauthorized"</h3>
+<div class="paragraph">
+<p>Unauthorized means that the credentials were invalid, or not sent by Maven.</p>
+</div>
+<div class="paragraph">
+<p>This normally means that the secrets configured in the repository have expired, create an issue in the INFRA helpdesk on <a href="https://github.com/jenkins-infra/helpdesk/issues/new/choose">GitHub</a>, and let the team know in #jenkins-infra on <a href="https://libera.chat/">Libera Chat</a>.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively you can temporarily update the secrets yourself with your own personal credentials.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_upload_to_the_maven_repository_fails_with_403_forbidden"><a class="anchor" href="#_the_upload_to_the_maven_repository_fails_with_403_forbidden"></a>The upload to the Maven repository fails with "403 Forbidden"</h3>
+<div class="paragraph">
+<p>The two most common explanations for this error are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You don&#8217;t have permission to upload to the specified path.
+<a href="../requesting-hosting/#request-upload-permissions">Learn more about how to request upload permissions</a>.
+Check that the path you&#8217;re allowed to upload to matches the actual upload attempt (i.e. no typos).</p>
+</li>
+<li>
+<p>The specified release already exists and you try to overwrite it.
+We do not allow replacing existing releases.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_further_troubleshooting_help"><a class="anchor" href="#_further_troubleshooting_help"></a>Further troubleshooting help</h3>
+<div class="paragraph">
+<p>If none of the provided solutions help, send an email to the <a href="/mailing-lists">Jenkins developers mailing list</a> and explain what you did, and how it failed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/jep/229">'JEP-229: Continuous Delivery of Jenkins Components and Plugins'</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="releasing.html">Performing a Plugin Release</a></span>
+  <span class="next"><a href="releasing-manually.html">Performing a Plugin Release manually</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<jio-footer></jio-footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dependencies and Class Loading :: Jenkins</title>
+    <link rel="canonical" href="https://docs.jenkins.com/dev-docs/plugin-development/dependencies-and-class-loading.html">
+    <link rel="prev" href="dependency-management.html">
+    <link rel="next" href="optional-dependencies.html">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<script type="module" src="https://unpkg.com/@jenkinsci/jenkins-io-components?module"></script>
+<jio-navbar style="  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;"></jio-navbar><div class="body">
+<div class="nav-container" data-component="dev-docs" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Jenkins Developer Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../handling-requests/index.html">Handling Requests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/routing.html">Routing Requests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/actions.html">Web Methods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/responses.html">Responding to Requests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/json.html">Expose HTTP API with JSON content with Jenkins</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/deprecated-reflective-access.html">Deprecated reflective access</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../crowdin/index.html">Jenkins Crowdin Integration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/crowdin-integration.html">Setup a Crowdin Project</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/translating-plugins.html">Translating plugins through Crowdin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/proofread-content.html">How to proofread translation suggestions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/troubleshooting.html">Troubleshooting crowdin issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../persistence/index.html">Persistent Objects</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/backward-compatibility.html">Backward Compatibility with XStream</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/custom-converter.html">Registering a Custom Converter</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/incompatible-releases.html">Marking Incompatible Releases</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../architecture/index.html">Architecture</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/model.html">Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/web.html">Stapler Web Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/extensions.html">Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/remoting.html">Remoting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../internationalization/index.html">Internationalization and Localization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-source-code.html">Internationalizing Messages in Java Source Code</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-jelly-views.html">Internationalizing Messages in Jelly Views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-groovy-views.html">Internationalizing Messages in Groovy Views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/advanced-localization.html">Advanced Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-java-source-file.html">Prepare a Java Source File for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-jelly-view.html">Prepare a Jelly-based View for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-groovy-view.html">Preparing a Groovy-based View for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/translate-a-help-file.html">Translate a help file</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/translate-a-properties-file.html">Translate a properties file</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../development-enviorment/index.html">Development Environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../development-enviorment/ide-configuration.html">IDE Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../development-enviorment/taglibs.html">Taglibs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensibility/index.html">Extensibility</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extensibility/action-for-all-projects.html">How to show a menu item on all projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extensibility/serialization-of-anonymous-classes.html">How to serialize anonymous classes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-tutorial/index.html">Plugin Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/prepare.html">Preparing for Plugin Development</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/create.html">Create a Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/run.html">Build and Run the Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/extend.html">Extend the Plugin</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Plugin Development</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="build-process.html">Plugin Build Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="choosing-jenkins-baseline.html">Choosing a Jenkins version to build against</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-management.html">Dependency Management</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="dependencies-and-class-loading.html">Dependencies and Class Loading</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="optional-dependencies.html">Optional dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="plugin-release-tips.html">Plugin Release Tips</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="incrementals.html">Incrementals: Developing Components in Parallel</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="updating-parent.html">Updating Your Maven Parent POM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="mark-a-plugin-incompatible.html">Mark a new plugin version as incompatible with older versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="writing-an-scm-plugin.html">Writing an SCM Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="pipeline-integration.html">Writing Pipeline-Compatible Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-governance/index.html">Plugin Governance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/managing-permissions.html">Managing plugin permissions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/adopt-a-plugin.html">Adopt a Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/deprecating-or-removing-plugin.html">Deprecating or removing a Plugin</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../publishing/index.html">Publishing Plugins</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/style-guides.html">Style Guides</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/source-code-hosting.html">Source Code Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/artifact-repository.html">Artifact Repository</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/documentation.html">Plugin Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/wiki-page.html">Plugin Wiki Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/plugin-site.html">Plugin Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/continuous-integration.html">Continuous Integration - buildPlugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/usage-statistics.html">Usage Statistics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/preparation.html">Before you start</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/new-plugin.html">Creating a new plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/requesting-hosting.html">Guide to Plugin Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing.html">Performing a Plugin Release</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-cd.html">Setting up automated plugin release</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-manually.html">Performing a Plugin Release manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/removing-from-distribution.html">Removing plugins from distribution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-experimental-updates.html">Publishing Experimental Plugin Releases</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../building/index.html">Building and Debugging</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../building/intellij.html">IntelliJ Setup for Jenkins Core Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tutorial-improve/index.html">Improve a Plugin Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-jenkinsfile.html">Add a Jenkinsfile</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-parent-pom.html">Update parent POM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-base-jenkins-version.html">Update Jenkins version</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-scm-url.html">Update SCM URL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-more-spotbugs-checks.html">Add more spotbugs checks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/automate-dependency-update-checks.html">Check dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/use-plugin-bill-of-materials.html">Use plugin bill of materials</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/enable-incrementals.html">Enable incrementals</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/migrate-documentation-to-github.html">Migrate documentation to GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-contributing-guide.html">Add a contributing guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-link-to-report-an-issue.html">Report an Issue</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/replace-jsr-305-annotations.html">Replace JSR-305</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/convert-translations.html">Convert translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/move-description-to-index.html">Move description</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../views/index.html">Views</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/read-only.html">Read only view</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/table-to-div-migration.html">Table to div layout migration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/exposing-bundled-resources.html">Exposing bundled resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/icon-path-to-icon-class-migration.html">Icon path to icon class migration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/symbols.html">Symbols</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security/index.html">Security</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/secrets.html">Storing Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/form-validation.html">Securely implementing form validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/xss-prevention.html">Preventing Cross-Site Scripting in Jelly views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/rendering-user-content.html">Rendering User Content</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/remoting-callables.html">Remoting Callables</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/read-access.html">Restricting HTTP Access to &lt;code&gt;AccessControlled&lt;/code&gt; Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/csp.html">Content-Security-Policy Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/misc.html">Miscellaneous API Usage Recommendations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../cli/index.html">Jenkins CLI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../cli/writing-cli-commands.html">Writing CLI commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../initialization/index.html">Initialization and Startup ⚠️</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../initialization/embedded-container.html">Embedded Winstone and <code>executable-war</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../template/index.html">index.adoc</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../forms/index.html">Forms</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/form-validation.html">Form validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/adding-tool-tips.html">Adding tool tips</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/jelly-form-controls.html">Jelly form controls</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/structured-form-submission.html">Structured form submission</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jenkins Developer Documentation</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../tutorial/2.1/index.html">Jenkins</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../tutorial/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Jenkins Developer Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../user-docs/2.1/index.html">Jenkins User Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../user-docs/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../user-docs/2.1/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Jenkins Developer Documentation</a></li>
+    <li><a href="index.html">Plugin Development</a></li>
+    <li><a href="dependencies-and-class-loading.html">Dependencies and Class Loading</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/dev-docs/modules/plugin-development/pages/dependencies-and-class-loading.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Dependencies and Class Loading</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jenkins has a complex, modular architecture.
+To enable plugins to use the rich array of libraries available in the Java ecosystem,
+and build on one another using plugin-to-plugin APIs,
+the Jenkins plugin extension mechanism goes beyond simple plugin manifests.</p>
+</div>
+<div class="paragraph">
+<p>The de facto build tool for Jenkins plugins is Apache Maven.
+All examples here will use Maven.
+Building plugins using Gradle is also possible but particular capabilities may lag behind.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jenkins_class_loading"><a class="anchor" href="#_jenkins_class_loading"></a>Jenkins class loading</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before diving into <em>how</em> to refer to libraries and other plugins from your plugin,
+it is useful to understand the elements of Java class loading and how that applies to Jenkins.
+If you are not a Java developer, you can get away with ignoring all this for simple plugins,
+but will need to understand class loading to troubleshoot strange errors or perform advanced packaging.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_plugin_class_loader_hierarchy"><a class="anchor" href="#_the_plugin_class_loader_hierarchy"></a>The plugin class loader hierarchy</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">□ Java Platform
+ ↖
+  □ “application classpath” (servlet container): java -jar jenkins.war
+   ↖
+    □ Jenkins core: jenkins.war!/WEB-INF/lib/*.jar
+     ↖
+      □ plugin A: $JENKINS_HOME/plugins/a.jpi!/WEB-INF/lib/*.jar
+       ↖                                                             ↖
+        □ plugin C: $JENKINS_HOME/plugins/c.jpi!/WEB-INF/lib/*.jar  ← □ UberClassLoader
+     ↖ ↙                                                             ↙
+      □ plugin B: $JENKINS_HOME/plugins/b.jpi!/WEB-INF/lib/*.jar
+      ⋮</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Java class loaders have <em>parents</em> to which they delegate.
+For purposes of Jenkins, what matters most is that “Jenkins core” delegates to the Java Platform,
+and Jenkins plugins all delegate to Jenkins core.</p>
+</div>
+<div class="paragraph">
+<p>Plugins may also delegate to one another.
+In the above example, C declares dependencies on A and B.
+In its <code>c.jpi!/META-INF/MANIFEST.MF</code> this would look something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Plugin-Dependencies: a:1.13,b:1.6</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Thus C can directly refer to classes defined in either A or B, as well as to Jenkins and the Java Platform:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jenkinsci.plugins.c;
+import java.util.Date;
+import jenkins.model.Jenkins;
+import org.jenkinsci.plugins.a.Alpha;
+import org.jenkinsci.plugins.b.Beta;
+public class Charlie {/* … */}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each (enabled) plugin gets its own <code>ClassLoader</code>.
+It is possible for two distinct plugins to define a class of the same name, so long as neither depends on the other.</p>
+</div>
+<div class="paragraph">
+<p>There is also a single special <code>UberClassLoader</code> which delegates to <em>all</em> enabled plugins.
+This never loads any additional resources but it can be used to look up any plugin class or resource.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_initiating_vs_defining_loaders"><a class="anchor" href="#_initiating_vs_defining_loaders"></a>Initiating vs. defining loaders</h3>
+<div class="paragraph">
+<p>When you <em>initiate</em> loading of a class</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Class&lt;?&gt; alpha = Charlie.class.getClassLoader().loadClass("org.jenkinsci.plugins.a.Alpha");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>you are asking a particular <code>ClassLoader</code> (here, C’s) to look up a class by name.
+(Normally this will <em>start</em> by asking all of its parents to find that class,
+and only look in <code>c.jpi!/WEB-INF/lib/*.jar</code> as a last resort.)</p>
+</div>
+<div class="paragraph">
+<p>What happens if <code>Alpha.class</code> refers to various other classes, for example by using them in <code>import</code> statements?
+Java considers the <em>defining</em> loader of <code>Alpha.class</code> (A’s), and only asks that class loader.
+The fact that you started loading in C is irrelevant.
+This means that C cannot provide some class A might need to link against.
+A needs to be able to “see” any such class on its own.
+Otherwise you will get a <code>NoClassDefFoundError</code> at runtime.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context_class_loaders"><a class="anchor" href="#_context_class_loaders"></a>Context class loaders</h3>
+<div class="paragraph">
+<p>Java defines a <code>Thread.getContextClassLoader()</code>.
+Jenkins does not use this much; it will normally be set by the servlet container to the Jenkins core loader.</p>
+</div>
+<div class="paragraph">
+<p>Some Java libraries have a fundamental design flaw, originating in premodular systems with a “flat classpath”,
+whereby they expect classes defined by clients of the library to be available by name without any qualification:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.somelib;
+public class LibClass {
+    public static Object use(String name) throws Exception {
+        return getUserClass(name).newInstance();
+    }
+    private Class&lt;?&gt; getUserClass(String name) throws ClassNotFoundException {
+        return Class.forName(name);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This does not work properly in Jenkins because the library <code>org.somelib</code> might be defined in plugin A,
+while the user class is defined in plugin B depending on A.
+<code>Class.forName(String)</code> uses the <em>calling class</em> (<code>LibClass</code>) to determine the initiating <code>ClassLoader</code>;
+since plugin A cannot load classes from plugin B, this will result in a <code>ClassNotFoundException</code>.</p>
+</div>
+<div class="paragraph">
+<p>Other libraries try to work around the issue as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.somelib;
+public class LibClass {
+    public static Object use(String name) throws Exception {
+        return getUserClass(name).newInstance();
+    }
+    private Class&lt;?&gt; getUserClass(String name) throws ClassNotFoundException {
+        return Class.forName(name, true, Thread.currentThread().getContextClassLoader());
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This also fails by default in Jenkins, since the <code>contextClassLoader</code> can see only Jenkins core (not even plugin A, much less B).
+Jenkins plugin code can work around the issue in some cases:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jenkinsci.plugins.b;
+import org.somelib.LibClass;
+class UsesThatLib {
+    Object someMethod() {
+        Thread t = Thread.currentThread();
+        ClassLoader orig = t.getContextClassLoader();
+        t.setContextClassLoader(UsesThatLib.class.getClassLoader());
+        try {
+            return LibClass.use(UsesThatLib.class.getName());
+        } finally {
+            t.setContextClassLoader(orig);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(When the particular class loader needed is unclear, <code>UberClassLoader</code> can be used as a fallback,
+though this is not as safe since lookups could be ambiguous in case two unrelated plugins both bundled the same library.)</p>
+</div>
+<div class="paragraph">
+<p>Ultimately however it is a design flaw in the library if it fails to allow clients to directly specify a <code>ClassLoader</code> to use for lookups
+(or preregister <code>Class</code> instances for particular names).
+Consider patching the library or looking harder for appropriate APIs that already exist.
+As an example, <code>java.io.ObjectInputStream</code> (used for deserializing Java objects) by default uses a complicated algorithm to guess at a <code>ClassLoader</code>,
+but you can override <code>resolveClass</code> to remove the need for guessing (as <code>hudson.remoting.ObjectInputStreamEx</code> in fact does).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_views_and_other_resources"><a class="anchor" href="#_views_and_other_resources"></a>Views and other resources</h3>
+<div class="paragraph">
+<p>Jenkins plugins normally contain “Stapler views” like <code>config.jelly</code> as well as other resources in <code>src/main/resources/</code>.
+While you can explicitly load these from Java code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jenkinsci.plugins.a;
+public class Alpha {
+    /** loads {@code /org/jenkinsci/plugins/a/config.txt} from {@code a.jpi!/WEB-INF/lib/a.jar} */
+    static URL config() throws IOException {
+        return Alpha.class.getResource("config.txt");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>normally such resources would be loaded on your behalf, for example by the convention of Jenkins looking for a view.
+In such cases the lookup passes through <code>UberClassLoader</code>, so your resource path (<code>/org/jenkinsci/plugins/a/config.txt</code>)
+had better be globally unique.</p>
+</div>
+<div class="paragraph">
+<p><code>Messages.properties</code> used for localization is a little different,
+since this is actually compiled to <code>Messages.class</code> during the build,
+and thus behaves like any other Java class referred to statically from your plugin code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jenkinsci.plugins.a;
+public class Alpha {
+    /** compiled from {@code /org/jenkinsci/plugins/a/Messages.properties#Alpha.message} */
+    static String message() throws IOException {
+        return Messages.Alpha_message();
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_depending_on_other_plugins"><a class="anchor" href="#_depending_on_other_plugins"></a>Depending on other plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Making your plugin depend on other plugins is easy: just declare dependencies in your POM, by hand or using your favorite IDE.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.jenkins-ci.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;a&lt;/artifactId&gt;
+        &lt;version&gt;1.13&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.jenkins-ci.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;b&lt;/artifactId&gt;
+        &lt;version&gt;1.6&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Maven packaging type for Jenkins plugins understands to translate this to the <code>Plugin-Dependencies</code> manifest header,
+which will be understood by the Jenkins plugin manager, as well as the update center and other tools.</p>
+</div>
+<div class="paragraph">
+<p>The Maven compiler plugin similarly understands that <code>a-1.13.jar</code> and <code>b-1.6.jar</code> should be added to your classpath when building your plugin.</p>
+</div>
+<div class="sect2">
+<h3 id="_extensions_and_inversion_of_control"><a class="anchor" href="#_extensions_and_inversion_of_control"></a>Extensions and inversion of control</h3>
+<div class="paragraph">
+<p>A “service locator” pattern is used throughout Jenkins for modularity and extensibility.
+For example, if a plugin (or core) defines an API</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jenkinsci.plugins.someapi;
+import hudson.ExtensionPoint;
+public interface Checker extends ExtensionPoint {
+    boolean doesThisSeemOK(String input);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then another plugin may declare a dependency on that API</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.jenkins-ci.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;someapi&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and add an extension:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jenkinsci.plugins.somethingelse;
+import hudson.Extension;
+import org.jenkinsci.plugins.someapi.Checker;
+@Extension
+public class MyChecker implements Checker {
+    @Override
+    public boolean doesThisSeemOK(String input) {
+        return !input.contains("/");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now any code able to link against <code>someapi</code> can use those implementations;
+most commonly this is done inside the same API plugin:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jenkinsci.plugins.someapi;
+import hudson.ExtensionList;
+class RunsChecks {
+    static boolean allFine(String input) {
+        for (Checker c : ExtensionList.lookup(Checker.class)) {
+            if (!c.doesThisSeemOK(input)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is important to understand that while <code>MyChecker</code> needs to link against <code>Checker</code>, mandating that <code>dependency</code>,
+<code>RunsChecks</code> does <em>not</em> need to be able to link against <code>MyChecker</code> (or any of the other implementations).
+While the local variable <code>c</code>’s implementation class might be in the <code>somethingelse</code> plugin,
+it need only care about the <em>declared type</em> <code>Checker</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bundling_third_party_libraries"><a class="anchor" href="#_bundling_third_party_libraries"></a>Bundling third-party libraries</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes plugins need to use Java libraries beyond what is available in the Java Platform and Jenkins itself.
+For example, a plugin connecting to a particular service might use a Java SDK provided by the vendor.</p>
+</div>
+<div class="paragraph">
+<p>Doing this is very easy—in principle.
+Simply declare a Maven dependency on that library:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.yoyodyne.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;cloud-access-sdk&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(This assumes that the library is available in Maven Central.
+If not, it is possible to upload artifacts to the Jenkins Artifactory repository for use from plugins.
+Ask on the developer list for help.
+Do <strong>not</strong> attempt to keep such binaries in source control.)</p>
+</div>
+<div class="paragraph">
+<p>Besides making SDK classes (say, <code>com.yoyodyne.cloud.*</code>) available during compilation,
+the <code>maven-hpi-plugin</code> used to create Jenkins plugins will notice that this dependency is not itself a Jenkins plugin,
+and instead <em>bundle</em> it inside <code>yourplugin.hpi</code> as <code>WEB-INF/lib/cloud-access-sdk-1.0.jar</code>.</p>
+</div>
+<div class="paragraph">
+<p>At runtime, the plugin class loader will load classes from <code>WEB-INF/lib/cloud-access-sdk-1.0.jar</code>,
+just as it would from <code>WEB-INF/lib/yourplugin.jar</code> (your plugin’s own code, from <code>src/main/java/</code> and <code>src/main/resources/</code>).
+Thus your plugin’s classes can refer to classes in that library.
+Other plugins depending on your plugin can, too.</p>
+</div>
+<div class="sect2">
+<h3 id="_checking_web_inflib_jar_for_junk"><a class="anchor" href="#_checking_web_inflib_jar_for_junk"></a>Checking <code>WEB-INF/lib/*.jar</code> for junk</h3>
+<div class="paragraph">
+<p>Beware that Maven dependencies include <em>all transitive</em> dependencies.
+This can lead to unexpected results when bundling libraries.
+For example, the POM for <code>com.yoyodyne.cloud:cloud-access-sdk</code> might declare that it needs <code>commons-net:commons-net:3.5</code>.
+Your plugin will thus wind up bundling <code>commons-net-3.5.jar</code> as well.
+If you are not careful, <code>WEB-INF/lib/</code> may fill up with megabytes of stuff which is not actually used.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_library_wrapper_plugins"><a class="anchor" href="#_using_library_wrapper_plugins"></a>Using library wrapper plugins</h3>
+<div class="paragraph">
+<p>In practice it is undesirable for Jenkins feature plugins to bundle assorted third-party libraries.
+Typically other plugins will need some of the same libraries, so multiple plugins will wind up bundling copies.
+Even if all of these copies happen to be the exact same version, “downstream” plugins can wind up getting linkage errors.
+And users will wind up downloading multiple copies of the same code,
+increasing product and <code>$JENKINS_HOME/plugins/</code> sizes, update center load, HotSpot compiler delays, etc.</p>
+</div>
+<div class="paragraph">
+<p>Another problem is that updating library versions becomes harder to centralize when they are bundled independently in multiple plugins.
+While having each plugin define an exact version of a library does reduce the risk of API compatibility errors,
+this is outweighed by the need to update a library with assurance when new security vulnerabilities (or other critical fixes) are announced.</p>
+</div>
+<div class="paragraph">
+<p>To centralize library management, you can instead define a <em>wrapper</em> plugin, or find one someone else has already defined.
+This is a Jenkins plugin which contains no sources of its own and simply includes a <code>dependency</code> on some library.
+After being published on the update center, other “feature” plugins can declare plain plugin-to-plugin dependencies on it and thus use the library.</p>
+</div>
+<div class="paragraph">
+<p>Occasionally it can make sense to include a few API classes in the wrapper plugin itself,
+where any Jenkins code using the library would reasonably need some boilerplate adapters to standard Jenkins facilities.</p>
+</div>
+<div class="paragraph">
+<p>To mitigate the risk of library plugin updates with incompatible changes breaking plugin functionality,
+it is suggested to include the major version of the library in the wrapper plugin’s <code>artifactId</code>: for example, <code>commons-lang3</code>.
+(This assumes that the library follows something like <a href="https://semver.org/">Semantic Versioning</a>.)
+Thus there could be multiple major releases loaded simultaneously.
+Of course this means that critical fixes must be issued as updates to all release lines, so only do this for <em>supported</em> versions of the library.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pluginfirstclassloader_and_its_discontents"><a class="anchor" href="#_pluginfirstclassloader_and_its_discontents"></a><code>pluginFirstClassLoader</code> and its discontents</h3>
+<div class="paragraph">
+<p>The default behavior of Java class loaders, and of Jenkins plugin class loaders as well,
+is to service <code>loadClass</code> requests first by asking the parent loader(s) for the class of that name,
+and only if that fails to check whether the class could be defined among JARs present in the initiating loader.
+This is generally sensible since it ensures that types mentioned in bytecode from different plugins
+are resolved at runtime to the same <code>Class</code> objects and thus allowing APIs to work using shared type signatures.</p>
+</div>
+<div class="paragraph">
+<p>Sometimes, however, it is not wanted for the parent to be searched first.
+For example, Jenkins core currently bundles a plethora of third-party libraries and exposes all of their packages to plugins.
+For that matter, some plugins bundle third-party libraries that are then incidentally exposed
+to other plugins needing a dependency on APIs defined in the bundling plugins.
+If a plugin also needs some variant of the same library for its own use, it will surprisingly not be able to load it,
+because the parent class loader will find it first.</p>
+</div>
+<div class="paragraph">
+<p>To avoid that behavior, it is possible to set a flag <a href="https://jenkinsci.github.io/maven-hpi-plugin/hpi-mojo.html#pluginFirstClassLoader"><code>pluginFirstClassLoader</code></a> in the plugin’s Maven POM.
+(This simply produces a JAR manifest entry that is interpreted by the Jenkins plugin system at runtime.)
+This flag instructs the plugin class loader to check its own JARs <em>first</em> for any mentioned class names.
+You must be very careful when using this mode, since any type normally defined in core (or an “upstream” plugin)
+which is mentioned in any part of the Java signature of a method you are calling must not be duplicated in your JARs, or linkage errors will result.
+Thus it is best reserved to libraries used purely by internal implementation.</p>
+</div>
+<div class="paragraph">
+<p>A more limited flag is <code>maskClasses</code>, which blocks only selected classes or packages from the parent loader, rather than everything.
+You must manually verify that the masked classes are complete under the transitive closure of the Java linker:
+for example, masking one package but not another from a library bundled in core could make classes in the masked package unresolvable.
+There is a related flag <code>globalMaskClasses</code> which adjusts the behavior of <em>every loaded plugin</em> to essentially override a component of the Java Platform.</p>
+</div>
+<div class="paragraph">
+<p>If you did not understand any part of this section, do not use these options. Even if you did, think twice.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shading"><a class="anchor" href="#_shading"></a>Shading</h3>
+<div class="paragraph">
+<p>Another approach to taming the complexity of library dependencies and class loading is loosely referred to as <em>shading</em>,
+exemplified by the <a href="https://maven.apache.org/plugins/maven-shade-plugin/">Maven Shade plugin</a> (though multiple techniques are possible).
+In this case, rather than trying to control where a given <code>classLoader.loadClass("org.apache.commons.lang.StringUtils")</code> call finds the defining loader,
+the idea is to bundle the entire library under a distinct package prefix, rewriting all static and reflective class (or resource) loads,
+both within the library and from code defined in the plugin doing the bundling.
+Thus <code>your-plugin.hpi!/WEB-INF/lib/commons-lang-shaded.jar</code> might contain entries like <code>org/jenkinsci/plugins/yourplugin/commonslang/StringUtils.class</code>;
+and plugin source code like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.apache.commons.lang.StringUtils;
+// …
+if (StringUtils.isEmpty(arg)) {/* … */}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>would result in bytecode in <code>your-plugin.hpi!/WEB-INF/lib/classes.jar</code> referring in its constant pool to the type <code>org.jenkinsci.plugins.yourplugin.commonslang.StringUtils</code>.
+Since that type name is unique in the whole Jenkins JVM, there is no risk of it being loaded from the wrong place;
+from the perspective of Jenkins, it is as if you copied and pasted the whole Commons Lang library into some sources in your plugin.</p>
+</div>
+<div class="paragraph">
+<p>While this system does address the risk of linkage errors, it does nothing to reduce the profusion of library versions in Jenkins,
+as described in the section on library wrappers.
+In some cases, however, library wrappers themselves will use this same trick for official purposes,
+so that the wrapped library will be present under a package name indicating the major release version.
+Plugins using the wrapped library therefore would refer to the repackaged name:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.jenkinsci.commons_lang2.StringUtils;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_restricted_annotations"><a class="anchor" href="#_restricted_annotations"></a><code>@Restricted</code> annotations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>public</code> modifier in Java allows types, methods, constructors, and fields to be accessed from any other class in the system capable of linking against the defining type.
+Thus it forms part of the API, as do <code>protected</code> members.</p>
+</div>
+<div class="paragraph">
+<p>However in some cases use of these access modifiers are forced for technical reasons rather than out of an intent to define an API:
+a method might need to be accessed from a class in another package in the same plugin, preventing use of default package access;
+an <code>@Extension</code> needs to be <code>public</code> to allow the Jenkins service loader to instantiate it;
+a <code>FormValidation doCheckName(@QueryParameter String value)</code> method must be <code>public</code> to expose it as a Stapler web method and thus to JavaScript on a form.</p>
+</div>
+<div class="paragraph">
+<p>In such cases you should block the member from being used by outside code:
+nonessential API additions are at risk of being used in unintended ways
+and forcing your plugin to maintain the member more or less forever lest backward compatibility be broken.
+This can be accomplished by use of a special annotation available in Jenkins code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Restricted(NoExternalUse.class)
+@Extension
+public class MyListener extends ItemListener {/* … */}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Other plugins attempting to refer to <code>MyListener</code> will receive a build-time error.
+Therefore you are free to rename, move, delete, or otherwise modify <code>MyListener</code> at any time.</p>
+</div>
+<div class="paragraph">
+<p>Several kinds of restriction are available; consult Javadoc for details.</p>
+</div>
+<div class="paragraph">
+<p>This system has no effect on accesses using <code>java.lang.reflect</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jenkinsrule_vs_acceptance_test_harness_class_loading"><a class="anchor" href="#_jenkinsrule_vs_acceptance_test_harness_class_loading"></a><code>JenkinsRule</code> vs. <code>acceptance-test-harness</code> class loading</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are three main categories of automated test used in Jenkins:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Unit tests, including mocking frameworks such as PowerMock.</p>
+</li>
+<li>
+<p>Functional tests based on the <code>JenkinsRule</code> API defined in <code>jenkins-test-harness</code>.</p>
+</li>
+<li>
+<p>Acceptance tests located in the <code>acceptance-test-harness</code> repository.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These have different levels of fidelity to the class loading behavior of plugin code running in production Jenkins servers.
+Unit tests simply pick up the Java classpath (java.class.path) defined by Maven’s <code>test</code> scope.</p>
+</div>
+<div class="paragraph">
+<p>Acceptance tests run a full Jenkins server and install plugins (including the plugin(s) being tested) using Jenkins’ normal mechanisms.
+Since the test does not compile or link against any types defined in the Jenkins runtime (only against the Selenium web driver),
+and does not even run in the same JVM as Jenkins, it has no interaction with the class loading of Jenkins.
+Thus the class loading behavior of plugins running in an acceptance test can be assumed to be the same as in production.</p>
+</div>
+<div class="paragraph">
+<p>Class loading in functional tests is intermediate in behavior, but closer to that of unit tests.
+Test code <em>does</em> link against Jenkins core and (<code>test</code>-scoped) plugin types,
+and everything in the Java classpath is in fact loaded in Java’s application class loader—including plugins in <code>test</code> scope.
+This means that certain mistakes in plugin metadata (for example, misuse of <code>pluginFirstClassLoader</code>) may go unnoticed.</p>
+</div>
+<div class="paragraph">
+<p>(<code>JenkinsRule</code> does start a real Jenkins service, and in some cases other plugins can get installed which were not in the Java classpath.
+These get their own class loaders.)</p>
+</div>
+<div class="paragraph">
+<p>Whenever there is any doubt about whether class loading behavior could affect plugin or core code,
+use <code>RealJenkinsRule</code> which launches Jenkins in a separate JVM with the regular class loader hierarchy.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jenkins_modules"><a class="anchor" href="#_jenkins_modules"></a>Jenkins modules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Historical versions of <code>jenkins.war</code> included a few components called <em>modules</em> which are built and packaged just like plugins, and can refer to types defined in Jenkins core,
+but which are bundled alongside core and cannot be managed by users in the plugin manager.
+The usual reason for this design is to include features which either cannot be disabled,
+or must be present early in the Jenkins startup sequence, before plugins have been fully initialized.</p>
+</div>
+<div class="paragraph">
+<p>For purposes of class loading, these components behave like anything else bundled inside core: modules do not get their own class loaders.
+For Maven dependency management purposes, plugins can declare <code>provided</code>-scope dependencies on these modules if they wish to use their APIs,
+taking care to select the same version as is bundled in the baseline version of core.</p>
+</div>
+<div class="paragraph">
+<p>jep:230[] removed this system at least from the default Jenkins distribution.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="dependency-management.html">Dependency Management</a></span>
+  <span class="next"><a href="optional-dependencies.html">Optional dependencies</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<jio-footer></jio-footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
