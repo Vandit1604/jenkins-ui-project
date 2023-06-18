@@ -468,19 +468,19 @@
     <span class="version">default</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <a class="title" href="../../tutorial/2.1/index.html">Jenkins</a>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../tutorial/2.1/index.html">2.1</a>
-        </li>
-      </ul>
-    </li>
     <li class="component is-current">
       <a class="title" href="../index.html">Jenkins Developer Documentation</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../tutorial/2.1/index.html">Jenkins Tutorials</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../tutorial/2.1/index.html">2.1</a>
         </li>
       </ul>
     </li>
@@ -530,14 +530,13 @@ Some plugins we distribute are currently maintained outside the <code>jenkinsci<
 <div class="paragraph">
 <p>This table shows the permissions currently granted to contributors in the <code>jenkinsci</code> GitHub repositories, excluding organization owners with full permissions to every repository:</p>
 </div>
-    <style type="text/css">
-    @import url(https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css);
-    </style>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
 $(document).ready(function() {
     $('#permissions').DataTable( {
         ajax: {
+            type: 'get',
             url: 'https://reports.jenkins.io/github-jenkinsci-permissions-report.json',
             dataSrc: ''
         },
@@ -559,7 +558,7 @@ $(document).ready(function() {
     } );
 } );
     </script>
-    <table id="permissions" class="display" cellspacing="0" width="100%">
+    <table id="permissions" class="display">
       <thead>
         <tr>
           <th>Repository</th>

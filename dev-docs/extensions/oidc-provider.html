@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Extension Points defined in OpenID Connect Provider Plugin :: Jenkins</title>
+    <link rel="canonical" href="https://docs.jenkins.com/dev-docs/extensions/oidc-provider.html">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<script type="module" src="https://unpkg.com/@jenkinsci/jenkins-io-components?module"></script>
+<jio-navbar style="  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;"></jio-navbar><div class="body">
+<div class="nav-container" data-component="dev-docs" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Jenkins Developer Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../handling-requests/index.html">Handling Requests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/routing.html">Routing Requests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/actions.html">Web Methods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/responses.html">Responding to Requests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/json.html">Expose HTTP API with JSON content with Jenkins</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/deprecated-reflective-access.html">Deprecated reflective access</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../crowdin/index.html">Jenkins Crowdin Integration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/crowdin-integration.html">Setup a Crowdin Project</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/translating-plugins.html">Translating plugins through Crowdin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/proofread-content.html">How to proofread translation suggestions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/troubleshooting.html">Troubleshooting crowdin issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../persistence/index.html">Persistent Objects</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/backward-compatibility.html">Backward Compatibility with XStream</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/custom-converter.html">Registering a Custom Converter</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/incompatible-releases.html">Marking Incompatible Releases</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../architecture/index.html">Architecture</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/model.html">Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/web.html">Stapler Web Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/extensions.html">Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/remoting.html">Remoting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../internationalization/index.html">Internationalization and Localization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-source-code.html">Internationalizing Messages in Java Source Code</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-jelly-views.html">Internationalizing Messages in Jelly Views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-groovy-views.html">Internationalizing Messages in Groovy Views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/advanced-localization.html">Advanced Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-java-source-file.html">Prepare a Java Source File for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-jelly-view.html">Prepare a Jelly-based View for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-groovy-view.html">Preparing a Groovy-based View for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/translate-a-help-file.html">Translate a help file</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/translate-a-properties-file.html">Translate a properties file</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../development-enviorment/index.html">Development Environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../development-enviorment/ide-configuration.html">IDE Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../development-enviorment/taglibs.html">Taglibs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensibility/index.html">Extensibility</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extensibility/action-for-all-projects.html">How to show a menu item on all projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extensibility/serialization-of-anonymous-classes.html">How to serialize anonymous classes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-tutorial/index.html">Plugin Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/prepare.html">Preparing for Plugin Development</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/create.html">Create a Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/run.html">Build and Run the Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/extend.html">Extend the Plugin</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-development/index.html">Plugin Development</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/build-process.html">Plugin Build Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/choosing-jenkins-baseline.html">Choosing a Jenkins version to build against</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/dependency-management.html">Dependency Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/dependencies-and-class-loading.html">Dependencies and Class Loading</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/optional-dependencies.html">Optional dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/plugin-release-tips.html">Plugin Release Tips</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/incrementals.html">Incrementals: Developing Components in Parallel</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/updating-parent.html">Updating Your Maven Parent POM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/mark-a-plugin-incompatible.html">Mark a new plugin version as incompatible with older versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/writing-an-scm-plugin.html">Writing an SCM Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/pipeline-integration.html">Writing Pipeline-Compatible Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-governance/index.html">Plugin Governance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/managing-permissions.html">Managing plugin permissions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/adopt-a-plugin.html">Adopt a Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/deprecating-or-removing-plugin.html">Deprecating or removing a Plugin</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../publishing/index.html">Publishing Plugins</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/style-guides.html">Style Guides</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/source-code-hosting.html">Source Code Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/artifact-repository.html">Artifact Repository</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/documentation.html">Plugin Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/wiki-page.html">Plugin Wiki Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/plugin-site.html">Plugin Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/continuous-integration.html">Continuous Integration - buildPlugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/usage-statistics.html">Usage Statistics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/preparation.html">Before you start</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/new-plugin.html">Creating a new plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/requesting-hosting.html">Guide to Plugin Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing.html">Performing a Plugin Release</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-cd.html">Setting up automated plugin release</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-manually.html">Performing a Plugin Release manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/removing-from-distribution.html">Removing plugins from distribution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-experimental-updates.html">Publishing Experimental Plugin Releases</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../building/index.html">Building and Debugging</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../building/intellij.html">IntelliJ Setup for Jenkins Core Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tutorial-improve/index.html">Improve a Plugin Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-jenkinsfile.html">Add a Jenkinsfile</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-parent-pom.html">Update parent POM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-base-jenkins-version.html">Update Jenkins version</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-scm-url.html">Update SCM URL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-more-spotbugs-checks.html">Add more spotbugs checks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/automate-dependency-update-checks.html">Check dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/use-plugin-bill-of-materials.html">Use plugin bill of materials</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/enable-incrementals.html">Enable incrementals</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/migrate-documentation-to-github.html">Migrate documentation to GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-contributing-guide.html">Add a contributing guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-link-to-report-an-issue.html">Report an Issue</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/replace-jsr-305-annotations.html">Replace JSR-305</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/convert-translations.html">Convert translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/move-description-to-index.html">Move description</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../views/index.html">Views</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/read-only.html">Read only view</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/table-to-div-migration.html">Table to div layout migration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/exposing-bundled-resources.html">Exposing bundled resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/icon-path-to-icon-class-migration.html">Icon path to icon class migration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/symbols.html">Symbols</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security/index.html">Security</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/secrets.html">Storing Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/form-validation.html">Securely implementing form validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/xss-prevention.html">Preventing Cross-Site Scripting in Jelly views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/rendering-user-content.html">Rendering User Content</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/remoting-callables.html">Remoting Callables</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/read-access.html">Restricting HTTP Access to &lt;code&gt;AccessControlled&lt;/code&gt; Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/csp.html">Content-Security-Policy Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/misc.html">Miscellaneous API Usage Recommendations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../cli/index.html">Jenkins CLI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../cli/writing-cli-commands.html">Writing CLI commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../initialization/index.html">Initialization and Startup ⚠️</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../initialization/embedded-container.html">Embedded Winstone and <code>executable-war</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../template/index.html">index.adoc</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../forms/index.html">Forms</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/form-validation.html">Form validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/adding-tool-tips.html">Adding tool tips</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/jelly-form-controls.html">Jelly form controls</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/structured-form-submission.html">Structured form submission</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jenkins Developer Documentation</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Jenkins Developer Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../tutorial/2.1/index.html">Jenkins Tutorials</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../tutorial/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../user-docs/2.1/index.html">Jenkins User Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../user-docs/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../user-docs/2.1/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Jenkins Developer Documentation</a></li>
+    <li><a href="oidc-provider.html">Extension Points defined in OpenID Connect Provider Plugin</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/dev-docs/modules/extensions/pages/oidc-provider.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Extension Points defined in OpenID Connect Provider Plugin</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>plugin:oidc-provider[OpenID Connect Provider Plugin]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_issuer_factory"><a class="anchor" href="#_issuer_factory"></a>Issuer.<wbr/>Factory</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>jenkinsdoc:oidc-provider:io.jenkins.plugins.oidc_provider.Issuer.Factory[]</code></p>
+</div>
+<div class="paragraph">
+<p><em>This extension point has no Javadoc documentation.</em></p>
+</div>
+<div class="paragraph">
+<p><strong>Implementations:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>plugin:oidc-provider[OpenID Connect Provider Plugin]: io.<wbr/>jenkins.<wbr/>plugins.<wbr/>oidc_provider.<wbr/><strong>FolderIssuer.<wbr/>Factory</strong> (<a href="https://github.com/jenkinsci/oidc-provider-plugin/search?q=FolderIssuer.Factory&amp;type=Code">view on GitHub</a>)</p>
+</li>
+<li>
+<p>plugin:oidc-provider[OpenID Connect Provider Plugin]: io.<wbr/>jenkins.<wbr/>plugins.<wbr/>oidc_provider.<wbr/><strong>RootIssuer</strong> (<a href="https://github.com/jenkinsci/oidc-provider-plugin/search?q=RootIssuer&amp;type=Code">view on GitHub</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<jio-footer></jio-footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

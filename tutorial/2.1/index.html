@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Jenkins</title>
+    <title>Tutorials overview :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/tutorial/2.1/index.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -20,23 +20,23 @@
     <div class="panels">
 <div class="nav-panel-explore is-active" data-panel="explore">
   <div class="context">
-    <span class="title">Jenkins</span>
+    <span class="title">Jenkins Tutorials</span>
     <span class="version">2.1</span>
   </div>
   <ul class="components">
-    <li class="component is-current">
-      <a class="title" href="index.html">Jenkins</a>
-      <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="index.html">2.1</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <a class="title" href="../../dev-docs/index.html">Jenkins Developer Documentation</a>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../dev-docs/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="index.html">Jenkins Tutorials</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">2.1</a>
         </li>
       </ul>
     </li>
@@ -59,37 +59,165 @@
   <a href="../../user-docs/2.1/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/tutorial/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/tutorials/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<div class="imageblock left">
-<div class="content">
-<img src="https://raw.githubusercontent.com/jenkins-infra/jenkins.io/d64ddebd0a7d02772c10a77f1f4890b93b6961e7/content/images/logos/jenkins/Jenkins-stop-the-war.svg" alt="Stop the war" width="200px">
-</div>
-</div>
-<h1 id="_jenkins" class="sect0"><a class="anchor" href="#_jenkins"></a>Jenkins</h1>
-<div class="sect1">
-<h2 id="_this_is_tutorial"><a class="anchor" href="#_this_is_tutorial"></a>This is tutorial</h2>
+<h1 class="page">Tutorials overview</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Build great things at any scale</p>
+<p>This part of the Jenkins User Documentation contains a series of introductory
+tutorials to help you begin building your applications in an automated fashion
+with Jenkins.</p>
 </div>
 <div class="paragraph">
-<p>The leading open source automation server, Jenkins provides hundreds of plugins to support building, deploying and automating any project.</p>
+<p>If you&#8217;re a developer who wants to improve your understanding of Continuous
+Integration (CI) / Continuous Delivery (CD) concepts, or you might already be
+familiar with these concepts but don&#8217;t yet know how to implement them in
+Jenkins, then these tutorials are a great place to start.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-started"><a class="anchor" href="#getting-started"></a>Getting started with Jenkins</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../user-docs/2.1/pipeline/getting-started.html" class="xref page">Guided Tour to Jenkins</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pipeline"><a class="anchor" href="#pipeline"></a>Pipeline</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following tutorials show how to use key features of Jenkins to facilitate implementing CI/CD
+processes to build your applications:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../user-docs/2.1/pipeline/getting-started.html" class="xref page">Getting started with Jenkins Pipeline</a></p>
+</li>
+<li>
+<p>Publishing HTML Reports in Pipeline (<a href="/blog/2017/02/10/declarative-html-publisher/">Declarative Pipeline</a>, <a href="/blog/2016/07/01/html-publisher-plugin/">Scripted Pipeline</a>)</p>
+</li>
+<li>
+<p>Sending Notifications in Pipeline (<a href="/blog/2017/02/15/declarative-notifications/">Declarative Pipeline</a>, <a href="/blog/2016/07/18/pipeline-notifications/">Scripted Pipeline</a>)</p>
+</li>
+<li>
+<p><a href="#build-a-multibranch-pipeline-project">End-to-End Multibranch Pipeline Project Creation</a></p>
+</li>
+<li>
+<p><a href="/blog/2017/02/15/declarative-notifications/#moving-notifications-to-shared-library">Creating a shared library</a></p>
+</li>
+<li>
+<p><a href="/blog/2016/06/16/parallel-test-executor-plugin/">Faster Pipelines with the Parallel Test Executor Plugin</a></p>
+</li>
+<li>
+<p><a href="/blog/2017/01/19/converting-conditional-to-pipeline/">Converting Conditional Build Steps to Jenkins Pipeline</a></p>
+</li>
+<li>
+<p><a href="/blog/2017/05/18/pipeline-dev-tools/">Pipeline Development Tools</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="blueocean"><a class="anchor" href="#blueocean"></a>Blue Ocean</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/blog/2017/04/05/welcome-to-blue-ocean/">Getting Started with Blue Ocean</a></p>
+</li>
+<li>
+<p>Getting Started with Blue Ocean&#8217;s Visual Pipeline Editor (<a href="create-a-pipeline-in-blue-ocean">guide</a>, <a href="/blog/2017/04/06/welcome-to-blue-ocean-editor/">video guide</a>)</p>
+</li>
+<li>
+<p><a href="/blog/2017/04/11/welcome-to-blue-ocean-pipeline-activity/">Getting Started with Blue Ocean&#8217;s Activity View </a></p>
+</li>
+<li>
+<p><a href="/blog/2017/04/12/welcome-to-blue-ocean-dashboard/">Getting Started with the Blue Ocean Dashboard</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tools"><a class="anchor" href="#tools"></a>Using build tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following tutorials show how to use Jenkins to cover the basics of CI/CD
+concepts based on specific technology stacks.</p>
 </div>
 <div class="paragraph">
-<p>Ukraine We stand with the people of Ukraine. Please assist humanitarian efforts for the Ukrainian people and those affected by the military invasion of Ukraine by supporting international aid organizations, including the
-<a href="https://www.icrc.org/">International Committee of the Red Cross</a></p>
+<p>Choose the tutorial that&#8217;s relevant to your technology stack or one that you&#8217;re
+most familiar with:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="build-a-java-app-with-maven">Build a Java app with Maven</a></p>
+</li>
+<li>
+<p><a href="build-a-node-js-and-react-app-with-npm">Build a Node.js and React app with npm</a></p>
+</li>
+<li>
+<p><a href="build-a-python-app-with-pyinstaller">Build a Python app with PyInstaller</a></p>
+</li>
+<li>
+<p><a href="build-a-labview-app">Build a LabVIEW app</a></p>
+</li>
+<li>
+<p><a href="using-jenkinsfile-runner-github-action-to-build-jenkins-pipeline">Build a Jenkins pipeline by using Jenkinsfile Runner GitHub Actions</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_more_tutorials"><a class="anchor" href="#_more_tutorials"></a>More tutorials</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud tutorials are available including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="tutorials-for-installing-jenkins-on-Google-Cloud">Jenkins on Google Cloud</a></p>
+</li>
+<li>
+<p><a href="tutorial-for-installing-jenkins-on-AWS">Jenkins on AWS</a></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>
-<button>Documentation</button> <button>Download</button>
-</p>
+<p>You may find more tutorials in <a href="/node/tags/tutorial">Tutorial blogposts</a>.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/blog/2017/02/07/declarative-maven-project/">Declarative Pipeline for Maven Projects</a></p>
+</li>
+<li>
+<p><a href="/blog/2016/08/10/rails-cd-with-pipeline/">Continuous Security for Rails apps with Pipeline and Brakeman</a></p>
+</li>
+<li>
+<p><a href="/blog/2016/08/29/sauce-pipeline/">Browser-testing with Sauce OnDemand and Pipeline</a></p>
+</li>
+</ul>
+</div>
+<hr>
+Unresolved include directive in modules/ROOT/pages/index.adoc - include::_partials/_feedback-footer.html[]
 </div>
 </div>
 </article>

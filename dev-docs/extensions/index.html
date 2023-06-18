@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jenkins</title>
+    <link rel="canonical" href="https://docs.jenkins.com/dev-docs/extensions/index.html">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<script type="module" src="https://unpkg.com/@jenkinsci/jenkins-io-components?module"></script>
+<jio-navbar style="  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;"></jio-navbar><div class="body">
+<div class="nav-container" data-component="dev-docs" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Jenkins Developer Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../handling-requests/index.html">Handling Requests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/routing.html">Routing Requests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/actions.html">Web Methods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/responses.html">Responding to Requests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/json.html">Expose HTTP API with JSON content with Jenkins</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../handling-requests/deprecated-reflective-access.html">Deprecated reflective access</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../crowdin/index.html">Jenkins Crowdin Integration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/crowdin-integration.html">Setup a Crowdin Project</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/translating-plugins.html">Translating plugins through Crowdin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/proofread-content.html">How to proofread translation suggestions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../crowdin/troubleshooting.html">Troubleshooting crowdin issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../persistence/index.html">Persistent Objects</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/backward-compatibility.html">Backward Compatibility with XStream</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/custom-converter.html">Registering a Custom Converter</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../persistence/incompatible-releases.html">Marking Incompatible Releases</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../architecture/index.html">Architecture</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/model.html">Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/web.html">Stapler Web Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/extensions.html">Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture/remoting.html">Remoting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../internationalization/index.html">Internationalization and Localization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-source-code.html">Internationalizing Messages in Java Source Code</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-jelly-views.html">Internationalizing Messages in Jelly Views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/i18n-groovy-views.html">Internationalizing Messages in Groovy Views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/advanced-localization.html">Advanced Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-java-source-file.html">Prepare a Java Source File for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-jelly-view.html">Prepare a Jelly-based View for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/prepare-a-groovy-view.html">Preparing a Groovy-based View for Localization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/translate-a-help-file.html">Translate a help file</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../internationalization/translate-a-properties-file.html">Translate a properties file</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../development-enviorment/index.html">Development Environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../development-enviorment/ide-configuration.html">IDE Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../development-enviorment/taglibs.html">Taglibs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensibility/index.html">Extensibility</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extensibility/action-for-all-projects.html">How to show a menu item on all projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extensibility/serialization-of-anonymous-classes.html">How to serialize anonymous classes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-tutorial/index.html">Plugin Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/prepare.html">Preparing for Plugin Development</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/create.html">Create a Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/run.html">Build and Run the Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-tutorial/extend.html">Extend the Plugin</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-development/index.html">Plugin Development</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/build-process.html">Plugin Build Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/choosing-jenkins-baseline.html">Choosing a Jenkins version to build against</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/dependency-management.html">Dependency Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/dependencies-and-class-loading.html">Dependencies and Class Loading</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/optional-dependencies.html">Optional dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/plugin-release-tips.html">Plugin Release Tips</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/incrementals.html">Incrementals: Developing Components in Parallel</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/updating-parent.html">Updating Your Maven Parent POM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/mark-a-plugin-incompatible.html">Mark a new plugin version as incompatible with older versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/writing-an-scm-plugin.html">Writing an SCM Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-development/pipeline-integration.html">Writing Pipeline-Compatible Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../plugin-governance/index.html">Plugin Governance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/managing-permissions.html">Managing plugin permissions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/adopt-a-plugin.html">Adopt a Plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../plugin-governance/deprecating-or-removing-plugin.html">Deprecating or removing a Plugin</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../publishing/index.html">Publishing Plugins</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/style-guides.html">Style Guides</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/source-code-hosting.html">Source Code Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/artifact-repository.html">Artifact Repository</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/documentation.html">Plugin Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/wiki-page.html">Plugin Wiki Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/plugin-site.html">Plugin Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/continuous-integration.html">Continuous Integration - buildPlugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/usage-statistics.html">Usage Statistics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/preparation.html">Before you start</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/new-plugin.html">Creating a new plugin</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/requesting-hosting.html">Guide to Plugin Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing.html">Performing a Plugin Release</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-cd.html">Setting up automated plugin release</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-manually.html">Performing a Plugin Release manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/removing-from-distribution.html">Removing plugins from distribution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/releasing-experimental-updates.html">Publishing Experimental Plugin Releases</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../building/index.html">Building and Debugging</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../building/intellij.html">IntelliJ Setup for Jenkins Core Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../tutorial-improve/index.html">Improve a Plugin Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-jenkinsfile.html">Add a Jenkinsfile</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-parent-pom.html">Update parent POM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-base-jenkins-version.html">Update Jenkins version</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/update-scm-url.html">Update SCM URL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-more-spotbugs-checks.html">Add more spotbugs checks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/automate-dependency-update-checks.html">Check dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/use-plugin-bill-of-materials.html">Use plugin bill of materials</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/enable-incrementals.html">Enable incrementals</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/migrate-documentation-to-github.html">Migrate documentation to GitHub</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-contributing-guide.html">Add a contributing guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/add-a-link-to-report-an-issue.html">Report an Issue</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/replace-jsr-305-annotations.html">Replace JSR-305</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/convert-translations.html">Convert translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorial-improve/move-description-to-index.html">Move description</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../views/index.html">Views</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/read-only.html">Read only view</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/table-to-div-migration.html">Table to div layout migration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/exposing-bundled-resources.html">Exposing bundled resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/icon-path-to-icon-class-migration.html">Icon path to icon class migration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../views/symbols.html">Symbols</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security/index.html">Security</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/secrets.html">Storing Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/form-validation.html">Securely implementing form validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/xss-prevention.html">Preventing Cross-Site Scripting in Jelly views</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/rendering-user-content.html">Rendering User Content</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/remoting-callables.html">Remoting Callables</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/read-access.html">Restricting HTTP Access to &lt;code&gt;AccessControlled&lt;/code&gt; Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/csp.html">Content-Security-Policy Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security/misc.html">Miscellaneous API Usage Recommendations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../cli/index.html">Jenkins CLI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../cli/writing-cli-commands.html">Writing CLI commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../initialization/index.html">Initialization and Startup ⚠️</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../initialization/embedded-container.html">Embedded Winstone and <code>executable-war</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../template/index.html">index.adoc</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">xref:</span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../forms/index.html">Forms</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/form-validation.html">Form validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/adding-tool-tips.html">Adding tool tips</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/jelly-form-controls.html">Jelly form controls</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../forms/structured-form-submission.html">Structured form submission</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jenkins Developer Documentation</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Jenkins Developer Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../tutorial/2.1/index.html">Jenkins Tutorials</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../tutorial/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../user-docs/2.1/index.html">Jenkins User Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../user-docs/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../user-docs/2.1/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/dev-docs/modules/extensions/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<hr>
+<div class="paragraph">
+<p>title: Extensions Index
+layout: developerextension
+uneditable: true
+---
+:toc:
+:compat-mode!:</p>
+</div>
+<div class="paragraph">
+<p>Jenkins defines extension points, which are interfaces or abstract classes that model an aspect of its behavior.
+Those interfaces define contracts of what need to be implemented, and Jenkins allows plugins to contribute those implementations.
+In general, all you need to do to register an implementation is to mark it with <code>@Extension</code>.
+Creating a new extension point is quite easy too, see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Defining+a+new+extension+point">defining a new extension point</a> for details.</p>
+</div>
+<div class="paragraph">
+<p>This index has been generated automatically. Javadoc excerpts are taken from core and plugin source code, and may have been improperly converted to HTML, so some may appear broken.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="jenkins-core">Extension points defined in Jenkins Core</a></p>
+</li>
+<li>
+<p><a href="onepassword-secrets">Extension points defined in 1Password Secrets Plugin</a></p>
+</li>
+<li>
+<p><a href="adobe-cloud-manager">Extension points defined in Adobe Cloud Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="alauda-devops-credentials-provider">Extension points defined in Alauda DevOps Credentials Provider Plugin</a></p>
+</li>
+<li>
+<p><a href="alauda-devops-pipeline">Extension points defined in Alauda DevOps Pipeline Plugin</a></p>
+</li>
+<li>
+<p><a href="alauda-kubernetes-support">Extension points defined in Alauda Kubernetes Suport Plugin</a></p>
+</li>
+<li>
+<p><a href="alibabacloud-ecs">Extension points defined in Alibaba Cloud ECS Plugin</a></p>
+</li>
+<li>
+<p><a href="all-changes">Extension points defined in All changes Plugin</a></p>
+</li>
+<li>
+<p><a href="android-signing">Extension points defined in Android Signing Plugin</a></p>
+</li>
+<li>
+<p><a href="ApicaLoadtest">Extension points defined in Apica Loadtest Plugin</a></p>
+</li>
+<li>
+<p><a href="appdome-build-2secure">Extension points defined in Appdome Build-2secure Plugin</a></p>
+</li>
+<li>
+<p><a href="artifact-manager-s3">Extension points defined in Artifact Manager on S3 Plugin</a></p>
+</li>
+<li>
+<p><a href="attention">Extension points defined in Attention Plugin</a></p>
+</li>
+<li>
+<p><a href="audit2db">Extension points defined in Audit to Database Plugin</a></p>
+</li>
+<li>
+<p><a href="audit-trail">Extension points defined in Audit Trail Plugin</a></p>
+</li>
+<li>
+<p><a href="authorize-project">Extension points defined in Authorize Project Plugin</a></p>
+</li>
+<li>
+<p><a href="aws-kinesis-consumer">Extension points defined in AWS Kinesis Consumer Plugin</a></p>
+</li>
+<li>
+<p><a href="cloudbees-bitbucket-branch-source">Extension points defined in Bitbucket Branch Source Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-bitbucket-pipeline">Extension points defined in Bitbucket Pipeline for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="block-queued-job">Extension points defined in Block Queued Job Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-pipeline-editor">Extension points defined in Blue Ocean Pipeline Editor Plugin</a></p>
+</li>
+<li>
+<p><a href="branch-api">Extension points defined in Branch API Plugin</a></p>
+</li>
+<li>
+<p><a href="build-alias-setter">Extension points defined in Build Alias Setter Plugin</a></p>
+</li>
+<li>
+<p><a href="build-cause-run-condition">Extension points defined in Build Cause Run Condition Plugin</a></p>
+</li>
+<li>
+<p><a href="build-failure-analyzer">Extension points defined in Build Failure Analyzer Plugin</a></p>
+</li>
+<li>
+<p><a href="build-keeper-plugin">Extension points defined in Build Keeper Plugin</a></p>
+</li>
+<li>
+<p><a href="build-pipeline-plugin">Extension points defined in Build Pipeline Plugin</a></p>
+</li>
+<li>
+<p><a href="environment-filter-utils">Extension points defined in Build Step Environment Filter Utilities Plugin</a></p>
+</li>
+<li>
+<p><a href="buildtriggerbadge">Extension points defined in Build Trigger Badge Plugin</a></p>
+</li>
+<li>
+<p><a href="build-view-column">Extension points defined in Build View Column Plugin</a></p>
+</li>
+<li>
+<p><a href="buildcontext-capture">Extension points defined in BuildContext Capture Plugin</a></p>
+</li>
+<li>
+<p><a href="buildgraph-view">Extension points defined in buildgraph-view Plugin</a></p>
+</li>
+<li>
+<p><a href="cas-plugin">Extension points defined in CAS Plugin</a></p>
+</li>
+<li>
+<p><a href="categorized-view">Extension points defined in categorized-view Plugin</a></p>
+</li>
+<li>
+<p><a href="checks-api">Extension points defined in Checks API Plugin</a></p>
+</li>
+<li>
+<p><a href="chroot">Extension points defined in Chroot Plugin</a></p>
+</li>
+<li>
+<p><a href="clearcase">Extension points defined in ClearCase Plugin</a></p>
+</li>
+<li>
+<p><a href="clearcase-ucm-plugin">Extension points defined in ClearCase UCM Plugin</a></p>
+</li>
+<li>
+<p><a href="electricflow">Extension points defined in CloudBees CD Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-custom-build-environment">Extension points defined in CloudBees Docker Custom Build Environment Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-traceability">Extension points defined in CloudBees Docker Traceability Plugin</a></p>
+</li>
+<li>
+<p><a href="codecover">Extension points defined in CodeCover Plugin</a></p>
+</li>
+<li>
+<p><a href="codesonar">Extension points defined in CodeSonar Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-commons">Extension points defined in Common API for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="conditional-buildstep">Extension points defined in Conditional BuildStep Plugin</a></p>
+</li>
+<li>
+<p><a href="config-file-provider">Extension points defined in Config File Provider Plugin</a></p>
+</li>
+<li>
+<p><a href="configuration-as-code-groovy">Extension points defined in Configuration as Code Plugin - Groovy Scripting Extension Plugin</a></p>
+</li>
+<li>
+<p><a href="configurationslicing">Extension points defined in Configuration Slicing Plugin</a></p>
+</li>
+<li>
+<p><a href="consul">Extension points defined in Consul Plugin</a></p>
+</li>
+<li>
+<p><a href="csp">Extension points defined in Content Security Policy Plugin</a></p>
+</li>
+<li>
+<p><a href="copyartifact">Extension points defined in Copy Artifact Plugin</a></p>
+</li>
+<li>
+<p><a href="credentials">Extension points defined in Credentials Plugin</a></p>
+</li>
+<li>
+<p><a href="custom-build-properties">Extension points defined in Custom Build Properties Plugin</a></p>
+</li>
+<li>
+<p><a href="CustomHistory">Extension points defined in CustomHistory Plugin</a></p>
+</li>
+<li>
+<p><a href="cvs">Extension points defined in CVS Plugin</a></p>
+</li>
+<li>
+<p><a href="dashboard-view">Extension points defined in Dashboard View Plugin</a></p>
+</li>
+<li>
+<p><a href="database">Extension points defined in Database Plugin</a></p>
+</li>
+<li>
+<p><a href="defensics">Extension points defined in Defensics Plugin</a></p>
+</li>
+<li>
+<p><a href="delivery-pipeline-plugin">Extension points defined in Delivery Pipeline Plugin</a></p>
+</li>
+<li>
+<p><a href="depgraph-view">Extension points defined in Dependency Graph Viewer Plugin</a></p>
+</li>
+<li>
+<p><a href="deploy">Extension points defined in Deploy to container Plugin</a></p>
+</li>
+<li>
+<p><a href="deployer-framework">Extension points defined in Deployer Framework Plugin</a></p>
+</li>
+<li>
+<p><a href="deployhub">Extension points defined in DeployHub Plugin</a></p>
+</li>
+<li>
+<p><a href="deployment-notification">Extension points defined in deployment-notification Plugin</a></p>
+</li>
+<li>
+<p><a href="design-library">Extension points defined in Design Library Plugin</a></p>
+</li>
+<li>
+<p><a href="diagnostics">Extension points defined in Diagnostics Plugin</a></p>
+</li>
+<li>
+<p><a href="display-url-api">Extension points defined in Display URL API Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-commons">Extension points defined in Docker Commons Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-workflow">Extension points defined in Docker Pipeline Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-slaves">Extension points defined in Docker Slaves Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-build-step">Extension points defined in docker-build-step Plugin</a></p>
+</li>
+<li>
+<p><a href="dtkit-api">Extension points defined in DTKit 2 API Plugin</a></p>
+</li>
+<li>
+<p><a href="durable-task">Extension points defined in Durable Task Plugin</a></p>
+</li>
+<li>
+<p><a href="elasticbox">Extension points defined in ElasticBox CI Plugin</a></p>
+</li>
+<li>
+<p><a href="envinject">Extension points defined in Environment Injector Plugin</a></p>
+</li>
+<li>
+<p><a href="Exclusion">Extension points defined in Exclusion Plugin</a></p>
+</li>
+<li>
+<p><a href="extensible-choice-parameter">Extension points defined in Extensible Choice Parameter Plugin</a></p>
+</li>
+<li>
+<p><a href="external-workspace-manager">Extension points defined in External Workspace Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="extreme-notification">Extension points defined in Extreme Notification Plugin</a></p>
+</li>
+<li>
+<p><a href="favorite">Extension points defined in Favorite Plugin</a></p>
+</li>
+<li>
+<p><a href="fstrigger">Extension points defined in Filesystem Trigger Plugin</a></p>
+</li>
+<li>
+<p><a href="flexible-publish">Extension points defined in Flexible Publish Plugin</a></p>
+</li>
+<li>
+<p><a href="cloudbees-folder">Extension points defined in Folders Plugin</a></p>
+</li>
+<li>
+<p><a href="forensics-api">Extension points defined in Forensics API Plugin</a></p>
+</li>
+<li>
+<p><a href="fortify">Extension points defined in Fortify Plugin</a></p>
+</li>
+<li>
+<p><a href="GatekeeperPlugin">Extension points defined in Gatekeeper Plugin</a></p>
+</li>
+<li>
+<p><a href="gating-core">Extension points defined in Gating Core Plugin</a></p>
+</li>
+<li>
+<p><a href="gcp-secrets-manager-credentials-provider">Extension points defined in GCP Secrets Manager Credentials Provider Plugin</a></p>
+</li>
+<li>
+<p><a href="gerrit-trigger">Extension points defined in Gerrit Trigger Plugin</a></p>
+</li>
+<li>
+<p><a href="git-client">Extension points defined in Git client Plugin</a></p>
+</li>
+<li>
+<p><a href="git">Extension points defined in Git Plugin</a></p>
+</li>
+<li>
+<p><a href="git-server">Extension points defined in Git server Plugin</a></p>
+</li>
+<li>
+<p><a href="gitee">Extension points defined in Gitee Plugin</a></p>
+</li>
+<li>
+<p><a href="github-oauth">Extension points defined in GitHub Authentication Plugin</a></p>
+</li>
+<li>
+<p><a href="github-pullrequest">Extension points defined in GitHub Integration Plugin</a></p>
+</li>
+<li>
+<p><a href="github">Extension points defined in GitHub Plugin</a></p>
+</li>
+<li>
+<p><a href="gitlab-oauth">Extension points defined in GitLab Authentication Plugin</a></p>
+</li>
+<li>
+<p><a href="gnat">Extension points defined in GNAT Plugin</a></p>
+</li>
+<li>
+<p><a href="google-cloud-backup">Extension points defined in Google Cloud Backup Plugin</a></p>
+</li>
+<li>
+<p><a href="google-cloudbuild">Extension points defined in Google Cloud Build Plugin</a></p>
+</li>
+<li>
+<p><a href="google-storage-plugin">Extension points defined in Google Cloud Storage Plugin</a></p>
+</li>
+<li>
+<p><a href="google-deployment-manager">Extension points defined in Google Deployment Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="google-cloud-health-check">Extension points defined in Google Health Check Plugin</a></p>
+</li>
+<li>
+<p><a href="hashicorp-vault-plugin">Extension points defined in HashiCorp Vault Plugin</a></p>
+</li>
+<li>
+<p><a href="cloudbees-jenkins-advisor">Extension points defined in Health Advisor by CloudBees Plugin</a></p>
+</li>
+<li>
+<p><a href="prqa-plugin">Extension points defined in Helix QAC Plugin</a></p>
+</li>
+<li>
+<p><a href="hipchat">Extension points defined in HipChat Plugin</a></p>
+</li>
+<li>
+<p><a href="hubot-steps">Extension points defined in Hubot Pipeline Steps Plugin</a></p>
+</li>
+<li>
+<p><a href="hyper-slaves">Extension points defined in Hyper.sh Slaves Plugin</a></p>
+</li>
+<li>
+<p><a href="instant-messaging">Extension points defined in instant-messaging Plugin</a></p>
+</li>
+<li>
+<p><a href="ivy">Extension points defined in Ivy Plugin</a></p>
+</li>
+<li>
+<p><a href="jacoco">Extension points defined in JaCoCo Plugin</a></p>
+</li>
+<li>
+<p><a href="jira">Extension points defined in Jira Plugin</a></p>
+</li>
+<li>
+<p><a href="jira-ext">Extension points defined in jira-ext Plugin</a></p>
+</li>
+<li>
+<p><a href="JiraTestResultReporter">Extension points defined in JiraTestResultReporter Plugin</a></p>
+</li>
+<li>
+<p><a href="ownership">Extension points defined in Job and Node ownership Plugin</a></p>
+</li>
+<li>
+<p><a href="github-autostatus">Extension points defined in Job and Stage monitoring Plugin</a></p>
+</li>
+<li>
+<p><a href="jobcacher">Extension points defined in Job Cacher Plugin</a></p>
+</li>
+<li>
+<p><a href="jobConfigHistory">Extension points defined in Job Configuration History Plugin</a></p>
+</li>
+<li>
+<p><a href="job-dsl">Extension points defined in Job DSL Plugin</a></p>
+</li>
+<li>
+<p><a href="job-restrictions">Extension points defined in Job Restrictions Plugin</a></p>
+</li>
+<li>
+<p><a href="jobcopy-builder">Extension points defined in Jobcopy Builder Plugin</a></p>
+</li>
+<li>
+<p><a href="junit">Extension points defined in JUnit Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-jwt">Extension points defined in JWT for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="jwt-support">Extension points defined in JWT Support Plugin</a></p>
+</li>
+<li>
+<p><a href="kpp-management-plugin">Extension points defined in Keychains and Provisioning Profiles Management Plugin</a></p>
+</li>
+<li>
+<p><a href="kubernetes-credentials-provider">Extension points defined in Kubernetes Credentials Provider Plugin</a></p>
+</li>
+<li>
+<p><a href="label-verifier">Extension points defined in Label Verifier Plugin</a></p>
+</li>
+<li>
+<p><a href="localization-support">Extension points defined in Localization Support Plugin</a></p>
+</li>
+<li>
+<p><a href="logstash">Extension points defined in Logstash Plugin</a></p>
+</li>
+<li>
+<p><a href="lucene-search">Extension points defined in Lucene-Search Plugin</a></p>
+</li>
+<li>
+<p><a href="mailer">Extension points defined in Mailer Plugin</a></p>
+</li>
+<li>
+<p><a href="ca-mat-performance-benchmarking-by-broadcom">Extension points defined in MAT Performance Benchmarking by Broadcom Plugin</a></p>
+</li>
+<li>
+<p><a href="matlab">Extension points defined in MATLAB Plugin</a></p>
+</li>
+<li>
+<p><a href="matrix-auth">Extension points defined in Matrix Authorization Strategy Plugin</a></p>
+</li>
+<li>
+<p><a href="matrix-combinations-parameter">Extension points defined in Matrix Combinations Plugin</a></p>
+</li>
+<li>
+<p><a href="matrix-project">Extension points defined in Matrix Project Plugin</a></p>
+</li>
+<li>
+<p><a href="maven-artifact-choicelistprovider">Extension points defined in Maven Artifact ChoiceListProvider (Nexus) Plugin</a></p>
+</li>
+<li>
+<p><a href="maven-plugin">Extension points defined in Maven Integration Plugin</a></p>
+</li>
+<li>
+<p><a href="repository">Extension points defined in Maven Repository Server Plugin</a></p>
+</li>
+<li>
+<p><a href="mercurial">Extension points defined in Mercurial Plugin</a></p>
+</li>
+<li>
+<p><a href="metrics-aggregation">Extension points defined in Metrics Aggregation Plugin</a></p>
+</li>
+<li>
+<p><a href="metrics">Extension points defined in Metrics Plugin</a></p>
+</li>
+<li>
+<p><a href="hp-application-automation-tools-plugin">Extension points defined in Micro Focus Application Automation Tools Plugin</a></p>
+</li>
+<li>
+<p><a href="misra-compliance-report-generator">Extension points defined in MISRA Compliance Report Plugin</a></p>
+</li>
+<li>
+<p><a href="mock-load-builder">Extension points defined in Mock Load Builder Plugin</a></p>
+</li>
+<li>
+<p><a href="mq-notifier">Extension points defined in MQ Notifier Plugin</a></p>
+</li>
+<li>
+<p><a href="multi-module-tests-publisher">Extension points defined in multi-module-tests-publisher Plugin</a></p>
+</li>
+<li>
+<p><a href="nirmata">Extension points defined in Nirmata Plugin</a></p>
+</li>
+<li>
+<p><a href="nodelabelparameter">Extension points defined in Node and Label parameter Plugin</a></p>
+</li>
+<li>
+<p><a href="node-iterator-api">Extension points defined in Node Iterator API Plugin</a></p>
+</li>
+<li>
+<p><a href="node-sharing-executor">Extension points defined in Node sharing executor Plugin</a></p>
+</li>
+<li>
+<p><a href="nodejs">Extension points defined in NodeJS Plugin</a></p>
+</li>
+<li>
+<p><a href="oauth-credentials">Extension points defined in OAuth Credentials Plugin</a></p>
+</li>
+<li>
+<p><a href="octoperf">Extension points defined in OctoPerf Load Testing Plugin</a></p>
+</li>
+<li>
+<p><a href="oki-docki">Extension points defined in oki-docki Plugin</a></p>
+</li>
+<li>
+<p><a href="one-shot-executor">Extension points defined in One-Shot Executor Plugin</a></p>
+</li>
+<li>
+<p><a href="oidc-provider">Extension points defined in OpenID Connect Provider Plugin</a></p>
+</li>
+<li>
+<p><a href="openid">Extension points defined in OpenID Plugin</a></p>
+</li>
+<li>
+<p><a href="openstack-cloud">Extension points defined in OpenStack Cloud Plugin</a></p>
+</li>
+<li>
+<p><a href="macstadium-orka">Extension points defined in Orka by MacStadium Plugin</a></p>
+</li>
+<li>
+<p><a href="parameterized-trigger">Extension points defined in Parameterized Trigger Plugin</a></p>
+</li>
+<li>
+<p><a href="pending-changes">Extension points defined in Pending Changes Plugin</a></p>
+</li>
+<li>
+<p><a href="performance">Extension points defined in Performance Plugin</a></p>
+</li>
+<li>
+<p><a href="periodicbackup">Extension points defined in Periodic Backup Plugin</a></p>
+</li>
+<li>
+<p><a href="hudson-pview-plugin">Extension points defined in Personal View Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-pipeline-api-impl">Extension points defined in Pipeline implementation for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="pipeline-input-notification">Extension points defined in Pipeline Input Step Notification Plugin</a></p>
+</li>
+<li>
+<p><a href="pipeline-maven">Extension points defined in Pipeline Maven Integration Plugin</a></p>
+</li>
+<li>
+<p><a href="workflow-api">Extension points defined in Pipeline: API Plugin</a></p>
+</li>
+<li>
+<p><a href="workflow-cps-global-lib">Extension points defined in Pipeline: Deprecated Groovy Libraries Plugin</a></p>
+</li>
+<li>
+<p><a href="workflow-step-api">Extension points defined in Pipeline: Step API Plugin</a></p>
+</li>
+<li>
+<p><a href="pom2config">Extension points defined in pom2config Plugin</a></p>
+</li>
+<li>
+<p><a href="port-allocator">Extension points defined in Port Allocator Plugin</a></p>
+</li>
+<li>
+<p><a href="pretested-integration">Extension points defined in Pretested Integration Plugin</a></p>
+</li>
+<li>
+<p><a href="PrioritySorter">Extension points defined in Priority Sorter Plugin</a></p>
+</li>
+<li>
+<p><a href="proc-cleaner-plugin">Extension points defined in Process cleaner Plugin</a></p>
+</li>
+<li>
+<p><a href="project-inheritance">Extension points defined in Project Inheritance Plugin</a></p>
+</li>
+<li>
+<p><a href="promoted-builds">Extension points defined in promoted builds Plugin</a></p>
+</li>
+<li>
+<p><a href="protecode-sc">Extension points defined in Protecode SC Plugin</a></p>
+</li>
+<li>
+<p><a href="pubsub-light">Extension points defined in Pub-Sub "light" Bus Plugin</a></p>
+</li>
+<li>
+<p><a href="publish-over-cifs">Extension points defined in Publish Over CIFS Plugin</a></p>
+</li>
+<li>
+<p><a href="publish-over-ftp">Extension points defined in Publish Over FTP Plugin</a></p>
+</li>
+<li>
+<p><a href="publish-over-ssh">Extension points defined in Publish Over SSH Plugin</a></p>
+</li>
+<li>
+<p><a href="pull-request-monitoring">Extension points defined in Pull Request Monitoring Plugin</a></p>
+</li>
+<li>
+<p><a href="puppet">Extension points defined in Puppet Plugin</a></p>
+</li>
+<li>
+<p><a href="rabbitmq-consumer">Extension points defined in RabbitMQ Consumer Plugin</a></p>
+</li>
+<li>
+<p><a href="rebuild">Extension points defined in Rebuilder Plugin</a></p>
+</li>
+<li>
+<p><a href="recipe">Extension points defined in Recipe Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-rest">Extension points defined in REST API for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-rest-impl">Extension points defined in REST Implementation for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="run-condition">Extension points defined in Run Condition Plugin</a></p>
+</li>
+<li>
+<p><a href="run-selector">Extension points defined in Run Selector Plugin</a></p>
+</li>
+<li>
+<p><a href="saltstack">Extension points defined in SaltStack Plugin</a></p>
+</li>
+<li>
+<p><a href="scm-api">Extension points defined in SCM API Plugin</a></p>
+</li>
+<li>
+<p><a href="scm-manager">Extension points defined in SCM-Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="scoring-load-balancer">Extension points defined in Scoring Load Balancer Plugin</a></p>
+</li>
+<li>
+<p><a href="script-security">Extension points defined in Script Security Plugin</a></p>
+</li>
+<li>
+<p><a href="scriptler">Extension points defined in Scriptler Plugin</a></p>
+</li>
+<li>
+<p><a href="sectioned-view">Extension points defined in Sectioned View Plugin</a></p>
+</li>
+<li>
+<p><a href="security-inspector">Extension points defined in Security Inspector Plugin</a></p>
+</li>
+<li>
+<p><a href="sematext">Extension points defined in Sematext Plugin</a></p>
+</li>
+<li>
+<p><a href="shared-objects">Extension points defined in Shared Objects Plugin</a></p>
+</li>
+<li>
+<p><a href="simple-theme-plugin">Extension points defined in Simple Theme Plugin</a></p>
+</li>
+<li>
+<p><a href="skytap">Extension points defined in Skytap Cloud CI Plugin</a></p>
+</li>
+<li>
+<p><a href="slack">Extension points defined in Slack Notification Plugin</a></p>
+</li>
+<li>
+<p><a href="ssh-agent">Extension points defined in SSH Agent Plugin</a></p>
+</li>
+<li>
+<p><a href="ssh-slaves">Extension points defined in SSH Build Agents Plugin</a></p>
+</li>
+<li>
+<p><a href="ssh-credentials">Extension points defined in SSH Credentials Plugin</a></p>
+</li>
+<li>
+<p><a href="sshd">Extension points defined in SSH server Plugin</a></p>
+</li>
+<li>
+<p><a href="subversion">Extension points defined in Subversion Plugin</a></p>
+</li>
+<li>
+<p><a href="suite-test-groups-publisher">Extension points defined in suite-test-groups-publisher Plugin</a></p>
+</li>
+<li>
+<p><a href="sumologic-publisher">Extension points defined in Sumologic Publisher Plugin</a></p>
+</li>
+<li>
+<p><a href="support-core">Extension points defined in Support Core Plugin</a></p>
+</li>
+<li>
+<p><a href="theme-manager">Extension points defined in Theme Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="thycotic-vault">Extension points defined in Thycotic DevOps Secrets Vault Plugin</a></p>
+</li>
+<li>
+<p><a href="token-macro">Extension points defined in Token Macro Plugin</a></p>
+</li>
+<li>
+<p><a href="unique-id">Extension points defined in Unique ID Library Plugin</a></p>
+</li>
+<li>
+<p><a href="update-sites-manager">Extension points defined in UpdateSites Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="urltrigger">Extension points defined in URLTrigger Plugin</a></p>
+</li>
+<li>
+<p><a href="vectorcast-coverage">Extension points defined in VectorCAST Coverage Plugin</a></p>
+</li>
+<li>
+<p><a href="vectorcast-execution">Extension points defined in VectorCAST Execution Plugin</a></p>
+</li>
+<li>
+<p><a href="vsphere-cloud">Extension points defined in vSphere Plugin</a></p>
+</li>
+<li>
+<p><a href="warnings-ng">Extension points defined in Warnings Next Generation Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-web">Extension points defined in Web for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="windows-slaves">Extension points defined in WMI Windows Agents Plugin</a></p>
+</li>
+<li>
+<p><a href="xunit">Extension points defined in xUnit Plugin</a></p>
+</li>
+<li>
+<p><a href="yet-another-docker-plugin">Extension points defined in Yet Another Docker Plugin</a></p>
+</li>
+<li>
+<p><a href="zscaler-iac-scan">Extension points defined in Zscaler IaC Scanner Plugin</a></p>
+</li>
+</ul>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<jio-footer></jio-footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
