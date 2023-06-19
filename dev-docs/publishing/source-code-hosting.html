@@ -530,49 +530,59 @@ Some plugins we distribute are currently maintained outside the <code>jenkinsci<
 <div class="paragraph">
 <p>This table shows the permissions currently granted to contributors in the <code>jenkinsci</code> GitHub repositories, excluding organization owners with full permissions to every repository:</p>
 </div>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-$(document).ready(function() {
-    $('#permissions').DataTable( {
-        ajax: {
-            type: 'get',
-            url: 'https://reports.jenkins.io/github-jenkinsci-permissions-report.json',
-            dataSrc: ''
-        },
-        columns: [
-            {
-                title: "Repository",
-                render: function(data, type, row, metadata) {
-                    return '<a href="https://github.com/jenkinsci/' + data + '" target="_blank" rel="noreferrer noopener">' + data + '</a>';
-                }
-            },
-            {
-                title: "User",
-                render: function(data, type, row, metadata) {
-                    return '<a href="https://github.com/' + data + '" target="_blank" rel="noreferrer noopener">' + data + '</a>';
-                }
-            },
-            { title: "Access" }
-        ]
-    } );
-} );
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#permissions').DataTable({
+                ajax: {
+                    method: 'GET',
+                    url: 'https://reports.jenkins.io/github-jenkinsci-permissions-report.json',
+                    dataSrc: '',
+                    dataType: 'json',
+                },
+                columns: [
+                    {
+                        title: "Repository",
+                        render: function (data, type, row, metadata) {
+                            return '<a href="https://github.com/jenkinsci/' + data + '" target="_blank" rel="noreferrer noopener">' + data + '</a>';
+                        }
+                    },
+                    {
+                        title: "User",
+                        render: function (data, type, row, metadata) {
+                            return '<a href="https://github.com/' + data + '" target="_blank" rel="noreferrer noopener">' + data + '</a>';
+                        }
+                    },
+                    {
+                        title: "Access"
+                    }
+                ]
+            });
+        });
     </script>
-    <table id="permissions" class="display">
-      <thead>
-        <tr>
-          <th>Repository</th>
-          <th>User</th>
-          <th>Access</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <tr>
-          <th>Repository</th>
-          <th>User</th>
-          <th>Access</th>
-          </tr>
-      </tfoot>
+
+    <table id="permissions" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Repository</th>
+                <th>User</th>
+                <th>Access</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Repository</th>
+                <th>User</th>
+                <th>Access</th>
+            </tr>
+        </tfoot>
     </table>
 <nav class="pagination">
   <span class="prev"><a href="style-guides.html">Style Guides</a></span>
