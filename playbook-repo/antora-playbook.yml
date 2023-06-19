@@ -18,4 +18,8 @@ ui:
   bundle:
     url: https://github.com/Vandit1604/jenkins-ui-project/raw/main/build/ui-bundle.zip
     snapshot: true
+  supplemental_files:
+    - path: js/permissions-table.js
+      contents: supplemental-ui/js/permissions-table.js
+
 # --ui-bundle-url=/home/vandit/gsoc-project-demo/jenkins-ui-project/build/ui-bundle.zip
