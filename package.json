@@ -54,6 +54,7 @@
     "vinyl-fs": "~3.0"
   },
   "dependencies": {
-    "@jenkinsci/jenkins-io-components": "^1.23.1"
+    "@jenkinsci/jenkins-io-components": "^1.23.1",
+    "simple-datatables": "^7.2.0"
   }
 }
