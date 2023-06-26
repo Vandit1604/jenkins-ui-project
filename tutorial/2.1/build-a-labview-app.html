@@ -82,8 +82,8 @@
 </div>
 <div class="paragraph">
 <p><strong>Duration:</strong> This tutorial takes 20-40 minutes to complete (assuming you&#8217;ve
-already met the <a href="#prerequisites">prerequisites</a> below). The exact duration will
-depend on the speed of your machine and whether or not you&#8217;ve already <a href="/doc/book/installing/">installed Jenkins</a> from <a href="..">another tutorial</a>.</p>
+already met the include::partial$_prerequisites[prerequisites] below). The exact duration will
+depend on the speed of your machine and whether or not you&#8217;ve already <a href="/doc/book/installing/">installed Jenkins</a> from <a href="#:tutorials:ROOT:index.adoc" class="xref unresolved">another tutorial</a>.</p>
 </div>
 <div class="paragraph">
 <p>You can stop this tutorial at any point in time and continue from where you left off.</p>
@@ -144,7 +144,7 @@ depend on the speed of your machine and whether or not you&#8217;ve already <a h
 <p>The <a href="https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/cli_running_operations/">LabVIEW Command Line Interface (LabVIEWCLI)</a> is installed alongside LabVIEW 2018+ and is used to run LabVIEW commands, such as unit testing, through the Command Line. To use the LabVIEWCLI, you must enable VI Server: <strong>Tools &gt;&gt; Options &gt;&gt; VI Server</strong>. Make sure the TCP/IP checkbox is enabled and leave the Port as 3363.</p>
 </div>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/labview-01-labviewcli-setup.png" alt="LabVIEWCLI setup" width="100%"></span></p>
+<p><span class="image"><img src="_images/labview-01-labviewcli-setup.png" alt="LabVIEWCLI setup" width="100%"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -188,26 +188,26 @@ depend on the speed of your machine and whether or not you&#8217;ve already <a h
 </li>
 <li>
 <p>Click on the <strong>New</strong> button next to Repositories:
-<span class="image unresolved"><img src="tutorials/labview-02-new-repo.png" alt="GitHub New Repo" width="80%"></span></p>
+<span class="image"><img src="_images/labview-02-new-repo.png" alt="GitHub New Repo" width="80%"></span></p>
 </li>
 <li>
 <p>On the <strong>Create a new repository</strong> screen, fill out the Repository name and Description:
-<span class="image unresolved"><img src="tutorials/labview-03-create-repo-buildsystem.png" alt="GitHub Create myBuildsystem Repo" width="100%"></span></p>
+<span class="image"><img src="_images/labview-03-create-repo-buildsystem.png" alt="GitHub Create myBuildsystem Repo" width="100%"></span></p>
 </li>
 <li>
 <p>Click Create repository to create the repository.</p>
 </li>
 <li>
 <p>Repeat steps 2-4 using the below information. This will be the repository for the actual example application.
-<span class="image unresolved"><img src="tutorials/labview-04-create-repo-my-application.png" alt="GitHub Create myApplication Repo" width="100%"></span></p>
+<span class="image"><img src="_images/labview-04-create-repo-my-application.png" alt="GitHub Create myApplication Repo" width="100%"></span></p>
 </li>
 <li>
 <p>Repeat steps 2-4 with the following information. This will be used to host images for diffing.
-<span class="image unresolved"><img src="tutorials/labview-05-create-repo-mypicrepo.png" alt="GitHub Create myPicRepo" width="100%"></span></p>
+<span class="image"><img src="_images/labview-05-create-repo-mypicrepo.png" alt="GitHub Create myPicRepo" width="100%"></span></p>
 </li>
 <li>
 <p>Open a terminal with Git. If you installed Git Bash on Windows, open Git Bash:
-<span class="image unresolved"><img src="tutorials/labview-06-gitbash-window.png" alt="GitHub Create myPicRepo" width="100%"></span></p>
+<span class="image"><img src="_images/labview-06-gitbash-window.png" alt="GitHub Create myPicRepo" width="100%"></span></p>
 </li>
 <li>
 <p>Create a local directory to maintain your Jenkins files. For this example, we’ll be using the <code>C:/Users/&lt;User&gt;/Documents/GitHub</code> directory. To create and navigate to this directory, run the following commands:</p>
@@ -240,7 +240,7 @@ depend on the speed of your machine and whether or not you&#8217;ve already <a h
 </li>
 <li>
 <p>In Windows Explorer, place the contents of <code>../myBuildsystem</code> from the example files located <a href="http://www.ni.com/example/lv-ci">here</a> in the <code>../myBuildSystem</code> directory located on your machine:
-<span class="image unresolved"><img src="tutorials/labview-08-myBuildSystem-directory.png" alt="myBuildSystem directory" width="80%"></span></p>
+<span class="image"><img src="_images/labview-08-myBuildSystem-directory.png" alt="myBuildSystem directory" width="80%"></span></p>
 </li>
 <li>
 <p>Navigate to the directory in the Git terminal, and run the following command to add all files within the directory to the Git repository:</p>
@@ -271,11 +271,11 @@ git commit -m “Added files”</pre>
 </li>
 <li>
 <p>Next, we’ll perform similar steps to set up the example application repository. In Windows Explorer, place the contents of <code>../myApplication</code> from the example files located <a href="http://www.ni.com/example/lv-ci">here</a> in the <code>../myApplication</code> directory located on your machine:
-<span class="image unresolved"><img src="tutorials/labview-09-myApplication-directory.png" alt="myApplication directory" width="70%"></span></p>
+<span class="image"><img src="_images/labview-09-myApplication-directory.png" alt="myApplication directory" width="70%"></span></p>
 </li>
 <li>
 <p>Open up <code>Jenkinsfile</code> in the <code>../myApplication</code> directory. Change the lvVersion and lvBitness variables according to which version of LabVIEW you are using. For instance, with LabVIEW 2018 32-bit, your Jenkinsfile will look like this:
-<span class="image unresolved"><img src="tutorials/labview-10-edit-jenkinsfile.png" alt="edit jenkinsfile" width="100%"></span></p>
+<span class="image"><img src="_images/labview-10-edit-jenkinsfile.png" alt="edit jenkinsfile" width="100%"></span></p>
 </li>
 <li>
 <p>Run the commands from steps 12-14, this time for the myApplication repository:</p>
@@ -312,14 +312,14 @@ git push origin master</pre>
 </li>
 <li>
 <p>Enter a descriptive name for the token, such as ‘Jenkins LabVIEW Token’, and select the <em>repo</em> scope.
-<span class="image unresolved"><img src="tutorials/labview-11-generate-access-token.png" alt="generate access token" width="100%"></span></p>
+<span class="image"><img src="_images/labview-11-generate-access-token.png" alt="generate access token" width="100%"></span></p>
 </li>
 <li>
 <p>At the bottom of the page, click <strong>Generate token</strong>.</p>
 </li>
 <li>
 <p>Copy down your Personal access token. This is your only chance to copy the token. Keep your access token safe, so others can’t access your GitHub.
-<span class="image unresolved"><img src="tutorials/labview-12-post-access-token-gen.png" alt="post access token" width="100%"></span></p>
+<span class="image"><img src="_images/labview-12-post-access-token-gen.png" alt="post access token" width="100%"></span></p>
 </li>
 </ol>
 </div>
@@ -346,7 +346,7 @@ git push origin master</pre>
 </li>
 <li>
 <p>The first time you launch Jenkins, you will need to unlock it with the admin password from the Console log output
-<span class="image unresolved"><img src="tutorials/labview-13-unlocking-jenkins.png" alt="unlocking jenkins" width="100%"></span></p>
+<span class="image"><img src="_images/labview-13-unlocking-jenkins.png" alt="unlocking jenkins" width="100%"></span></p>
 </li>
 </ul>
 </div>
@@ -372,7 +372,7 @@ git push origin master</pre>
 </li>
 <li>
 <p>Once plugins are complete, you’ll be prompted to create a user. Enter your credentials and click Save and Continue.
-<span class="image unresolved"><img src="tutorials/labview-14-create-first-user.png" alt="create first user" width="100%"></span></p>
+<span class="image"><img src="_images/labview-14-create-first-user.png" alt="create first user" width="100%"></span></p>
 </li>
 <li>
 <p>On the following Instance Configuration page, leave the Jenkins URL as-is.</p>
@@ -401,14 +401,14 @@ git push origin master</pre>
 </li>
 <li>
 <p>Click <strong>Add</strong> to add a new environment variable. Fill out the Name as shown below (BUILD_SYSTEM_REPO), and enter myBuildSystem in the Value field:
-<span class="image unresolved"><img src="tutorials/labview-15-build-sys-repo-env-var.png" alt="build system repo environment variable" width="100%"></span></p>
+<span class="image"><img src="_images/labview-15-build-sys-repo-env-var.png" alt="build system repo environment variable" width="100%"></span></p>
 </li>
 <li>
 <p>Click <strong>Add</strong> another time and add the LV_BUILD_OUTPUT_DIR environment variable. This should be an <em>empty local directory</em> anywhere on your computer, that LabVIEW will build and output files to. For instance, you may use something like <code>C:\Windows\Temp\jenkins</code>.</p>
 </li>
 <li>
 <p>Click <strong>Add</strong> two more times to add the ORG_NAME variable and the PIC_REPO variable. The value fields for these variables should be your organization’s name (instead of ‘branchNI’) and myPicRepo, respectively. These are the two repositories we created in the <strong>GitHub Setup</strong> section. Your Environment variables section should look like this:
-<span class="image unresolved"><img src="tutorials/labview-16-final-env-vars.png" alt="Final environment vars" width="100%"></span></p>
+<span class="image"><img src="_images/labview-16-final-env-vars.png" alt="Final environment vars" width="100%"></span></p>
 </li>
 <li>
 <p>Click <strong>Save</strong> at the bottom of the screen to save your changes.</p>
@@ -418,7 +418,7 @@ git push origin master</pre>
 </li>
 <li>
 <p>Use the following settings, entering your GitHub access token as the ‘Secret’ field.
-<span class="image unresolved"><img src="tutorials/labview-17-github-secret-text.png" alt="add github secret text" width="100%"></span></p>
+<span class="image"><img src="_images/labview-17-github-secret-text.png" alt="add github secret text" width="100%"></span></p>
 </li>
 </ol>
 </div>
@@ -435,7 +435,7 @@ git push origin master</pre>
 </li>
 <li>
 <p>Under the <em>Global Pipeline Libraries section</em>, click <strong>Add</strong> and fill out the credentials for the myBuildSystem repository. Make sure to check the <strong>Load implicitly</strong> checkbox. Your options should look like this:
-<span class="image unresolved"><img src="tutorials/labview-18-set-load-implicitly.png" alt="set load implicitly" width="100%"></span></p>
+<span class="image"><img src="_images/labview-18-set-load-implicitly.png" alt="set load implicitly" width="100%"></span></p>
 <div class="ulist">
 <ul>
 <li>
@@ -446,23 +446,23 @@ git push origin master</pre>
 </li>
 <li>
 <p>Now, we’ll want to select the Retrieval method. For this example, we’ll use Modern SCM. Select the <strong>Modern SCM</strong> radio button, followed by the <strong>GitHub</strong> radio button under <em>Source Code Management</em>:
-<span class="image unresolved"><img src="tutorials/labview-19-select-modern-scm.png" alt="set modern scm" width="100%"></span></p>
+<span class="image"><img src="_images/labview-19-select-modern-scm.png" alt="set modern scm" width="100%"></span></p>
 </li>
 <li>
 <p>Start by adding Credentials. Click the <strong>Add</strong> dropdown next to the credentials field &gt;&gt; <strong>Jenkins</strong>.
-<span class="image unresolved"><img src="tutorials/labview-20-click-add-credentials.png" alt="click add credentials" width="100%"></span></p>
+<span class="image"><img src="_images/labview-20-click-add-credentials.png" alt="click add credentials" width="100%"></span></p>
 </li>
 <li>
 <p>On the Jenkins Credentials Provider screen, leave the default options, and enter your GitHub Username. The Password will be your GitHub Access Token. Click <strong>Add</strong> once the credentials are filled out.
-<span class="image unresolved"><img src="tutorials/labview-21-enter-credentials.png" alt="enter credentials" width="100%"></span></p>
+<span class="image"><img src="_images/labview-21-enter-credentials.png" alt="enter credentials" width="100%"></span></p>
 </li>
 <li>
 <p>Once the credentials are created, select them from the Credentials dropdown.
-<span class="image unresolved"><img src="tutorials/labview-22-select-creds-from-dropdown.png" alt="select credentials from dropdown" width="100%"></span></p>
+<span class="image"><img src="_images/labview-22-select-creds-from-dropdown.png" alt="select credentials from dropdown" width="100%"></span></p>
 </li>
 <li>
 <p>Fill out the <em>Owner</em> field and select <em>myBuildSystem</em> from the <em>Repository</em> dropdown. Leave the other options as-is. Your fields should look like this:
-<span class="image unresolved"><img src="tutorials/labview-23-final-global-pipeline-lib-settings.png" alt="final global pipeline lib settings" width="100%"></span></p>
+<span class="image"><img src="_images/labview-23-final-global-pipeline-lib-settings.png" alt="final global pipeline lib settings" width="100%"></span></p>
 </li>
 <li>
 <p>Click <strong>Save</strong> at the bottom of the screen to save your changes.</p>
@@ -482,7 +482,7 @@ git push origin master</pre>
 <ol class="arabic">
 <li>
 <p>From the Jenkins dashboard, select <strong>New Item</strong>. Enter a name for the item and select <strong>GitHub Organization</strong>.
-<span class="image unresolved"><img src="tutorials/labview-24-create-github-item.png" alt="create github item" width="100%"></span></p>
+<span class="image"><img src="_images/labview-24-create-github-item.png" alt="create github item" width="100%"></span></p>
 </li>
 <li>
 <p>Click <strong>OK</strong> to create the item. You will be redirected to the configuration page.</p>
@@ -502,11 +502,11 @@ git push origin master</pre>
 </li>
 <li>
 <p>Make sure the <em>Script Path</em> value is Jenkinsfile. Your <em>Projects</em> section should look like this:
-<span class="image unresolved"><img src="tutorials/labview-25-github-item-project-settings.png" alt="github item project settings" width="100%"></span></p>
+<span class="image"><img src="_images/labview-25-github-item-project-settings.png" alt="github item project settings" width="100%"></span></p>
 </li>
 <li>
 <p>Under the <em>Scan Organization Triggers</em> section, select the Interval that you want Jenkins to scan your repository for changes. If Jenkins detects a change, it will initiate the testing and diffing process. For this example, we will use 10 minutes.
-<span class="image unresolved"><img src="tutorials/labview-26-scan-org-trigger-set.png" alt="set scan organization triggers" width="100%"></span></p>
+<span class="image"><img src="_images/labview-26-scan-org-trigger-set.png" alt="set scan organization triggers" width="100%"></span></p>
 <div class="ulist">
 <ul>
 <li>
@@ -549,29 +549,29 @@ git checkout myBranch</pre>
 </li>
 <li>
 <p>Expand the Build Specifications, and double click <em>myBuildSpec</em> to open its properties:
-<span class="image unresolved"><img src="tutorials/labview-27-open-build-spec.png" alt="open LabVIEW project build spec" width="100%"></span></p>
+<span class="image"><img src="_images/labview-27-open-build-spec.png" alt="open LabVIEW project build spec" width="100%"></span></p>
 </li>
 <li>
 <p>Modify the <em>Destination directory</em> to be the specific directory you set for the LV_BUILD_OUTPUT_DIR environment variable value, in the <strong>Jenkins Setup</strong> section. This will be the output directory of the build specification.</p>
 </li>
 <li>
 <p>Next, we will modify the VIs. First, open <code>Add.vi</code>. This is a simple VI that adds two numbers together and returns a result.
-<span class="image unresolved"><img src="tutorials/labview-28-add-vi-orig.png" alt="add.vi orig" width="100%"></span></p>
+<span class="image"><img src="_images/labview-28-add-vi-orig.png" alt="add.vi orig" width="100%"></span></p>
 </li>
 <li>
 <p>Make some cosmetic changes to <code>Add.vi</code> (don’t change anything that would alter the functionality of the VI), like so:
-<span class="image unresolved"><img src="tutorials/labview-29-add-vi-changed.png" alt="add.vi changed" width="100%"></span></p>
+<span class="image"><img src="_images/labview-29-add-vi-changed.png" alt="add.vi changed" width="100%"></span></p>
 </li>
 <li>
 <p>Click <strong>File &gt;&gt; Save</strong> to save the VI changes, and close <code>Add.vi</code>.</p>
 </li>
 <li>
 <p>Now, open <code>Subtract.vi</code>. This is a simple VI that subtracts two numbers and returns a result.
-<span class="image unresolved"><img src="tutorials/labview-30-subtract-vi-orig.png" alt="subtract.vi orig" width="100%"></span></p>
+<span class="image"><img src="_images/labview-30-subtract-vi-orig.png" alt="subtract.vi orig" width="100%"></span></p>
 </li>
 <li>
 <p>Make cosmetic changes to <code>Subtract.vi</code>; for example:
-<span class="image unresolved"><img src="tutorials/labview-31-subtract-vi-changed.png" alt="subtract.vi changed" width="100%"></span></p>
+<span class="image"><img src="_images/labview-31-subtract-vi-changed.png" alt="subtract.vi changed" width="100%"></span></p>
 </li>
 <li>
 <p>Click <strong>File &gt;&gt; Save</strong> to save changes, and close <code>Subtract.vi</code>.</p>
@@ -594,46 +594,46 @@ git push origin myBranch</pre>
 </li>
 <li>
 <p>Navigate to the ‘myBranch’ Branch using the dropdown:
-<span class="image unresolved"><img src="tutorials/labview-32-navigate-to-github-branch.png" alt="navigate to github branch" width="100%"></span></p>
+<span class="image"><img src="_images/labview-32-navigate-to-github-branch.png" alt="navigate to github branch" width="100%"></span></p>
 </li>
 <li>
 <p>On the <em>myBranch</em> page, click on <strong>New pull request</strong>.</p>
 </li>
 <li>
 <p>Fill out the pull request details as shown. Click <strong>Create pull request</strong> to create the request.
-<span class="image unresolved"><img src="tutorials/labview-33-open-pr-details.png" alt="open PR details" width="100%"></span></p>
+<span class="image"><img src="_images/labview-33-open-pr-details.png" alt="open PR details" width="100%"></span></p>
 </li>
 <li>
 <p>Wait for Jenkins to perform its check based on the interval you set, or navigate to your <strong>Jenkins dashboard &gt;&gt; GitHub Builder (or whatever you named your Jenkins pipeline) &gt;&gt; Scan Organization Now</strong>. Then, navigate to <strong>myApplication &gt;&gt; Scan Repository Now</strong>.</p>
 </li>
 <li>
 <p>To view the progress of your job, you can navigate to the <strong>Pull Requests</strong> tab.
-<span class="image unresolved"><img src="tutorials/labview-34-jenkins-pr-tab.png" alt="jenkins pr tab" width="100%"></span></p>
+<span class="image"><img src="_images/labview-34-jenkins-pr-tab.png" alt="jenkins pr tab" width="100%"></span></p>
 </li>
 <li>
 <p>Click on the pull request name (<em>PR-1</em> in this case). The progress of each step is displayed on the main page. The <em>Build History</em> section on the bottom left displays the jobs run.
-<span class="image unresolved"><img src="tutorials/labview-35-jenkins-pr-detail.png" alt="jenkins pr detail" width="100%"></span></p>
+<span class="image"><img src="_images/labview-35-jenkins-pr-detail.png" alt="jenkins pr detail" width="100%"></span></p>
 </li>
 <li>
 <p>If the job was successful, each stage should be Green, and the latest Build in the <em>Build History</em> section should have a blue dot next to it. Additionally, you’ll see the latest artifacts (files you can upload to Jenkins), and the unit test results:
-<span class="image unresolved"><img src="tutorials/labview-36-jenkins-build-artifacts.png" alt="jenkins build artifacts" width="100%"></span></p>
+<span class="image"><img src="_images/labview-36-jenkins-build-artifacts.png" alt="jenkins build artifacts" width="100%"></span></p>
 </li>
 <li>
 <p>If you navigate to your Pull Request on GitHub (<strong>Repository Page &gt;&gt; Pull requests tab &gt;&gt; Click on the Pull Request</strong>), you should also see the comment that Jenkins posted.
-<span class="image unresolved"><img src="tutorials/labview-37-github-pr-with-comment.png" alt="github pr with comment" width="100%"></span></p>
+<span class="image"><img src="_images/labview-37-github-pr-with-comment.png" alt="github pr with comment" width="100%"></span></p>
 </li>
 <li>
 <p>If you’re satisfied with the results, you can scroll to the bottom of the Pull Request and click <strong>Merge pull request</strong> to merge the changes with the master branch.
-<span class="image unresolved"><img src="tutorials/labview-38-github-merge-pr-button.png" alt="github merge pr button" width="100%"></span></p>
+<span class="image"><img src="_images/labview-38-github-merge-pr-button.png" alt="github merge pr button" width="100%"></span></p>
 </li>
 <li>
 <p>If the job was not successful, on the Pull Request page in Jenkins, click on the build number that failed, and click on Console Output on the left sidebar to view error information.
-<span class="image unresolved"><img src="tutorials/labview-39-jenkins-pr-details.png" alt="jenkins pr details" width="100%"></span></p>
+<span class="image"><img src="_images/labview-39-jenkins-pr-details.png" alt="jenkins pr details" width="100%"></span></p>
 </li>
 </ol>
 </div>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/labview-40-jenkins-console-output.png" alt="jenkins console output" width="100%"></span></p>
+<p><span class="image"><img src="_images/labview-40-jenkins-console-output.png" alt="jenkins console output" width="100%"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -667,7 +667,8 @@ updates.</p>
 </ul>
 </div>
 <hr>
-Unresolved include directive in modules/ROOT/pages/build-a-labview-app.adoc - include::_partials/_feedback-footer.html[]
+Unresolved include directive in modules/ROOT/pages/build-a-labview-app.adoc - include::partial:partial$_feedback-footer.html[]
+Unresolved include directive in modules/ROOT/pages/build-a-labview-app.adoc - include::partial-2:_feedback-footer.html[]
 </div>
 </article>
   </div>

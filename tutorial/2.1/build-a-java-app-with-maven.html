@@ -88,28 +88,29 @@ tests are saved to a JUnit XML report.</p>
 </div>
 <div class="paragraph">
 <p><strong>Duration:</strong> This tutorial takes 20-40 minutes to complete (assuming you&#8217;ve
-already met the <a href="#prerequisites">prerequisites</a> below). The exact duration will
+already met the <a href="#:partial$_prerequisites.adoc" class="xref unresolved">prerequisites</a> below). The exact duration will
 depend on the speed of your machine and whether or not you&#8217;ve already
-<a href="#run-jenkins-in-docker">run Jenkins in Docker</a> from <a href="..">another tutorial</a>.</p>
+<a href="#run-jenkins-in-docker">run Jenkins in Docker</a> from <a href="index.html" class="xref page">another tutorial</a>.</p>
 </div>
 <div class="paragraph">
 <p>You can stop this tutorial at any point in time and continue from where you left
 off.</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;ve already run through <a href="..">another tutorial</a>, you can skip the
-<a href="#prerequisites">Prerequisites</a> and <a href="#run-jenkins-in-docker">Run Jenkins in
-Docker</a> sections below and proceed on to <a href="#fork-sample-repository">forking the
+<p>If you&#8217;ve already run through <a href="index.html" class="xref page">another tutorial</a>, you can skip the
+<a href="#:partial$_prerequisites.adoc" class="xref unresolved">prerequisites</a> and <a href="#run-jenkins-in-docker">Run Jenkins in
+Docker</a> sections below and proceed on to <a href="#:partial$_fork-sample-repository.adoc" class="xref unresolved">forking the
 sample repository</a>. (Just ensure you have
 <a href="https://git-scm.com/downloads">Git</a> installed locally.) If you need to
 restart Jenkins, simply follow the restart instructions in
-<a href="#stopping-and-restarting-jenkins">Stopping and restarting Jenkins</a> and then
+<a href="#user-docs:installing-jenkins:_partials$_setup-wizard-for-tutorials.adoc" class="xref unresolved">run Jenkins in Docker</a> and then
 proceed on.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>For this tutorial, you will require:</p>
 </div>
@@ -150,8 +151,10 @@ also has access to the other tools used throughout this tutorial.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_run_jenkins_in_docker"><a class="anchor" href="#_run_jenkins_in_docker"></a>Run Jenkins in Docker</h3>
+</div>
+<div class="sect1">
+<h2 id="_run_jenkins_in_docker"><a class="anchor" href="#_run_jenkins_in_docker"></a>Run Jenkins in Docker</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In this tutorial, you&#8217;ll be running Jenkins as a Docker container from the
 <a href="https://hub.docker.com/r/jenkins/jenkins/"><code>jenkins/jenkins</code></a> Docker
@@ -166,8 +169,11 @@ image.</p>
 <a href="../../book/installing/docker">Docker</a>
 section of the <a href="../../book/installing">Installing Jenkins</a> page.</p>
 </div>
-<div class="sect3">
-<h4 id="_on_macos_and_linux"><a class="anchor" href="#_on_macos_and_linux"></a>On macOS and Linux</h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_on_macos_and_linux"><a class="anchor" href="#_on_macos_and_linux"></a>On macOS and Linux</h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -475,7 +481,6 @@ copying and pasting this annotation-free version here:</p>
 </li>
 </ol>
 </div>
-</div>
 <div class="sect3">
 <h4 id="_on_windows"><a class="anchor" href="#_on_windows"></a>On Windows</h4>
 <div class="paragraph">
@@ -648,8 +653,11 @@ Ocean Docker container</a>), you can simply use the <code>docker container exec<
 <p><code>docker container exec -it jenkins-blueocean bash</code></p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="setup-wizard"><a class="anchor" href="#setup-wizard"></a>Setup wizard</h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setup-wizard"><a class="anchor" href="#setup-wizard"></a>Setup wizard</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Before you can access Jenkins, there are a few quick "one-off" steps you&#8217;ll need
 to perform.</p>
@@ -667,7 +675,8 @@ an automatically-generated password.</p>
 browse to <code>http://localhost:8080</code> and wait until the <strong>Unlock Jenkins</strong> page
 appears.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/setup-jenkins-01-unlock-jenkins-page.jpg" alt="Unlock Jenkins page" width="100%"></span></p>
+<p>image::setup-jenkins-01-unlock-jenkins-page.jpg[alt="Unlock Jenkins
+page",width=100%]</p>
 </div>
 </li>
 <li>
@@ -683,7 +692,8 @@ appears.</p>
 automatically-generated alphanumeric password (between the 2 sets of
 asterisks).</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/setup-jenkins-02-copying-initial-admin-password.png" alt="Copying initial admin password" width="100%"></span></p>
+<p>image::setup-jenkins-02-copying-initial-admin-password.png[alt="Copying
+initial admin password",width=100%]</p>
 </div>
 </li>
 <li>
@@ -741,9 +751,8 @@ created and you&#8217;re ready to start using Jenkins!</p>
 </ol>
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="_stopping_and_restarting_jenkins"><a class="anchor" href="#_stopping_and_restarting_jenkins"></a>Stopping and restarting Jenkins</h4>
+<h4 id="stopping-and-restarting-jenkins"><a class="anchor" href="#stopping-and-restarting-jenkins"></a>Stopping and restarting Jenkins</h4>
 <div class="paragraph">
 <p>Throughout the remainder of this tutorial, you can stop your
 Docker container by running:</p>
@@ -769,7 +778,6 @@ Docker container by running:</p>
 <p>Wait until the log in page appears and log in.</p>
 </li>
 </ol>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1055,7 +1063,7 @@ itself, Jenkins:</p>
 <li>
 <p>Downloads the Maven Docker image and runs it in a container on Docker.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/java-maven-01-downloading-maven-docker-image.png" alt="Downloading Maven Docker image" width="100%"></span></p>
+<p><span class="image"><img src="_images/java-maven-01-downloading-maven-docker-image.png" alt="Downloading Maven Docker image" width="100%"></span></p>
 </div>
 </li>
 <li>
@@ -1064,7 +1072,7 @@ During this time, Maven downloads many artifacts necessary to build your Java
 application, which will ultimately be stored in Jenkins&#8217;s local Maven
 repository (in the Docker host&#8217;s filesystem).</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/java-maven-02-initial-pipeline-downloading-maven-artifacts.png" alt="Downloading Maven artifacts" width="100%"></span></p>
+<p><span class="image"><img src="_images/java-maven-02-initial-pipeline-downloading-maven-artifacts.png" alt="Downloading Maven artifacts" width="100%"></span></p>
 </div>
 </li>
 </ol>
@@ -1074,13 +1082,13 @@ repository (in the Docker host&#8217;s filesystem).</p>
 successfully.</p>
 </div>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/java-maven-03-initial-pipeline-runs-successfully.png" alt="Initial Pipeline runs successfully" width="100%"></span></p>
+<p><span class="image"><img src="_images/java-maven-03-initial-pipeline-runs-successfully.png" alt="Initial Pipeline runs successfully" width="100%"></span></p>
 </div>
 </li>
 <li>
 <p>Click the <strong>X</strong> at the top-right to return to the main Blue Ocean interface.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/java-maven-04-main-blue-ocean-interface.png" alt="Main Blue Ocean interface" width="100%"></span></p>
+<p><span class="image"><img src="_images/java-maven-04-main-blue-ocean-interface.png" alt="Main Blue Ocean interface" width="100%"></span></p>
 </div>
 </li>
 </ol>
@@ -1202,7 +1210,7 @@ If your amended Pipeline ran successfully, here&#8217;s what the Blue Ocean
 interface should look like. Notice the additional "Test" stage. You can click
 on the previous "Build" stage circle to access the output from that stage.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/java-maven-11-test-stage-runs-successfully-with-output.png" alt="Test stage runs successfully (with output)" width="100%"></span></p>
+<p><span class="image"><img src="_images/java-maven-11-test-stage-runs-successfully-with-output.png" alt="Test stage runs successfully (with output)" width="100%"></span></p>
 </div>
 </li>
 <li>
@@ -1315,21 +1323,21 @@ interface should look like. Notice the additional "Deliver" stage. Click on
 the previous "Test" and "Build" stage circles to access the outputs from those
 stages.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/java-maven-21-deliver-stage-runs-successfully.png" alt="Deliver stage runs successfully" width="100%"></span></p>
+<p><span class="image"><img src="_images/java-maven-21-deliver-stage-runs-successfully.png" alt="Deliver stage runs successfully" width="100%"></span></p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s what the output of the "Deliver" stage should look like, showing you the
 execution results of your Java application at the end.</p>
 </div>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/java-maven-22-deliver-stage-output-only.png" alt="Deliver stage output only" width="100%"></span></p>
+<p><span class="image"><img src="_images/java-maven-22-deliver-stage-output-only.png" alt="Deliver stage output only" width="100%"></span></p>
 </div>
 </li>
 <li>
 <p>Click the <strong>X</strong> at the top-right to return to the main Blue Ocean interface,
 which lists your previous Pipeline runs in reverse chronological order.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/java-maven-23-main-blue-ocean-interface-with-all-previous-runs-displayed.png" alt="Main Blue Ocean interface with all previous runs displayed" width="100%"></span></p>
+<p><span class="image"><img src="_images/java-maven-23-main-blue-ocean-interface-with-all-previous-runs-displayed.png" alt="Main Blue Ocean interface with all previous runs displayed" width="100%"></span></p>
 </div>
 </li>
 </ol>
@@ -1372,7 +1380,9 @@ updates.</p>
 </ul>
 </div>
 <hr>
-Unresolved include directive in modules/ROOT/pages/build-a-java-app-with-maven.adoc - include::_partials/_feedback-footer.html[]
+Unresolved include directive in modules/ROOT/pages/build-a-java-app-with-maven.adoc - include::docs/partial/_feedback-footer.html[]
+</div>
+</div>
 </div>
 </article>
   </div>

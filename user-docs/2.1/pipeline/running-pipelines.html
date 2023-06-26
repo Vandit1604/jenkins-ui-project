@@ -404,16 +404,20 @@
 </aside>
 <article class="doc">
 <h1 class="page">Running a Pipeline</h1>
-<div class="sect2">
-<h3 id="_multibranch"><a class="anchor" href="#_multibranch"></a>Multibranch</h3>
+<div class="sect1">
+<h2 id="_multibranch"><a class="anchor" href="#_multibranch"></a>Multibranch</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>See <a href="multibranch.html" class="xref page">the Multibranch documentation</a> for more information.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h3>
+</div>
+<div class="sect1">
+<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>See <a href="jenkinsfile.html#handling-parameters" class="xref page">the Jenkinsfile documentation</a> for more information</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -422,35 +426,46 @@
 <div class="paragraph">
 <p>There are a number of ways to rerun or restart a completed Pipeline.</p>
 </div>
-<div class="sect2">
-<h3 id="_replay"><a class="anchor" href="#_replay"></a>Replay</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_replay"><a class="anchor" href="#_replay"></a>Replay</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>See <a href="development.html#replay" class="xref page">the Replay documentation</a> for more information.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_restart_from_a_stage"><a class="anchor" href="#_restart_from_a_stage"></a>Restart from a Stage</h3>
+</div>
+<div class="sect1">
+<h2 id="_restart_from_a_stage"><a class="anchor" href="#_restart_from_a_stage"></a>Restart from a Stage</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>You can restart any completed Declarative Pipeline from any
 top-level stage which ran in that Pipeline. This allows you to rerun a Pipeline from a stage which failed due to
 transient or environmental considerations, for example. All inputs to the Pipeline will be the same. This includes
 SCM information, build parameters, and the contents of any <code>stash</code> step calls in the original Pipeline, if specified.</p>
 </div>
-<div class="sect3">
-<h4 id="_how_to_use"><a class="anchor" href="#_how_to_use"></a>How to Use</h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_use"><a class="anchor" href="#_how_to_use"></a>How to Use</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>No additional configuration is needed in the Jenkinsfile to allow you to restart stages in your Declarative Pipelines.
 This is an inherent part of Declarative Pipelines and is available automatically.</p>
 </div>
-<div class="sect4">
-<h5 id="_restarting_from_the_classic_ui"><a class="anchor" href="#_restarting_from_the_classic_ui"></a>Restarting from the Classic UI</h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_restarting_from_the_classic_ui"><a class="anchor" href="#_restarting_from_the_classic_ui"></a>Restarting from the Classic UI</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Once your Pipeline has completed, whether it succeeds or fails, you can go to the side panel for the run in the classic
 UI and click on "Restart from Stage".</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="pipeline/restart-stages-sidebar.png" alt="Restart from Stage link">
+<img src="_images/restart-stages-sidebar.png" alt="Restart from Stage link">
 </div>
 </div>
 <div class="paragraph">
@@ -460,9 +475,9 @@ stages which were skipped due to a <code>when</code> condition not being satisfi
 group of <code>parallel</code> stages, or a group of nested <code>stages</code> to be run sequentially will also not be available - only
 top-level stages are allowed.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="pipeline/restart-stages-dropdown.png" alt="Choose the stage to restart">
+<img src="_images/restart-stages-dropdown.png" alt="Choose the stage to restart">
 </div>
 </div>
 <div class="paragraph">
@@ -471,25 +486,42 @@ stages before the selected stage will be skipped, and the Pipeline will start ex
 that point on, the Pipeline will run as normal.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_restarting_from_the_blue_ocean_ui"><a class="anchor" href="#_restarting_from_the_blue_ocean_ui"></a>Restarting from the Blue Ocean UI</h5>
+</div>
+<div class="sect1">
+<h2 id="_restarting_from_the_blue_ocean_ui"><a class="anchor" href="#_restarting_from_the_blue_ocean_ui"></a>Restarting from the Blue Ocean UI</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Restarting stages can also be done in the Blue Ocean UI.  Once your Pipeline has completed, whether it succeeds
 or fails, you can click on the node which represents the stage.  You can then click on the <code>Restart</code> link for
 that stage.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="pipeline/pipeline-restart-stages-blue-ocean.png" alt="Click on Restart link for stage">
+<img src="_images/pipeline-restart-stages-blue-ocean.png" alt="Click on Restart link for stage">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Blue Ocean status</div>
 <div class="paragraph">
-<p>Unresolved include directive in modules/pipeline/pages/running-pipelines.adoc - include::doc/book/blueocean/_blue-ocean-status.adoc[]</p>
+<p>Blue Ocean will not receive further functionality updates.
+Blue Ocean will continue to provide easy-to-use Pipeline visualization, but it will not be enhanced further.
+It will only receive selective updates for significant security issues or functional defects.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_preserving_stashes_for_use_with_restarted_stages"><a class="anchor" href="#_preserving_stashes_for_use_with_restarted_stages"></a>Preserving `stash`es for Use with Restarted Stages</h4>
+<div class="sect1">
+<h2 id="_preserving_stashes_for_use_with_restarted_stages"><a class="anchor" href="#_preserving_stashes_for_use_with_restarted_stages"></a>Preserving `stash`es for Use with Restarted Stages</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Normally, when you run the <code>stash</code> step in your Pipeline, the resulting stash of artifacts is cleared when the
 Pipeline completes, regardless of the result of the Pipeline. Since <code>stash</code> artifacts aren&#8217;t accessible outside of the
@@ -529,8 +561,6 @@ validation error.</td>
 <div class="paragraph">
 <p>When a Pipeline completes, it will check to see if any previously completed runs should have their <code>stash</code> artifacts
 cleared.</p>
-</div>
-</div>
 </div>
 </div>
 </div>

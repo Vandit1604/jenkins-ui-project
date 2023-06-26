@@ -552,8 +552,18 @@ project your-plugin: Missing target/classes/index.jelly. Delete any
 &lt;description&gt; from pom.xml and create src/main/resources/index.jelly:</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_branch"><a class="anchor" href="#_create_a_branch"></a>Create a branch</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Unresolved include directive in modules/tutorial-improve/pages/move-description-to-index.adoc - include::doc/developer/tutorial-improve/_create-a-branch.adoc[]</p>
+<p>In a local copy of your <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork</a> of the plugin repository create a <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">git branch</a> for your work with the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git checkout -b {task-identifier} master</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -617,8 +627,43 @@ index 0000000..9434d10
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn clean verify</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_pull_request"><a class="anchor" href="#_create_a_pull_request"></a>Create a pull request</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Unresolved include directive in modules/tutorial-improve/pages/move-description-to-index.adoc - include::doc/developer/tutorial-improve/_create-a-pull-request.adoc[]</p>
+<p>Commit that change:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git add {modified-files}
+git commit -m "{task-description}"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Push the change to GitHub:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git push origin --set-upstream {task-identifier}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for '{task-identifier}' on GitHub by visiting:
+remote: https://github.com/user/your-plugin/pull/new/{task-identifier}
+remote:
+To github.com:user/your-plugin.git
+ * [new branch]      {task-identifier} -&gt; {task-identifier}
+Branch '{task-identifier}' tracking remote branch '{task-identifier}'.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that the output of the command includes the URL, which can be used to open a pull request.
+Copy that URL in your web browser and submit a pull request.</p>
 </div>
 </div>
 </div>

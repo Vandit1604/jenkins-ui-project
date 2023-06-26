@@ -408,7 +408,7 @@
 <h2 id="_jenkins_scalability"><a class="anchor" href="#_jenkins_scalability"></a>Jenkins Scalability</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When using the standalone Jenkins server you don’t have to worry about
+<p>When using the standalone Jenkins server you don&#8217;t have to worry about
 multiple servers and nodes.
 However, the issue with this setup is that your server can become overloaded
 with numerous jobs running at the same time.
@@ -424,7 +424,7 @@ called Jenkins agents.</p>
 to handle additional load.
 One of the strongest sides of Jenkins is that it has a scaling feature out-of-the-box.
 Jenkins scaling is based on the controller/agents model, where you have a number of agent instances and one main Jenkins instance called the controller that is responsible mainly for distributing jobs across the agents.
-Jenkins agents run a small program that communicates with the Jenkins controller to check if there’s any job it can run.
+Jenkins agents run a small program that communicates with the Jenkins controller to check if there&#8217;s any job it can run.
 When Jenkins finds a job scheduled, it transfers the build to the agent.</p>
 </div>
 </div>
@@ -435,7 +435,7 @@ When Jenkins finds a job scheduled, it transfers the build to the agent.</p>
 <div class="paragraph">
 <p>Taking it a step further, running a container orchestrator such as Kubernetes, you can make Jenkins do smarter things.
 The Jenkins controller is responsible for the hosting configuration and the distribution of jobs to multiple agents.
-However, you don’t need the agents to be preexisting, they can be created on the fly, as in when they’re required.</p>
+However, you don&#8217;t need the agents to be preexisting, they can be created on the fly, as in when they&#8217;re required.</p>
 </div>
 <div class="sect2">
 <h3 id="_advantages_of_scaling_jenkins_on_kubernetes"><a class="anchor" href="#_advantages_of_scaling_jenkins_on_kubernetes"></a>Advantages of scaling Jenkins on Kubernetes</h3>
@@ -451,7 +451,7 @@ However, you don’t need the agents to be preexisting, they can be created on t
 </dd>
 <dt class="hdlist1">Even load distribution</dt>
 <dd>
-<p>Kubernetes manages loads well, and it’ll make sure your Jenkins agents spin up in the best available server, which makes your builds faster and more efficient.</p>
+<p>Kubernetes manages loads well, and it&#8217;ll make sure your Jenkins agents spin up in the best available server, which makes your builds faster and more efficient.</p>
 </dd>
 </dl>
 </div>
@@ -467,7 +467,7 @@ However, you don’t need the agents to be preexisting, they can be created on t
 <p>To install a Jenkins controller, create your docker image based on the base Jenkins image, which can be found in the official docker repository (keep in mind that Docker should be installed on your local machine, see the installation steps <a href="/doc/book/installing/docker/#installing-docker">here</a>).
 For this, you need to create a dockerfile.
 Having your Jenkins setup as a dockerfile is highly recommended to make your continuous integration infrastructure replicable and have it ready for setup from scratch.
-So let’s create our first example dockerfile for the Jenkins controller:</p>
+So let&#8217;s create our first example dockerfile for the Jenkins controller:</p>
 </div>
 <div class="listingblock">
 <div class="title">Dockerfile</div>
@@ -512,7 +512,7 @@ This plugin is designed to implement Jenkins scaling on top of a Kubernetes clus
 </td>
 <td class="content">
 Before building the image, if you use Minikube, then you need to keep in mind that Minikube runs on your local machine but inside a virtual machine.
-That’s why Minikube doesn’t see the docker images you created on your local machine.
+That&#8217;s why Minikube doesn&#8217;t see the docker images you created on your local machine.
 You can build your docker image right inside your Minikube virtual machine, but for this you need to execute this command:
 </td>
 </tr>
@@ -524,16 +524,16 @@ You can build your docker image right inside your Minikube virtual machine, but 
 </div>
 </div>
 <div class="paragraph">
-<p>This command doesn’t show any output after execution so if you didn’t get any errors then everything should be fine.
+<p>This command doesn&#8217;t show any output after execution so if you didn&#8217;t get any errors then everything should be fine.
 To build a docker image based on the dockerfile you created, all you need is to run this command from the same folder where you have created the dockerfile:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker build -t my-jenkins-image:1.1 .</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker build -t my-jenkins-image::1.1 .</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>After the build process is finished, let’s verify that the newly created image is there:</p>
+<p>After the build process is finished, let&#8217;s verify that the newly created image is there:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -610,8 +610,8 @@ We can get it by using this command:</p>
 <h2 id="_jenkins_agents_configuration"><a class="anchor" href="#_jenkins_agents_configuration"></a>Jenkins Agents Configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now it’s time to configure Jenkins agents.
-As you might remember, we installed the Kubernetes plugin using the controller dockerfile so we don’t need to install anything separately and the required plugin should be already there.</p>
+<p>Now it&#8217;s time to configure Jenkins agents.
+As you might remember, we installed the Kubernetes plugin using the controller dockerfile so we don&#8217;t need to install anything separately and the required plugin should be already there.</p>
 </div>
 <div class="paragraph">
 <p>In order to configure the Jenkins agents.
@@ -654,23 +654,23 @@ IP:             172.17.0.4</code></pre>
 <div class="paragraph">
 <p>Now, we are ready to fill in the Kubernetes plugin configuration. In order to do that, open the Jenkins UI and navigate to “Manage Jenkins &#8594; Nodes and Clouds &#8594; Clouds &#8594; Add a new cloud &#8594; Kubernetes and fill in the <code>Kubernetes URL</code> and <code>Jenkins URL</code> appropriately, by using the values which we have just collected in the previous step.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="kubernetes-plugin-configuration.png" alt="kubernetes-plugin-configuration">
+<img src="_images/kubernetes-plugin-configuration.png" alt="kubernetes-plugin-configuration">
 </div>
 </div>
 <div class="paragraph">
 <p>In addition to that, in the <code>Kubernetes Pod Template</code> section, we need to configure the image that will be used to spin up the agents.
 If you have some custom requirements for your agents, you can build one more dockerfile with the appropriate changes the same way we did for the Jenkins controller.
-On the other hand, if you don’t have unique requirements for your agents, you can use the default Jenkins agents image available on the <a href="https://hub.docker.com/r/jenkins/inbound-agent/">official Docker hub repository</a>. In the ‘Kubernetes Pod Template’ section you need to specify the following (the rest of the configuration is up to you):</p>
+On the other hand, if you don&#8217;t have unique requirements for your agents, you can use the default Jenkins agents image available on the <a href="https://hub.docker.com/r/jenkins/inbound-agent/">official Docker hub repository</a>. In the '<strong>Kubernetes Pod Template</strong>' section you need to specify the following (the rest of the configuration is up to you):</p>
 </div>
 <div class="paragraph">
 <p>Kubernetes Pod Template Name - can be any and will be shown as a prefix for unique generated agents' names, which will be run automatically during builds
 Docker image - the docker image name that will be used as a reference to spin up a new Jenkins agents.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="pod-template-configuration.png" alt="pod-template-configuration">
+<img src="_images/pod-template-configuration.png" alt="pod-template-configuration">
 </div>
 </div>
 </div>
@@ -680,15 +680,15 @@ Docker image - the docker image name that will be used as a reference to spin up
 <h2 id="_using_jenkins_agents"><a class="anchor" href="#_using_jenkins_agents"></a>Using Jenkins Agents</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now all the configuration seems to be in place and we are ready for some tests. Let’s create two different build plans.</p>
+<p>Now all the configuration seems to be in place and we are ready for some tests. Let&#8217;s create two different build plans.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="build-jobs.png" alt="image">
+<img src="_images/build-jobs.png" alt="image">
 </div>
 </div>
 <div class="paragraph">
-<p>Now let’s trigger the execution for both of the builds.
+<p>Now let&#8217;s trigger the execution for both of the builds.
 You should see that both build plans appear in the <code>Build Queue</code> box almost immediately.</p>
 </div>
 <div class="paragraph">

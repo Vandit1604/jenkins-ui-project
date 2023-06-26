@@ -651,7 +651,7 @@ spec:
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
-          image: jenkins/jenkins:lts
+          image:: jenkins/jenkins:lts
           resources:
             limits:
               memory: "2Gi"
@@ -1521,15 +1521,17 @@ an automatically-generated password.</p>
 <li>
 <p>Browse to <code>http://localhost:8080</code> (or whichever port you configured for
 Jenkins when installing it) and wait until the <strong>Unlock Jenkins</strong> page appears.</p>
-<div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/setup-jenkins-01-unlock-jenkins-page.jpg" alt="Unlock Jenkins page" width="80%"></span></p>
+<div class="imageblock boxshadow">
+<div class="content">
+<img src="_images/setup-jenkins-01-unlock-jenkins-page.jpg" alt="Unlock Jenkins page" width="80%">
+</div>
 </div>
 </li>
 <li>
 <p>From the Jenkins console log output, copy the automatically-generated
 alphanumeric password (between the 2 sets of asterisks).</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/setup-jenkins-02-copying-initial-admin-password.png" alt="Copying initial admin password" width="80%"></span><br>
+<p>image::setup-jenkins-02-copying-initial-admin-password.png[alt="Copying initial admin password",width=80%]<br>
   <strong>Note:</strong></p>
 </div>
 <div class="ulist">

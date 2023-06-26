@@ -89,70 +89,34 @@ satisfactorily.</p>
 </div>
 <div class="paragraph">
 <p><strong>Duration:</strong> This tutorial takes 20-40 minutes to complete (assuming you&#8217;ve
-already met the <a href="#prerequisites">prerequisites</a> below). The exact duration will
+already met the include::partial$_prerequisites[prerequisites] below). The exact duration will
 depend on the speed of your machine and whether or not you&#8217;ve already
-<a href="#run-jenkins-in-docker">run Jenkins in Docker</a> from <a href="..">another tutorial</a>.</p>
+<a href="#:user-docs:installing-jenkins:partial$_run-jenkins-in-docker.adoc" class="xref unresolved">run Jenkins in Docker</a> from <a href="#:tutorials:ROOT:index.adoc" class="xref unresolved">another tutorial</a>.</p>
 </div>
 <div class="paragraph">
 <p>You can stop this tutorial at any point in time and continue from where you left
 off.</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;ve already run though <a href="..">another tutorial</a>, you can skip the
-<a href="#prerequisites">Prerequisites</a> and <a href="#run-jenkins-in-docker">Run Jenkins in
-Docker</a> sections below and proceed on to <a href="#fork-sample-repository">forking the
+<p>If you&#8217;ve already run though <a href="#:tutorials:ROOT:index.adoc" class="xref unresolved">another tutorial</a>, you can skip the
+include::partial$_prerequisites[prerequisites] and <a href="#run-jenkins-in-docker">Run Jenkins in
+Docker</a> sections below and proceed on to <a href="#:partial$_fork-sample-repository.adoc" class="xref unresolved">forking the
 sample repository</a>. (Just ensure you have
 <a href="https://git-scm.com/downloads">Git</a> installed locally.) If you need to
 restart Jenkins, simply follow the restart instructions in
-<a href="#stopping-and-restarting-jenkins">Stopping and restarting Jenkins</a> and then
+<a href="#user-docs:installing-jenkins:_partials$_setup-wizard-for-tutorials.adoc" class="xref unresolved">run Jenkins in Docker</a> and then
 proceed on.</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
 <div class="paragraph">
-<p>For this tutorial, you will require:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A macOS, Linux or Windows machine with:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>256 MB of RAM, although more than 2 GB is recommended.</p>
-</li>
-<li>
-<p>10 GB of drive space for Jenkins and your Docker images and containers.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>The following software installed:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.docker.com/">Docker</a> - Read more about installing Docker in the
-<a href="/doc/book/installing/#installing-docker">Installing Docker</a> section of
-the <a href="/doc/book/installing/">Installing Jenkins</a> page.<br>
-<strong>Note:</strong> If you use Linux, this tutorial assumes that you are not running
-Docker commands as the root user, but instead with a single user account that
-also has access to the other tools used throughout this tutorial.</p>
-</li>
-<li>
-<p><a href="https://git-scm.com/downloads">Git</a> and optionally
-<a href="https://desktop.github.com/">GitHub Desktop</a>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<p>Unresolved include directive in modules/ROOT/pages/build-a-node-js-and-react-app-with-npm.adoc - include::partial$_prerequisites[]
+** <a href="https://git-scm.com/downloads">Git</a> and optionally
+   <a href="https://desktop.github.com/">GitHub Desktop</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_run_jenkins_in_docker"><a class="anchor" href="#_run_jenkins_in_docker"></a>Run Jenkins in Docker</h3>
+</div>
+<div class="sect1">
+<h2 id="_run_jenkins_in_docker"><a class="anchor" href="#_run_jenkins_in_docker"></a>Run Jenkins in Docker</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In this tutorial, you&#8217;ll be running Jenkins as a Docker container from the
 <a href="https://hub.docker.com/r/jenkins/jenkins/"><code>jenkins/jenkins</code></a> Docker
@@ -167,8 +131,11 @@ image.</p>
 <a href="../../book/installing/docker">Docker</a>
 section of the <a href="../../book/installing">Installing Jenkins</a> page.</p>
 </div>
-<div class="sect3">
-<h4 id="_on_macos_and_linux"><a class="anchor" href="#_on_macos_and_linux"></a>On macOS and Linux</h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_on_macos_and_linux"><a class="anchor" href="#_on_macos_and_linux"></a>On macOS and Linux</h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -476,7 +443,6 @@ copying and pasting this annotation-free version here:</p>
 </li>
 </ol>
 </div>
-</div>
 <div class="sect3">
 <h4 id="_on_windows"><a class="anchor" href="#_on_windows"></a>On Windows</h4>
 <div class="paragraph">
@@ -649,8 +615,11 @@ Ocean Docker container</a>), you can simply use the <code>docker container exec<
 <p><code>docker container exec -it jenkins-blueocean bash</code></p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="setup-wizard"><a class="anchor" href="#setup-wizard"></a>Setup wizard</h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setup-wizard"><a class="anchor" href="#setup-wizard"></a>Setup wizard</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Before you can access Jenkins, there are a few quick "one-off" steps you&#8217;ll need
 to perform.</p>
@@ -668,7 +637,8 @@ an automatically-generated password.</p>
 browse to <code>http://localhost:8080</code> and wait until the <strong>Unlock Jenkins</strong> page
 appears.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/setup-jenkins-01-unlock-jenkins-page.jpg" alt="Unlock Jenkins page" width="100%"></span></p>
+<p>image::setup-jenkins-01-unlock-jenkins-page.jpg[alt="Unlock Jenkins
+page",width=100%]</p>
 </div>
 </li>
 <li>
@@ -684,7 +654,8 @@ appears.</p>
 automatically-generated alphanumeric password (between the 2 sets of
 asterisks).</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/setup-jenkins-02-copying-initial-admin-password.png" alt="Copying initial admin password" width="100%"></span></p>
+<p>image::setup-jenkins-02-copying-initial-admin-password.png[alt="Copying
+initial admin password",width=100%]</p>
 </div>
 </li>
 <li>
@@ -742,9 +713,8 @@ created and you&#8217;re ready to start using Jenkins!</p>
 </ol>
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="_stopping_and_restarting_jenkins"><a class="anchor" href="#_stopping_and_restarting_jenkins"></a>Stopping and restarting Jenkins</h4>
+<h4 id="stopping-and-restarting-jenkins"><a class="anchor" href="#stopping-and-restarting-jenkins"></a>Stopping and restarting Jenkins</h4>
 <div class="paragraph">
 <p>Throughout the remainder of this tutorial, you can stop your
 Docker container by running:</p>
@@ -770,7 +740,6 @@ Docker container by running:</p>
 <p>Wait until the log in page appears and log in.</p>
 </li>
 </ol>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1051,7 +1020,7 @@ repository itself, Jenkins:</p>
 <li>
 <p>Downloads the Node Docker image and runs it in a container on Docker.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-01-downloading-node-docker-image.png" alt="Downloading Node Docker image" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-01-downloading-node-docker-image.png" alt="Downloading Node Docker image" width="100%"></span></p>
 </div>
 </li>
 <li>
@@ -1060,7 +1029,7 @@ During this time, <code>npm</code> downloads many dependencies necessary to run 
 Node.js and React application, which will ultimately be stored in the
 <code>node_modules</code> workspace directory (within the Jenkins home directory).</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-02-initial-pipeline-downloading-npm-dependencies.png" alt="Downloading 'npm' dependencies" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-02-initial-pipeline-downloading-npm-dependencies.png" alt="Downloading 'npm' dependencies" width="100%"></span></p>
 </div>
 </li>
 </ol>
@@ -1070,13 +1039,13 @@ Node.js and React application, which will ultimately be stored in the
 application successfully.</p>
 </div>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-03-initial-pipeline-runs-successfully.png" alt="Initial Pipeline runs successfully" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-03-initial-pipeline-runs-successfully.png" alt="Initial Pipeline runs successfully" width="100%"></span></p>
 </div>
 </li>
 <li>
 <p>Click the <strong>X</strong> at the top-right to return to the main Blue Ocean interface.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-04-main-blue-ocean-interface.png" alt="Main Blue Ocean interface" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-04-main-blue-ocean-interface.png" alt="Main Blue Ocean interface" width="100%"></span></p>
 </div>
 </li>
 </ol>
@@ -1176,7 +1145,7 @@ If your amended Pipeline ran successfully, here&#8217;s what the Blue Ocean
 interface should look like. Notice the additional "Test" stage. You can click
 on the previous "Build" stage circle to access the output from that stage.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-11-test-stage-runs-successfully-with-output.png" alt="Test stage runs successfully (with output)" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-11-test-stage-runs-successfully-with-output.png" alt="Test stage runs successfully (with output)" width="100%"></span></p>
 </div>
 </li>
 <li>
@@ -1296,7 +1265,7 @@ interface should look like. Notice the additional "Deliver" stage. Click on
 the previous "Test" and "Build" stage circles to access the outputs from those
 stages.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-21-deliver-stage-pauses-for-user-input.png" alt="Deliver stage pauses for user input" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-21-deliver-stage-pauses-for-user-input.png" alt="Deliver stage pauses for user input" width="100%"></span></p>
 </div>
 </li>
 <li>
@@ -1304,7 +1273,7 @@ stages.</p>
 the green <strong><code>./jenkins/scripts/deliver.sh</code></strong> step to expand its content and
 scroll down until you see the <code>http://localhost:3000</code> link.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-22-deliver-stage-opened-deliver-sh-step.png" alt="Deliver stage output only" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-22-deliver-stage-opened-deliver-sh-step.png" alt="Deliver stage output only" width="100%"></span></p>
 </div>
 </li>
 <li>
@@ -1349,14 +1318,14 @@ editor.</td>
 <p>When you are finished viewing the page/site, click the <strong>Proceed</strong> button to
 complete the Pipeline&#8217;s execution.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-23-deliver-stage-runs-successfully.png" alt="Deliver stage runs successfully" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-23-deliver-stage-runs-successfully.png" alt="Deliver stage runs successfully" width="100%"></span></p>
 </div>
 </li>
 <li>
 <p>Click the <strong>X</strong> at the top-right to return to the main Blue Ocean interface,
 which lists your previous Pipeline runs in reverse chronological order.</p>
 <div class="paragraph boxshadow">
-<p><span class="image unresolved"><img src="tutorials/node-js-react-24-main-blue-ocean-interface-with-all-previous-runs-displayed.png" alt="Main Blue Ocean interface with all previous runs displayed" width="100%"></span></p>
+<p><span class="image"><img src="_images/node-js-react-24-main-blue-ocean-interface-with-all-previous-runs-displayed.png" alt="Main Blue Ocean interface with all previous runs displayed" width="100%"></span></p>
 </div>
 </li>
 </ol>
@@ -1399,7 +1368,9 @@ updates.</p>
 </ul>
 </div>
 <hr>
-Unresolved include directive in modules/ROOT/pages/build-a-node-js-and-react-app-with-npm.adoc - include::_partials/_feedback-footer.html[]
+Unresolved include directive in modules/ROOT/pages/build-a-node-js-and-react-app-with-npm.adoc - include::docs/partial/_feedback-footer.html[]
+</div>
+</div>
 </div>
 </article>
   </div>

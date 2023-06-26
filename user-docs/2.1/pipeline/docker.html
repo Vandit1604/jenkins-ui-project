@@ -708,9 +708,9 @@ level, for specifying which agents (by
 <a href="../../glossary/#label">Label</a>)
 to use for running Docker-based Pipelines.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="pipeline/configure-docker-label.png" alt="Configuring the Pipeline Docker Label">
+<img src="_images/configure-docker-label.png" alt="Configuring the Pipeline Docker Label">
 </div>
 </div>
 </div>
@@ -860,7 +860,7 @@ calls, for example:</p>
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">node {
     checkout scm
 
-    def customImage = docker.build("my-image:${env.BUILD_ID}")
+    def customImage = docker.build("my-image::${env.BUILD_ID}")
 
     customImage.inside {
         sh 'make test'
@@ -878,7 +878,7 @@ via the <code>push()</code> method, for example:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">node {
     checkout scm
-    def customImage = docker.build("my-image:${env.BUILD_ID}")
+    def customImage = docker.build("my-image::${env.BUILD_ID}")
     customImage.push()
 }</code></pre>
 </div>
@@ -893,7 +893,7 @@ different tags, for example:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">node {
     checkout scm
-    def customImage = docker.build("my-image:${env.BUILD_ID}")
+    def customImage = docker.build("my-image::${env.BUILD_ID}")
     customImage.push()
 
     customImage.push('latest')
@@ -941,7 +941,7 @@ flag:</p>
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">node {
     checkout scm
     def dockerfile = 'Dockerfile.test'
-    def customImage = docker.build("my-image:${env.BUILD_ID}",
+    def customImage = docker.build("my-image::${env.BUILD_ID}",
                                    "-f ${dockerfile} ./dockerfiles") <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -950,7 +950,7 @@ flag:</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Builds <code>my-image:${env.BUILD_ID}</code> from the Dockerfile found at <code>./dockerfiles/Dockerfile.test</code>.</td>
+<td>Builds <code>my-image::${env.BUILD_ID}</code> from the Dockerfile found at <code>./dockerfiles/Dockerfile.test</code>.</td>
 </tr>
 </table>
 </div>
@@ -1059,7 +1059,7 @@ second argument to <code>withRegistry()</code>:</p>
 
     docker.withRegistry('https://registry.example.com', 'credentials-id') {
 
-        def customImage = docker.build("my-image:${env.BUILD_ID}")
+        def customImage = docker.build("my-image::${env.BUILD_ID}")
 
         /* Push the container to the custom Registry */
         customImage.push()
