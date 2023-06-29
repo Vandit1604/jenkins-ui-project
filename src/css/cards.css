@@ -1,0 +1,38 @@
+.app-use-cases__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 250px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.app-use-cases__card:hover {
+    background-color: #f0f0f0;
+}
+
+.app-use-cases__card.dark {
+    color: #ffffff;
+}
+
+.app-use-cases__card.light {
+    color: #000000;
+}
+
+.app-use-cases__card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.app-use-cases__card img {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+}
+  
