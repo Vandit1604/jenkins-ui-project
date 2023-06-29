@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Build a LabVIEW app :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/tutorial/2.1/build-a-labview-app.html">
+    <link rel="prev" href="create-a-pipeline-in-blue-ocean.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../../_/css/site.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,7 +21,47 @@
 <div class="nav-container" data-component="tutorial" data-version="2.1">
   <aside class="nav">
     <div class="panels">
-<div class="nav-panel-explore is-active" data-panel="explore">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Jenkins Tutorials</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Tutorials overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tutorials-for-installing-jenkins-on-Google-Cloud.html">Jenkins on Google Cloud</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="build-a-java-app-with-maven.html">Build a Java app with Maven</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="build-a-node-js-and-react-app-with-npm.html">Build a Node.js and React app with npm</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-jenkinsfile-runner-github-action-to-build-jenkins-pipeline.html">Build a Jenkins pipeline by using Jenkinsfile Runner GitHub Actions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tutorial-for-installing-jenkins-on-AWS.html">Jenkins on AWS</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="build-a-multibranch-pipeline-project.html">End-to-End Multibranch Pipeline Project Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="build-a-python-app-with-pyinstaller.html">Build a Python app with PyInstaller</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="create-a-pipeline-in-blue-ocean.html">Create a Pipeline in Blue Ocean</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="build-a-labview-app.html">Build a LabVIEW app</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Jenkins Tutorials</span>
     <span class="version">2.1</span>
@@ -31,6 +72,14 @@
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../dev-docs/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../solutions/2.1/index.html">Jenkins Solutions Page</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../solutions/2.1/index.html">2.1</a>
         </li>
       </ul>
     </li>
@@ -60,6 +109,11 @@
 <button class="nav-toggle"></button>
   <a href="../../user-docs/2.1/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Jenkins Tutorials</a></li>
+    <li><a href="index.html">Tutorials overview</a></li>
+    <li><a href="build-a-labview-app.html">Build a LabVIEW app</a></li>
+  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/tutorials/modules/ROOT/pages/build-a-labview-app.adoc"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg>  Edit this Page</a></div>
   </div>
@@ -78,20 +132,21 @@
 <p>If you are a LabVIEW developer who is new to CI/CD concepts, or you might be familiar with these concepts but don&#8217;t know how to implement building your application using Jenkins, then this tutorial is for you.</p>
 </div>
 <div class="paragraph">
-<p>We’ll walk through setting up Jenkins as our CI server and using it to automate graphical diffing and testing of our project (which you&#8217;ll obtain from <a href="http://www.ni.com/example/lv-ci">this example page</a> on ni.com). Jenkins will monitor GitHub Pull Requests for changes and will comment and check if the LabVIEW project can build successfully. Unit test results will be saved to a JUnit XML report.</p>
+<p>We&#8217;ll walk through setting up Jenkins as our CI server and using it to automate graphical diffing and testing of our project (which you&#8217;ll obtain from <a href="http://www.ni.com/example/lv-ci">this example page</a> on ni.com). Jenkins will monitor GitHub Pull Requests for changes and will comment and check if the LabVIEW project can build successfully. Unit test results will be saved to a JUnit XML report.</p>
 </div>
 <div class="paragraph">
 <p><strong>Duration:</strong> This tutorial takes 20-40 minutes to complete (assuming you&#8217;ve
 already met the include::partial$_prerequisites[prerequisites] below). The exact duration will
-depend on the speed of your machine and whether or not you&#8217;ve already <a href="/doc/book/installing/">installed Jenkins</a> from <a href="#:tutorials:ROOT:index.adoc" class="xref unresolved">another tutorial</a>.</p>
+depend on the speed of your machine and whether or not you&#8217;ve already <a href="/doc/book/installing/">installed Jenkins</a> from <a href="#tutorials:ROOT:index.adoc" class="xref unresolved">another tutorial</a>.</p>
 </div>
 <div class="paragraph">
 <p>You can stop this tutorial at any point in time and continue from where you left off.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>For this tutorial, you will require:</p>
 </div>
@@ -138,8 +193,10 @@ depend on the speed of your machine and whether or not you&#8217;ve already <a h
 <p><strong>Note</strong>: This tutorial uses Jenkins on a Windows machine. This means that file paths may be Windows-specific. Please modify any file paths and/or commands to your specific Operating System.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="labview-cli-setup"><a class="anchor" href="#labview-cli-setup"></a>LabVIEW CLI Setup</h3>
+</div>
+<div class="sect1">
+<h2 id="labview-cli-setup"><a class="anchor" href="#labview-cli-setup"></a>LabVIEW CLI Setup</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The <a href="https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/cli_running_operations/">LabVIEW Command Line Interface (LabVIEWCLI)</a> is installed alongside LabVIEW 2018+ and is used to run LabVIEW commands, such as unit testing, through the Command Line. To use the LabVIEWCLI, you must enable VI Server: <strong>Tools &gt;&gt; Options &gt;&gt; VI Server</strong>. Make sure the TCP/IP checkbox is enabled and leave the Port as 3363.</p>
 </div>
@@ -147,8 +204,10 @@ depend on the speed of your machine and whether or not you&#8217;ve already <a h
 <p><span class="image"><img src="_images/labview-01-labviewcli-setup.png" alt="LabVIEWCLI setup" width="100%"></span></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_python_setup"><a class="anchor" href="#_python_setup"></a>Python Setup</h3>
+</div>
+<div class="sect1">
+<h2 id="_python_setup"><a class="anchor" href="#_python_setup"></a>Python Setup</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The Python <a href="https://pypi.org/project/requests/">requests</a> library must be installed in order for Jenkins to post results to GitHub. One way to do this is by opening a command prompt and running the following command:</p>
 </div>
@@ -158,10 +217,12 @@ depend on the speed of your machine and whether or not you&#8217;ve already <a h
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_github_setup"><a class="anchor" href="#_github_setup"></a>GitHub Setup</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_github_setup"><a class="anchor" href="#_github_setup"></a>GitHub Setup</h3>
-<div class="sect3">
-<h4 id="_repository_setup"><a class="anchor" href="#_repository_setup"></a>Repository Setup</h4>
+<h3 id="_repository_setup"><a class="anchor" href="#_repository_setup"></a>Repository Setup</h3>
 <div class="paragraph">
 <p>We’ll create three GitHub repositories. Each of these repositories will be used for one of the following:</p>
 </div>
@@ -294,8 +355,8 @@ git push origin master</pre>
 <p>Now, your files are set up and in place for Jenkins to use.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_personal_access_token"><a class="anchor" href="#_personal_access_token"></a>Personal Access Token</h4>
+<div class="sect2">
+<h3 id="_personal_access_token"><a class="anchor" href="#_personal_access_token"></a>Personal Access Token</h3>
 <div class="paragraph">
 <p>For Jenkins to access your GitHub information, it will need a Personal Access Token. We will generate Personal Access token through GitHub:</p>
 </div>
@@ -328,10 +389,12 @@ git push origin master</pre>
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_jenkins_setup"><a class="anchor" href="#_jenkins_setup"></a>Jenkins Setup</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_jenkins_setup"><a class="anchor" href="#_jenkins_setup"></a>Jenkins Setup</h3>
-<div class="sect3">
-<h4 id="_jenkins_initial_setup"><a class="anchor" href="#_jenkins_initial_setup"></a>Jenkins Initial Setup</h4>
+<h3 id="_jenkins_initial_setup"><a class="anchor" href="#_jenkins_initial_setup"></a>Jenkins Initial Setup</h3>
 <div class="paragraph">
 <p><strong>Note</strong>: This tutorial uses the classic Jenkins view, with minimal plugins to get the example running. You can use additional plugins such as <a href="/doc/book/blueocean/">Blue Ocean</a> for an enhanced UI experience.</p>
 </div>
@@ -383,8 +446,8 @@ git push origin master</pre>
 </ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_setting_up_environment_variables_and_credentials"><a class="anchor" href="#_setting_up_environment_variables_and_credentials"></a>Setting up Environment Variables and Credentials</h4>
+<div class="sect2">
+<h3 id="_setting_up_environment_variables_and_credentials"><a class="anchor" href="#_setting_up_environment_variables_and_credentials"></a>Setting up Environment Variables and Credentials</h3>
 <div class="paragraph">
 <p>Environment variables can be accessed across Jenkins jobs. We will want certain values accessible when Jenkins tries to build, test and diff your application. Since the GitHub organization name, access token, and picture repository will likely be the same across Jenkins jobs, we will set them in our Jenkins configuration.</p>
 </div>
@@ -423,8 +486,8 @@ git push origin master</pre>
 </ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_setting_up_the_global_library"><a class="anchor" href="#_setting_up_the_global_library"></a>Setting Up the Global Library</h4>
+<div class="sect2">
+<h3 id="_setting_up_the_global_library"><a class="anchor" href="#_setting_up_the_global_library"></a>Setting Up the Global Library</h3>
 <div class="paragraph">
 <p>The Global Library contains the script files and other components that will be used each time Jenkins tries to build. In this example, we are hosting them in the myBuildSystem repository. We will link Jenkins to that repository so it can use those files for each job.</p>
 </div>
@@ -473,8 +536,8 @@ git push origin master</pre>
 <p>We’ve successfully linked Jenkins to the global library – this means that the files hosted on the myBuildSystem repository can be accessed and used by Jenkins!</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_setting_up_the_jenkins_pipeline"><a class="anchor" href="#_setting_up_the_jenkins_pipeline"></a>Setting up the Jenkins Pipeline</h4>
+<div class="sect2">
+<h3 id="_setting_up_the_jenkins_pipeline"><a class="anchor" href="#_setting_up_the_jenkins_pipeline"></a>Setting up the Jenkins Pipeline</h3>
 <div class="paragraph">
 <p>Finally, we’ll set up Jenkins to scan and automate testing and diffing of your myApplication repository.</p>
 </div>
@@ -522,8 +585,10 @@ git push origin master</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_confirmation"><a class="anchor" href="#_confirmation"></a>Confirmation</h3>
+</div>
+<div class="sect1">
+<h2 id="_confirmation"><a class="anchor" href="#_confirmation"></a>Confirmation</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Let’s confirm that everything works. We’ll do this by configuring our LabVIEW project, making changes to the VIs in our myApplication directory, and creating a Pull Request on GitHub.</p>
 </div>
@@ -636,10 +701,12 @@ git push origin myBranch</pre>
 <p><span class="image"><img src="_images/labview-40-jenkins-console-output.png" alt="jenkins console output" width="100%"></span></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_wrapping_up"><a class="anchor" href="#_wrapping_up"></a>Wrapping Up</h3>
+</div>
+<div class="sect1">
+<h2 id="_wrapping_up"><a class="anchor" href="#_wrapping_up"></a>Wrapping Up</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Congrats! You’ve just set up Jenkins to automate LabVIEW builds. The "Build", "Test" and "Deliver" stages you created above are the basis for
+<p>Congrats! You&#8217;ve just set up Jenkins to automate LabVIEW builds. The "Build", "Test" and "Deliver" stages you created above are the basis for
 building more complex LabVIEW in Jenkins, as well as LabVIEW applications that integrate with other technology stacks. When doing so, there are some <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001De1JSAS&amp;l=en-US">Best Practices</a> you should follow. In case you would like additional command line functionality, we have examples on how to extend the LabVIEWCLI <a href="https://github.com/ni/niveristand-custom-device-build-tools/">here</a>.</p>
 </div>
 <div class="paragraph">
@@ -667,9 +734,11 @@ updates.</p>
 </ul>
 </div>
 <hr>
-Unresolved include directive in modules/ROOT/pages/build-a-labview-app.adoc - include::partial:partial$_feedback-footer.html[]
-Unresolved include directive in modules/ROOT/pages/build-a-labview-app.adoc - include::partial-2:_feedback-footer.html[]
 </div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="create-a-pipeline-in-blue-ocean.html">Create a Pipeline in Blue Ocean</a></span>
+</nav>
 </article>
   </div>
 </main>
