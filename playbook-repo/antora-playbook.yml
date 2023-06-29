@@ -6,7 +6,7 @@ content:
   sources:
     - url: https://github.com/Vandit1604/jenkins-docs.git
       branches: [main]
-      start_paths: [docs/dev-docs, docs/tutorials, docs/user-docs]
+      start_paths: [docs/dev-docs, docs/tutorials, docs/user-docs, docs/solutions]
 runtime:
   fetch: true
 asciidoc:
