@@ -4,6 +4,5 @@
 /build/site/user-docs/
 /build/site/*.html
 /build/site/*.xml
-/build/site/solutions
 /node_modules/
 /workspace/
