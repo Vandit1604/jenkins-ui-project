@@ -2,6 +2,7 @@
 /build/site/dev-docs/
 /build/site/tutorial/
 /build/site/user-docs/
+/build/site/solutions/
 /build/site/*.html
 /build/site/*.xml
 /node_modules/
