@@ -5,7 +5,8 @@ site:
 content:
   sources:
     - url: https://github.com/Vandit1604/jenkins-docs.git
-      branches: [2.2, 2.3]
+      branches: [main, 2.2, 2.3]
+      worktrees: false
       start_paths: [docs/dev-docs, docs/tutorials, docs/user-docs, docs/solutions]
 runtime:
   fetch: true
