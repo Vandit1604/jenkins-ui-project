@@ -7,6 +7,7 @@ content:
     - url: https://github.com/Vandit1604/jenkins-docs.git
       branches: [main, 2.1]
       start_paths: [docs/tutorials, docs/user-docs, docs/solutions]
+      # developer docs are unversioned that's why they are to be fetched indiviually
     - url: https://github.com/Vandit1604/jenkins-docs.git
       branches: [main]
       start_paths: [docs/dev-docs]
