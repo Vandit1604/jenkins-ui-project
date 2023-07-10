@@ -398,7 +398,7 @@
   </li>
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../initialization/index.html">Initialization and Startup ⚠️</a>
+    <a class="nav-link" href="../initialization/index.html">Initialization and Startup</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../initialization/embedded-container.html">Embedded Winstone and <code>executable-war</code></a>
@@ -851,7 +851,7 @@ and should at least have been using <code>Secret</code>.
 like Pipeline jobs.</p>
 </div>
 <div class="paragraph">
-<p>Instead you should integrate with the plugin:credentials[Credentials plugin].
+<p>Instead you should integrate with the <a href="https://plugins.jenkins.io//credentials">Credentials plugin</a>.
 Then your builder etc. would typically have a <code>credentialsId</code> field which just refers to the ID of the credentials.
 (The user can pick a mnemonic ID for use in scripted jobs.)
 Typically the <code>config.jelly</code> used in <em>Snippet Generator</em> will have a <code>&lt;c:select/&gt;</code> control,
