@@ -131,18 +131,6 @@
   </li>
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../development-enviorment/index.html">Development Environment</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../development-enviorment/ide-configuration.html">IDE Configuration</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../development-enviorment/taglibs.html">Taglibs</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../extensibility/index.html">Extensibility</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
@@ -407,42 +395,6 @@
   </li>
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../template/index.html">index.adoc</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../forms/index.html">Forms</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
@@ -584,7 +536,7 @@ and an informational component with the Git commit hash.
 <div class="sect2">
 <h3 id="_incrementals_enablement"><a class="anchor" href="#_incrementals_enablement"></a>Incrementals Enablement</h3>
 <div class="paragraph">
-<p>Verify that the plugin has already been <a href="../../plugin-development/incrementals">incrementalified</a>.
+<p>Verify that the plugin has already been <a href="../plugin-development/incrementals.html" class="xref page">incrementalified</a>.
 <code>pom.xml</code> should contain <code>&lt;version&gt;${revision}${changelist}&lt;/version&gt;</code> and the files <code>.mvn/extensions.xml</code> and <code>.mvn/maven.config</code> should exist <strong>before proceeding with subsequent steps</strong>.</p>
 </div>
 <div class="admonitionblock note">
@@ -885,7 +837,7 @@ If you prefer to only deploy explicitly, not on every push, just comment out the
 <div class="sectionbody">
 <div class="paragraph">
 <p>It is best to avoid ever making incompatible changes to your plugin.
-If you must make one, then you can define <code>hpi.compatibleSinceVersion</code> as for <a href="../../plugin-development/mark-a-plugin-incompatible">any plugins</a>.
+If you must make one, then you can define <code>hpi.compatibleSinceVersion</code> as for <a href="#plugin-development:mark-a-plugin-incompatible">any plugins</a>.
 If <code>master</code> is currently <code>123.vXXX</code> according to</p>
 </div>
 <div class="listingblock">
@@ -918,7 +870,7 @@ and less than or equal to that of the release containing the breaking change.)</
 <h2 id="_fallback"><a class="anchor" href="#_fallback"></a>Fallback</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can also release manually if you have configured your machine for <a href="../releasing-manually">manual release</a>.
+<p>You can also release manually if you have configured your machine for <a href="#publishing:releasing-manually">manual release</a>.
 To cut a release:</p>
 </div>
 <div class="listingblock">
@@ -961,7 +913,7 @@ mvn -Dset.changelist \
 <ul>
 <li>
 <p>You don&#8217;t have permission to upload to the specified path.
-<a href="../requesting-hosting/#request-upload-permissions">Learn more about how to request upload permissions</a>.
+<a href="requesting-hosting.html#request-upload-permissions" class="xref page">Learn more about how to request upload permissions</a>.
 Check that the path you&#8217;re allowed to upload to matches the actual upload attempt (i.e. no typos).</p>
 </li>
 <li>

@@ -477,7 +477,7 @@ It will only receive selective updates for significant security issues or functi
 <p>Plugins can be installed on a Jenkins instance by any Jenkins user who has the
 <strong>Administer</strong> permission. This is set through <strong>Matrix-based security</strong>.
 Jenkins users with this permission can also configure the permissions of other users on their system.
-Refer to the <a href="../../security/managing-security/#authorization">Authorization</a> section of <a href="../../security/managing-security/">Managing Security</a> for more information.</p>
+Refer to the <a href="../security/managing-security.html#authorization" class="xref page">Authorization</a> section of <a href="../security/managing-security.html" class="xref page">Managing Security</a> for more information.</p>
 </div>
 <div class="paragraph">
 <p>To install the Blue Ocean suite of plugins to your Jenkins instance:</p>
@@ -527,7 +527,7 @@ The main <strong>Blue Ocean</strong> plugin automatically selects and installs a
 </ol>
 </div>
 <div class="paragraph">
-<p>Refer to the the <a href="../../managing/plugins">Managing Plugins</a> page for more information.
+<p>Refer to the the <a href="../managing/plugins.html" class="xref page">Managing Plugins</a> page for more information.
 Blue Ocean does not require additional configuration after installation.
 Existing Pipelines and projects will continue to work as usual.</p>
 </div>
@@ -538,7 +538,7 @@ Existing Pipelines and projects will continue to work as usual.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The first time you <a href="../creating-pipelines">create a Pipeline in Blue Ocean</a> for a specific Git server, Blue Ocean prompts you for your Git credentials to allow you to create Pipelines in the repositories.
+The first time you <a href="creating-pipelines.html" class="xref page">create a Pipeline in Blue Ocean</a> for a specific Git server, Blue Ocean prompts you for your Git credentials to allow you to create Pipelines in the repositories.
 This is required since Blue Ocean can add a <code>Jenkinsfile</code> to your repositories.
 </td>
 </tr>
@@ -551,7 +551,7 @@ This is required since Blue Ocean can add a <code>Jenkinsfile</code> to your rep
 <p>The Blue Ocean suite of plugins is not bundled with the official Jenkins Docker image, <a href="https://hub.docker.com/r/jenkins/jenkins/"><code>jenkins/jenkins</code></a>, which is available from the <a href="https://hub.docker.com/">Docker Hub repository</a>.</p>
 </div>
 <div class="paragraph">
-<p>Read more about running Jenkins and Blue Ocean inside Docker in the <a href="../../installing/#docker">Docker</a> section of the installing Jenkins page.</p>
+<p>Read more about running Jenkins and Blue Ocean inside Docker in the <a href="#../../installing/.adoc#docker" class="xref unresolved">Docker</a> section of the installing Jenkins page.</p>
 </div>
 </div>
 </div>
@@ -579,12 +579,12 @@ For example <code>https://jenkins-server-url/blue</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Already has existing Pipeline projects or other items present, the <a href="../dashboard">Blue Ocean Dashboard</a> displays.</p>
+<p>Already has existing Pipeline projects or other items present, the <a href="dashboard.html" class="xref page">Blue Ocean Dashboard</a> displays.</p>
 </li>
 <li>
 <p>Is new or does not have projects or other items configured, Blue Ocean displays a <strong>Welcome to Jenkins</strong> pane with a <strong>Create a new Pipeline</strong> button.
 You can select this to begin creating a new Pipeline project.
-For more information, refer to the <a href="../creating-pipelines">Creating a Pipeline</a> page for more information on creating a Pipeline project in Blue Ocean.</p>
+For more information, refer to the <a href="creating-pipelines.html" class="xref page">Creating a Pipeline</a> page for more information on creating a Pipeline project in Blue Ocean.</p>
 <div class="imageblock boxshadow">
 <div class="content">
 <img src="_images/creating-pipelines/create-a-new-pipeline-box.png" alt="Welcome to Jenkins - Create a New Pipeline message box" width="50%">
@@ -623,17 +623,17 @@ For more information, refer to the <a href="../creating-pipelines">Creating a Pi
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Jenkins</strong>: Selecting the Jenkins icon takes you to the <a href="../dashboard">Dashboard</a> or reloads this page if you are already viewing it.</p>
+<p><strong>Jenkins</strong>: Selecting the Jenkins icon takes you to the <a href="dashboard.html" class="xref page">Dashboard</a> or reloads this page if you are already viewing it.</p>
 </li>
 <li>
 <p><strong>Pipelines</strong>: This also takes you to the Dashboard.
 If you are already on the Dashboard, this option reloads the page.
-This button serves a different purpose when you are viewing a <a href="../pipeline-run-details">Pipeline run details</a> page.</p>
+This button serves a different purpose when you are viewing a <a href="pipeline-run-details.html" class="xref page">Pipeline run details</a> page.</p>
 </li>
 <li>
-<p><strong>Administration</strong>: This takes you to the <strong><a href="../../managing">Manage Jenkins</a></strong> page of the Jenkins classic UI.
+<p><strong>Administration</strong>: This takes you to the <strong><a href="../managing/index.html" class="xref page">Manage Jenkins</a></strong> page of the Jenkins classic UI.
 This button is not available if you do not have the <strong>Administer</strong> permission.
-Refer to the <a href="../../managing/security/#authorization">Authorization</a> section of the Managing Security page for more information.</p>
+Refer to the <a href="../managing/security.html#authorization" class="xref page">Authorization</a> section of the Managing Security page for more information.</p>
 </li>
 <li>
 <p><strong>Go to classic</strong> icon: This takes you back to the Jenkins classic UI.

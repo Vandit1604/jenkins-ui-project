@@ -450,7 +450,7 @@ about in the
 <p>Pipeline is designed to easily use
 <a href="https://docs.docker.com/">Docker</a>
 images as the execution environment for a single
-<a href="../../glossary/#stage">Stage</a>
+<a href="../glossary/index.html#stage" class="xref page">Stage</a>
 or the entire Pipeline. Meaning that a user can define the tools required for
 their Pipeline, without having to manually configure agents.
 Practically any tool which can be
@@ -571,7 +571,7 @@ on-disk caches between subsequent Pipeline runs.</p>
 to Docker, allowing users to specify custom
 <a href="https://docs.docker.com/engine/tutorials/dockervolumes/">Docker Volumes</a>
 to mount, which can be used for caching data on the
-<a href="../../glossary/#agent">agent</a>
+<a href="../glossary/index.html#agent" class="xref page">agent</a>
 between Pipeline runs. The following example will cache <code>~/.m2</code> between
 Pipeline runs utilizing the
 <a href="https://hub.docker.com/_/maven/"><code>maven</code> container</a>,
@@ -720,14 +720,14 @@ are described in more detail in the
 <h3 id="_specifying_a_docker_label"><a class="anchor" href="#_specifying_a_docker_label"></a>Specifying a Docker Label</h3>
 <div class="paragraph">
 <p>By default, Pipeline assumes that <em>any</em> configured
-<a href="../../glossary/#agent">agent</a> is capable of running Docker-based Pipelines.
+<a href="../glossary/index.html#agent" class="xref page">agent</a> is capable of running Docker-based Pipelines.
 For Jenkins environments which have macOS, Windows, or other agents, which are
 unable to run the Docker daemon, this default setting may be problematic.
 Pipeline provides a global option in the <strong>Manage Jenkins</strong> page, and on
 the
-<a href="../../glossary/#folder">Folder</a>
+<a href="../glossary/index.html#folder" class="xref page">Folder</a>
 level, for specifying which agents (by
-<a href="../../glossary/#label">Label</a>)
+<a href="../glossary/index.html#label" class="xref page">Label</a>)
 to use for running Docker-based Pipelines.</p>
 </div>
 <div class="imageblock">

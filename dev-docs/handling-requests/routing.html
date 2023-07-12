@@ -131,18 +131,6 @@
   </li>
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../development-enviorment/index.html">Development Environment</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../development-enviorment/ide-configuration.html">IDE Configuration</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../development-enviorment/taglibs.html">Taglibs</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../extensibility/index.html">Extensibility</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
@@ -407,42 +395,6 @@
   </li>
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../template/index.html">index.adoc</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <span class="nav-text">xref:</span>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../forms/index.html">Forms</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
@@ -632,7 +584,7 @@ If the designated override objects do not have a handler for the request, the ho
 </td>
 <td class="content">
 Since Jenkins 2.138.4 and 2.154, Jenkins places restrictions not inherent to Stapler on which methods and fields are eligible for routing.
-<a href="../stapler-accessible-type/">Learn more</a>
+<a href="stapler-accessible-type.html" class="xref page">Learn more</a>
 </td>
 </tr>
 </table>
@@ -651,13 +603,13 @@ Since Jenkins 2.138.4 and 2.154, Jenkins places restrictions not inherent to Sta
 <dd>
 <p>Stapler responses will include <code>X-Stapler-Trace-…</code> headers that explain how the corresponding request was routed.
 Additionally, the 404 error page will also include this information, as well as alternative routes for the last path component (which resulted in the 404 error).
-The corresponding Java system property is <a href="https://www.jenkins.io/doc/book/managing/system-properties/#stapler-trace"><code>stapler.trace</code></a>.
+The corresponding Java system property is <a href="#managing:system-properties.adoc#stapler-trace" class="xref unresolved"><code>stapler.trace</code></a>.
 This is enabled by default if Jenkins is run using <code>mvn -pl war jetty:run</code> (core) or <code>mvn hpi:run</code> (plugins).</p>
 </dd>
 <dt class="hdlist1"><code>org.kohsuke.stapler.Dispatcher.TRACE_PER_REQUEST</code></dt>
 <dd>
 <p>As above, but only for requests that have the <code>X-Stapler-Trace</code> header.
-The corresponding Java system property is <a href="https://www.jenkins.io/doc/book/managing/system-properties/#stapler-trace-per-request"><code>stapler.trace.per-request</code></a>.</p>
+The corresponding Java system property is <a href="#managing:system-properties.adoc#stapler-trace-per-request" class="xref unresolved"><code>stapler.trace.per-request</code></a>.</p>
 </dd>
 </dl>
 </div>
