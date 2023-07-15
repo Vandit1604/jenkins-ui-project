@@ -10,13 +10,13 @@ content:
       # developer docs are unversioned that's why they are to be fetched indiviually
     - url: https://github.com/Vandit1604/jenkins-docs.git
       branches: [main]
-      start_paths: [docs/dev-docs]
+      start_paths: [docs/dev-docs, docs/events, docs/security, docs/sigs, docs/projects]
 runtime:
   fetch: true
 asciidoc:
   attributes:
     page-pagination: ''
-    plugin: https://plugins.jenkins.io/
+    plugin: https://plugins.jenkins.io
 
 ui:
   bundle:
