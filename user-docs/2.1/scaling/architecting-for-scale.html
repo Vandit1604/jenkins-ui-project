@@ -363,6 +363,30 @@
       </ul>
     </li>
     <li class="component">
+      <a class="title" href="../../../events/index.html">Jenkins Events</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../events/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../projects/2.2/index.html">Jenkins Projects</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../projects/2.2/index.html">2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../security/index.html">Jenkins Security Advisories</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../security/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <a class="title" href="../../../solutions/2.2/index.html">Jenkins Solutions Page</a>
       <ul class="versions">
         <li class="version is-latest">
@@ -370,6 +394,14 @@
         </li>
         <li class="version">
           <a href="../../../solutions/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../sigs/index.html">Jenkins Special Intrest Groups</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../sigs/index.html">default</a>
         </li>
       </ul>
     </li>
@@ -667,7 +699,7 @@ Refer to installation instructions in the <a href="https://github.com/jenkinsci/
 <li>
 <p><strong>Remote management facilities (WMI + DCOM)</strong>: With this approach, which
 utilizes the
-<a href="https://plugins.jenkins.io/windows-slaves">WMI Windows Agents Plugin</a>), the Jenkins controller will register the agent on the
+<a href="https://plugins.jenkins.iowindows-slaves">WMI Windows Agents Plugin</a>), the Jenkins controller will register the agent on the
 windows agent machine creating a Windows service. The Jenkins controller can
 control the agents, issuing stops/restarts/updates of the same. However this
 is difficult to configure and not recommended.</p>
@@ -754,19 +786,19 @@ resources together with their destruction when they are not needed anymore:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://plugins.jenkins.io/ec2">EC2 Plugin</a>
+<p>The <a href="https://plugins.jenkins.ioec2">EC2 Plugin</a>
 lets Jenkins use AWS EC2 instances as cloud build resources when it runs out of on-premises agents.
 The EC2 agents will be dynamically created inside an AWS network and de-provisioned when they are not needed.</p>
 </li>
 <li>
-<p>The <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents Plugin</a>
+<p>The <a href="https://plugins.jenkins.ioazure-vm-agents">Azure VM Agents Plugin</a>
 dynamically spins up Jenkins agents as Azure VMs per user provided
 configuration via templates, including support for virtual network integration
 and subnet placement. Idle agents can be configured for automatic shutdown
 to reduce costs.</p>
 </li>
 <li>
-<p>The <a href="https://plugins.jenkins.io/jclouds-jenkins">JCloud plugin</a>
+<p>The <a href="https://plugins.jenkins.iojclouds-jenkins">JCloud plugin</a>
 creates the possibility of executing the jobs on any cloud provider supported
 by JCloud libraries</p>
 </li>
@@ -1411,7 +1443,7 @@ can have multiple backup controllers configured.</p>
 </td>
 <td class="content">
 If you are trying to set up a proof-of-concept, it is recommended to use
-the <a href="https://plugins.jenkins.io/mock-security-realm">Mock Security Realm plugin</a> for authentication.
+the <a href="https://plugins.jenkins.iomock-security-realm">Mock Security Realm plugin</a> for authentication.
 </td>
 </tr>
 </table>

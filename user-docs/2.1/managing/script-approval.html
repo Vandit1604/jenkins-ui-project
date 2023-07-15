@@ -363,6 +363,30 @@
       </ul>
     </li>
     <li class="component">
+      <a class="title" href="../../../events/index.html">Jenkins Events</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../events/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../projects/2.2/index.html">Jenkins Projects</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../projects/2.2/index.html">2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../security/index.html">Jenkins Security Advisories</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../security/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <a class="title" href="../../../solutions/2.2/index.html">Jenkins Solutions Page</a>
       <ul class="versions">
         <li class="version is-latest">
@@ -370,6 +394,14 @@
         </li>
         <li class="version">
           <a href="../../../solutions/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../sigs/index.html">Jenkins Special Intrest Groups</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../sigs/index.html">default</a>
         </li>
       </ul>
     </li>
@@ -441,14 +473,14 @@ Groovy scripts <em>in</em> Jenkins. These scripting capabilities are provided by
 <p><a href="#../pipeline.adoc" class="xref unresolved">Jenkins Pipeline</a>.</p>
 </li>
 <li>
-<p>The <a href="https://plugins.jenkins.io/email-ext">Extended Email plugin</a>.</p>
+<p>The <a href="https://plugins.jenkins.ioemail-ext">Extended Email plugin</a>.</p>
 </li>
 <li>
-<p>The <a href="https://plugins.jenkins.io/groovy">Groovy plugin</a> - when using the "Execute system Groovy
+<p>The <a href="https://plugins.jenkins.iogroovy">Groovy plugin</a> - when using the "Execute system Groovy
 script" step.</p>
 </li>
 <li>
-<p>The <a href="https://plugins.jenkins.io/job-dsl">JobDSL plugin</a> as of version 1.60 and later.</p>
+<p>The <a href="https://plugins.jenkins.iojob-dsl">JobDSL plugin</a> as of version 1.60 and later.</p>
 </li>
 </ul>
 </div>
@@ -456,7 +488,7 @@ script" step.</p>
 <p>To protect Jenkins from execution of malicious scripts,
 these plugins execute user-provided scripts in a <a href="#groovy-sandbox">Groovy Sandbox</a>
 that limits the internal APIs that are accessible.
-This protection is provided by the <a href="https://plugins.jenkins.io/script-security">Script Security plugin</a>.
+This protection is provided by the <a href="https://plugins.jenkins.ioscript-security">Script Security plugin</a>.
 As soon as an unsafe method is used in any of the scripts, the administrator can use
 the "In-process Script Approval" action appears in <strong>Manage Jenkins</strong>
 to allow the unsafe method.
@@ -473,7 +505,7 @@ Unsafe methods should not be enabled without careful consideration of the impact
 <h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a>Getting Started</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <a href="https://plugins.jenkins.io/script-security">Script Security plugin</a> is installed automatically
+<p>The <a href="https://plugins.jenkins.ioscript-security">Script Security plugin</a> is installed automatically
 by the
 <a href="../../getting-started/installing#post-install-setup-wizard">Post-install Setup Wizard</a>,
 although initially no additional scripts or operations are approved for use.</p>
@@ -487,8 +519,8 @@ although initially no additional scripts or operations are approved for use.</p>
 <td class="content">
 <div class="paragraph">
 <p>Older versions of this plugin may not be safe to use. Please review the
-security warnings listed on <a href="https://plugins.jenkins.io/script-security">the Script Security plugin page</a>
-in order to ensure that the <a href="https://plugins.jenkins.io/script-security">Script Security plugin</a> is
+security warnings listed on <a href="https://plugins.jenkins.ioscript-security">the Script Security plugin page</a>
+in order to ensure that the <a href="https://plugins.jenkins.ioscript-security">Script Security plugin</a> is
 up to date.</p>
 </div>
 </td>

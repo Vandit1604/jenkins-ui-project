@@ -345,6 +345,13 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../glossary/index.html">Glossary</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </nav>
 </div>
@@ -363,6 +370,30 @@
       </ul>
     </li>
     <li class="component">
+      <a class="title" href="../../../events/index.html">Jenkins Events</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../events/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../projects/2.2/index.html">Jenkins Projects</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../projects/2.2/index.html">2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../security/index.html">Jenkins Security Advisories</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../security/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <a class="title" href="../../../solutions/2.2/index.html">Jenkins Solutions Page</a>
       <ul class="versions">
         <li class="version is-latest">
@@ -370,6 +401,14 @@
         </li>
         <li class="version">
           <a href="../../../solutions/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../sigs/index.html">Jenkins Special Intrest Groups</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../sigs/index.html">default</a>
         </li>
       </ul>
     </li>
@@ -431,7 +470,7 @@
 <div class="paragraph">
 <p>Multiple features of Jenkins, and many more in plugins, serve files that can be viewed or downloaded from Jenkins.
 Some built-in examples of that are the workspace browser, archived artifacts, file parameters to builds, or the <code>/userContent/</code> directory.
-Plugins like <a href="https://plugins.jenkins.io/javadoc">Javadoc</a>, <a href="https://plugins.jenkins.io/htmlpublisher">HTML Publisher</a>, or <a href="https://plugins.jenkins.io/maven-plugin">Maven Integration</a> (when publishing the Maven site) prominently feature functionality that serves HTML controlled by users from Jenkins.</p>
+Plugins like <a href="https://plugins.jenkins.iojavadoc">Javadoc</a>, <a href="https://plugins.jenkins.iohtmlpublisher">HTML Publisher</a>, or <a href="https://plugins.jenkins.iomaven-plugin">Maven Integration</a> (when publishing the Maven site) prominently feature functionality that serves HTML controlled by users from Jenkins.</p>
 </div>
 <div class="paragraph">
 <p>This can be a risk, as <a href="https://owasp.org/www-community/attacks/xss/">Cross-Site Scripting</a> attacks could be put into those HTML files by people with influence over builds who may not be fully trusted.</p>
@@ -447,7 +486,7 @@ This default prevents all JavaScript and other active elements, and only allows 
 </div>
 <div class="paragraph">
 <p>While this is safe, it also prevents a lot of useful functionality from working, such as rich, dynamic HTML reports created during builds.
-It is possible to <a href="../configuring-content-security-policy/">configure Content-Security-Policy</a>.
+It is possible to <a href="configuring-content-security-policy.html" class="xref page">configure Content-Security-Policy</a>.
 This is often a difficult tradeoff between functionality and security, so should only be done with great care.</p>
 </div>
 </div>

@@ -345,6 +345,13 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../glossary/index.html">Glossary</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </nav>
 </div>
@@ -363,6 +370,30 @@
       </ul>
     </li>
     <li class="component">
+      <a class="title" href="../../../events/index.html">Jenkins Events</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../events/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../projects/2.2/index.html">Jenkins Projects</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../projects/2.2/index.html">2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../security/index.html">Jenkins Security Advisories</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../security/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <a class="title" href="../../../solutions/2.2/index.html">Jenkins Solutions Page</a>
       <ul class="versions">
         <li class="version is-latest">
@@ -370,6 +401,14 @@
         </li>
         <li class="version">
           <a href="../../../solutions/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../sigs/index.html">Jenkins Special Intrest Groups</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../sigs/index.html">default</a>
         </li>
       </ul>
     </li>
@@ -439,7 +478,7 @@ The following sections discuss potential issues and strategies to deal with them
 <h2 id="_isolating_distributed_builds"><a class="anchor" href="#_isolating_distributed_builds"></a>Isolating Distributed Builds</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As discussed in <a href="../controller-isolation">Controller Isolation</a>, Jenkins should be set up for <em>distributed builds</em> to ensure build scripts are not executing on the controller, where they could access the Jenkins home directory or otherwise interfere with the operation of Jenkins.</p>
+<p>As discussed in <a href="controller-isolation.html" class="xref page">Controller Isolation</a>, Jenkins should be set up for <em>distributed builds</em> to ensure build scripts are not executing on the controller, where they could access the Jenkins home directory or otherwise interfere with the operation of Jenkins.</p>
 </div>
 <div class="paragraph">
 <p>An additional concern is that builds need to be isolated from each other:
@@ -518,7 +557,7 @@ Especially when a Jenkins instance builds projects from public repositories, thi
 These variables can come from various sources, such as build parameters, predefined agent environment variables, files read from the workspace and injected into the environment, etc.</p>
 </div>
 <div class="paragraph">
-<p><a href="../environment-variables">Handling Environment Variables</a> discusses this topic in detail, including solutions.</p>
+<p><a href="environment-variables.html" class="xref page">Handling Environment Variables</a> discusses this topic in detail, including solutions.</p>
 </div>
 </div>
 </div>
