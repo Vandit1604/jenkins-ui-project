@@ -114,7 +114,7 @@
     <a class="nav-link" href="../security/form-validation.html">Securely implementing form validation</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../security/xss-prevention.html">Preventing Cross-Site Scripting in Jelly views</a>
+    <span class="nav-text">xref:xss-prevention.adoc</span>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../security/rendering-user-content.html">Rendering User Content</a>
@@ -454,7 +454,7 @@
   </li>
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../extensions/index.html">index.adoc</a>
+    <a class="nav-link" href="../extensions/index.html">Extensions Index</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../extensions/github-autostatus.html">Extension Points defined in Job and Stage monitoring Plugin</a>
@@ -1414,7 +1414,7 @@ The following list covers typical integration tests:</p>
 <div class="sect3">
 <h4 id="_depending_on_other_plugins"><a class="anchor" href="#_depending_on_other_plugins"></a>Depending on Other Plugins</h4>
 <div class="paragraph">
-<p>Any Jenkins plugins that you add as dependencies to your POM with <code>&lt;scope&gt;test&lt;/scope&gt;</code> will be available in the Jenkins installations created while running test cases, or when using <a href="/doc/developer/tutorial/run/"><code>mvn hpi:run</code></a>.</p>
+<p>Any Jenkins plugins that you add as dependencies to your POM with <code>&lt;scope&gt;test&lt;/scope&gt;</code> will be available in the Jenkins installations created while running test cases, or when using <a href="../plugin-tutorial/run.html" class="xref page"><code>mvn hpi:run</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>You can also apply the <a href="https://javadoc.jenkins.io/component/jenkins-test-harness/?org/jvnet/hudson/test/recipes/WithPlugin.html"><code>@WithPlugin</code></a> annotation to individual test cases, but this is rarely required.</p>
