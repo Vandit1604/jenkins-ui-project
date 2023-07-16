@@ -113,11 +113,6 @@
   margin: 0;
 }
 
-.doc p .image img {
-  margin: 0;
-  border-radius: 50%;
-}
-
 .doc a {
   color: var(--link-font-color);
 }
@@ -1067,4 +1062,9 @@
   margin-left: -2em;
   text-align: right;
   width: 1.5em;
+}
+
+.doc p .image img {
+  margin: 0;
+  border-radius: 50%;
 }
