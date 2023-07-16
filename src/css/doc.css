@@ -113,6 +113,10 @@
   margin: 0;
 }
 
+.doc p .image img {
+  margin: 0;
+}
+
 .doc a {
   color: var(--link-font-color);
 }
