@@ -17,7 +17,7 @@ asciidoc:
   attributes:
     page-pagination: ''
     plugin: https://plugins.jenkins.io
-    avatar: image:images:avatars:
+    avatar: image:images:avatars
 
 ui:
   bundle:
