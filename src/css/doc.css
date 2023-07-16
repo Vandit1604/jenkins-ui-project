@@ -473,6 +473,10 @@
   margin-top: -0.2em;
 }
 
+.doc .image > img {
+ border-radius: 50%
+}
+
 .doc .videoblock iframe {
   max-width: 100%;
   vertical-align: middle;
@@ -1064,7 +1068,3 @@
   width: 1.5em;
 }
 
-.doc p .avatar .image {
-  margin: 0;
-  border-radius: 50%;
-}
