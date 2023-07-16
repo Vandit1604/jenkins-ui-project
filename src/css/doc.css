@@ -115,6 +115,7 @@
 
 .doc p .image img {
   margin: 0;
+  border-radius: 50%;
 }
 
 .doc a {
