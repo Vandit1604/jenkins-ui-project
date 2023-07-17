@@ -150,14 +150,12 @@ Select menu:File[Open Project] to open the project in your IDE.
 Per ea btn:[Cancel] inimicus.
 Ferri kbd:[F11] tacimates constituam sed ex, eu mea munere vituperata kbd:[Ctrl,T] constituam.
 
-.Sidebar Title
+.Connect
 ****
-Platonem complectitur mediocritatem ea eos.
-Ei nonumy deseruisse ius.
-Mel id omnes verear.
-
-Altera atomorum his ex, has cu elitr melius propriae.
-Eos suscipit scaevola at.
+* https://groups.google.com/g/jenkins-advocacy-and-outreach-sig[Mailing List]
+* https://app.gitter.im/#/room/#jenkinsci_advocacy-and-outreach-sig:gitter.im[Gitter]
+* https://docs.google.com/document/d/1K5dTSqe56chFhDSGNfg_MCy-LmseUs_S3ys_tg60sTs/edit#heading=h.9jh09t587y90[Meetings]
+* https://community.jenkins.io/c/contributing/advocacy-and-outreach[Forum]
 ****
 
 No sea, at invenire voluptaria mnesarchum has.

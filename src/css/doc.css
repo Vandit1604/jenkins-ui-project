@@ -460,7 +460,7 @@
 .doc .imageblock img,
 .doc .imageblock object,
 .doc .imageblock svg,
-.doc .image > img,
+.doc .image:not(.float-gap) > img,
 .doc .image > object,
 .doc .image > svg {
   display: inline-block;
