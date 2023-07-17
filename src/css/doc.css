@@ -261,6 +261,7 @@
 .doc table.grid-all > thead th,
 .doc table.grid-rows > thead th {
   border-bottom-width: 2.5px;
+  background-color: rgb(216, 237, 255);
 }
 
 .doc table.frame-all {
@@ -287,12 +288,12 @@
 
 .doc table.frame-none > * > tr > :first-child,
 .doc table.frame-ends > * > tr > :first-child {
-  border-left-width: 0;
+  border-left-width: 1.5px;
 }
 
 .doc table.frame-none > * > tr > :last-child,
 .doc table.frame-ends > * > tr > :last-child {
-  border-right-width: 0;
+  border-right-width: 1px;
 }
 
 .doc table.stripes-all > tbody > tr,
