@@ -88,6 +88,14 @@
       </ul>
     </li>
     <li class="component">
+      <a class="title" href="../../community/index.html">Jenkins Community</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../community/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <a class="title" href="../../dev-docs/index.html">Jenkins Developer Documentation</a>
       <ul class="versions">
         <li class="version is-latest">
@@ -192,6 +200,40 @@
 <h1 class="page">Pipeline as Code with Jenkins</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Jenkins ♥ Continuous Delivery Articles</div>
+<div class="paragraph">
+<p><a href="https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins">Multibranch Workflows in Jenkins</a></p>
+</div>
+<div class="paragraph">
+<p>jenkins.io</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Continuous Delivery plugins for Jenkins</div>
+<div class="paragraph">
+<p><a href="https://plugins.jenkins.ioworkflow-aggregator">Pipeline plugin</a></p>
+</div>
+<div class="paragraph">
+<p>allows creating Pipeline scripts for defining build/test/deploy stages of a delivery pipeline</p>
+</div>
+<div class="paragraph">
+<p><a href="https://plugins.jenkins.iopipeline-utility-steps">Pipeline Utility Steps plugin</a></p>
+</div>
+<div class="paragraph">
+<p>provides a number of addition, useful, steps to the Pipeline DSL</p>
+</div>
+<div class="paragraph">
+<p><a href="https://plugins.jenkins.iojob-dsl">Job DSL plugin</a></p>
+</div>
+<div class="paragraph">
+<p>creates a DSL to orchestrate job creation</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The default interaction model with Jenkins, historically, has been very web UI
 driven, requiring users to manually create jobs, then manually fill in the
@@ -207,14 +249,14 @@ best practices to the job configurations themselves.</p>
 <h2 id="_pipeline"><a class="anchor" href="#_pipeline"></a>Pipeline</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>With the introduction of the <a href="https://plugins.jenkins.io/workflow-aggregator">Pipeline plugin</a>,
+<p>With the introduction of the <a href="https://plugins.jenkins.io/workflow-aggregatorhttps://plugins.jenkins.io">Pipeline plugin</a>,
 users now can implement a project&#8217;s entire build/test/deploy pipeline
 in a <code>Jenkinsfile</code> and store that alongside their code, treating their
 pipeline as another piece of code checked into source control.</p>
 </div>
 <div class="paragraph">
 <p>The Pipeline plugin was inspired by the
-<a href="https://wiki.jenkins.io/display/JENKINS/Build+Flow+Plugin">Build Flow
+<a href="https://wiki.jenkins.io/display/JENKINS/Build+Flow+Pluginhttps://plugins.jenkins.io">Build Flow
 plugin</a> but aims to improve upon some concepts explored by Build Flow with
 features like:</p>
 </div>
@@ -229,13 +271,13 @@ features like:</p>
 <li>
 <p>support for extending the domain specific language with additional,
 organization specific steps, via the
-"<a href="/doc/book/pipeline/shared-libraries/">Shared Libraries</a>" feature.</p>
+"<a href="/doc/book/pipeline/shared-libraries/https://plugins.jenkins.io">Shared Libraries</a>" feature.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>In an adjacent space is the
-<a href="https://plugins.jenkins.io/job-dsl">Job DSL plugin</a>
+<a href="https://plugins.jenkins.io/job-dslhttps://plugins.jenkins.io">Job DSL plugin</a>
 which is worth mentioning as well.</p>
 </div>
 </div>
@@ -246,16 +288,16 @@ which is worth mentioning as well.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="/doc/pipeline">Getting Started with Pipeline</a></p>
+<p><a href="/doc/pipelinehttps://plugins.jenkins.io">Getting Started with Pipeline</a></p>
 </li>
 <li>
-<p>The <a href="https://plugins.jenkins.io/workflow-aggregator">Pipeline plugin</a>
+<p>The <a href="https://plugins.jenkins.io/workflow-aggregatorhttps://plugins.jenkins.io">Pipeline plugin</a>
 has a fairly comprehensive
-<a href="https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md">tutorial</a>
+<a href="https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.mdhttps://plugins.jenkins.io">tutorial</a>
 checked into its source tree too.</p>
 </li>
 <li>
-<p><a href="https://dzone.com/refcardz/continuous-delivery-with-jenkins-pipeline">DZone Refcard</a></p>
+<p><a href="https://dzone.com/refcardz/continuous-delivery-with-jenkins-pipelinehttps://plugins.jenkins.io">DZone Refcard</a></p>
 </li>
 </ul>
 </div>
@@ -270,16 +312,16 @@ checked into its source tree too.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="/doc/tutorials/build-a-java-app-with-maven/">Build a Java app with Maven</a></p>
+<p><a href="/doc/tutorials/build-a-java-app-with-maven/https://plugins.jenkins.io">Build a Java app with Maven</a></p>
 </li>
 <li>
-<p><a href="/doc/tutorials/build-a-node-js-and-react-app-with-npm/">Build a Node.js and React appl with npm</a></p>
+<p><a href="/doc/tutorials/build-a-node-js-and-react-app-with-npm/https://plugins.jenkins.io">Build a Node.js and React appl with npm</a></p>
 </li>
 <li>
-<p><a href="/doc/tutorials/build-a-python-app-with-pyinstaller/">Python application with PyInstaller</a></p>
+<p><a href="/doc/tutorials/build-a-python-app-with-pyinstaller/https://plugins.jenkins.io">Python application with PyInstaller</a></p>
 </li>
 <li>
-<p><a href="/doc/tutorials/build-a-labview-app/">Build a LabVIEW app</a></p>
+<p><a href="/doc/tutorials/build-a-labview-app/https://plugins.jenkins.io">Build a LabVIEW app</a></p>
 </li>
 </ul>
 </div>
@@ -289,13 +331,13 @@ checked into its source tree too.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://hub.docker.com/r/jenkinsci/workflow-demo/">continuous delivery</a></p>
+<p><a href="https://hub.docker.com/r/jenkinsci/workflow-demo/https://plugins.jenkins.io">continuous delivery</a></p>
 </li>
 <li>
-<p><a href="https://hub.docker.com/r/jenkinsci/pipeline-as-code-github-demo/">GitHub organization folders</a></p>
+<p><a href="https://hub.docker.com/r/jenkinsci/pipeline-as-code-github-demo/https://plugins.jenkins.io">GitHub organization folders</a></p>
 </li>
 <li>
-<p><a href="https://hub.docker.com/r/jenkinsci/docker-workflow-demo/">build, test, and publish with Docker</a></p>
+<p><a href="https://hub.docker.com/r/jenkinsci/docker-workflow-demo/https://plugins.jenkins.io">build, test, and publish with Docker</a></p>
 </li>
 </ul>
 </div>
@@ -307,16 +349,16 @@ checked into its source tree too.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://plugins.jenkins.io/workflow-aggregator">Pipeline Plugin page</a></p>
+<p><a href="https://plugins.jenkins.io/workflow-aggregatorhttps://plugins.jenkins.io">Pipeline Plugin page</a></p>
 </li>
 <li>
-<p><a href="https://github.com/jenkinsci/workflow-plugin/blob/master/COMPATIBILITY.md">Plugins compatible with Pipeline</a></p>
+<p><a href="https://github.com/jenkinsci/workflow-plugin/blob/master/COMPATIBILITY.mdhttps://plugins.jenkins.io">Plugins compatible with Pipeline</a></p>
 </li>
 <li>
-<p><a href="https://stackoverflow.com/questions/tagged/jenkins-pipeline">Stack Overflow "jenkins-pipeline" tag</a></p>
+<p><a href="https://stackoverflow.com/questions/tagged/jenkins-pipelinehttps://plugins.jenkins.io">Stack Overflow "jenkins-pipeline" tag</a></p>
 </li>
 <li>
-<p><a href="https://github.com/jenkinsci/pipeline-examples">Examples/snippets repository</a></p>
+<p><a href="https://github.com/jenkinsci/pipeline-exampleshttps://plugins.jenkins.io">Examples/snippets repository</a></p>
 </li>
 </ul>
 </div>
@@ -326,13 +368,13 @@ checked into its source tree too.</p>
 <h2 id="_presentations"><a class="anchor" href="#_presentations"></a>Presentations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A presentation by <a href="https://github.com/kohsuke">Kohsuke Kawaguchi</a>, <a href="https://github.com/markewaite">Mark Waite</a>, and Tyler Johnson:</p>
+<p>A presentation by <a href="https://github.com/kohsukehttps://plugins.jenkins.io">Kohsuke Kawaguchi</a>, <a href="https://github.com/markewaitehttps://plugins.jenkins.io">Mark Waite</a>, and Tyler Johnson:</p>
 </div>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/79HfmjeOTEI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <div class="paragraph">
-<p>The presentations below were given by <a href="https://github.com/jglick">Jesse Glick</a>, author of the <a href="https://plugins.jenkins.io/workflow-aggregator">Pipeline Plugin</a></p>
+<p>The presentations below were given by <a href="https://github.com/jglickhttps://plugins.jenkins.io">Jesse Glick</a>, author of the <a href="https://plugins.jenkins.io/workflow-aggregatorhttps://plugins.jenkins.io">Pipeline Plugin</a></p>
 </div>
 <center>
 <iframe width="560" height="315" frameborder="0"
@@ -341,7 +383,7 @@ checked into its source tree too.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://www.youtube.com/watch?v=gpaV6x9QwDo">2014 presentation</a> (with <a href="https://www.cloudbees.com/sites/default/files/2014-0618-Boston-Jesse_Glick-Workflow.pdf">slides</a>)</p>
+<p><a href="https://www.youtube.com/watch?v=gpaV6x9QwDohttps://plugins.jenkins.io">2014 presentation</a> (with <a href="https://www.cloudbees.com/sites/default/files/2014-0618-Boston-Jesse_Glick-Workflow.pdfhttps://plugins.jenkins.io">slides</a>)</p>
 </li>
 </ul>
 </div>
@@ -351,7 +393,7 @@ checked into its source tree too.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://www.slideshare.net/cloudbees/pimp-your-continuous-delivery-pipeline-with-jenkins-workflow-wjax-14">Pimp your Continuous Delivery Pipeline with Jenkins workflow (W-JAX 14)</a> by <a href="https://github.com/cyrille-leclerc">Cyrille Le Clerc</a></p>
+<p><a href="https://www.slideshare.net/cloudbees/pimp-your-continuous-delivery-pipeline-with-jenkins-workflow-wjax-14https://plugins.jenkins.io">Pimp your Continuous Delivery Pipeline with Jenkins workflow (W-JAX 14)</a> by <a href="https://github.com/cyrille-leclerchttps://plugins.jenkins.io">Cyrille Le Clerc</a></p>
 </li>
 </ul>
 </div>

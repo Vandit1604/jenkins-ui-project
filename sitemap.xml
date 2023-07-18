@@ -4,6 +4,9 @@
 <loc>https://docs.jenkins.com/sitemap-books.xml</loc>
 </sitemap>
 <sitemap>
+<loc>https://docs.jenkins.com/sitemap-community.xml</loc>
+</sitemap>
+<sitemap>
 <loc>https://docs.jenkins.com/sitemap-dev-docs.xml</loc>
 </sitemap>
 <sitemap>
