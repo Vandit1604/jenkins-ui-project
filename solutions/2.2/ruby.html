@@ -112,6 +112,14 @@
       </ul>
     </li>
     <li class="component">
+      <a class="title" href="../../Jenkins%20Project/2.2/index.html">Jenkins Project</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../Jenkins%20Project/2.2/index.html">2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <a class="title" href="../../projects/2.2/index.html">Jenkins Projects</a>
       <ul class="versions">
         <li class="version is-latest">
@@ -139,7 +147,7 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../sigs/index.html">Jenkins Special Intrest Groups</a>
+      <a class="title" href="../../sigs/index.html">Jenkins Special Interest Groups</a>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../sigs/index.html">default</a>
@@ -200,6 +208,80 @@
 <h1 class="page">Jenkins and Ruby</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>Jenkins integrates well with the Ruby toolchain for common tasks that many Ruby
+developers are already running locally. Tasks such as executing
+<a href="https://rspec.info/">RSpec</a> or <a href="https://cucumber.io/">Cucumber</a>,
+generating documentation, running code analysis tools and deploying Ruby
+software can all be done through Jenkins.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integrating_test_results"><a class="anchor" href="#_integrating_test_results"></a>Integrating test results</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Many tools, like Cucumber, can natively output JUnit-formatted XML which
+integrates by default into Jenkins via the "Publish JUnit test result report"
+Post-build Action. For tools which do not generate the appropriately
+formatted XML by default, there are gems which add the necessary formatters,
+such as <a href="https://github.com/ci-reporter/ci_reporter">ci_reporter</a>.</p>
+</div>
+<div class="imageblock unresolved center">
+<div class="content">
+<img src="images:images:solution-images:junit-rspec-postbuild-action.png" alt="Configured JUnit post-build action">
+</div>
+</div>
+<div class="paragraph">
+<p>By integrating the test reports into Jenkins, you can generate trends and
+reports. There are other plugins, such as the
+<a href="https://plugins.jenkins.io/email-ext">Email Ext plugin</a>
+which can also make use of these machine-readable test reports to send
+email notifications with only the failing test cases listed.</p>
+</div>
+<div class="imageblock unresolved center">
+<div class="content">
+<img src="images:images:solution-images:junit-rspec-trend.png" alt="Trending RSpec test reports">
+</div>
+</div>
+<div class="paragraph">
+<p>Using plugins such as the <a href="https://plugins.jenkins.io/cucumber-testresult-plugin">Cucumber Test Result plugin</a>
+improve the integration and discoverability of successful/unsuccessful
+Cucumber scenarios.</p>
+</div>
+<div class="paragraph">
+<p>By integrating these tools into Jenkins, team members no longer need to
+attempt to parse thousands of lines of console output, but instead can more
+easily find the important information about a build.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_presentations"><a class="anchor" href="#_presentations"></a>Presentations</h2>
+<div class="sectionbody">
+<center>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/AewrLMZMPnLlSj"
+  width="595" height="485" frameborder="0" marginwidth="0" marginheight="0"
+  scrolling="no">
+</iframe>
+</center>
+<div class="paragraph">
+<p><strong><a href="https://www.slideshare.net/cowboyd/ruby-ci-withjenkins">Ruby CI with Jenkins</a></strong>
+from <a href="https://github.com/cowboyd">cowboyd</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_presentations"><a class="anchor" href="#_other_presentations"></a>Other presentations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/files/Jenkins-hearts-Ruby.pdf">Jenkins ♥ Ruby</a> (<code>.pdf</code>) an introduction to
+integrating Jenkins with Ruby projects by <a href="https://github.com/rtyler">R. Tyler Croy</a></p>
+</li>
+</ul>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Jenkins ♥ Ruby Articles</div>
@@ -263,80 +345,6 @@
 <p>integrate and report from Cucumber executions</p>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>Jenkins integrates well with the Ruby toolchain for common tasks that many Ruby
-developers are already running locally. Tasks such as executing
-<a href="https://rspec.info/https://plugins.jenkins.io">RSpec</a> or <a href="https://cucumber.io/https://plugins.jenkins.io">Cucumber</a>,
-generating documentation, running code analysis tools and deploying Ruby
-software can all be done through Jenkins.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_integrating_test_results"><a class="anchor" href="#_integrating_test_results"></a>Integrating test results</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Many tools, like Cucumber, can natively output JUnit-formatted XML which
-integrates by default into Jenkins via the "Publish JUnit test result report"
-Post-build Action. For tools which do not generate the appropriately
-formatted XML by default, there are gems which add the necessary formatters,
-such as <a href="https://github.com/ci-reporter/ci_reporterhttps://plugins.jenkins.io">ci_reporter</a>.</p>
-</div>
-<div class="imageblock center">
-<div class="content">
-<img src="junit-rspec-postbuild-action.pnghttps://plugins.jenkins.io" alt="Configured JUnit post-build action">
-</div>
-</div>
-<div class="paragraph">
-<p>By integrating the test reports into Jenkins, you can generate trends and
-reports. There are other plugins, such as the
-<a href="https://plugins.jenkins.io/email-exthttps://plugins.jenkins.io">Email Ext plugin</a>
-which can also make use of these machine-readable test reports to send
-email notifications with only the failing test cases listed.</p>
-</div>
-<div class="imageblock center">
-<div class="content">
-<img src="junit-rspec-trend.pnghttps://plugins.jenkins.io" alt="Trending RSpec test reports">
-</div>
-</div>
-<div class="paragraph">
-<p>Using plugins such as the <a href="https://plugins.jenkins.io/cucumber-testresult-pluginhttps://plugins.jenkins.io">Cucumber Test Result plugin</a>
-improve the integration and discoverability of successful/unsuccessful
-Cucumber scenarios.</p>
-</div>
-<div class="paragraph">
-<p>By integrating these tools into Jenkins, team members no longer need to
-attempt to parse thousands of lines of console output, but instead can more
-easily find the important information about a build.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_presentations"><a class="anchor" href="#_presentations"></a>Presentations</h2>
-<div class="sectionbody">
-<center>
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/AewrLMZMPnLlSj"
-  width="595" height="485" frameborder="0" marginwidth="0" marginheight="0"
-  scrolling="no">
-</iframe>
-</center>
-<div class="paragraph">
-<p><strong><a href="https://www.slideshare.net/cowboyd/ruby-ci-withjenkinshttps://plugins.jenkins.io">Ruby CI with Jenkins</a></strong>
-from <a href="https://github.com/cowboydhttps://plugins.jenkins.io">cowboyd</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_other_presentations"><a class="anchor" href="#_other_presentations"></a>Other presentations</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="/files/Jenkins-hearts-Ruby.pdfhttps://plugins.jenkins.io">Jenkins ♥ Ruby</a> (<code>.pdf</code>) an introduction to
-integrating Jenkins with Ruby projects by <a href="https://github.com/rtylerhttps://plugins.jenkins.io">R. Tyler Croy</a></p>
-</li>
-</ul>
 </div>
 </div>
 </div>

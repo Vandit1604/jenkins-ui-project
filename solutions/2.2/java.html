@@ -111,6 +111,14 @@
       </ul>
     </li>
     <li class="component">
+      <a class="title" href="../../Jenkins%20Project/2.2/index.html">Jenkins Project</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../Jenkins%20Project/2.2/index.html">2.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <a class="title" href="../../projects/2.2/index.html">Jenkins Projects</a>
       <ul class="versions">
         <li class="version is-latest">
@@ -138,7 +146,7 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../sigs/index.html">Jenkins Special Intrest Groups</a>
+      <a class="title" href="../../sigs/index.html">Jenkins Special Interest Groups</a>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../sigs/index.html">default</a>
@@ -199,6 +207,45 @@
 <h1 class="page">Jenkins and Java</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>Jenkins supports building Java projects since its inception, and for a reason!
+It&#8217;s both the language Jenkins is written in, plus the language in use by many if not all the
+projects Kohsuke Kawaguchi wanted to watch out when he created the tool many years ago.</p>
+</div>
+<div class="paragraph">
+<p>If you want to build a Java project, there are a bunch of different options.
+The most typical ones nowadays are generally Apache Maven, or Gradle.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_apache_maven"><a class="anchor" href="#_apache_maven"></a>Apache Maven</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In any FreeStyle job, as <strong>currently</strong> Maven is supported in standard, you can use the
+dedicated step. One advantage is, as for all Jenkins tools, that you can select a specific
+Maven version and have Jenkins automatically install it on the build node it&#8217;s going to run on.</p>
+</div>
+<div class="imageblock unresolved center">
+<div class="content">
+<img src="images:images:solution-images:jenkins-maven-step.png" alt="Jenkins Maven step">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gradle"><a class="anchor" href="#_gradle"></a>Gradle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As the associated plugin is not installed by default, first install the
+<a href="https://plugins.jenkins.io/gradle">Gradle plugin</a>.
+Once done, you should be able to add a Gradle step.</p>
+</div>
+<div class="imageblock unresolved center">
+<div class="content">
+<img src="images:images:solution-images:jenkins-gradle-step.png" alt="Jenkins Gradle step">
+</div>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Java plugins for Jenkins</div>
@@ -238,45 +285,6 @@
 <div class="paragraph">
 <p>adds features for resolving artifacts from a Maven repository such as Nexus or Artifactory.</p>
 </div>
-</div>
-</div>
-<div class="paragraph">
-<p>Jenkins supports building Java projects since its inception, and for a reason!
-It&#8217;s both the language Jenkins is written in, plus the language in use by many if not all the
-projects Kohsuke Kawaguchi wanted to watch out when he created the tool many years ago.</p>
-</div>
-<div class="paragraph">
-<p>If you want to build a Java project, there are a bunch of different options.
-The most typical ones nowadays are generally Apache Maven, or Gradle.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_apache_maven"><a class="anchor" href="#_apache_maven"></a>Apache Maven</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In any FreeStyle job, as <strong>currently</strong> Maven is supported in standard, you can use the
-dedicated step. One advantage is, as for all Jenkins tools, that you can select a specific
-Maven version and have Jenkins automatically install it on the build node it&#8217;s going to run on.</p>
-</div>
-<div class="imageblock center">
-<div class="content">
-<img src="jenkins-maven-step.pnghttps://plugins.jenkins.io" alt="Jenkins Maven step">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_gradle"><a class="anchor" href="#_gradle"></a>Gradle</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>As the associated plugin is not installed by default, first install the
-<a href="https://plugins.jenkins.io/gradlehttps://plugins.jenkins.io">Gradle plugin</a>.
-Once done, you should be able to add a Gradle step.</p>
-</div>
-<div class="imageblock center">
-<div class="content">
-<img src="jenkins-gradle-step.pnghttps://plugins.jenkins.io" alt="Jenkins Gradle step">
 </div>
 </div>
 </div>
