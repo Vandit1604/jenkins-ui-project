@@ -16,7 +16,7 @@ runtime:
 asciidoc:
   attributes:
     page-pagination: ''
-    plugin: https://plugins.jenkins.io
+    plugin: https://plugins.jenkins.io/
     jira: https://issues.jenkins.io/browse/
     
 ui:
