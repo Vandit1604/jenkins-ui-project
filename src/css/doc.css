@@ -763,6 +763,14 @@
   padding: 2rem;
 }
 
+.doc .participate {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #3895ff;
+  padding: 2rem;
+}
+
 .doc .sidebarblock > .content > .title {
   font-size: calc(22.5 / var(--rem-base) * 1rem);
   font-weight: 600;

@@ -18,6 +18,7 @@ asciidoc:
     page-pagination: ''
     plugin: https://plugins.jenkins.io/
     jira: https://issues.jenkins.io/browse/
+    jep: https://github.com/jenkinsci/jep/tree/master/jep/
     
 ui:
   bundle:
