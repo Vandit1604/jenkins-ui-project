@@ -763,12 +763,107 @@
   padding: 2rem;
 }
 
-.doc .participate {
+.doc .button {
+  border: 1px solid #0053b3;
+  padding: 0.5rem;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.doc .flex-participate {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.doc .participate-connect {
   display: flex;
   background: var(--sidebar-background);
   border: 1px solid #c1c1c1;
-  border-right: 25px solid #3895ff;
+  border-right: 25px solid #889b73;
   padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-meet {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #a4262c;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-code {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #40587c;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-help {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #407855;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-translate {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #8e6f33;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-test {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #867365;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-document {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #0078d4;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-design {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #038387;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-review {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #ca5010;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.doc .participate-donate {
+  display: flex;
+  background: var(--sidebar-background);
+  border: 1px solid #c1c1c1;
+  border-right: 25px solid #889b73;
+  padding: 2rem;
+  width: 20rem;
 }
 
 .doc .sidebarblock > .content > .title {
