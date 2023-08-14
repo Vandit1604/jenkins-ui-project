@@ -763,6 +763,12 @@
   padding: 2rem;
 }
 
+.doc .youtube-videos .content {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 12px;
+}
+
 .doc .button {
   border: 1px solid #0053b3;
   padding: 0.5rem;
