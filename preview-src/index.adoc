@@ -18,7 +18,7 @@ video::e7N3jX2b1i0[youtube]
 
 [.float-group]
 --
-image:multirepo-ssg.svg[Multirepo SSG,180,135,float=right,role=float-gap]
+image:multirepo-ssg.svg[Multirepo SSG,180,135,float=right]
 Platonem complectitur mediocritatem ea eos.
 Ei nonumy deseruisse ius.
 Mel id omnes verear.
