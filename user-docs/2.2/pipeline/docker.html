@@ -875,7 +875,7 @@ have a "clean" container provisioned for each Pipeline run.</p>
 <div class="paragraph">
 <p>Consider a hypothetical integration test suite which relies on a local MySQL
 database to be running. Using the <code>withRun</code> method, implemented in the
-<a href="https://plugins.jenkins.io//docker-workflow">Docker Pipeline</a> plugin&#8217;s support for Scripted Pipeline,
+<a href="https://plugins.jenkins.io/docker-workflow">Docker Pipeline</a> plugin&#8217;s support for Scripted Pipeline,
 a <code>Jenkinsfile</code> can run MySQL as a sidecar:</p>
 </div>
 <div class="listingblock">
@@ -940,7 +940,7 @@ container before the Pipeline exits:</p>
 <div class="sect2">
 <h3 id="_building_containers"><a class="anchor" href="#_building_containers"></a>Building containers</h3>
 <div class="paragraph">
-<p>In order to create a Docker image, the <a href="https://plugins.jenkins.io//docker-workflow">Docker Pipeline</a>
+<p>In order to create a Docker image, the <a href="https://plugins.jenkins.io/docker-workflow">Docker Pipeline</a>
 plugin also provides a <code>build()</code> method for creating a new image, from a
 <code>Dockerfile</code> in the repository, during a Pipeline run.</p>
 </div>
@@ -1052,7 +1052,7 @@ flag:</p>
 <div class="sect2">
 <h3 id="_using_a_remote_docker_server"><a class="anchor" href="#_using_a_remote_docker_server"></a>Using a remote Docker server</h3>
 <div class="paragraph">
-<p>By default, the <a href="https://plugins.jenkins.io//docker-workflow">Docker Pipeline</a> plugin will communicate
+<p>By default, the <a href="https://plugins.jenkins.io/docker-workflow">Docker Pipeline</a> plugin will communicate
 with a local Docker daemon, typically accessed through <code>/var/run/docker.sock</code>.</p>
 </div>
 <div class="paragraph">
@@ -1118,7 +1118,7 @@ container, it will automatically pass the <code>--volumes-from</code> argument t
 <div class="sect2">
 <h3 id="custom-registry"><a class="anchor" href="#custom-registry"></a>Using a custom registry</h3>
 <div class="paragraph">
-<p>By default the <a href="https://plugins.jenkins.io//docker-workflow">Docker Pipeline</a> integrates assumes the
+<p>By default the <a href="https://plugins.jenkins.io/docker-workflow">Docker Pipeline</a> integrates assumes the
 default Docker Registry of
 <a href="https://hub.docker.com">Docker Hub</a>.</p>
 </div>
