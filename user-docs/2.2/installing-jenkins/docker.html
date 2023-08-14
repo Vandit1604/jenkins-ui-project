@@ -564,7 +564,7 @@ information about how to configure Docker to start on boot.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Minimum hardware requirements:</p>
@@ -615,18 +615,21 @@ Jenkins as a Docker container)</p>
 <p>Web browser: see the <a href="#administration:requirements/web-browsers.adoc" class="xref unresolved">Web Browser Compatibility</a> page</p>
 </li>
 <li>
-<p>For Windows operating system: <a href="#administration:requirements/windows.adoc" class="xref unresolved">Windows Support Policy</a></p>
+<p>For Windows operating system: <a href="../administration/windows.html" class="xref page">Windows Support Policy</a></p>
 </li>
 <li>
-<p>For Linux operating system: <a href="#administration:requirements/linux.adoc" class="xref unresolved">Linux Support Policy</a></p>
+<p>For Linux operating system: <a href="../administration/linux.html" class="xref page">Linux Support Policy</a></p>
 </li>
 <li>
 <p>For servlet containers: <a href="../administration/requirements/servlet-containers.html" class="xref page">Servlet Container Support Policy</a></p>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="_downloading_and_running_jenkins_in_docker"><a class="anchor" href="#_downloading_and_running_jenkins_in_docker"></a>Downloading and running Jenkins in Docker</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="downloading-and-running-jenkins-in-docker"><a class="anchor" href="#downloading-and-running-jenkins-in-docker"></a>Downloading and running Jenkins in Docker</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>There are several Docker images of Jenkins available.</p>
 </div>
@@ -658,9 +661,8 @@ You can see a list of previously published versions of the <code>jenkins/jenkins
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="_on_macos_and_linux"><a class="anchor" href="#_on_macos_and_linux"></a>On macOS and Linux</h2>
+<h2 id="macos-and-linux"><a class="anchor" href="#macos-and-linux"></a>On macOS and Linux</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -889,7 +891,7 @@ more inbound Jenkins agents on other machines, which in turn interact with
 your <code>jenkins-blueocean</code> container (the Jenkins "controller").
 Inbound Jenkins agents communicate with the Jenkins
 controller through TCP port 50000 by default. You can change this port number on
-your Jenkins controller through the <a href="/doc/book/managing/security/">Security</a>
+your Jenkins controller through the <a href="../managing/security.html" class="xref page">Security</a>
 page. If you were to change the <strong>TCP port for inbound Jenkins agents</strong> of your Jenkins controller
 to 51000 (for example), then you would need to re-run Jenkins (via this
 <code>docker run &#8230;&#8203;</code> command) and specify this "publish" option with something like
@@ -947,8 +949,11 @@ copying and pasting this annotation-free version here:</p>
 </li>
 </ol>
 </div>
-<div class="sect2">
-<h3 id="_on_windows"><a class="anchor" href="#_on_windows"></a>On Windows</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windows"><a class="anchor" href="#windows"></a>On Windows</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The Jenkins project provides a Linux container image, not a Windows container image.
 Be sure that your Docker for Windows installation is configured to run <code>Linux Containers</code> rather than <code>Windows Containers</code>.
@@ -1039,7 +1044,6 @@ command:</p>
 <p>Proceed to the <a href="#setup-wizard">Setup wizard</a>.</p>
 </li>
 </ol>
-</div>
 </div>
 </div>
 </div>
@@ -1137,7 +1141,7 @@ Jenkins, customize it with plugins and create the first administrator user
 through which you can continue accessing Jenkins.</p>
 </div>
 <div class="sect2">
-<h3 id="_unlocking_jenkins"><a class="anchor" href="#_unlocking_jenkins"></a>Unlocking Jenkins</h3>
+<h3 id="unlocking-jenkins"><a class="anchor" href="#unlocking-jenkins"></a>Unlocking Jenkins</h3>
 <div class="paragraph">
 <p>When you first access a new Jenkins instance, you are asked to unlock it using
 an automatically-generated password.</p>
@@ -1192,7 +1196,7 @@ step in the setup wizard.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_customizing_jenkins_with_plugins"><a class="anchor" href="#_customizing_jenkins_with_plugins"></a>Customizing Jenkins with plugins</h3>
+<h3 id="customizing-jenkins-with-plugins"><a class="anchor" href="#customizing-jenkins-with-plugins"></a>Customizing Jenkins with plugins</h3>
 <div class="paragraph">
 <p>After <a href="#unlocking-jenkins">unlocking Jenkins</a>, the <strong>Customize Jenkins</strong> page
 appears. Here you can install any number of useful plugins as part of your
@@ -1223,13 +1227,12 @@ plugins are selected by default.</p>
 <td class="content">
 If you are not sure what plugins you need, choose <strong>Install suggested
 plugins</strong>.
-You can install (or remove) additional Jenkins plugins at a later point in time
-via the
-<a href="/doc/book/managing"><strong>Manage Jenkins</strong></a> &gt;
-<a href="/doc/book/managing/plugins/"><strong>Plugins</strong></a> page in Jenkins.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>You can install (or remove) additional Jenkins plugins at a later point in time via the <a href="../managing/index.html" class="xref page"><strong>Manage Jenkins</strong></a> &gt; <a href="../managing/plugins.html" class="xref page"><strong>Plugins</strong></a> page in Jenkins.</p>
 </div>
 <div class="paragraph">
 <p>The setup wizard shows the progression of Jenkins being configured and your
