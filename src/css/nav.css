@@ -174,7 +174,6 @@ html.is-clipped--nav {
 .nav-panel-explore .context {
   font-size: calc(15 / var(--rem-base) * 1rem);
   flex-shrink: 0;
-  color: var(--nav-muted-color);
   box-shadow: 0 -1px 0 var(--nav-panel-divider-color);
   padding: 0 0.5rem;
   display: flex;
@@ -182,6 +181,7 @@ html.is-clipped--nav {
   justify-content: space-between;
   line-height: 1;
   height: var(--drawer-height);
+  background-color: #e7f3ff;
 }
 
 .nav-panel-explore:not(:first-child) .context {
@@ -204,7 +204,7 @@ html.is-clipped--nav {
   line-height: var(--doc-line-height);
   flex-grow: 1;
   box-shadow: inset 0 1px 5px var(--nav-panel-divider-color);
-  background: var(--nav-secondary-background);
+  background: #fff;
   padding: 0.5rem 0.75rem 0 0.75rem;
   margin: 0;
   overflow-y: scroll;
