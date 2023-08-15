@@ -473,10 +473,8 @@
   margin-top: -0.2em;
 }
 
-.doc .avatar .image > img,
-.doc .avatar .image > svg {
+.doc .avatar .image > img {
   border-radius: 50%;
-  margin: 1rem;
 }
 
 .doc .videoblock iframe {
