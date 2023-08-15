@@ -6,7 +6,7 @@
     <title>Build a Java app with Maven :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/tutorial/2.401.3/build-a-java-app-with-maven.html">
     <link rel="prev" href="tutorials-for-installing-jenkins-on-Google-Cloud.html">
-    <link rel="next" href="build-a-node-js-and-react-app-with-npm.html">
+    <link rel="next" href="build-a-multibranch-pipeline-project.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -35,6 +35,9 @@
   </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="build-a-java-app-with-maven.html">Build a Java app with Maven</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="build-a-multibranch-pipeline-project.html">End-to-End Multibranch Pipeline Project Creation</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="build-a-node-js-and-react-app-with-npm.html">Build a Node.js and React app with npm</a>
@@ -240,7 +243,7 @@ tests are saved to a JUnit XML report.</p>
 </div>
 <div class="paragraph">
 <p><strong>Duration:</strong> This tutorial takes 20-40 minutes to complete (assuming you&#8217;ve
-already met the <a href="#partial$_prerequisites.adoc" class="xref unresolved">prerequisites</a> below). The exact duration will
+already met the <a href="#_prerequisites">Prerequisites</a> below). The exact duration will
 depend on the speed of your machine and whether or not you&#8217;ve already
 <a href="#run-jenkins-in-docker">run Jenkins in Docker</a> from <a href="index.html" class="xref page">another tutorial</a>.</p>
 </div>
@@ -250,22 +253,55 @@ off.</p>
 </div>
 <div class="paragraph">
 <p>If you&#8217;ve already run through <a href="index.html" class="xref page">another tutorial</a>, you can skip the
-<a href="#partial$_prerequisites.adoc" class="xref unresolved">prerequisites</a> and <a href="#run-jenkins-in-docker">Run Jenkins in
-Docker</a> sections below and proceed on to <a href="#partial$_fork-sample-repository.adoc" class="xref unresolved">forking the
+<a href="#_prerequisites">Prerequisites</a> and <a href="#run-jenkins-in-docker">Run Jenkins in
+Docker</a> sections below and proceed on to <a href="#partial$fork-sample-repository.adoc" class="xref unresolved">forking the
 sample repository</a>. (Just ensure you have
 <a href="https://git-scm.com/downloads">Git</a> installed locally.) If you need to
 restart Jenkins, simply follow the restart instructions in
-<a href="#user-docs:installing-jenkins:partials_setup-wizard-for-tutorials.adoc" class="xref unresolved">run Jenkins in Docker</a> and then
+<a href="#user-docs:installing-jenkins:partial$_setup-wizard-for-tutorials.adoc" class="xref unresolved">run Jenkins in Docker</a> and then
 proceed on.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Unresolved include directive in modules/ROOT/pages/build-a-java-app-with-maven.adoc - include::partial$_prerequisites.adoc[]</p>
+<p>For this tutorial, you will require:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
+<p>A macOS, Linux or Windows machine with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>256 MB of RAM, although more than 2 GB is recommended.</p>
+</li>
+<li>
+<p>10 GB of drive space for Jenkins and your Docker images and containers.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The following software installed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.docker.com/">Docker</a> - Read more about installing Docker in the
+<a href="/doc/book/installing/#installing-docker">Installing Docker</a> section of
+the <a href="/doc/book/installing/">Installing Jenkins</a> page.<br>
+<strong>Note:</strong> If you use Linux, this tutorial assumes that you are not running
+Docker commands as the root user, but instead with a single user account that
+also has access to the other tools used throughout this tutorial.</p>
+</li>
+<li>
 <p><a href="https://git-scm.com/downloads">Git</a> and optionally
 <a href="https://desktop.github.com/">GitHub Desktop</a>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -284,18 +320,20 @@ image.</p>
 <a href="#on-macos-and-linux">macOS and Linux</a> or <a href="#on-windows">Windows</a>.</p>
 </div>
 <div class="paragraph">
-<p>You can read more about Docker container and image concepts in the
-<a href="#installing-jenkins:docker.adoc" class="xref unresolved">Docker</a>
+<p>You can read more about Docker container and image concepts in the <a href="#docker.adoc" class="xref unresolved">Docker</a>
 section of the <a href="#installing-jenkins:index.adoc" class="xref unresolved">Installing Jenkins</a> page.</p>
 </div>
 <div class="paragraph">
-<p><a href="#partial$_docker-for-tutorials.adoc" class="xref unresolved">partial$_docker-for-tutorials.adoc</a></p>
+<p><a href="#:partial$_docker-for-tutorials.adoc" class="xref unresolved">:partial$_docker-for-tutorials.adoc</a></p>
 </div>
 <div class="paragraph">
 <p><a href="#partial$_setup-wizard-for-tutorials.adoc" class="xref unresolved">partial$_setup-wizard-for-tutorials.adoc</a></p>
 </div>
-<div class="sect2">
-<h3 id="fork-and-clone-the-sample-repository-on-github"><a class="anchor" href="#fork-and-clone-the-sample-repository-on-github"></a>Fork and clone the sample repository</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="fork-and-clone-the-sample-repository-on-github"><a class="anchor" href="#fork-and-clone-the-sample-repository-on-github"></a>Fork and clone the sample repository</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Obtain the simple "Hello world!" Java application from GitHub, by forking the
 sample repository of the application&#8217;s source code into your own GitHub account
@@ -383,7 +421,6 @@ where <code>YOUR-GITHUB-ACCOUNT-NAME</code> is the name of your GitHub account.<
 </div>
 </li>
 </ol>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_create_your_pipeline_project_in_jenkins"><a class="anchor" href="#_create_your_pipeline_project_in_jenkins"></a>Create your Pipeline project in Jenkins</h3>
@@ -899,7 +936,7 @@ updates.</p>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="tutorials-for-installing-jenkins-on-Google-Cloud.html">Jenkins on Google Cloud</a></span>
-  <span class="next"><a href="build-a-node-js-and-react-app-with-npm.html">Build a Node.js and React app with npm</a></span>
+  <span class="next"><a href="build-a-multibranch-pipeline-project.html">End-to-End Multibranch Pipeline Project Creation</a></span>
 </nav>
 </article>
   </div>

@@ -37,6 +37,9 @@
     <a class="nav-link" href="build-a-java-app-with-maven.html">Build a Java app with Maven</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="build-a-multibranch-pipeline-project.html">End-to-End Multibranch Pipeline Project Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="build-a-node-js-and-react-app-with-npm.html">Build a Node.js and React app with npm</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -264,10 +267,47 @@ off.</p>
 </div>
 <div class="paragraph">
 <p>If you&#8217;ve already run though <a href="#tutorials:ROOT:index.adoc" class="xref unresolved">another tutorial</a>, you can skip the <a href="#prerequisites">prerequisites</a> and <a href="#user-docs:installing-jenkins:partial$_run-jenkins-in-docker.adoc" class="xref unresolved">run Jenkins in Docker</a> sections below and proceed to <a href="#fork-sample-repository">forking the sample repository</a>.
-If you need to restart Jenkins, follow the restart instructions in <a href="#user-docs:installing-jenkins:partials_setup-wizard-for-tutorials.adoc" class="xref unresolved">run Jenkins in Docker</a> and then proceed.</p>
+If you need to restart Jenkins, follow the restart instructions in <a href="#user-docs:installing-jenkins:partial$_setup-wizard-for-tutorials.adoc" class="xref unresolved">run Jenkins in Docker</a> and then proceed.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Unresolved include directive in modules/ROOT/pages/create-a-pipeline-in-blue-ocean.adoc - include::partial$_prerequisites.adoc[]</p>
+<p>For this tutorial, you will require:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A macOS, Linux or Windows machine with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>256 MB of RAM, although more than 2 GB is recommended.</p>
+</li>
+<li>
+<p>10 GB of drive space for Jenkins and your Docker images and containers.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The following software installed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.docker.com/">Docker</a> - Read more about installing Docker in the
+<a href="/doc/book/installing/#installing-docker">Installing Docker</a> section of
+the <a href="/doc/book/installing/">Installing Jenkins</a> page.<br>
+<strong>Note:</strong> If you use Linux, this tutorial assumes that you are not running
+Docker commands as the root user, but instead with a single user account that
+also has access to the other tools used throughout this tutorial.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -284,18 +324,48 @@ image.</p>
 <a href="#on-macos-and-linux">macOS and Linux</a> or <a href="#on-windows">Windows</a>.</p>
 </div>
 <div class="paragraph">
-<p>You can read more about Docker container and image concepts in the
-<a href="#installing-jenkins:docker.adoc" class="xref unresolved">Docker</a>
+<p>You can read more about Docker container and image concepts in the <a href="#docker.adoc" class="xref unresolved">Docker</a>
 section of the <a href="#installing-jenkins:index.adoc" class="xref unresolved">Installing Jenkins</a> page.</p>
 </div>
 <div class="paragraph">
-<p><a href="#partial$_docker-for-tutorials.adoc" class="xref unresolved">partial$_docker-for-tutorials.adoc</a></p>
+<p><a href="#:partial$_docker-for-tutorials.adoc" class="xref unresolved">:partial$_docker-for-tutorials.adoc</a></p>
 </div>
 <div class="paragraph">
 <p><a href="#partial$_setup-wizard-for-tutorials.adoc" class="xref unresolved">partial$_setup-wizard-for-tutorials.adoc</a></p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fork_the_sample_repository_on_github"><a class="anchor" href="#_fork_the_sample_repository_on_github"></a>Fork the sample repository on GitHub</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Unresolved include directive in modules/ROOT/pages/create-a-pipeline-in-blue-ocean.adoc - include::partial$_fork-sample-repository.adoc[]</p>
+<p>Fork the simple "Welcome to React" Node.js and React application on GitHub into your own GitHub account.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you are signed in to your GitHub account.
+If you don&#8217;t yet have a GitHub account, sign up for a free on the <a href="https://github.com/">GitHub website</a>.</p>
+</li>
+<li>
+<p>Fork the <a href="https://github.com/jenkins-docs/creating-a-pipeline-in-blue-ocean"><code>creating-a-pipeline-in-blue-ocean</code></a>
+repository on GitHub into your local GitHub account.
+If you need help with this process, refer to the <a href="https://help.github.com/articles/fork-a-repo/">fork a repo</a> documentation on the GitHub website for more information.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a different repository than the one used in the <a href="#tutorials:build-a-node-js-and-react-app-with-npm.adoc" class="xref unresolved">build a Node.js and React app with npm</a> tutorial.
+Although these repositories contain the same application code, ensure you fork and use the correct one before continuing.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
