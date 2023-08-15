@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jenkins</title>
+    <link rel="canonical" href="https://docs.jenkins.com/projects/gsoc/2020/projects/jenkins-x-apps-consolidation.html">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<script type="module" src="https://unpkg.com/@jenkinsci/jenkins-io-components?module"></script>
+<jio-navbar style="  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;"></jio-navbar>
+  <div class="body">
+<div class="nav-container" data-component="projects" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../../index.html">Jenkins Projects</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../index.html">Jenkins Sub-projects</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../../../user-docs/2.401.3/blueocean/getting-started.html">Getting started with Blue Ocean</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../blueocean/about.html">About Blue Ocean</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../blueocean/contribute.html">Contributing to Blue Ocean</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../jam/index.html">CI/CD and Jenkins Area Meetups</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../remoting/index.html">Jenkins Remoting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../index.html">Google Summer of Code in Jenkins</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../2018/index.html">Jenkins in Google Summer of Code 2018</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../2018/code-coverage-api-plugin.html">2018/code-coverage-api-plugin.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../2018/eda-plugins.html">2018/eda-plugins.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../2018/index.html">Jenkins in Google Summer of Code 2018</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../2018/remoting-over-message-bus.html">2018/remoting-over-message-bus.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../2018/simple-pull-request-job-plugin.html">2018/simple-pull-request-job-plugin.adoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../sigs/advocacy-and-outreach/outreach-programs/index.html">Outreach programs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../../jcasc/index.html">index.adoc</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../jcasc/dev-tools.html">dev-tools.adoc</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../../infrastructure/index.html">index.adoc</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../infrastructure/ircbot.html">ircbot.adoc</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../jenkins-operator/index.html">index.adoc</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Other Projects</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../sigs/docs/gsod/2020/projects/document-jenkins-on-kubernetes.html">Document Jenkins on Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://jenkins-x.io/">Jenkins X</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jenkins Projects</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../../about/index.html">About Jenkins</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../about/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../images/index.html">All of Jenkins Images</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../images/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../books/index.html">Jenkins Books</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../books/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../community/index.html">Jenkins Community</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../community/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../dev-docs/index.html">Jenkins Developer Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../dev-docs/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../events/index.html">Jenkins Events</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../events/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../Jenkins%20Project/index.html">Jenkins Project</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../Jenkins%20Project/index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../../../index.html">Jenkins Projects</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../security/index.html">Jenkins Security Advisories</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../security/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../solutions/2.401.3/index.html">Jenkins Solutions Page</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../solutions/2.401.3/index.html">2.401.3</a>
+        </li>
+        <li class="version">
+          <a href="../../../../solutions/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../sigs/index.html">Jenkins Special Interest Groups</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../sigs/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../tutorial/2.401.3/index.html">Jenkins Tutorials</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../tutorial/2.401.3/index.html">2.401.3</a>
+        </li>
+        <li class="version">
+          <a href="../../../../tutorial/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../../user-docs/2.401.3/index.html">Jenkins User Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../user-docs/2.401.3/index.html">2.401.3</a>
+        </li>
+        <li class="version">
+          <a href="../../../../user-docs/2.1/index.html">2.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../user-docs/2.401.3/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/projects/modules/gsoc/pages/2020/projects/jenkins-x-apps-consolidation.adoc"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg>  Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<hr>
+<div class="paragraph">
+<p>layout: gsocproject
+title: "Jenkins X: Consolidate the use of Apps / Addons"
+goal: "Consolidate Apps and Addons inside Jenkins X"
+category: Jenkins X
+year: 2020
+status: "Completed"
+student: nodece
+mentors:
+- "marckk"
+- "jstrachan"
+- "nehagup"
+- "sharepointoscar"
+- "nikhildarocha"
+- "sahilrkalra"
+tags:
+- gsoc2020
+- jenkins-x
+links:
+  chat: <a href="https://jenkins-x.io/community/#slack" class="bare">https://jenkins-x.io/community/#slack</a>
+  draft: <a href="https://docs.google.com/document/d/1Ph-Jo8KGYzTLMXLIDJQB6XbVcnILETfXEMXXczrxb4s/edit?usp=sharing" class="bare">https://docs.google.com/document/d/1Ph-Jo8KGYzTLMXLIDJQB6XbVcnILETfXEMXXczrxb4s/edit?usp=sharing</a>
+  idea: /projects/gsoc/2020/project-ideas/jenkins-x-apps-consolidation
+---</p>
+</div>
+<div class="paragraph">
+<p>The current CLI supports <code>apps</code> and <code>addons</code>. <code>Addons</code> were either generic helm charts or a combination of helm chart plus some custom go code to install and integrate them with the Jenkins X platform. <code>Apps</code> framework which provided a more generic way of adding charts chatting to Jenkins X such that anybody could create an app without having to modify the underlying jx code. But now left developers with confusion over what an APP is. Developers think the <code>apps</code> is they are developing.</p>
+</div>
+<div class="sect2">
+<h3 id="_deliverables"><a class="anchor" href="#_deliverables"></a>Deliverables</h3>
+<div class="paragraph">
+<p>The main aim of the project would be to consolidate <code>Apps</code> and <code>Addons</code> inside Jenkins X to avoid confusion. Everything as an <code>App</code> and deprecate the use of the word <code>Addon</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>App</code> includes system charts like knative, gloo, nginx-controller, flagger, prometheus, external-dns, cert-manager.</p>
+</div>
+<div class="paragraph">
+<p>Implement <code>jx add app</code> and <code>jx delete app</code> to update the <code>App</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_phase_1"><a class="anchor" href="#_phase_1"></a>Phase 1</h3>
+<div class="paragraph">
+<p>I&#8217;ll add new commands to jx by transfer the <code>add addon</code> command to the <code>add app</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following commands will be supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>jx add app kubeless</p>
+</li>
+<li>
+<p>jx add app anchore</p>
+</li>
+<li>
+<p>jx add app owasp-zap</p>
+</li>
+<li>
+<p>jx add app gitea</p>
+</li>
+<li>
+<p>jx add app environment</p>
+</li>
+<li>
+<p>jx add app flagger</p>
+</li>
+<li>
+<p>jx add app gloo</p>
+</li>
+<li>
+<p>jx add app ingress</p>
+</li>
+<li>
+<p>jx add app istio</p>
+</li>
+<li>
+<p>jx add app ambassador</p>
+</li>
+<li>
+<p>jx add app pipeline-events</p>
+</li>
+<li>
+<p>jx add app prometheus</p>
+</li>
+<li>
+<p>jx add app prow</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_phase_2"><a class="anchor" href="#_phase_2"></a>Phase 2</h3>
+<div class="paragraph">
+<p>I&#8217;ll add new commands to jx by transfer the <code>delete addon</code> command to the <code>delete app</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following commands will be supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>jx delete app environment</p>
+</li>
+<li>
+<p>jx delete app flagger</p>
+</li>
+<li>
+<p>jx delete app gitea</p>
+</li>
+<li>
+<p>jx delete app ingress</p>
+</li>
+<li>
+<p>jx delete app istio</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_phase_3"><a class="anchor" href="#_phase_3"></a>Phase 3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Resolve the issues and bugs in development</p>
+</li>
+<li>
+<p>Write users documentation</p>
+</li>
+<li>
+<p>Write developer documentation</p>
+</li>
+<li>
+<p>Submit my work to the mentor and ask for feedback then resolve the feedback</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_work_has_been_done"><a class="anchor" href="#_what_work_has_been_done"></a>What work has been done</h3>
+<div class="paragraph">
+<p>The following is migrated from Addons to Apps:</p>
+</div>
+<div class="paragraph">
+<p>✅ - Can use the new command</p>
+</div>
+<div class="paragraph">
+<p>❌ - Cannot use the new command</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Addons</th>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">New Command</th>
+<th class="tableblock halign-left valign-top">Repository</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubeless</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-kubeless</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-kubeless" class="bare">https://github.com/jenkins-x-apps/jx-app-kubeless</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gloo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-gloo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-gloo" class="bare">https://github.com/jenkins-x-apps/jx-app-gloo</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flagger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-flagger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-flagger" class="bare">https://github.com/jenkins-x-apps/jx-app-flagger</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ingress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-ingress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-ingress" class="bare">https://github.com/jenkins-x-apps/jx-app-ingress</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prometheus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-prometheus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-prometheus" class="bare">https://github.com/jenkins-x-apps/jx-app-prometheus</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anchore</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-anchore</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-anchore" class="bare">https://github.com/jenkins-x-apps/jx-app-anchore</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Migrated by Jenkins X team before GSoC</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ambassador</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-ambassador</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-ambassador" class="bare">https://github.com/jenkins-x-apps/jx-app-ambassador</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Migrated by Jenkins X team before GSoC</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gitea</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-gitea</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-gitea" class="bare">https://github.com/jenkins-x-apps/jx-app-gitea</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Migrated by Jenkins X team before GSoC</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Istio</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-istio</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/-jx-app-istio" class="bare">https://github.com/jenkins-x-apps/-jx-app-istio</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not pushed to chartmuseum.jenkins-x.io</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OWASP-ZAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jx add app jx-app-owasp-zap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x-apps/jx-app-owasp-zap" class="bare">https://github.com/jenkins-x-apps/jx-app-owasp-zap</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not pushed to chartmuseum.jenkins-x.io</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">environment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pipeline-events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>jx delete app</code> command is implemented by other contributors during GSoC, so I cannot impletement it.</p>
+</div>
+<div class="paragraph">
+<p>The following is my PR to improve Jenkins X:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Support add an Apps from git repository</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x/jx/pull/7436" class="bare">https://github.com/jenkins-x/jx/pull/7436</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecate Addons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x/jx/pull/7440" class="bare">https://github.com/jenkins-x/jx/pull/7440</a> <a href="https://github.com/jenkins-x/jx/pull/7514" class="bare">https://github.com/jenkins-x/jx/pull/7514</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fix install Apps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x/jx/pull/7509" class="bare">https://github.com/jenkins-x/jx/pull/7509</a> <a href="https://github.com/jenkins-x/jx/pull/7530" class="bare">https://github.com/jenkins-x/jx/pull/7530</a> <a href="https://github.com/jenkins-x/jx/pull/7472" class="bare">https://github.com/jenkins-x/jx/pull/7472</a> <a href="https://github.com/jenkins-x/jx/pull/7441" class="bare">https://github.com/jenkins-x/jx/pull/7441</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve compatibility with Windows</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x/jx/pull/7158" class="bare">https://github.com/jenkins-x/jx/pull/7158</a> <a href="https://github.com/jenkins-x/jx/pull/7096" class="bare">https://github.com/jenkins-x/jx/pull/7096</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve get OS name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x/jx/pull/6974" class="bare">https://github.com/jenkins-x/jx/pull/6974</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fix ignore load jx-requirements.yml validation errors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-x/jx/pull/6943" class="bare">https://github.com/jenkins-x/jx/pull/6943</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_challenges"><a class="anchor" href="#_challenges"></a>Challenges</h3>
+<div class="paragraph">
+<p>This is my first time to participate in GSoC. I have never been involved in the research and development of cloud native project, but I am full of interest in it. Jenkins X integrates Tekton, Knave, Lighthouse, Skaffold and Helm, it&#8217;s very challenging for me to learn Jenkins X. my focus is on Apps and Addons framework. Jenkins X uses Helm2 to manage all Apps. The interesting feature is that they don&#8217;t rely on tiller, which causes some obstacles. Through in-depth study and research, the existing problems are found and solutions are proposed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_final_demo"><a class="anchor" href="#_final_demo"></a>Final Demo</h3>
+<div class="paragraph">
+<p>In this presentation, I introduce the background of the project, as well as the solutions, and demonstrate the Apps I made.</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe src="https://www.youtube.com/embed/LIy90gGvmIU?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_acknowledgements"><a class="anchor" href="#_acknowledgements"></a>Acknowledgements</h3>
+<div class="paragraph">
+<p>Google Summer of Code is great opportunity for me, Jenkins X has a great team of mentors, I learned a lot about Kubernetes, Helm and how jx works, big application like jx are a big challenge for me, I am very grateful to <a href="https://github.com/MarckK">Kara de la Marck</a>, <a href="https://github.com/jstrachan">James Strachan</a> and <a href="https://github.com/rawlingsj">James Rawlings</a> of mentors, Jenkins community, Jenkins X community and GSoC contributor guide me, I am looking forward to jx getting better and better, I also expect more and more people to contribute jx.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_office_hours"><a class="anchor" href="#_office_hours"></a>Office Hours</h3>
+<div class="paragraph">
+<p>Office hours are scheduled every Monday at 14:00 UTC on the
+CDF <a href="https://cdeliveryfdn.slack.com/join/shared_invite/enQtODM2NDI1NDc0MzIxLTA1MDcxMzUyMGU2NWVlNmQwN2M1N2M4MWJjOWFkM2UzMDY0OWNkNjAzNzM0NzVkNjQ5M2NkMmY2MTRkMWY4MWY#/">#jenkins-x-gsoc</a> channel.
+Meeting notes are available <a href="https://docs.google.com/document/d/1I8HrGtasH3p6XRVgTcUeXNqoPTAh4A4pQaRnE9e08DQ/edit?usp=sharing">here</a> to read.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_links"><a class="anchor" href="#_other_links"></a>Other links</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.google.com/document/d/1Ph-Jo8KGYzTLMXLIDJQB6XbVcnILETfXEMXXczrxb4s/edit?usp=sharing">GSoC Proposal</a></p>
+</li>
+<li>
+<p><a href="https://jenkins-x.io/blog/2020/07/12/gsoc2020/">Coding Phase 1 Blog Post</a></p>
+</li>
+<li>
+<p><a href="https://jenkins-x.io/blog/2020/07/27/gsoc2020/">Coding Phase 2 Blog Post</a></p>
+</li>
+</ul>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<jio-footer></jio-footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
