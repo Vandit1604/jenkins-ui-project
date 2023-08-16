@@ -26,6 +26,7 @@
 
 .nav-container.is-active {
   visibility: visible;
+  background: #e7f3ff;
 }
 
 .nav {
