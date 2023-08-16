@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Jenkins</title>
+    <title>Automatic Specification Generator for Jenkins REST API" :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/projects/gsoc/2021/project-ideas/automatic-spec-generator-for-jenkins-rest-api.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -268,6 +268,10 @@
 <button class="nav-toggle"></button>
   <a href="../../../../user-docs/2.401.3/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../../index.html">Jenkins Projects</a></li>
+    <li><a href="automatic-spec-generator-for-jenkins-rest-api.html">Automatic Specification Generator for Jenkins REST API"</a></li>
+  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/projects/modules/gsoc/pages/2021/project-ideas/automatic-spec-generator-for-jenkins-rest-api.adoc"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg>  Edit this Page</a></div>
   </div>
@@ -276,28 +280,10 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<hr>
-<div class="paragraph">
-<p>layout: gsocprojectidea
-title: "Automatic Specification Generator for Jenkins REST API"
-goal: "Find and implement the extraction of the REST APIs from the sources and generate and publish the REST APIs respective documentation"
-category: Plugins
-year: 2021
-status: published
-sig: docs
-skills:
-- Java
-- REST API
-- OpenAPI / Swagger
-mentors:
-- "kwhetstone"
-- "oleg_nenashev"
-- "linuxsuren"
-- "stellargo"
-links:
-  draft: <a href="https://docs.google.com/document/d/1CYzV_w5SrA-npXEMwTkJ4E2QyJdd2cJm7eDpwhg4XPk" class="bare">https://docs.google.com/document/d/1CYzV_w5SrA-npXEMwTkJ4E2QyJdd2cJm7eDpwhg4XPk</a>
----</p>
-</div>
+<h1 class="page">Automatic Specification Generator for Jenkins REST API"</h1>
+<div class="sect1">
+<h2 id="_details"><a class="anchor" href="#_details"></a>Details</h2>
+<div class="sectionbody">
 <div class="sect2">
 <h3 id="_background"><a class="anchor" href="#_background"></a>Background</h3>
 <div class="paragraph">
@@ -320,8 +306,9 @@ Users of the REST API most often want:</p>
 A lot of APIs are contributed from extensions, so there are multiple REST APIs (core and plugins) of varying versions.
 The goal of this project is to find and implement the extraction of the REST APIs from the sources and generate and publish the REST APIs respective documentation.</p>
 </div>
-<div class="sect3">
-<h4 id="_project_details"><a class="anchor" href="#_project_details"></a>Project Details</h4>
+</div>
+<div class="sect2">
+<h3 id="_project_details"><a class="anchor" href="#_project_details"></a>Project Details</h3>
 <div class="paragraph">
 <p>Generating the expected HTTP responses is a difficult task.
 The student is expected to study Jenkins core to identify ways to extract them.
@@ -350,7 +337,6 @@ Nested objects make versioning challenging.</p>
 For Jenkins core, this could be done with a URL like:  <code><a href="http://localhost/rest/api/1.0" class="bare">http://localhost/rest/api/1.0</a></code>.
 The plugins would have their own REST API path with a version number like: <code><a href="http://localhost/plugin/rest/api/1.0" class="bare">http://localhost/plugin/rest/api/1.0</a></code>.
 Plugins and the core would thus have their own version number, and an additional REST API version number.  Automated API documentation using the OpenAPI 3.0 specification is part of identifying the API specs.</p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -447,6 +433,19 @@ add it to the respective plugin repository</p>
 <p><a href="http://github.com/stapler/">Stapler</a> (more info:https://github.com/jenkins-infra/jenkins.io/pull/2157#issuecomment-471230609)</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_potential_mentors"><a class="anchor" href="#_potential_mentors"></a>Potential Mentors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="image"><img src="../../../../images/_images/avatars/no_image.svg" alt="no image" width="30" height="30"></span> Kristin Whetstone
+<span class="image"><img src="../../../../images/_images/avatars/oleg_nenashev.png" alt="oleg nenashev" width="30" height="30"></span> Oleg Nenashev
+<span class="image"><img src="../../../../images/_images/avatars/linuxsuren.jpg" alt="linuxsuren" width="30" height="30"></span> 赵晓杰(Rick)
+<span class="image"><img src="../../../../images/_images/avatars/stellargo.jpeg" alt="stellargo" width="30" height="30"></span> Sumit Sarin</p>
+</div>
 </div>
 </div>
 </article>
