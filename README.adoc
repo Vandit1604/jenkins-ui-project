@@ -38,6 +38,18 @@ The Antora project and its project spaces are governed by our xref:CODE-OF-CONDU
 By participating, you're agreeing to honor this code.
 Let's work together to make this a welcoming, professional, inclusive, and safe environment for everyone.
 
+== Development Steps
+
+In order to build the site locally, first change directory to the `playbook-repo` directory from root using:
+```shell
+cd playbook-repo
+```
+
+Then, run the command:
+```shell
+npx antora antora-playbook.yml
+```
+
 == Quickstart
 
 This section offers a basic tutorial for evaluating Antora.
