@@ -103,10 +103,10 @@
   </li>
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../../infrastructure/index.html">index.adoc</a>
+    <a class="nav-link" href="../../infrastructure/index.html">Infrastructure</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../infrastructure/ircbot.html">ircbot.adoc</a>
+    <a class="nav-link" href="../../infrastructure/ircbot.html">IRC Bot</a>
   </li>
 </ul>
   </li>
@@ -378,7 +378,7 @@ links:
 </div>
 <div class="paragraph">
 <p>The below diagram is the overview of the current architecture:
-<span class="image unresolved center"><img src="/images/post-images/remoting-kafka/remoting-kafka-architecture.png" alt="remoting kafka architecture" title="Remoting Kafka Plugin Current Architecture"></span></p>
+<span class="image center"><img src="../../../images/_images/post-images/remoting-kafka/remoting-kafka-architecture.png" alt="remoting kafka architecture" title="Remoting Kafka Plugin Current Architecture"></span></p>
 </div>
 <div class="paragraph">
 <p>With this design, master is not communicating with agent using direct TCP communication anymore, all the communication commands are transferred with Kafka.</p>
@@ -462,31 +462,31 @@ links:
 <div class="sect3">
 <h4 id="_1_kafka_global_configuration_with_support_of_credentials_plugin_to_store_secrets"><a class="anchor" href="#_1_kafka_global_configuration_with_support_of_credentials_plugin_to_store_secrets"></a>1. Kafka Global Configuration with support of credentials plugin to store secrets.</h4>
 <div class="paragraph">
-<p><span class="image unresolved center"><img src="/images/post-images/remoting-kafka/remoting-kafka-configuration.png" alt="remoting kafka configuration" title="Remoting Kafka Plugin Global Configuration"></span></p>
+<p><span class="image center"><img src="../../../images/_images/post-images/remoting-kafka/remoting-kafka-configuration.png" alt="remoting kafka configuration" title="Remoting Kafka Plugin Global Configuration"></span></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_2_launch_agent_with_kafka_launcher"><a class="anchor" href="#_2_launch_agent_with_kafka_launcher"></a>2. Launch agent with Kafka Launcher.</h4>
 <div class="paragraph">
-<p><span class="image unresolved center"><img src="/images/post-images/remoting-kafka/launch-agent-kafka.png" alt="launch agent kafka" title="Launch agent with Kafka Launcher"></span></p>
+<p><span class="image center"><img src="../../../images/_images/post-images/remoting-kafka/launch-agent-kafka.png" alt="launch agent kafka" title="Launch agent with Kafka Launcher"></span></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_3_launch_agent_from_cli_using_agent_jar_with_secret_provided_to_ensure_security"><a class="anchor" href="#_3_launch_agent_from_cli_using_agent_jar_with_secret_provided_to_ensure_security"></a>3. Launch agent from CLI using agent JAR with secret provided to ensure security.</h4>
 <div class="paragraph">
-<p><span class="image unresolved center"><img src="/images/post-images/remoting-kafka/agent-cli.png" alt="agent cli" title="Command to run agent in CLI"></span></p>
+<p><span class="image center"><img src="../../../images/_images/post-images/remoting-kafka/agent-cli.png" alt="agent cli" title="Command to run agent in CLI"></span></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_4_run_jobs_pipeline_using_kafka_agent"><a class="anchor" href="#_4_run_jobs_pipeline_using_kafka_agent"></a>4. Run jobs, pipeline using Kafka agent.</h4>
 <div class="paragraph">
-<p><span class="image unresolved center"><img src="/images/post-images/remoting-kafka/demo-jobs.png" alt="demo jobs" title="Run jobs, pipeline using Kafka agent"></span></p>
+<p><span class="image center"><img src="../../../images/_images/post-images/remoting-kafka/demo-jobs.png" alt="demo jobs" title="Run jobs, pipeline using Kafka agent"></span></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_5_kafka_communication_between_master_and_agent"><a class="anchor" href="#_5_kafka_communication_between_master_and_agent"></a>5. Kafka communication between master and agent.</h4>
 <div class="paragraph">
-<p><span class="image unresolved center"><img src="/images/post-images/remoting-kafka/kafka-commands.png" alt="kafka commands" title="Kafka communication between master and agent"></span></p>
+<p><span class="image center"><img src="../../../images/_images/post-images/remoting-kafka/kafka-commands.png" alt="kafka commands" title="Kafka communication between master and agent"></span></p>
 </div>
 <div class="paragraph">
 <p>Remoting operations are being executed over Kafka. In the log you may see:</p>

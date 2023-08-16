@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Jenkins</title>
+    <title>Infrastructure :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/projects/infrastructure/index.html">
     <link rel="prev" href="../jcasc/dev-tools.html">
     <link rel="next" href="ircbot.html">
@@ -103,10 +103,10 @@
   </li>
   <li class="nav-item is-current-page" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">index.adoc</a>
+    <a class="nav-link" href="index.html">Infrastructure</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="ircbot.html">ircbot.adoc</a>
+    <a class="nav-link" href="ircbot.html">IRC Bot</a>
   </li>
 </ul>
   </li>
@@ -272,7 +272,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Jenkins Projects</a></li>
-    <li><a href="index.html">index.adoc</a></li>
+    <li><a href="index.html">Infrastructure</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/projects/modules/infrastructure/pages/index.adoc"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg>  Edit this Page</a></div>
@@ -282,24 +282,8 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<hr>
-<div class="paragraph">
-<p>layout: project
-title: "Infrastructure"
-section: projects
-tags:
-- infra
-- infrastructure
-links:
-  chat: "/chat/#jenkins-infra"
-  mailinglist: "/mailing-lists/#infralists-jenkins-ci-org"
-  meetings: "/projects/infrastructure/#meetings"
-  forum: "infra"
----</p>
-</div>
-<h1 id="_infrastructure" class="sect0"><a class="anchor" href="#_infrastructure"></a>Infrastructure</h1>
-<div class="sect1">
-<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<h1 class="page">Infrastructure</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>As an independent open source project, the Jenkins project maintains most of its own
@@ -311,7 +295,7 @@ virtual machines, containers, configuring network or developing and maintaining 
 <p>Because we strongly believe in Open Source principles, we also apply them to our infrastructure. As such we consider ourself as an open infrastructure project where everybody is invited to learn, share, contribute.</p>
 </div>
 <div class="paragraph">
-<p><span class="image left unresolved center"><img src="/images/projects/infrastructure/infra_overview.png" alt="Overview"></span></p>
+<p><span class="image left center"><img src="../../images/_images/projects/infrastructure/infra_overview.png" alt="Overview"></span></p>
 </div>
 </div>
 </div>
@@ -354,7 +338,7 @@ See the <a href="/event-calendar/">Event Calendar</a> for meeting links.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_infrastructure_2"><a class="anchor" href="#_infrastructure_2"></a>Infrastructure</h2>
+<h2 id="_infrastructure"><a class="anchor" href="#_infrastructure"></a>Infrastructure</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_provisioning"><a class="anchor" href="#_provisioning"></a>Provisioning</h3>
@@ -369,7 +353,7 @@ This infrastructure is provisioned from the repository <a href="https://github.c
 <div class="sect2">
 <h3 id="_configuration_management"><a class="anchor" href="#_configuration_management"></a>Configuration Management</h3>
 <div class="sect3">
-<h4 id="_infrastructure_3"><a class="anchor" href="#_infrastructure_3"></a>Infrastructure</h4>
+<h4 id="_infrastructure_2"><a class="anchor" href="#_infrastructure_2"></a>Infrastructure</h4>
 <div class="paragraph">
 <p>The Jenkins project&#8217;s infrastructure is managed and orchestrated via a git repository named
 <a href="https://github.com/jenkins-infra/jenkins-infra">jenkins-infra/jenkins-infra</a> using Puppet.
@@ -717,7 +701,7 @@ If you have any idea that could help the infra or interest the community, feel f
 </div>
 </div>
 <div class="paragraph">
-<p><span class="image left unresolved center"><img src="/images/projects/infrastructure/contribution_workflow.png" alt="Contribution Workflow"></span></p>
+<p><span class="image left center"><img src="../../images/_images/projects/infrastructure/contribution_workflow.png" alt="Contribution Workflow"></span></p>
 </div>
 <div class="paragraph">
 <p>In order to contribute to infrastructure project, we ask people to follow the next steps</p>
@@ -920,7 +904,7 @@ And if it&#8217;s not possible, then it needs to be well communicated and docume
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../jcasc/dev-tools.html">dev-tools.adoc</a></span>
-  <span class="next"><a href="ircbot.html">ircbot.adoc</a></span>
+  <span class="next"><a href="ircbot.html">IRC Bot</a></span>
 </nav>
 </article>
   </div>
