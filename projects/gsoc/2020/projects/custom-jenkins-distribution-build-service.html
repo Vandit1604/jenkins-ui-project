@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Jenkins</title>
+    <title>Custom Jenkins distribution build service :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/projects/gsoc/2020/projects/custom-jenkins-distribution-build-service.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -65,19 +65,19 @@
     <a class="nav-link" href="../../2018/index.html">Jenkins in Google Summer of Code 2018</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2018/code-coverage-api-plugin.html">2018/code-coverage-api-plugin.adoc</a>
+    <a class="nav-link" href="../../2018/code-coverage-api-plugin.html">GSoC 2018. Code Coverage API Plugin"</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2018/eda-plugins.html">2018/eda-plugins.adoc</a>
+    <a class="nav-link" href="../../2018/eda-plugins.html">GSoC 2018. EDA Plugins for Jenkins"</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../2018/index.html">Jenkins in Google Summer of Code 2018</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2018/remoting-over-message-bus.html">2018/remoting-over-message-bus.adoc</a>
+    <a class="nav-link" href="../../2018/remoting-over-message-bus.html">GSoC 2018. Jenkins Remoting over Message Bus/Queue"</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2018/simple-pull-request-job-plugin.html">2018/simple-pull-request-job-plugin.adoc</a>
+    <a class="nav-link" href="../../2018/simple-pull-request-job-plugin.html">GSoC 2018. Simple Pull-Request Job Plugin"</a>
   </li>
 </ul>
   </li>
@@ -96,26 +96,26 @@
     <a class="nav-link" href="../../2019/schedule.html">2019/schedule.adoc</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/artifact-promotion-plugin-for-jenkins-pipeline.html">2019/artifact-promotion-plugin-for-jenkins-pipeline.adoc</a>
+    <a class="nav-link" href="../../2019/artifact-promotion-plugin-for-jenkins-pipeline.html">Artifact Promotion plugin for Jenkins Pipeline</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/working-hours-improvements.html">2019/working-hours-improvements.adoc</a>
+    <a class="nav-link" href="../../2019/working-hours-improvements.html">GSoC2019 Working Hours Plugin - UI Improvements</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/role-strategy-performance.html">2019/role-strategy-performance.adoc</a>
+    <a class="nav-link" href="../../2019/role-strategy-performance.html">Role Strategy Plugin performance</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/plugin-installation-manager-tool-cli.html">2019/plugin-installation-manager-tool-cli.adoc</a>
+    <a class="nav-link" href="../../2019/plugin-installation-manager-tool-cli.html">Plugin Installation Manager CLI Tool / Library</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/gitlab-support-for-multibranch-pipeline.html">2019/gitlab-support-for-multibranch-pipeline.adoc</a>
+    <a class="nav-link" href="../../2019/gitlab-support-for-multibranch-pipeline.html">Multibranch Pipeline support for GitLab SCM</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/remoting-over-apache-kafka-docker-k8s-features.html">2019/remoting-over-apache-kafka-docker-k8s-features.adoc</a>
+    <a class="nav-link" href="../../2019/remoting-over-apache-kafka-docker-k8s-features.html">Remoting over Apache Kafka with Kubernetes features</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../../2019/ext-workspace-manager-cloud-features.html">2019/ext-workspace-manager-cloud-features.adoc</a>
+    <a class="nav-link" href="../../2019/ext-workspace-manager-cloud-features.html">Cloud Features for External Workspace Manager Plugin</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../../2019/project-ideas/eda-coverage-adapters.html">2019/project-ideas/eda-coverage-adapters.adoc</a>
@@ -383,6 +383,10 @@
 <button class="nav-toggle"></button>
   <a href="../../../../user-docs/2.401.3/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../../index.html">Jenkins Projects</a></li>
+    <li><a href="custom-jenkins-distribution-build-service.html">Custom Jenkins distribution build service</a></li>
+  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/projects/modules/gsoc/pages/2020/projects/custom-jenkins-distribution-build-service.adoc"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg>  Edit this Page</a></div>
   </div>
@@ -391,14 +395,12 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<hr>
+<h1 class="page">Custom Jenkins distribution build service</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>layout: gsocproject
-title: "Custom Jenkins distribution build service"
-goal: "Provide an out of the box solution for packaging Jenkins distributions as WAR files or Docker images"
-category: Tools
-year: 2020
-status: "Completed"
+<p>year: 2020
+<strong>Status</strong>: Completed
 student: sladyn98
 mentors:
 - "linuxsuren"
@@ -421,8 +423,11 @@ tags:
 <div class="paragraph">
 <p>The main idea behind the project is to build a customizable Jenkins distribution service that could be used to build tailor-made Jenkins distributions. The service would provide users with a simple interface to select the configurations they want to build the instance with eg: plugins, authorization matrices etc. Furthermore it would include a section for sharing community created distros so that users can find and download already built Jenkins war/configuration files to use out of the box.</p>
 </div>
-<div class="sect2">
-<h3 id="_key_deliverables"><a class="anchor" href="#_key_deliverables"></a>Key Deliverables</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_deliverables"><a class="anchor" href="#_key_deliverables"></a>Key Deliverables</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -440,8 +445,10 @@ tags:
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_plan_for_phase_1"><a class="anchor" href="#_plan_for_phase_1"></a>Plan for Phase 1</h3>
+</div>
+<div class="sect1">
+<h2 id="_plan_for_phase_1"><a class="anchor" href="#_plan_for_phase_1"></a>Plan for Phase 1</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -472,8 +479,10 @@ tags:
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_evaluation_phase_1"><a class="anchor" href="#_evaluation_phase_1"></a>Evaluation Phase 1</h3>
+</div>
+<div class="sect1">
+<h2 id="_evaluation_phase_1"><a class="anchor" href="#_evaluation_phase_1"></a>Evaluation Phase 1</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -509,8 +518,8 @@ tags:
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="_resources"><a class="anchor" href="#_resources"></a>Resources</h4>
+<div class="sect2">
+<h3 id="_resources"><a class="anchor" href="#_resources"></a>Resources</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -542,8 +551,10 @@ tags:
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_plan_for_phase_2"><a class="anchor" href="#_plan_for_phase_2"></a>Plan for Phase 2</h3>
+</div>
+<div class="sect1">
+<h2 id="_plan_for_phase_2"><a class="anchor" href="#_plan_for_phase_2"></a>Plan for Phase 2</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -575,8 +586,10 @@ UI &#8594; Config &#8594; War Package</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_evaluation_phase_2"><a class="anchor" href="#_evaluation_phase_2"></a>Evaluation Phase 2</h3>
+</div>
+<div class="sect1">
+<h2 id="_evaluation_phase_2"><a class="anchor" href="#_evaluation_phase_2"></a>Evaluation Phase 2</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -612,8 +625,8 @@ UI &#8594; Config &#8594; War Package</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="_resources_2"><a class="anchor" href="#_resources_2"></a>Resources</h4>
+<div class="sect2">
+<h3 id="_resources_2"><a class="anchor" href="#_resources_2"></a>Resources</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -639,8 +652,10 @@ UI &#8594; Config &#8594; War Package</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_plan_for_phase_3"><a class="anchor" href="#_plan_for_phase_3"></a>Plan for Phase 3</h3>
+</div>
+<div class="sect1">
+<h2 id="_plan_for_phase_3"><a class="anchor" href="#_plan_for_phase_3"></a>Plan for Phase 3</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -677,8 +692,10 @@ UI &#8594; Config &#8594; War Package</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_evaluation_phase_3"><a class="anchor" href="#_evaluation_phase_3"></a>Evaluation Phase 3</h3>
+</div>
+<div class="sect1">
+<h2 id="_evaluation_phase_3"><a class="anchor" href="#_evaluation_phase_3"></a>Evaluation Phase 3</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -708,8 +725,8 @@ UI &#8594; Config &#8594; War Package</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="_resources_3"><a class="anchor" href="#_resources_3"></a>Resources</h4>
+<div class="sect2">
+<h3 id="_resources_3"><a class="anchor" href="#_resources_3"></a>Resources</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -722,14 +739,18 @@ UI &#8594; Config &#8594; War Package</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_roadmap"><a class="anchor" href="#_roadmap"></a>Roadmap</h3>
+</div>
+<div class="sect1">
+<h2 id="_roadmap"><a class="anchor" href="#_roadmap"></a>Roadmap</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The roadmap for the future can be found <a href="https://github.com/jenkinsci/custom-distribution-service/issues?q=is%3Aissue+is%3Aopen+label%3Aroadmap">here</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_sequence_diagram"><a class="anchor" href="#_sequence_diagram"></a>Sequence Diagram</h3>
+</div>
+<div class="sect1">
+<h2 id="_sequence_diagram"><a class="anchor" href="#_sequence_diagram"></a>Sequence Diagram</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The below diagram is the overview of the proposed sequence Diagram:</p>
 </div>
@@ -737,25 +758,32 @@ UI &#8594; Config &#8594; War Package</p>
 <p><span class="image center"><img src="../../../../images/_images/post-images/gsoc-custom-jenkins-service-distribution/cds-sequence-diagram.png" alt="cds sequence diagram" width="1000" height="600" title="Jenkins Custom Distribution Service Sequence Diagram"></span></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_meetings"><a class="anchor" href="#_meetings"></a>Meetings</h3>
+</div>
+<div class="sect1">
+<h2 id="_meetings"><a class="anchor" href="#_meetings"></a>Meetings</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Office hours are scheduled every Tuesday at 13:00 UTC, and every Thursday at 12:00 UTC
  The <a href="https://docs.google.com/document/d/1vMiU1kmtmKh1QC_9fwe7nc1LvAGk7gj4tf4GjB5i5vU/edit?usp=sharing">meeting notes</a> available for anyone to read.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_getting_the_code"><a class="anchor" href="#_getting_the_code"></a>Getting the Code</h3>
+</div>
+<div class="sect1">
+<h2 id="_getting_the_code"><a class="anchor" href="#_getting_the_code"></a>Getting the Code</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The Custom Distribution Service was created from scratch during GSoC and can be found <a href="https://github.com/jenkinsci/custom-distribution-service">here on Github</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_other_links"><a class="anchor" href="#_other_links"></a>Other links</h3>
+</div>
+<div class="sect1">
+<h2 id="_other_links"><a class="anchor" href="#_other_links"></a>Other links</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://docs.google.com/document/d/1C7VQJ92Yhr0KRDcNVHYxn4ri7OL9IGZmgxY6UFON6-g/edit?usp=sharing">GSoC Proposal</a><br>
 <a href="https://docs.google.com/document/d/1-ujWVJ2a5VYkUF6UA7m4bEpSDxmb3mJZhCbmoKO716U/edit?usp=sharing">Design Document</a><br>
 <a href="https://docs.google.com/document/d/1DSCH-3wh6uV9Rm_j8PcBzq2lvQPhZ31AIwmWkEaLxvc/edit?usp=sharing">Daily Notes</a><br></p>
+</div>
 </div>
 </div>
 </article>

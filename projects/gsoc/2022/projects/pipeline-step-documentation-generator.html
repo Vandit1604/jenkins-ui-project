@@ -65,19 +65,19 @@
     <a class="nav-link" href="../../2018/index.html">Jenkins in Google Summer of Code 2018</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2018/code-coverage-api-plugin.html">2018/code-coverage-api-plugin.adoc</a>
+    <a class="nav-link" href="../../2018/code-coverage-api-plugin.html">GSoC 2018. Code Coverage API Plugin"</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2018/eda-plugins.html">2018/eda-plugins.adoc</a>
+    <a class="nav-link" href="../../2018/eda-plugins.html">GSoC 2018. EDA Plugins for Jenkins"</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../2018/index.html">Jenkins in Google Summer of Code 2018</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2018/remoting-over-message-bus.html">2018/remoting-over-message-bus.adoc</a>
+    <a class="nav-link" href="../../2018/remoting-over-message-bus.html">GSoC 2018. Jenkins Remoting over Message Bus/Queue"</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2018/simple-pull-request-job-plugin.html">2018/simple-pull-request-job-plugin.adoc</a>
+    <a class="nav-link" href="../../2018/simple-pull-request-job-plugin.html">GSoC 2018. Simple Pull-Request Job Plugin"</a>
   </li>
 </ul>
   </li>
@@ -96,26 +96,26 @@
     <a class="nav-link" href="../../2019/schedule.html">2019/schedule.adoc</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/artifact-promotion-plugin-for-jenkins-pipeline.html">2019/artifact-promotion-plugin-for-jenkins-pipeline.adoc</a>
+    <a class="nav-link" href="../../2019/artifact-promotion-plugin-for-jenkins-pipeline.html">Artifact Promotion plugin for Jenkins Pipeline</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/working-hours-improvements.html">2019/working-hours-improvements.adoc</a>
+    <a class="nav-link" href="../../2019/working-hours-improvements.html">GSoC2019 Working Hours Plugin - UI Improvements</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/role-strategy-performance.html">2019/role-strategy-performance.adoc</a>
+    <a class="nav-link" href="../../2019/role-strategy-performance.html">Role Strategy Plugin performance</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/plugin-installation-manager-tool-cli.html">2019/plugin-installation-manager-tool-cli.adoc</a>
+    <a class="nav-link" href="../../2019/plugin-installation-manager-tool-cli.html">Plugin Installation Manager CLI Tool / Library</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/gitlab-support-for-multibranch-pipeline.html">2019/gitlab-support-for-multibranch-pipeline.adoc</a>
+    <a class="nav-link" href="../../2019/gitlab-support-for-multibranch-pipeline.html">Multibranch Pipeline support for GitLab SCM</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../2019/remoting-over-apache-kafka-docker-k8s-features.html">2019/remoting-over-apache-kafka-docker-k8s-features.adoc</a>
+    <a class="nav-link" href="../../2019/remoting-over-apache-kafka-docker-k8s-features.html">Remoting over Apache Kafka with Kubernetes features</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../../2019/ext-workspace-manager-cloud-features.html">2019/ext-workspace-manager-cloud-features.adoc</a>
+    <a class="nav-link" href="../../2019/ext-workspace-manager-cloud-features.html">Cloud Features for External Workspace Manager Plugin</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../../2019/project-ideas/eda-coverage-adapters.html">2019/project-ideas/eda-coverage-adapters.adoc</a>
@@ -394,8 +394,8 @@
 <hr>
 <div class="paragraph">
 <p>layout: gsocproject2
-title: "Pipeline Step Documentation Generator improvements"
-goal: "Enhance the Jenkins Pipeline documentation generator to produce better documentation for thousands of Pipeline developers"
+title: "Pipeline Step Documentation Generator improvements
+<strong>Goal:</strong>  Enhance the Jenkins Pipeline documentation generator to produce better documentation for thousands of Pipeline developers"
 category: tools
 year: 2022
 sig: platform
@@ -415,19 +415,22 @@ links:
   meetings: "/projects/gsoc/2022/projects/pipeline-step-documentation-generator/#office-hours"
 ---</p>
 </div>
-<div class="sect2">
-<h3 id="_abstract"><a class="anchor" href="#_abstract"></a>Abstract</h3>
+<div class="sect1">
+<h2 id="_abstract"><a class="anchor" href="#_abstract"></a>Abstract</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This project aims to improve the <a href="/doc/pipeline/steps/">Pipeline Steps Reference</a> that is generated automatically with the help of the plugin manager associated with a mock Jenkins instance. The improvements will lead to a smoother user experience and better usability of the generated documentation.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_rationale"><a class="anchor" href="#_rationale"></a>Rationale</h3>
+</div>
+<div class="sect1">
+<h2 id="_rationale"><a class="anchor" href="#_rationale"></a>Rationale</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Documenting the Pipeline steps is not an easy task. Currently, there are more than <strong>600 plugins</strong> that provide <strong>1500+ steps</strong> for use within a Pipeline script. Furthermore, these steps have several parameters that may be used along with them. All these steps are documented in the Asciidoc format, which is autogenerated in a specified format by a Java program.</p>
 </div>
 <div class="paragraph">
-<p>Although the <a href="/doc/book/pipeline/getting-started/#snippet-generator">Pipeline Snippet Generator</a> is the best way to understand how a step should be used, there are two reasons why documenting all the steps is necessary.</p>
+<p>Although the <a href="../../../../user-docs/2.401.3/pipeline/getting-started.html#snippet-generator" class="xref page">Pipeline Snippet Generator</a> is the best way to understand how a step should be used, there are two reasons why documenting all the steps is necessary.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -443,8 +446,10 @@ links:
 <p>So, to work with documentation of this magnitude, it is required that we generate and format it so that the user can find the piece of information they are seeking effectively. Thousands of Pipeline developers all over the world will benefit from improvements in the same.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_implementation"><a class="anchor" href="#_implementation"></a>Implementation</h3>
+</div>
+<div class="sect1">
+<h2 id="_implementation"><a class="anchor" href="#_implementation"></a>Implementation</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The implementation revolves around two major changes.</p>
 </div>
@@ -465,8 +470,10 @@ links:
 <p>Apart from these changes, minor changes will be done to refactor the code and remove anomalies from the steps documentation.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_office_hours"><a class="anchor" href="#_office_hours"></a>Office Hours</h3>
+</div>
+<div class="sect1">
+<h2 id="_office_hours"><a class="anchor" href="#_office_hours"></a>Office Hours</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -478,8 +485,10 @@ links:
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_project_links"><a class="anchor" href="#_project_links"></a>Project Links</h3>
+</div>
+<div class="sect1">
+<h2 id="_project_links"><a class="anchor" href="#_project_links"></a>Project Links</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -507,6 +516,7 @@ links:
 <p><a href="https://www.figma.com/file/r5GwVJBaL6XdR4dBJZlNIM/Layout-Improvements?node-id=5%3A3">Website Wireframes</a></p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </article>
