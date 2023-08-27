@@ -413,8 +413,11 @@
 <span class="image"><img src="../../../../images/_images/avatars/krisstern.png" alt="krisstern" width="30" height="30"></span> Kris Stern
 <span class="image"><img src="../../../../images/_images/avatars/abhyudayasharma.jpg" alt="abhyudayasharma" width="30" height="30"></span> Abhyudaya Sharma</p>
 </div>
-<div class="sect2">
-<h3 id="_abstract"><a class="anchor" href="#_abstract"></a>Abstract</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_abstract"><a class="anchor" href="#_abstract"></a>Abstract</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Jenkinsfile Runner Action for GitHub Actions provides the customized containerized environment and useful GitHub Actions for users to run the Jenkins pipeline inside GitHub Actions.
 In more detail, if using these actions, any GitHub project which has a <code>Jenkinsfile</code> can execute its workflow in the GitHub Actions runner.
@@ -424,8 +427,10 @@ The user can define the Jenkins pipeline environment by extending several Vanill
 You can check the <a href="https://jenkinsci.github.io/jfr-action-doc">central documentation page</a> for more details about these actions.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_deliverables"><a class="anchor" href="#_deliverables"></a>Deliverables</h3>
+</div>
+<div class="sect1">
+<h2 id="_deliverables"><a class="anchor" href="#_deliverables"></a>Deliverables</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To meet the potential needs of users and balance the design trade-off,
 this project provides five actions.
@@ -475,16 +480,20 @@ It&#8217;s useful for users to get started easier and learn their underlying pri
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_rationale"><a class="anchor" href="#_rationale"></a>Rationale</h3>
+</div>
+<div class="sect1">
+<h2 id="_rationale"><a class="anchor" href="#_rationale"></a>Rationale</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The Jenkins pipeline environment includes the Jenkins core war package, the Jenkinsfile Runner, and at a minimum a required set of plugins to run the pipeline.
 All the dependencies are incorporated into the containers.
 As the GitHub Actions support using the predefined containers and building custom images, the containers - which include the Jenkins runtime - are able to start inside the GitHub Actions.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_implementation"><a class="anchor" href="#_implementation"></a>Implementation</h3>
+</div>
+<div class="sect1">
+<h2 id="_implementation"><a class="anchor" href="#_implementation"></a>Implementation</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Jenkinsfile Runner Action for GitHub Actions defines the dependencies in the prebuilt container or download at the runtime,
 and wraps the entrypoint in one GitHub Action so that the users can call the running environment and the related GitHub Action in their workflow definitions.
@@ -497,8 +506,10 @@ By providing these examples and iterating the current actions,
 we want the Jenkins pipeline to fit into the Cloud Native model gradually in the GitHub Actions context.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+</div>
+<div class="sect1">
+<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>We recommend using either of Jenkinsfile Runner Actions based on the container idea or actions based on the runtime downloading idea.</p>
 </div>
@@ -608,8 +619,10 @@ jobs:
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="chat"><a class="anchor" href="#chat"></a>Chat</h3>
+</div>
+<div class="sect1">
+<h2 id="chat"><a class="anchor" href="#chat"></a>Chat</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>We use the <code>#gsoc-jenkinsfile-runner</code> channel in the CDF Slack workspace.</p>
 </div>
@@ -617,8 +630,10 @@ jobs:
 <p><a href="../../../../community/chat/index.html#continuous-delivery-foundation" class="xref page">Explanations about the CDF Slack</a> (the invitation link is at the end of the paragraph).</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_office_hours"><a class="anchor" href="#_office_hours"></a>Office hours</h3>
+</div>
+<div class="sect1">
+<h2 id="_office_hours"><a class="anchor" href="#_office_hours"></a>Office hours</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -630,8 +645,10 @@ jobs:
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_project_links"><a class="anchor" href="#_project_links"></a>Project Links</h3>
+</div>
+<div class="sect1">
+<h2 id="_project_links"><a class="anchor" href="#_project_links"></a>Project Links</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Here come some useful links:</p>
 </div>
@@ -671,7 +688,6 @@ jobs:
 <p><a href="https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#introduction/">GitHub Docker container action</a></p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>

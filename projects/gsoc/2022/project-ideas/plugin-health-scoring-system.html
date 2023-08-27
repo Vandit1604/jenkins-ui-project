@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Jenkins</title>
+    <title>Plugin Health Scoring system - how should it work :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/projects/gsoc/2022/project-ideas/plugin-health-scoring-system.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -383,6 +383,10 @@
 <button class="nav-toggle"></button>
   <a href="../../../../user-docs/2.401.3/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../../index.html">Jenkins Projects</a></li>
+    <li><a href="plugin-health-scoring-system.html">Plugin Health Scoring system - how should it work</a></li>
+  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/projects/modules/gsoc/pages/2022/project-ideas/plugin-health-scoring-system.adoc"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg>  Edit this Page</a></div>
   </div>
@@ -391,16 +395,28 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
+<h1 class="page">Plugin Health Scoring system - how should it work</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>=Plugin Health Scoring system - how should it work
-<strong>Goal:</strong>  Provide a 'plugin health indicator' for plugin maintainers and Jenkins administrators"
-category: Tools</p>
+<p><strong>Project goal:</strong> Provide a 'plugin health indicator' for plugin maintainers and Jenkins administrators</p>
 </div>
+<div class="paragraph">
+<p><strong>Skills to study/improve:</strong> Java, Data Analysis, Data Presentation</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_details"><a class="anchor" href="#_details"></a>Details</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Plugin health scoring to help maintainers, new contributors, and Jenkins users.</p>
 </div>
-<div class="sect2">
-<h3 id="_background"><a class="anchor" href="#_background"></a>Background</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_background"><a class="anchor" href="#_background"></a>Background</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Keeping a plugin current with the ongoing development of Jenkins is key for a smooth operation.
 Keeping it current can require user interface improvements, dependency updates, and more.</p>
@@ -418,8 +434,10 @@ Plugins with a lower health score may be less likely to meet the user&#8217;s re
 It is similar to a badly maintained garden that will make harvesting difficult and not yield good vegetables or fruits.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_quick_start"><a class="anchor" href="#_quick_start"></a>Quick Start</h3>
+</div>
+<div class="sect1">
+<h2 id="_quick_start"><a class="anchor" href="#_quick_start"></a>Quick Start</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>A presentation of the "Plugin Health Score" project was made during the <a href="https://community.jenkins.io/t/gsoc-office-hours-emea/1471">10-Feb-2022 GSoC Office Hour</a>.</p>
 </div>
@@ -432,8 +450,10 @@ It is similar to a badly maintained garden that will make harvesting difficult a
 <p>Note that, seen the size of the project, contributors could work on a subset.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_conceptual_structureidea"><a class="anchor" href="#_conceptual_structureidea"></a>Conceptual structure/idea</h3>
+</div>
+<div class="sect1">
+<h2 id="_conceptual_structureidea"><a class="anchor" href="#_conceptual_structureidea"></a>Conceptual structure/idea</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This project is articulated around four axes:</p>
 </div>
@@ -453,8 +473,8 @@ It is similar to a badly maintained garden that will make harvesting difficult a
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="_data_collection"><a class="anchor" href="#_data_collection"></a>Data Collection</h4>
+<div class="sect2">
+<h3 id="_data_collection"><a class="anchor" href="#_data_collection"></a>Data Collection</h3>
 <div class="paragraph">
 <p>Each data point is retrieved by running an atomic analysis probe on the plugin.
 Probes could be "Version of plugin parent pom", "Number of installations", etc.</p>
@@ -469,22 +489,22 @@ probe proof of concept, and lastly probe implementation.
 An important step is to run the probe on all the plugins to gather statistical data to validate the probe and the thresholds.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_data_aggregation"><a class="anchor" href="#_data_aggregation"></a>Data Aggregation</h4>
+<div class="sect2">
+<h3 id="_data_aggregation"><a class="anchor" href="#_data_aggregation"></a>Data Aggregation</h3>
 <div class="paragraph">
 <p>The actual "health score" of a plugin is computed by aggregating probe measurements.
 It is calculated based on the measurement&#8217;s deviation from the expected score (or range).</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_data_presentation"><a class="anchor" href="#_data_presentation"></a>Data Presentation</h4>
+<div class="sect2">
+<h3 id="_data_presentation"><a class="anchor" href="#_data_presentation"></a>Data Presentation</h3>
 <div class="paragraph">
 <p>The health score and the probe details need to be presented to the user.
 This part of the project has to deal with where and how the collected data is presented (summary, diagramming, details, navigation/drill down)</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_data_delivery"><a class="anchor" href="#_data_delivery"></a>Data Delivery</h4>
+<div class="sect2">
+<h3 id="_data_delivery"><a class="anchor" href="#_data_delivery"></a>Data Delivery</h3>
 <div class="paragraph">
 <p>This axis covers how the probes are run, the data collected and displayed.
 It covers thus the "industrialization" of the feature.
@@ -492,8 +512,10 @@ Aspects such as deployment, infrastructure, monitoring are very important.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_skills_to_study_and_improve"><a class="anchor" href="#_skills_to_study_and_improve"></a>Skills to Study and Improve</h3>
+</div>
+<div class="sect1">
+<h2 id="_skills_to_study_and_improve"><a class="anchor" href="#_skills_to_study_and_improve"></a>Skills to Study and Improve</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -508,20 +530,26 @@ Aspects such as deployment, infrastructure, monitoring are very important.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_project_difficulty_level"><a class="anchor" href="#_project_difficulty_level"></a>Project Difficulty Level</h3>
+</div>
+<div class="sect1">
+<h2 id="_project_difficulty_level"><a class="anchor" href="#_project_difficulty_level"></a>Project Difficulty Level</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Beginner to Intermediate</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_project_size"><a class="anchor" href="#_project_size"></a>Project Size</h3>
+</div>
+<div class="sect1">
+<h2 id="_project_size"><a class="anchor" href="#_project_size"></a>Project Size</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>175 hours</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_expected_outcomes"><a class="anchor" href="#_expected_outcomes"></a>Expected outcomes</h3>
+</div>
+<div class="sect1">
+<h2 id="_expected_outcomes"><a class="anchor" href="#_expected_outcomes"></a>Expected outcomes</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>New feature</p>
 </div>
@@ -535,8 +563,10 @@ The comparison data will help plugin maintainers decide how to invest their time
 Users can use that information to guide their choice of plugins to install.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_how_to_get_familiarized_with_the_subject"><a class="anchor" href="#_how_to_get_familiarized_with_the_subject"></a>How to get familiarized with the subject</h3>
+</div>
+<div class="sect1">
+<h2 id="_how_to_get_familiarized_with_the_subject"><a class="anchor" href="#_how_to_get_familiarized_with_the_subject"></a>How to get familiarized with the subject</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Contributors that want to become familiar with the matter could start by reading the <a href="https://docs.google.com/document/d/1PKYIpPlRVGsBqrz0Ob1Cv3cefOZ5j2xtGZdWs27kLuw/edit#heading=h.hvd0nm6pz5o4">"How to contribute to open source"</a> document and watch the related live stream.</p>
 </div>
@@ -562,6 +592,59 @@ Users can use that information to guide their choice of plugins to install.</p>
 <div class="paragraph">
 <p>And how about submitting modernization pull requested as suggested in the above documentation?
 It will help to gain real life experience of plugin health problems and of the contribution process.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_potential_mentors"><a class="anchor" href="#_potential_mentors"></a>Potential Mentors</h2>
+<div class="sectionbody">
+<div class="ulist avatar">
+<ul>
+<li>
+<p><span class="image"><img src="../../../../images/_images/avatars/alecharp.jpg" alt="alecharp" width="30" height="30"></span> Adrien Lecharpentier</p>
+</li>
+<li>
+<p><span class="image"><img src="../../../../images/_images/avatars/markewaite.jpg" alt="markewaite" width="30" height="30"></span> Mark Waite</p>
+</li>
+<li>
+<p><span class="image"><img src="../../../../images/_images/avatars/jleon.jpg" alt="jleon" width="30" height="30"></span> Jake Leon</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_project_links"><a class="anchor" href="#_project_links"></a>Project Links</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="https://img.shields.io/badge/gitter%20-%20join_chat%20-%20light_green?link=https%3A%2F%2Fapp.gitter.im%2F%23%2Froom%2F%23jenkinsci_gsoc-sig%3Agitter.im" alt="Static Badge"></span></p>
+</li>
+<li>
+<p><a href="https://www.jenkins.io/projects/gsoc/#office-hours">Meetings</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_organization_links"><a class="anchor" href="#_organization_links"></a>Organization Links</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../index.html" class="xref page">Jenkins GSoC page</a> - documentation, application guidelines</p>
+</li>
+<li>
+<p><a href="../../../../community/index.html" class="xref page">Participate and contribute to Jenkins</a> - landing page for newcomer contributors</p>
+</li>
+<li>
+<p><a href="https://issues.jenkins.io/issues/?jql=project%20%3D%20JENKINS%20AND%20status%20in%20(Open%2C%20%22In%20Progress%22%2C%20Reopened)%20AND%20labels%20%3D%20newbie-friendly%20">Newbie-friendly issues</a> - list of organization-wide newbie-friendly issues (use them if there is no links in the project idea)
+&gt; <a href="#2022/project-ideas">Go back to other GSoC 2022 project ideas</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </article>
