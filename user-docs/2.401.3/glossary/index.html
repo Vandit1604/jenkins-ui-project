@@ -528,124 +528,177 @@ $(function () {
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_agent"><a class="anchor" href="#_agent"></a><a href="../using-jenkins/using-agents.html" class="xref page">Agent</a>::</h3>
-<div class="literalblock">
-<div class="content">
-<pre>    An agent is typically a machine, or container, which connects to a Jenkins
-    controller and executes tasks when directed by the controller.
-=== Artifact::
-    An immutable file generated during a &lt;&lt;build,Build&gt;&gt; or &lt;&lt;pipeline,Pipeline&gt;&gt;
-    run which is *archived* onto the Jenkins &lt;&lt;controller,Controller&gt;&gt; for
-    later retrieval by users.
-=== Build:: [[build]]
-    Result of a single execution of a &lt;&lt;job,job&gt;&gt;
-=== Cloud:: [[cloud]]
-    A System Configuration which provides dynamic &lt;&lt;agent,Agent&gt;&gt;
-    provisioning and allocation, such as that provided by the
-    {plugin}azure-vm-agents[Azure VM Agents]
-    or
-    {plugin}ec2[Amazon EC2] plugins.
-=== Controller::
-    The central, coordinating process which stores configuration, loads plugins,
-    and renders the various user interfaces for Jenkins.
-=== Core::
-    The primary Jenkins application (`jenkins.war`) which provides
-    the basic web UI, configuration, and foundation upon which &lt;&lt;plugin, Plugins&gt;&gt;
-    can be built.
-=== Downstream:: [[downstream]]
-    A configured &lt;&lt;pipeline,Pipeline&gt;&gt; or &lt;&lt;job,job&gt;&gt; which is triggered
-    as part of the execution of a separate Pipeline or Job.
-=== Executor:: [[executor]]
-    A slot for execution of work defined by a &lt;&lt;pipeline,Pipeline&gt;&gt; or
-    &lt;&lt;job,job&gt;&gt; on a &lt;&lt;node, Node&gt;&gt;. A Node may have zero or more
-    Executors configured which corresponds to how many concurrent Jobs or
-    Pipelines are able to execute on that Node.
-=== Fingerprint::
-    A hash considered globally unique to track the usage of an
-    &lt;&lt;artifact,Artifact&gt;&gt; or other entity across multiple
-    &lt;&lt;pipeline,Pipelines&gt;&gt; or &lt;&lt;job,jobs&gt;&gt;.
-=== Folder:: [[folder]]
-    An organizational container for &lt;&lt;pipeline,Pipelines&gt;&gt; and/or
-    &lt;&lt;job,jobs&gt;&gt;, similar to folders on a file system.
-=== Item:: [[item]]
-    An entity in the web UI corresponding to either a:
-    &lt;&lt;folder,Folder&gt;&gt;, &lt;&lt;pipeline,Pipeline&gt;&gt;, or &lt;&lt;job,job&gt;&gt;.
-=== Jenkins URL:: [[jenkins-url]]
-    The main url for the jenkins application, as visited by a user.
-    e.g. https://ci.jenkins.io/
-=== Job:: [[job]]
-    A user-configured description of work which Jenkins should perform, such as
-    building a piece of software, etc.
-=== Kubernetes:: [[kubernetes]]
-    Kubernetes (K8s) is an open-source system for automating deployment, scaling,
-    and management of containerized applications.
-    See link:/doc/book/installing/kubernetes/[Installing Jenkins / Kubernetes]
-    for more info.
-=== Label:: [[label]]
-    User-defined text for grouping &lt;&lt;agent,Agents&gt;&gt;, typically by similar
-    functionality or capability. For example `linux` for Linux-based agents or
-    `docker` for Docker-capable agents.
-=== LTS::
-    A long-term support &lt;&lt;release, Release&gt;&gt; line of Jenkins products, becoming
-    available for downloads every 12 weeks.
-    See link:/download/lts/[this page] for more info.
-=== Master::
-    A deprecated term, synonymous with &lt;&lt;controller,Controller&gt;&gt;.
-=== xref:managing:nodes.adoc[Node]::
-    A machine which is part of the Jenkins environment and capable
-    of executing &lt;&lt;pipeline,Pipelines&gt;&gt; or &lt;&lt;job,jobs&gt;&gt;. Both the
-    &lt;&lt;controller,Controller&gt;&gt; and &lt;&lt;agent,Agents&gt;&gt; are considered to be Nodes.
-=== Project:: [[project]]
-    A deprecated term, synonymous with &lt;&lt;job,job&gt;&gt;.
-=== Pipeline:: [[pipeline]]
-    A user-defined model of a continuous delivery pipeline, for more read the
-    &lt;&lt;pipeline#,Pipeline chapter&gt;&gt; in this handbook.
-=== Plugin:
-    An extension to Jenkins functionality provided separately
-    from Jenkins &lt;&lt;core,Core&gt;&gt;.
-=== Publisher::
-    Part of a &lt;&lt;build,Build&gt;&gt; after the completion of all configured
-    &lt;&lt;step,Steps&gt;&gt; which publishes reports, sends notifications, etc.
-    A publisher may report &lt;&lt;stable,Stable&gt;&gt; or &lt;&lt;unstable,Unstable&gt;&gt; result
-    depending on the result of its processing and its configuration.
-    For example, if a JUnit test fails, then the whole JUnit publisher may
-    report the build result as &lt;&lt;unstable,Unstable&gt;&gt;.
-=== Resource Root URL:: [[resource-root-url]]
-    A secondary url used to serve potentially untrusted content (especially
-    build artifacts). This url is distinct from the &lt;&lt;jenkins-url,Jenkins URL&gt;&gt;.
-=== Release::
-    An event, indicating availability of Jenkins distribution products or one
-    of Jenkins plugins. Jenkins products belong either to &lt;&lt;lts, LTS&gt;&gt; or weekly
-    Release lines.
-=== Stage::
-    `stage` is part of Pipeline, and used for defining a conceptually distinct
-    subset of the entire Pipeline, for example: "Build", "Test", and "Deploy",
-    which is used by many plugins to visualize or present Jenkins Pipeline
-    status/progress.
-=== Step::
-    A single task; fundamentally steps tell Jenkins _what_ to do inside of a
-    &lt;&lt;pipeline,Pipeline&gt;&gt; or &lt;&lt;job,job&gt;&gt;.
-    See link:/doc/book/pipeline/getting-started/[Pipelines / Getting Started]
-    and link:/doc/book/pipeline/jenkinsfile/[Pipeline / Using a jenkinsfile]
-    for more info.
-=== Trigger:: [[trigger]]
-    A criteria for triggering a new &lt;&lt;pipeline,Pipeline&gt;&gt; run or
-    &lt;&lt;job,job&gt;&gt;.
-=== Update Center:: [[update-center]]
-    Hosted inventory of plugins and plugin metadata to enable plugin
-    installation from within Jenkins.
-=== Upstream:: [[upstream]]
-    A configured &lt;&lt;pipeline,Pipeline&gt;&gt; or &lt;&lt;job,job&gt;&gt; which triggers a
-    separate Pipeline or Job as part of its execution.
-=== View:: [[view]]
-    A way of displaying the data of Jenkins in a dashboard style.
-    This is an extensible object, so there are lots of different ways to list &lt;&lt;job,jobs&gt;&gt;, show trends, and analyze data.
-=== Workspace:: [[workspace]]
-    A disposable directory on the file system of a &lt;&lt;node,Node&gt;&gt;
-    where work can be done by a &lt;&lt;pipeline,Pipeline&gt;&gt; or &lt;&lt;job,job&gt;&gt;.
-    Workspaces are typically left in place after a &lt;&lt;build,Build&gt;&gt; or
-    &lt;&lt;pipeline,Pipeline&gt;&gt; run completes unless specific Workspace cleanup policies
-    have been put in place on the Jenkins &lt;&lt;controller,Controller&gt;&gt;.</pre>
+<div class="paragraph">
+<p>An agent is typically a machine, or container, which connects to a Jenkins controller and executes tasks when directed by the controller.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_artifact"><a class="anchor" href="#_artifact"></a>Artifact::</h3>
+<div class="paragraph">
+<p>An immutable file generated during a <a href="#build">Build</a> or <a href="#pipeline">Pipeline</a> run which is <strong>archived</strong> onto the Jenkins <a href="#controller">Controller</a> for later retrieval by users.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="build"><a class="anchor" href="#build"></a>Build::</h3>
+<div class="paragraph">
+<p>Result of a single execution of a <a href="#job">job</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud"><a class="anchor" href="#cloud"></a>Cloud::</h3>
+<div class="paragraph">
+<p>A System Configuration which provides dynamic <a href="#agent">Agent</a> provisioning and allocation, such as that provided by the <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents</a> or <a href="https://plugins.jenkins.io/ec2">Amazon EC2</a> plugins.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_controller"><a class="anchor" href="#_controller"></a>Controller::</h3>
+<div class="paragraph">
+<p>The central, coordinating process which stores configuration, loads plugins, and renders the various user interfaces for Jenkins.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_core"><a class="anchor" href="#_core"></a>Core::</h3>
+<div class="paragraph">
+<p>The primary Jenkins application (<code>jenkins.war</code>) which provides the basic web UI, configuration, and foundation upon which <a href="#plugin">Plugins</a> can be built.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="downstream"><a class="anchor" href="#downstream"></a>Downstream::</h3>
+<div class="paragraph">
+<p>A configured <a href="#pipeline">Pipeline</a> or <a href="#job">job</a> which is triggered as part of the execution of a separate Pipeline or Job.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="executor"><a class="anchor" href="#executor"></a>Executor::</h3>
+<div class="paragraph">
+<p>A slot for execution of work defined by a <a href="#pipeline">Pipeline</a> or <a href="#job">job</a> on a <a href="#node">Node</a>. A Node may have zero or more Executors configured which corresponds to how many concurrent Jobs or Pipelines are able to execute on that Node.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fingerprint"><a class="anchor" href="#_fingerprint"></a>Fingerprint::</h3>
+<div class="paragraph">
+<p>A hash considered globally unique to track the usage of an <a href="#artifact">Artifact</a> or other entity across multiple <a href="#pipeline">Pipelines</a> or <a href="#job">jobs</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="folder"><a class="anchor" href="#folder"></a>Folder::</h3>
+<div class="paragraph">
+<p>An organizational container for <a href="#pipeline">Pipelines</a> and/or <a href="#job">jobs</a>, similar to folders on a file system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="item"><a class="anchor" href="#item"></a>Item::</h3>
+<div class="paragraph">
+<p>An entity in the web UI corresponding to either a:<a href="#folder">Folder</a>, <a href="#pipeline">Pipeline</a>, or <a href="#job">job</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jenkins-url"><a class="anchor" href="#jenkins-url"></a>Jenkins URL::</h3>
+<div class="paragraph">
+<p>The main url for the jenkins application, as visited by a user. e.g. <a href="https://ci.jenkins.io/" class="bare">https://ci.jenkins.io/</a>
+=== Job:: <a id="job"></a>
+A user-configured description of work which Jenkins should perform, such as building a piece of software, etc.
+=== Kubernetes:: <a id="kubernetes"></a>
+Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications. See <a href="../installing-jenkins/kubernetes.html" class="xref page">Installing Jenkins / Kubernetes</a> for more info.
+=== Label:: <a id="label"></a>
+User-defined text for grouping <a href="#agent">Agents</a>, typically by similar functionality or capability. For example <code>linux</code> for Linux-based agents or <code>docker</code> for Docker-capable agents.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lts"><a class="anchor" href="#_lts"></a>LTS::</h3>
+<div class="paragraph">
+<p>A long-term support <a href="#release">Release</a> line of Jenkins products, becoming available for downloads every 12 weeks. See <a href="/download/lts/">this page</a> for more info.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_master"><a class="anchor" href="#_master"></a>Master::</h3>
+<div class="paragraph">
+<p>A deprecated term, synonymous with <a href="#controller">Controller</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_node"><a class="anchor" href="#_node"></a><a href="../managing/nodes.html" class="xref page">Node</a>::</h3>
+<div class="paragraph">
+<p>A machine which is part of the Jenkins environment and capable of executing <a href="#pipeline">Pipelines</a> or <a href="#job">jobs</a>. Both the <a href="#controller">Controller</a> and <a href="#agent">Agents</a> are considered to be Nodes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="project"><a class="anchor" href="#project"></a>Project::</h3>
+<div class="paragraph">
+<p>A deprecated term, synonymous with <a href="#job">job</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pipeline"><a class="anchor" href="#pipeline"></a>Pipeline::</h3>
+<div class="paragraph">
+<p>A user-defined model of a continuous delivery pipeline, for more read the <a href="#pipeline.adoc" class="xref unresolved">Pipeline chapter</a> in this handbook.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plugin"><a class="anchor" href="#_plugin"></a>Plugin:</h3>
+<div class="paragraph">
+<p>An extension to Jenkins functionality provided separately from Jenkins <a href="#core">Core</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_publisher"><a class="anchor" href="#_publisher"></a>Publisher::</h3>
+<div class="paragraph">
+<p>Part of a <a href="#build">Build</a> after the completion of all configured <a href="#step">Steps</a> which publishes reports, sends notifications, etc. A publisher may report <a href="#stable">Stable</a> or <a href="#unstable">Unstable</a> result depending on the result of its processing and its configuration. For example, if a JUnit test fails, then the whole JUnit publisher may report the build result as <a href="#unstable">Unstable</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="resource-root-url"><a class="anchor" href="#resource-root-url"></a>Resource Root URL::</h3>
+<div class="paragraph">
+<p>A secondary url used to serve potentially untrusted content (especially build artifacts). This url is distinct from the <a href="#jenkins-url">Jenkins URL</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_release"><a class="anchor" href="#_release"></a>Release::</h3>
+<div class="paragraph">
+<p>An event, indicating availability of Jenkins distribution products or one of Jenkins plugins. Jenkins products belong either to <a href="#lts">LTS</a> or weekly Release lines.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stage"><a class="anchor" href="#_stage"></a>Stage::</h3>
+<div class="paragraph">
+<p><code>stage</code> is part of Pipeline, and used for defining a conceptually distinct subset of the entire Pipeline, for example: "Build", "Test", and "Deploy", which is used by many plugins to isualize or present Jenkins Pipeline status/progress.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step"><a class="anchor" href="#_step"></a>Step::</h3>
+<div class="paragraph">
+<p>A single task; fundamentally steps tell Jenkins <em>what</em> to do inside of a <a href="#pipeline">Pipeline</a> or <a href="#job">job</a>. See <a href="/doc/book/pipeline/getting-started/">Pipelines / Getting Started</a> and <a href="/doc/book/pipeline/jenkinsfile/">Pipeline / Using a jenkinsfile</a> for more info.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trigger"><a class="anchor" href="#trigger"></a>Trigger::</h3>
+<div class="paragraph">
+<p>A criteria for triggering a new <a href="#pipeline">Pipeline</a> run or <a href="#job">job</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="update-center"><a class="anchor" href="#update-center"></a>Update Center::</h3>
+<div class="paragraph">
+<p>Hosted inventory of plugins and plugin metadata to enable plugin installation from within Jenkins.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="upstream"><a class="anchor" href="#upstream"></a>Upstream::</h3>
+<div class="paragraph">
+<p>A configured <a href="#pipeline">Pipeline</a> or <a href="#job">job</a> which triggers a separate Pipeline or Job as part of its execution.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view"><a class="anchor" href="#view"></a>View::</h3>
+<div class="paragraph">
+<p>A way of displaying the data of Jenkins in a dashboard style. This is an extensible object, so there are lots of different ways to list <a href="#job">jobs</a>, show trends, and analyze data.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="workspace"><a class="anchor" href="#workspace"></a>Workspace::</h3>
+<div class="paragraph">
+<p>A disposable directory on the file system of a <a href="#node">Node</a> where work can be done by a <a href="#pipeline">Pipeline</a> or <a href="#job">job</a>. Workspaces are typically left in place after a <a href="#build">Build</a> or <a href="#pipeline">Pipeline</a> run completes unless specific Workspace cleanup policies
+have been put in place on the Jenkins <a href="#controller">Controller</a>.</p>
 </div>
 </div>
 </div>
@@ -655,18 +708,16 @@ $(function () {
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_aborted"><a class="anchor" href="#_aborted"></a>Aborted::</h3>
-<div class="literalblock">
-<div class="content">
-<pre>    The &lt;&lt;build,Build&gt;&gt; was interrupted before it reaches its expected end. For example, the user has stopped it manually or there was a time-out.
+<div class="paragraph">
+<p>The <a href="#build">Build</a> was interrupted before it reaches its expected end. For example, the user has stopped it manually or there was a time-out.
 === Failed::
-    The &lt;&lt;build,Build&gt;&gt; had a fatal error.
+The <a href="#build">Build</a> had a fatal error.
 === Stable::
-    The &lt;&lt;build,Build&gt;&gt; was &lt;&lt;successful,Successful&gt;&gt; and no &lt;&lt;publisher,Publisher&gt;&gt; reports it as &lt;&lt;unstable,Unstable&gt;&gt;.
+The <a href="#build">Build</a> was <a href="#successful">Successful</a> and no <a href="#publisher">Publisher</a> reports it as <a href="#unstable">Unstable</a>.
 === Successful::
-    The &lt;&lt;build,Build&gt;&gt; has no compilation errors.
+The <a href="#build">Build</a> has no compilation errors.
 === Unstable::
-    The &lt;&lt;build,Build&gt;&gt; had some errors but they were not fatal. A &lt;&lt;build,Build&gt;&gt; is unstable if it was built successfully and one or more publishers report it unstable. For example if the JUnit publisher is configured and a test fails then the &lt;&lt;build,Build&gt;&gt; will be marked unstable.</pre>
-</div>
+The <a href="#build">Build</a> had some errors but they were not fatal. A <a href="#build">Build</a> is unstable if it was built successfully and one or more publishers report it unstable. For example if the JUnit publisher is configured and a test fails then the <a href="#build">Build</a> will be marked unstable.</p>
 </div>
 </div>
 </div>

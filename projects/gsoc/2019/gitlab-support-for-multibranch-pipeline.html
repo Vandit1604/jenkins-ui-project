@@ -79,7 +79,7 @@
     <a class="nav-link" href="../2018/remoting-over-message-bus.html">GSoC 2018. Jenkins Remoting over Message Bus/Queue"</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../2018/simple-pull-request-job-plugin.html">GSoC 2018. Simple Pull-Request Job Plugin"</a>
+    <a class="nav-link" href="../2018/simple-pull-request-job-plugin.html">GSoC 2018. Simple Pull-Request Job Plugin</a>
   </li>
 </ul>
   </li>
@@ -95,7 +95,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="schedule.html">2019/schedule.adoc</a>
+    <a class="nav-link" href="schedule.html">Jenkins year-round GSoC schedule</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="artifact-promotion-plugin-for-jenkins-pipeline.html">Artifact Promotion plugin for Jenkins Pipeline</a>
@@ -141,7 +141,7 @@
     <a class="nav-link" href="project-ideas/bitbucket-rest-plugin.html">2019/project-ideas/bitbucket-rest-plugin.adoc</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="project-ideas/working-hours-improvements.html">2019/project-ideas/working-hours-improvements.adoc</a>
+    <a class="nav-link" href="project-ideas/working-hours-improvements.html">Working Hours Plugin - UI Improvements</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="project-ideas/machine-learning.html">2019/project-ideas/machine-learning.adoc</a>
@@ -387,7 +387,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../index.html">Jenkins Projects</a></li>
-    <li><a href="schedule.html">2019/schedule.adoc</a></li>
+    <li><a href="schedule.html">Jenkins year-round GSoC schedule</a></li>
     <li><a href="gitlab-support-for-multibranch-pipeline.html">Multibranch Pipeline support for GitLab SCM</a></li>
   </ul>
 </nav>
@@ -402,9 +402,31 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>showGoogleDoc: false
-student: baymac</p>
+<p><strong>Goal:</strong> Add Multibranch Pipeline support for GitLab SCM private and SaaS instances so that Jenkins can automatically build branches and pull requests with Jenkinsfile</p>
 </div>
+<div class="paragraph">
+<p><strong>Status:</strong> Completed</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_team"><a class="anchor" href="#_team"></a>Team</h2>
+<div class="sectionbody">
+<div class="paragraph avatar">
+<p><strong>Student</strong>:
+<span class="image"><img src="../../../images/_images/avatars/baymac.jpg" alt="baymac" width="30" height="30"></span> Parichay Barpanda</p>
+</div>
+<div class="paragraph avatar">
+<p><strong>Mentor(s):</strong>
+<span class="image"><img src="../../../images/_images/avatars/markyjackson-taulia.png" alt="markyjackson taulia" width="30" height="30"></span> Marky Jackson
+<span class="image"><img src="../../../images/_images/avatars/justinharringa.jpeg" alt="justinharringa" width="30" height="30"></span> Justin Harringa
+<span class="image"><img src="../../../images/_images/avatars/no_image.svg" alt="no image" width="30" height="30"></span> Joseph Petersen</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_details"><a class="anchor" href="#_details"></a>Details</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Currently GitLab Plugin does not support Multibranch Pipeline jobs. The underlying API does
 not implement calls to fetch Merge Requests during builds. Other problems with this plugin is
@@ -412,8 +434,6 @@ doesn&#8217;t follow conventional SCM plugin design, doesn&#8217;t support folde
 api plugin etc. So this project is about solving issues with the GitLab Jenkins Integration by
 improving the current GitLab Plugin and creating separate plugins for GitLab Api and GitLab
 Branch Source. One stretch goal is to add GitLab Pipeline support for Blueocean.</p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_issues"><a class="anchor" href="#_issues"></a>Issues</h3>
@@ -744,6 +764,29 @@ Branch Source. One stretch goal is to add GitLab Pipeline support for Blueocean.
 <a href="https://docs.google.com/document/d/12sICOnFXJXHEkqWV8yq6dy_ZcVs-5gL_zeDae8gnWdo/edit?usp=sharing">Daily Notes</a><br>
 <a href="https://docs.google.com/document/d/12elprUjiou80z2W7SSbNTZiyguJ6LEj4Z718MdoA2_c/edit?usp=sharing">GSoC Process</a><br>
 <a href="https://docs.google.com/document/d/1r_zQy5KpNNAO4KerFJrowWvGfFIU7xdEdqKgFenS3lI/edit?usp=sharing">Design Document</a><br></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links"><a class="anchor" href="#_links"></a>Links</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="https://img.shields.io/badge/gitter%20-%20join_chat%20-%20light_green?link=https%3A%2F%2Fapp.gitter.im%2F%23%2Froom%2F%23jenkinsci_gitlab-branch-source-plugin%3Agitter.im" alt="Static Badge"></span></p>
+</li>
+<li>
+<p><a href="../index.html#office-hours" class="xref page">Meetings</a></p>
+</li>
+<li>
+<p><a href="https://community.jenkins.io/c/contributing/gsoc">Forum</a></p>
+</li>
+<li>
+<p><a href="../index.html" class="xref page">Jenkins GSoC page</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <nav class="pagination">

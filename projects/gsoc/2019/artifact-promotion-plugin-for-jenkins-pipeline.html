@@ -79,7 +79,7 @@
     <a class="nav-link" href="../2018/remoting-over-message-bus.html">GSoC 2018. Jenkins Remoting over Message Bus/Queue"</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../2018/simple-pull-request-job-plugin.html">GSoC 2018. Simple Pull-Request Job Plugin"</a>
+    <a class="nav-link" href="../2018/simple-pull-request-job-plugin.html">GSoC 2018. Simple Pull-Request Job Plugin</a>
   </li>
 </ul>
   </li>
@@ -95,7 +95,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="schedule.html">2019/schedule.adoc</a>
+    <a class="nav-link" href="schedule.html">Jenkins year-round GSoC schedule</a>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="artifact-promotion-plugin-for-jenkins-pipeline.html">Artifact Promotion plugin for Jenkins Pipeline</a>
@@ -141,7 +141,7 @@
     <a class="nav-link" href="project-ideas/bitbucket-rest-plugin.html">2019/project-ideas/bitbucket-rest-plugin.adoc</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="project-ideas/working-hours-improvements.html">2019/project-ideas/working-hours-improvements.adoc</a>
+    <a class="nav-link" href="project-ideas/working-hours-improvements.html">Working Hours Plugin - UI Improvements</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="project-ideas/machine-learning.html">2019/project-ideas/machine-learning.adoc</a>
@@ -387,7 +387,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../index.html">Jenkins Projects</a></li>
-    <li><a href="schedule.html">2019/schedule.adoc</a></li>
+    <li><a href="schedule.html">Jenkins year-round GSoC schedule</a></li>
     <li><a href="artifact-promotion-plugin-for-jenkins-pipeline.html">Artifact Promotion plugin for Jenkins Pipeline</a></li>
   </ul>
 </nav>
@@ -399,18 +399,35 @@
 </aside>
 <article class="doc">
 <h1 class="page">Artifact Promotion plugin for Jenkins Pipeline</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Goal:</strong> Create a new highly anticipated engine for managing promotions in Jenkins Pipeline, with modern UIs and REST APIs</p>
+</div>
+<div class="paragraph">
+<p><strong>Status:</strong> Cancelled</p>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_team"><a class="anchor" href="#_team"></a>Team</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>student: dernDren161</p>
+<div class="paragraph avatar">
+<p><strong>Student</strong>:
+<span class="image"><img src="../../../images/_images/avatars/dernDren161.jpg" alt="dernDren161" width="30" height="30"></span> Prastik Gyawali</p>
 </div>
-<div class="paragraph">
-<p>links:
-  draft: "https://docs.google.com/document/d/1UYi0jIYsKHE5IGS84B5W0XBoeMyF4yY_exu-21O99U8"
-  gitter: jenkinsci_promoted-builds-plugin:gitter.im</p>
+<div class="paragraph avatar">
+<p><strong>Mentor(s):</strong>
+<span class="image"><img src="../../../images/_images/avatars/bicschneider.jpg" alt="bicschneider" width="30" height="30"></span> Claus Schneider
+<span class="image"><img src="../../../images/_images/avatars/no_image.svg" alt="no image" width="30" height="30"></span> Jon Brohauge
+<span class="image"><img src="../../../images/_images/avatars/oleg_nenashev.png" alt="oleg nenashev" width="30" height="30"></span> Oleg Nenashev
+<span class="image"><img src="../../../images/_images/avatars/no_image.svg" alt="no image" width="30" height="30"></span> Mads Nielsen</p>
 </div>
-<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_details"><a class="anchor" href="#_details"></a>Details</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The popular promoted-builds-plugin in Jenkins currently supports Freestyle/Abstract Projects but however is incompatible with the
 Pipeline structure. The existing plugin was developed before the introduction of pipelines which makes the current design archaic enough
@@ -466,32 +483,22 @@ with other artifact tracking and job triggering functions.</p>
 <p>Meeting Notes:
   <a href="https://docs.google.com/document/d/1SRLb8IeIKy3Ih83de0bDSHdJQdtmygloPfMMNRArkvo/edit#heading=h.d32s79oq7spv">link</a></p>
 </div>
-<div class="sect4">
-<h5 id="_weekly_meetings"><a class="anchor" href="#_weekly_meetings"></a>Weekly Meetings:</h5>
-<div class="literalblock">
-<div class="content">
-<pre>General Weekly Meeting:  Wednesdays at 2:00 PM UTC</pre>
 </div>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Project Specific Meeting: Tuesdays and Thursdays at 10:00 AM UTC</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Expected deliveries for Coding Phase-I:
+<div class="sect1">
+<h2 id="_weekly_meetings"><a class="anchor" href="#_weekly_meetings"></a>Weekly Meetings:</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>General Weekly Meeting:  Wednesdays at 2:00 PM UTC
+Project Specific Meeting: Tuesdays and Thursdays at 10:00 AM UTC
+Expected deliveries for Coding Phase-I:
 . Create new analogous classes for core modules such as PromotionProcess,JobPropertyImpl,etc.
 . Subsequently refactor the required Promotion Condition Extension points inside
   the promoted-builds-plugin.
 . In this way, almost all the Promotion conditions/definitions can be made pipeline compatible.
 . Create new custom steps for all the Promotion definitions.
-. Pass on the inputs from these DSL steps to the respective promotion modules for future promotions.</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Updates on the Project:
+. Pass on the inputs from these DSL steps to the respective promotion modules for future promotions.
+Updates on the Project:
 . As mentioned these new classes are currently being committed to the "promoted-builds-plugin".
 . Though the prior design was to make a different plugin for this implementation, a thorough
   discussion with the mentors led to the conclusion that the new features be integrated into the
@@ -500,14 +507,27 @@ with other artifact tracking and job triggering functions.</p>
   evolving as we add in more features.
 . New Custom steps are also being built and are still in the ongoing development process.
 . With all the dependent modules aligned, the final Promotion Condition modules can be submitted
-  so that they adhere to Pipeline compatibility.</pre>
+  so that they adhere to Pipeline compatibility.</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_links"><a class="anchor" href="#_links"></a>Links</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="https://img.shields.io/badge/gitter%20-%20join_chat%20-%20light_green?link=https%3A%2F%2Fapp.gitter.im%2F%23%2Froom%2F%23jenkinsci_promoted-builds-plugin%3Agitter.im" alt="Static Badge"></span></p>
+</li>
+<li>
+<p><a href="../index.html" class="xref page">Jenkins GSoC page</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="schedule.html">2019/schedule.adoc</a></span>
+  <span class="prev"><a href="schedule.html">Jenkins year-round GSoC schedule</a></span>
   <span class="next"><a href="working-hours-improvements.html">GSoC2019 Working Hours Plugin - UI Improvements</a></span>
 </nav>
 </article>
