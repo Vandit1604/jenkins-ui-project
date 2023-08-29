@@ -31,7 +31,7 @@
     <a class="nav-link" href="index.html">Tutorials overview</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tutorials-for-installing-jenkins-on-Google-Cloud.html">Jenkins on Google Cloud</a>
+    <span class="nav-text">xref:-for-installing-jenkins-on-Google-Cloud.adoc[]</span>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="build-a-java-app-with-maven.html">Build a Java app with Maven</a>
@@ -231,14 +231,14 @@ well as</em> deliver different outcomes for development and production purposes.
 </div>
 <div class="paragraph">
 <p>Before starting this tutorial, it is recommended that you run through at least
-one of the initial set of Introductory tutorials from the <a href="#tutorials:ROOT:index.adoc" class="xref unresolved">Tutorials overview</a> page first to familiarize
+one of the initial set of Introductory tutorials from the <a href="index.html" class="xref page">Tutorials overview</a> page first to familiarize
 yourself with CI/CD concepts (relevant to a technology stack you&#8217;re most
 familiar with), how these concepts are implemented in Jenkins and the
 fundamentals of Jenkins Pipelines.</p>
 </div>
 <div class="paragraph">
 <p>In this tutorial, you&#8217;ll use the same application that the
-<a href="#tutorials:build-a-node-js-and-react-app-with-npm.adoc" class="xref unresolved">Build a Node.js and React app
+<a href="build-a-node-js-and-react-app-with-npm.html" class="xref page">Build a Node.js and React app
 with npm</a> tutorial is based on. Therefore, you&#8217;ll be building and testing the
 same application but this time, its delivery will be different depending on the
 Git branch that Jenkins builds from. That is, the branch being built determines
@@ -248,14 +248,14 @@ which delivery stage of your Pipeline is executed.</p>
 <p><strong>Duration:</strong> This tutorial takes 30-50 minutes to complete (assuming you&#8217;ve
 already met the <a href="#prerequisites">prerequisites</a> below). The exact duration will
 depend on the speed of your machine and whether or not you&#8217;ve already
-<a href="#user-docs:installing-jenkins:partial$_run-jenkins-in-docker.adoc" class="xref unresolved">run Jenkins in Docker</a> from <a href="#tutorials:ROOT:index.adoc" class="xref unresolved">another tutorial</a>.</p>
+<a href="#user-docs:installing-jenkins:partial$_run-jenkins-in-docker.adoc" class="xref unresolved">run Jenkins in Docker</a> from <a href="index.html" class="xref page">another tutorial</a>.</p>
 </div>
 <div class="paragraph">
 <p>You can stop this tutorial at any point in time and continue from where you left
 off.</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;ve already run though <a href="#tutorials:ROOT:index.adoc" class="xref unresolved">another tutorial</a>, you can skip the <a href="#prerequisites">prerequisites</a> and <a href="#run-jenkins-in-docker">Run Jenkins in
+<p>If you&#8217;ve already run though <a href="index.html" class="xref page">another tutorial</a>, you can skip the <a href="#prerequisites">prerequisites</a> and <a href="#run-jenkins-in-docker">Run Jenkins in
 Docker</a> sections below and proceed on to <a href="#partial$fork-sample-repository.adoc" class="xref unresolved">forking the
 sample repository</a>. (Just ensure you have
 <a href="https://git-scm.com/downloads">Git</a> installed locally.) If you need to
@@ -326,7 +326,7 @@ image.</p>
 section of the <a href="#installing-jenkins:index.adoc" class="xref unresolved">Installing Jenkins</a> page.</p>
 </div>
 <div class="paragraph">
-<p><a href="#:partial$_docker-for-tutorials.adoc" class="xref unresolved">:partial$_docker-for-tutorials.adoc</a></p>
+<p><a href="#partial$_docker-for-tutorials.adoc" class="xref unresolved">partial$_docker-for-tutorials.adoc</a></p>
 </div>
 <div class="paragraph">
 <p><a href="#partial$_setup-wizard-for-tutorials.adoc" class="xref unresolved">partial$_setup-wizard-for-tutorials.adoc</a></p>
@@ -650,11 +650,11 @@ are covered in subsequent sections of this tutorial.</td>
 <div class="paragraph">
 <p><strong>Note:</strong> For an explanation of the other components of this <code>Jenkinsfile</code>, refer
 to the annotations of the Declarative Pipeline in the
-<a href="#tutorials:build-a-node-js-and-react-app-with-npm.adoc#create-your-initial-pipeline-as-a-jenkinsfile" class="xref unresolved"><code>Create
+<a href="build-a-node-js-and-react-app-with-npm.html#create-your-initial-pipeline-as-a-jenkinsfile" class="xref page"><code>Create
 your initial Pipeline&#8230;&#8203;''</a> and
-<a href="#tutorials:build-a-node-js-and-react-app-with-npm.adoc#add-a-test-stage-to-your-pipeline" class="xref unresolved"></code>Add
+<a href="build-a-node-js-and-react-app-with-npm.html#add-a-test-stage-to-your-pipeline" class="xref page"></code>Add
 a test stage&#8230;&#8203;''</a> sections of the
-<a href="#tutorials:build-a-node-js-and-react-app-with-npm.adoc" class="xref unresolved">Build a Node.js and React app
+<a href="build-a-node-js-and-react-app-with-npm.html" class="xref page">Build a Node.js and React app
 with npm</a> tutorial.</p>
 </div>
 </li>
@@ -815,7 +815,7 @@ matches the name of the branch that Jenkins is running the build from, then the
 <li>
 <p>For an explanation of the <code>input message</code> steps, refer to annotation <strong>4</strong> of
 the Declarative Pipeline at the
-<a href="#tutorials:build-a-node-js-and-react-app-with-npm.adoc#add-a-final-deliver-stage-to-your-pipeline" class="xref unresolved">``Add
+<a href="build-a-node-js-and-react-app-with-npm.html#add-a-final-deliver-stage-to-your-pipeline" class="xref page">``Add
 a final deliver stage&#8230;&#8203;'' section of the Build a Node.js and React app</a>
 tutorial.</p>
 </li>
@@ -1221,7 +1221,7 @@ handle practically any aspect of build orchestration and automation.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="#tutorials:ROOT:index.adoc" class="xref unresolved">Tutorials overview</a> page for other introductory
+<p>The <a href="index.html" class="xref page">Tutorials overview</a> page for other introductory
 tutorials.</p>
 </li>
 <li>

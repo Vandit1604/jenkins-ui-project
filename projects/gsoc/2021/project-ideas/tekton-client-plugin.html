@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Jenkins</title>
+    <title>Tekton Pipelines DSL for Jenkins with the Tekton Client Plugin :: Jenkins</title>
     <link rel="canonical" href="https://docs.jenkins.com/projects/gsoc/2021/project-ideas/tekton-client-plugin.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -383,6 +383,10 @@
 <button class="nav-toggle"></button>
   <a href="../../../../user-docs/2.401.3/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../../index.html">Jenkins Projects</a></li>
+    <li><a href="tekton-client-plugin.html">Tekton Pipelines DSL for Jenkins with the Tekton Client Plugin</a></li>
+  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Vandit1604/jenkins-docs/edit/main/docs/projects/modules/gsoc/pages/2021/project-ideas/tekton-client-plugin.adoc"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg>  Edit this Page</a></div>
   </div>
@@ -391,13 +395,20 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
+<h1 class="page">Tekton Pipelines DSL for Jenkins with the Tekton Client Plugin</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>=Tekton Pipelines DSL for Jenkins with the Tekton Client Plugin
-<strong>Goal:</strong>  Manage Tekton resources via Pipeline Steps / Jenkinsfile"
-s</p>
+<p><strong>Project goal:</strong> Manage Tekton resources via Pipeline Steps / Jenkinsfile</p>
 </div>
-<div class="sect2">
-<h3 id="_background"><a class="anchor" href="#_background"></a>Background</h3>
+<div class="paragraph">
+<p><strong>Skills to study/improve:</strong> Java, Kubernetes, Tekton Pipelines</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_background"><a class="anchor" href="#_background"></a>Background</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>With the movement of traditional software architecture to microservices, there has been a growth in usage of container orchestration infrastructure (Kubernetes) and tooling around it. To adapt to this there have been plugins developed for Jenkins like the kubernetes-plugin which allow this transition to be smooth for the users to keep the same CI/CD platform and migrate their workloads.</p>
 </div>
@@ -410,15 +421,17 @@ s</p>
 <div class="paragraph">
 <p>With no DSL for Tekton on Jenkins there is no way for the users to write scripts which can automate their Tekton lifecycle through Jenkins.</p>
 </div>
-<div class="sect3">
-<h4 id="_project_details"><a class="anchor" href="#_project_details"></a>Project Details</h4>
+<div class="sect2">
+<h3 id="_project_details"><a class="anchor" href="#_project_details"></a>Project Details</h3>
 <div class="paragraph">
 <p>Create a DSL to interact with Tekton supported by Jenkins.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_reference_links"><a class="anchor" href="#_reference_links"></a>Reference Links</h3>
+</div>
+<div class="sect1">
+<h2 id="_reference_links"><a class="anchor" href="#_reference_links"></a>Reference Links</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -436,20 +449,22 @@ s</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_quick_start"><a class="anchor" href="#_quick_start"></a>Quick-start</h3>
+</div>
+<div class="sect1">
+<h2 id="_quick_start"><a class="anchor" href="#_quick_start"></a>Quick-start</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To work with Tekton Client Plugin, having a Kubernetes cluster is essential.
 A Minikube or KIND kubernetes cluster is sufficient to begin with development on the plugin.</p>
 </div>
-<div class="sect3">
-<h4 id="_installing_kubectl"><a class="anchor" href="#_installing_kubectl"></a>Installing kubectl</h4>
+<div class="sect2">
+<h3 id="_installing_kubectl"><a class="anchor" href="#_installing_kubectl"></a>Installing kubectl</h3>
 <div class="paragraph">
 <p>kubectl is a commandline tool used to interact with Kubernetes clusters. We would be using it here to understand the state of the resources</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_installing_kind"><a class="anchor" href="#_installing_kind"></a>Installing KIND</h4>
+<div class="sect2">
+<h3 id="_installing_kind"><a class="anchor" href="#_installing_kind"></a>Installing KIND</h3>
 <div class="paragraph">
 <p>Follow this <a href="https://kind.sigs.k8s.io/docs/user/quick-start/">quick start guide</a> to install a KIND cluster.</p>
 </div>
@@ -473,8 +488,8 @@ A Minikube or KIND kubernetes cluster is sufficient to begin with development on
 <p>The output should contain pods which are in the <code>Running</code> state.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_installing_tekton_on_your_kubernetes_cluster"><a class="anchor" href="#_installing_tekton_on_your_kubernetes_cluster"></a>Installing Tekton on your Kubernetes cluster</h4>
+<div class="sect2">
+<h3 id="_installing_tekton_on_your_kubernetes_cluster"><a class="anchor" href="#_installing_tekton_on_your_kubernetes_cluster"></a>Installing Tekton on your Kubernetes cluster</h3>
 <div class="paragraph">
 <p>Follow this <a href="https://github.com/tektoncd/pipeline/blob/main/docs/install.md#installing-tekton-pipelines-on-kubernetes">github doc</a> and install the latest release of Tekton Pipeline on your k8s cluster.</p>
 </div>
@@ -490,17 +505,17 @@ A Minikube or KIND kubernetes cluster is sufficient to begin with development on
 <p>The output should contain pods which are in the <code>Running</code> state.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_installing_tekton_cli"><a class="anchor" href="#_installing_tekton_cli"></a>Installing Tekton CLI</h4>
+<div class="sect2">
+<h3 id="_installing_tekton_cli"><a class="anchor" href="#_installing_tekton_cli"></a>Installing Tekton CLI</h3>
 <div class="paragraph">
 <p>The Tekton CLI would be used to better debug and work with Tekton Pipelines.
 Use this <a href="https://github.com/tektoncd/cli#installing-tkn">github doc</a> to install Tekton CLI.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_create_a_tekton_resource_using_jenkins_tekton_client_plugin"><a class="anchor" href="#_create_a_tekton_resource_using_jenkins_tekton_client_plugin"></a>Create a Tekton resource using Jenkins + Tekton Client Plugin</h3>
 <div class="sect3">
-<h4 id="_create_a_tekton_resource_using_jenkins_tekton_client_plugin"><a class="anchor" href="#_create_a_tekton_resource_using_jenkins_tekton_client_plugin"></a>Create a Tekton resource using Jenkins + Tekton Client Plugin</h4>
-<div class="sect4">
-<h5 id="_start_a_jenkins_instance_with_the_plugin_installed"><a class="anchor" href="#_start_a_jenkins_instance_with_the_plugin_installed"></a>Start a Jenkins instance with the plugin installed</h5>
+<h4 id="_start_a_jenkins_instance_with_the_plugin_installed"><a class="anchor" href="#_start_a_jenkins_instance_with_the_plugin_installed"></a>Start a Jenkins instance with the plugin installed</h4>
 <div class="paragraph">
 <p>Running a Tekton pipeline using the plugin is the best way to get acquainted to the plugin.
 Once we have a kubernetes cluster running with Tekton installed we can start the plugin in development mode and create a tekton resources from the Jenkins console.</p>
@@ -516,8 +531,8 @@ mvn hpi:run</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_create_a_tekton_taskrun"><a class="anchor" href="#_create_a_tekton_taskrun"></a>Create a Tekton TaskRun</h5>
+<div class="sect3">
+<h4 id="_create_a_tekton_taskrun"><a class="anchor" href="#_create_a_tekton_taskrun"></a>Create a Tekton TaskRun</h4>
 <div class="paragraph">
 <p>Browse to localhost:8080/jenkins which will take you to the Jenkins console.
 - Create a new Freestyle Project / Job by navigating to the <code>New Item</code> button on the top left corner of the screen. Choose Freestyle Project, give a name and click on <code>Ok</code>. This will take us to the job configuration next.
@@ -531,8 +546,8 @@ This would create a TaskRun running a Task in Tekton.</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_checking_the_state_of_taskrun_using_the_tekton_cli"><a class="anchor" href="#_checking_the_state_of_taskrun_using_the_tekton_cli"></a>Checking the state of TaskRun using the Tekton CLI.</h5>
+<div class="sect3">
+<h4 id="_checking_the_state_of_taskrun_using_the_tekton_cli"><a class="anchor" href="#_checking_the_state_of_taskrun_using_the_tekton_cli"></a>Checking the state of TaskRun using the Tekton CLI.</h4>
 <div class="paragraph">
 <p>Run the following commands to check the state of the TaskRun and the get the logs for the same respectively.</p>
 </div>
@@ -543,22 +558,26 @@ tkn taskrun logs -f</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_checking_the_state_of_taskrun_from_the_jenkins_console"><a class="anchor" href="#_checking_the_state_of_taskrun_from_the_jenkins_console"></a>Checking the state of TaskRun from the Jenkins Console</h5>
+<div class="sect3">
+<h4 id="_checking_the_state_of_taskrun_from_the_jenkins_console"><a class="anchor" href="#_checking_the_state_of_taskrun_from_the_jenkins_console"></a>Checking the state of TaskRun from the Jenkins Console</h4>
 <div class="paragraph">
 <p>Go to the Jenkins console for the Job to see the output of the TaskRun from Jenkins.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next Steps</h3>
+</div>
+<div class="sect1">
+<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next Steps</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To explore the Tekton Client Plugin further, check out more of the <a href="https://github.com/jenkinsci/tekton-client-plugin/tree/master/docs">documentation</a> and the <a href="https://github.com/jenkinsci/tekton-client-plugin/issues">github issues</a> to understand current landscape of the plugin and future work.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_newbie_friendly_issues"><a class="anchor" href="#_newbie_friendly_issues"></a>Newbie-friendly issues</h3>
+</div>
+<div class="sect1">
+<h2 id="_newbie_friendly_issues"><a class="anchor" href="#_newbie_friendly_issues"></a>Newbie-friendly issues</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -567,8 +586,10 @@ tkn taskrun logs -f</code></pre>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_skills_to_improvestudy"><a class="anchor" href="#_skills_to_improvestudy"></a>Skills to improve/study</h3>
+</div>
+<div class="sect1">
+<h2 id="_skills_to_improvestudy"><a class="anchor" href="#_skills_to_improvestudy"></a>Skills to improve/study</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -584,6 +605,26 @@ tkn taskrun logs -f</code></pre>
 <p>Tekton Pipelines</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_organization_links"><a class="anchor" href="#_organization_links"></a>Organization Links</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../index.html" class="xref page">Jenkins GSoC page</a> - documentation, application guidelines</p>
+</li>
+<li>
+<p><a href="../../../../community/index.html" class="xref page">Participate and contribute to Jenkins</a> - landing page for newcomer contributors</p>
+</li>
+<li>
+<p><a href="https://issues.jenkins.io/issues/?jql=project%20%3D%20JENKINS%20AND%20status%20in%20(Open%2C%20%22In%20Progress%22%2C%20Reopened)%20AND%20labels%20%3D%20newbie-friendly%20">Newbie-friendly issues</a> - list of organization-wide newbie-friendly issues (use them if there is no links in the project idea)
+&gt; <a href="#2021/project-ideas">Go back to other GSoC 2021 project ideas</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </article>

@@ -404,8 +404,9 @@ s</p>
 #  draft: todo
 ---</p>
 </div>
-<div class="sect2">
-<h3 id="_background"><a class="anchor" href="#_background"></a>Background</h3>
+<div class="sect1">
+<h2 id="_background"><a class="anchor" href="#_background"></a>Background</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>As the CI/CD world is moving more towards automation and minimal human interaction, the ability to full automate a release, including the determination of the "next" release version becomes desirable.</p>
 </div>
@@ -415,38 +416,23 @@ s</p>
 <div class="paragraph">
 <p>For a existing project released at <code>1.0.0</code>, the following commit messages would bump the version as follows:</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Commit Message</th>
-<th class="tableblock halign-left valign-top">Next Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chore: improve logging</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.0.1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fix: minor bug fix</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.0.1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>feat: add a new feature</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.1.0</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BREAKING CHANGE: reimplement</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.0</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect3">
-<h4 id="_project_details"><a class="anchor" href="#_project_details"></a>Project Details</h4>
+<div class="paragraph">
+<p>|==
+|Commit Message|Next Version</p>
+</div>
+<div class="paragraph">
+<p>|<code>chore: improve logging</code>
+|<code>1.0.1</code>
+|<code>fix: minor bug fix</code>
+|<code>1.0.1</code>
+|<code>feat: add a new feature</code>
+|<code>1.1.0</code>
+|<code>BREAKING CHANGE: reimplement</code>
+|<code>2.0.0</code>
+|==</p>
+</div>
+<div class="sect2">
+<h3 id="_project_details"><a class="anchor" href="#_project_details"></a>Project Details</h3>
 <div class="paragraph">
 <p>This project idea proposes to implement a Jenkins plugin which will allow the <code>nextVersion</code> to be determined from the commit log.</p>
 </div>
@@ -461,8 +447,10 @@ s</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_links"><a class="anchor" href="#_links"></a>Links</h3>
+</div>
+<div class="sect1">
+<h2 id="_links"><a class="anchor" href="#_links"></a>Links</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>There are many examples of such documentation on the web:</p>
 </div>
@@ -480,22 +468,30 @@ s</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_study_links"><a class="anchor" href="#_study_links"></a>Study Links</h3>
+</div>
+<div class="sect1">
+<h2 id="_study_links"><a class="anchor" href="#_study_links"></a>Study Links</h2>
+<div class="sectionbody">
 
 </div>
-<div class="sect2">
-<h3 id="_quick_start"><a class="anchor" href="#_quick_start"></a>Quick-start</h3>
+</div>
+<div class="sect1">
+<h2 id="_quick_start"><a class="anchor" href="#_quick_start"></a>Quick-start</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The project requires the student to start with plugin development from scratch and then work with understanding the conventional commits messages.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_newbie_friendly_issues"><a class="anchor" href="#_newbie_friendly_issues"></a>Newbie-friendly issues</h3>
+</div>
+<div class="sect1">
+<h2 id="_newbie_friendly_issues"><a class="anchor" href="#_newbie_friendly_issues"></a>Newbie-friendly issues</h2>
+<div class="sectionbody">
 
 </div>
-<div class="sect2">
-<h3 id="_skills_to_improvestudy"><a class="anchor" href="#_skills_to_improvestudy"></a>Skills to improve/study</h3>
+</div>
+<div class="sect1">
+<h2 id="_skills_to_improvestudy"><a class="anchor" href="#_skills_to_improvestudy"></a>Skills to improve/study</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -508,6 +504,26 @@ s</p>
 <p>Jenkins</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_organization_links"><a class="anchor" href="#_organization_links"></a>Organization Links</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../index.html" class="xref page">Jenkins GSoC page</a> - documentation, application guidelines</p>
+</li>
+<li>
+<p><a href="../../../../community/index.html" class="xref page">Participate and contribute to Jenkins</a> - landing page for newcomer contributors</p>
+</li>
+<li>
+<p><a href="https://issues.jenkins.io/issues/?jql=project%20%3D%20JENKINS%20AND%20status%20in%20(Open%2C%20%22In%20Progress%22%2C%20Reopened)%20AND%20labels%20%3D%20newbie-friendly%20">Newbie-friendly issues</a> - list of organization-wide newbie-friendly issues (use them if there is no links in the project idea)
+&gt; <a href="#2021/project-ideas">Go back to other GSoC 2021 project ideas</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </article>
