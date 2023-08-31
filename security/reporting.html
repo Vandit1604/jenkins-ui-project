@@ -312,7 +312,7 @@ When in doubt, we recommend you report issues to us as described above, and let 
 <ul>
 <li>
 <p>Vulnerabilities only exploitable by users with Overall/Administer permission will generally not be considered to be vulnerabilities.
-Administrators in Jenkins can use the <a href="/doc/book/managing/script-console/">Script Console</a> and install plugins.
+Administrators in Jenkins can use the <a href="../user-docs/2.401.3/managing/script-console.html" class="xref page">Script Console</a> and install plugins.
 These tools let them run arbitrary code and change the behavior of Jenkins in multiple ways, so that very few, if any, vulnerabilities will let them do something novel.
 We still recommend reporting such vulnerabilities in private so that they can be reviewed by the security team, in case the vulnerable code is also used for features accessible by regular users.</p>
 </li>
@@ -351,11 +351,11 @@ This is a feature.</p>
 </li>
 <li>
 <p>Cross-site scripting (XSS) vulnerabilities through user-provided content in <code>Cause#getShortDescription</code> without a custom <code>description.jelly</code> are no longer exploitable since Jenkins 2.315 and LTS 2.303.2 (published 2021-10-06).
-<a href="#xss-prevention.adoc#Cause-getShortDescription" class="xref unresolved">See the documentation on the redefinition of Cause#getShortDescription</a>.</p>
+<a href="../dev-docs/security/xss-prevention.html#Cause-getShortDescription" class="xref page">See the documentation on the redefinition of Cause#getShortDescription</a>.</p>
 </li>
 <li>
 <p><code>Callable</code> implementations providing an implementation of <code>#checkRoles(RoleChecker)</code> that neither throws an exception nor calls <code>RoleChecker#check</code> is no longer exploitable since Jenkins 2.319 and LTS 2.303.3 (published 2021-11-04).
-<a href="#remoting-callables.adoc" class="xref unresolved">See the documentation on Remoting Callables</a>.</p>
+<a href="../dev-docs/security/remoting-callables.html" class="xref page">See the documentation on Remoting Callables</a>.</p>
 </li>
 </ul>
 </div>

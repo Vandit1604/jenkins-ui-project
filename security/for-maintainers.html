@@ -504,8 +504,8 @@ In this case, three separate releases are now needed to cover users of Jenkins 2
 <div class="paragraph">
 <p>First, prepare the release branch:
 If there are unrelated, unreleased changes on the default branch, create a new branch based on the previous release.
-For plugins with <a href="#publishing:releasing-manually/">manual release process</a> this is the <code>prepare for next development iteration</code> commit.
-For plugins delivered with <a href="#publishing:releasing-cd.adoc" class="xref unresolved">JEP-229 CD automated releases</a>), it is the commit that got tagged as a release.</p>
+For plugins with <a href="#dev-docs:publishing:releasing-manually">manual release process</a> this is the <code>prepare for next development iteration</code> commit.
+For plugins delivered with <a href="../dev-docs/publishing/releasing-cd.html" class="xref page">JEP-229 CD automated releases</a>), it is the commit that got tagged as a release.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -556,10 +556,10 @@ To find out what name and email address to put there, see <code>git log &lt;BRAN
 <div class="ulist">
 <ul>
 <li>
-<p>For plugins with <a href="#publishing:releasing-manually/">manual release process</a> this is the <code>prepare for next development iteration</code> commit.</p>
+<p>For plugins with <a href="../dev-docs/publishing/releasing-manually.html" class="xref page">manual release process</a> this is the <code>prepare for next development iteration</code> commit.</p>
 </li>
 <li>
-<p>For plugins delivered with <a href="#publishing:releasing-cd.adoc" class="xref unresolved">JEP-229 CD automated releases</a>), it is the commit that got tagged as a release.</p>
+<p>For plugins delivered with <a href="../dev-docs/publishing/releasing-cd.html" class="xref page">JEP-229 CD automated releases</a>), it is the commit that got tagged as a release.</p>
 </li>
 </ul>
 </div>
@@ -581,7 +581,7 @@ If the plugin recently switched from manual releases to JEP-229 CD automated rel
 <div class="sect5">
 <h6 id="_plugins_with_manual_releases"><a class="anchor" href="#_plugins_with_manual_releases"></a>Plugins with manual releases</h6>
 <div class="paragraph">
-<p>For plugins with <a href="#publishing:releasing-manually.adoc" class="xref unresolved">manual release process</a>, you could set the version number used for releases from the backport branch at this point, for example:</p>
+<p>For plugins with <a href="../dev-docs/publishing/releasing-manually.html" class="xref page">manual release process</a>, you could set the version number used for releases from the backport branch at this point, for example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -595,7 +595,7 @@ If the plugin recently switched from manual releases to JEP-229 CD automated rel
 <div class="sect5">
 <h6 id="_plugins_with_jep_229_cd"><a class="anchor" href="#_plugins_with_jep_229_cd"></a>Plugins with JEP-229 CD</h6>
 <div class="paragraph">
-<p>For plugins delivered with <a href="#publishing:releasing-cd.adoc" class="xref unresolved">JEP-229 CD automated releases</a>, you also need to manually specify a custom version number for the backport branch.
+<p>For plugins delivered with <a href="../dev-docs/publishing/releasing-cd.html" class="xref page">JEP-229 CD automated releases</a>, you also need to manually specify a custom version number for the backport branch.
 Otherwise, the automatically generated, linearly increasing version number would not indicate the existence of a backport branch.</p>
 </div>
 <div class="paragraph">
@@ -790,7 +790,7 @@ The Jenkins security team will typically push these tags and branches to the pub
 <p><a href="../dev-docs/security/form-validation.html" class="xref page">Form Validation</a> (permission checks and CSRF protection)</p>
 </li>
 <li>
-<p><a href="#xss-prevention.adoc" class="xref unresolved">Preventing Cross-Site Scripting in Jelly views</a></p>
+<p><a href="../dev-docs/security/xss-prevention.html" class="xref page">Preventing Cross-Site Scripting in Jelly views</a></p>
 </li>
 </ul>
 </div>

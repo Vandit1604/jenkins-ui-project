@@ -1379,7 +1379,7 @@ See JEP-214 for more details about these considerations.
 <p>You can inspect telemetry data locally by calling <code>ExtensionList.lookupSingleton(package.to.YourTelemetry.class).createContent()</code> in the script console (careful, as this typically will modify state).</p>
 </div>
 <div class="paragraph">
-<p>Alternatively, you can set the <a href="/doc/book/managing/system-properties/#jenkins-telemetry-telemetry-endpoint"><code>jenkins.telemetry.Telemetry.endpoint</code></a> Java system property on startup (or set <code>jenkins.telemetry.Telemetry.ENDPOINT</code> in the <a href="/doc/book/managing/script-console/">script console</a>) to a test HTTP server that lets you inspect HTTP requests and their POST bodies.
+<p>Alternatively, you can set the <a href="/doc/book/managing/system-properties/#jenkins-telemetry-telemetry-endpoint"><code>jenkins.telemetry.Telemetry.endpoint</code></a> Java system property on startup (or set <code>jenkins.telemetry.Telemetry.ENDPOINT</code> in the <a href="../../user-docs/2.401.3/managing/script-console.html" class="xref page">script console</a>) to a test HTTP server that lets you inspect HTTP requests and their POST bodies.
 To trigger telemetry submission, you can call <code>ExtensionList.lookupSingleton(jenkins.telemetry.Telemetry.TelemetryReporter.class).run()</code> in the script console.</p>
 </div>
 </div>

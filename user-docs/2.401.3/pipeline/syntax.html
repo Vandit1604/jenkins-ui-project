@@ -740,7 +740,7 @@ as <code>customWorkspace</code>).</p>
 <dt class="hdlist1">docker</dt>
 <dd>
 <p>Execute the Pipeline, or stage, with the given container which will be
-dynamically provisioned on a <a href="#../glossary.adoc#node" class="xref unresolved">node</a> pre-configured to
+dynamically provisioned on a <a href="../glossary/index.html#node" class="xref page"> node</a> pre-configured to
 accept Docker-based Pipelines, or on a node matching the optionally defined
 <code>label</code> parameter.  <code>docker</code> also optionally accepts an <code>args</code> parameter
 which may contain arguments to pass directly to a <code>docker run</code> invocation, and
@@ -996,7 +996,7 @@ of the given name and tag (<code>maven:3.9.0-eclipse-temurin-11</code>).</td>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
 <td>Defining <code>agent none</code> at the top-level of the Pipeline ensures that
-<a href="#../glossary.adoc#executor" class="xref unresolved">an Executor</a> will not be assigned unnecessarily.
+<a href="../glossary/index.html#executor" class="xref page"> an Executor</a> will not be assigned unnecessarily.
 Using <code>agent none</code> also forces each <code>stage</code> section to contain its own <code>agent</code> section.</td>
 </tr>
 <tr>
@@ -3332,7 +3332,7 @@ listed below which are <strong>only supported</strong> in Declarative Pipeline.<
 the Declarative Pipeline. For most use-cases, the <code>script</code> step should be
 unnecessary in Declarative Pipelines, but it can provide a useful "escape
 hatch." <code>script</code> blocks of non-trivial size and/or complexity should be moved
-into <a href="shared-libraries.html" class="xref page">Shared Libraries</a> instead.</p>
+into <a href="../glossary/index.html#shared-libraries" class="xref page">Shared Libraries</a> instead.</p>
 </div>
 <div id="script-example" class="exampleblock">
 <div class="title">Example 35. Script Block in Declarative Pipeline</div>
@@ -3448,7 +3448,7 @@ syntax;
 <h3 id="_differences_from_plain_groovy"><a class="anchor" href="#_differences_from_plain_groovy"></a>Differences from plain Groovy</h3>
 <div class="paragraph">
 <p>In order to provide <em>durability</em>, which means that running Pipelines can
-survive a restart of the Jenkins <a href="#../glossary.adoc#controller" class="xref unresolved">controller</a>, Scripted
+survive a restart of the Jenkins <a href="../glossary/index.html#controller" class="xref page"> controller</a>, Scripted
 Pipeline must serialize data back to the controller. Due to this design
 requirement, some Groovy idioms such as <code>collection.each { item &#8594; /* perform
 operation */ }</code> are not fully supported.  See
@@ -3490,7 +3490,7 @@ opinionated syntax for authoring Jenkins Pipeline.</p>
 <p>Both are fundamentally the same Pipeline sub-system underneath. They
 are both durable implementations of "Pipeline as code." They are both able to
 use steps built into Pipeline or provided by plugins. Both are able to utilize
-<a href="shared-libraries.html" class="xref page">Shared Libraries</a></p>
+<a href="../glossary/index.html#shared-libraries" class="xref page">Shared Libraries</a></p>
 </div>
 <div class="paragraph">
 <p>Where they differ however is in syntax and flexibility. Declarative limits

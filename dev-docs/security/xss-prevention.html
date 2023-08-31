@@ -1368,8 +1368,9 @@ This document discusses the much safer escape by default approach (below).
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_escaping_by_default"><a class="anchor" href="#_escaping_by_default"></a>Escaping by Default</h3>
+<div class="sect1">
+<h2 id="_escaping_by_default"><a class="anchor" href="#_escaping_by_default"></a>Escaping by Default</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Since Jenkins 1.339, it is possible to instruct the Jelly processor to escape <code>${...}</code> expressions like the above by default.
 To do that, place the following XML processing instruction in the first line of the Jelly document:</p>
@@ -1383,8 +1384,8 @@ To do that, place the following XML processing instruction in the first line of 
 <div class="paragraph">
 <p>Note that this only affects the use of <code>${...}</code> among PCDATA, and not in attribute values, so that Jelly tag invocations don&#8217;t result in surprising behavior.</p>
 </div>
-<div class="sect3">
-<h4 id="_keep_your_your_toolchain_updated"><a class="anchor" href="#_keep_your_your_toolchain_updated"></a>Keep Your Your Toolchain Updated</h4>
+<div class="sect2">
+<h3 id="_keep_your_your_toolchain_updated"><a class="anchor" href="#_keep_your_your_toolchain_updated"></a>Keep Your Your Toolchain Updated</h3>
 <div class="paragraph">
 <p>Since plugin POM 1.596, Jelly files are required to escape variables by default, and the build fails if such problems are found.
 Therefore it is strongly recommended to use at least that version of the plugin parent POM to prevent accidental XSS vulnerabilities.</p>
@@ -1395,8 +1396,10 @@ Therefore it is strongly recommended to use at least that version of the plugin 
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_escaping_and_localized_expressions"><a class="anchor" href="#_escaping_and_localized_expressions"></a>Escaping and Localized Expressions</h3>
+</div>
+<div class="sect1">
+<h2 id="_escaping_and_localized_expressions"><a class="anchor" href="#_escaping_and_localized_expressions"></a>Escaping and Localized Expressions</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Localized expressions of the form <code>${%expression}</code> are also affected by the above in the following ways:</p>
 </div>
@@ -1427,8 +1430,10 @@ Therefore it is strongly recommended to use at least that version of the plugin 
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_rendering_pre_escaped_content"><a class="anchor" href="#_rendering_pre_escaped_content"></a>Rendering Pre-Escaped Content</h3>
+</div>
+<div class="sect1">
+<h2 id="_rendering_pre_escaped_content"><a class="anchor" href="#_rendering_pre_escaped_content"></a>Rendering Pre-Escaped Content</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In rare cases, it might be necessary to render content that has previously been escaped or otherwise processed, without further escaping.
 A common reason to do this is to support formatting using the jenkinsdoc:MarkupFormatter[markup formatter configured for the current Jenkins instance], with might support a <a href="https://plugins.jenkins.io/antisamy-markup-formatter">safe subset of HTML</a>, or other markup languages, like <a href="https://plugins.jenkins.io/pegdown-formatter">Markdown</a>.
@@ -1469,10 +1474,12 @@ If the source of the argument to <code>j:out</code> or <code>Functions#rawHtml</
 </table>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_passing_values_to_javascript"><a class="anchor" href="#_passing_values_to_javascript"></a>Passing values to JavaScript</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_passing_values_to_javascript"><a class="anchor" href="#_passing_values_to_javascript"></a>Passing values to JavaScript</h3>
-<div class="sect3">
-<h4 id="_the_bad_way"><a class="anchor" href="#_the_bad_way"></a>The bad way</h4>
+<h3 id="_the_bad_way"><a class="anchor" href="#_the_bad_way"></a>The bad way</h3>
 <div class="paragraph">
 <p>In a situation where you need to pass information to JavaScript, you might inject the value directly inside the script like in the following snippet.</p>
 </div>
@@ -1514,8 +1521,8 @@ That will result in a script without any format error.
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_the_good_way"><a class="anchor" href="#_the_good_way"></a>The good way</h4>
+<div class="sect2">
+<h3 id="_the_good_way"><a class="anchor" href="#_the_good_way"></a>The good way</h3>
 <div class="paragraph">
 <p>If you need to pass a variable to your JavaScript, we strongly recommend to use this approach instead:</p>
 </div>
@@ -1545,6 +1552,7 @@ If we try to inject a <code>"</code>, it will be automatically converted to <cod
 </div>
 <div class="paragraph">
 <p>In the previous (vulnerable) example, the injected code was inside a context of "code to be interpreted".</p>
+</div>
 </div>
 </div>
 </div>
